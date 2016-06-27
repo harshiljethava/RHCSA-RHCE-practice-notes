@@ -1,0 +1,11 @@
+aboslute_path_name
+abouslute_file_name
+# complete path name that start with / directory 
+# and contains all subdirectories up to actual filename.
+# EG : /home/server1/file1
+
+relative_file_name
+relative_path_name
+# path display from your current working directory 
+# same as pwd command 
+# EG if you are in home directory then for file1 relative path is server1/file1

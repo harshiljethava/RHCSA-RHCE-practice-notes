@@ -1,0 +1,13 @@
+# mount command NOTES
+mount
+# command fetch information from /proc/mounts files where kernel
+# store all information related to all mounts. 
+
+df -Th
+# command display available disk space on mounted devices .
+# It has wide scope of arguments ,like -a -h -T
+
+findmnt
+#command display relationship between different mounted device.
+#compared to mount command output of findmnt command is quite pretty.
+

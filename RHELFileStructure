@@ -1,0 +1,21 @@
+/	: root directory
+/bin	: executable programs
+/etc	: configuration file 
+/usr	: subdirectories,files,documentation
+/boot	: files to boot Linux kernel
+/dev	: device file for physical device
+/home	: local user home directories
+/media	: mounting device in file system tree
+/mnt	: mounting device in file system tree
+/lib	: shared lib used by /boot,/bin,/sbin
+/lib64	: shared lib used by /boot,/bin,/sbin
+/opt	: dir for optional packages
+/proc	: dir for kernel information
+/root	: home dir of root 
+/run	: process and user information
+/sbin	: just like /bin but of commands for sysadmin  
+/srv	: dir for services like NFS,HTTP,FTP
+/sys	: Manage kernel and associated process to provide interface to device
+/tmp	: temporary files
+/var	: log files,mail files ,spool files 
+

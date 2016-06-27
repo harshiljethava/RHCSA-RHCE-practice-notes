@@ -1,0 +1,25 @@
+ssh 
+# Secure shell
+
+systemctl status sshd
+# To check service running or not 
+# Running service on port 22 by default
+
+systemctl stop firewalld
+# To avoid firewall related problem
+
+~/.ssh/know_hosts
+# public key of server saved which is accessed first time .
+# In some cases ,when remote server ip address changed ,that time from know_hosts
+# file , server ip OR public key can be changed.
+
+ssh -X username@server_ip
+# To run graphical application on remote server.
+# For this X server must run on clinet machine.
+
+ssh -p port username@server_ip
+# If ssh running other than 22 port
+
+ssh -v username@server_ip
+# To display inside process
+

@@ -1,0 +1,939 @@
+    1  vim ssh_command
+    2  ll
+    3  ssh
+    4  sshd
+    5  vim ssh_command
+    6  ifconfig
+    7  ping 192.168.2.4
+    8  systemctl status sshd
+    9  history >> 25June2016
+   10  cat 25June2016 
+   11  systemctl stop firewalld
+   12  vim ssh_command 
+   13  ssh root@192.168.2.5
+   14  ssh -v 
+   15  ssh -v root@192.168.2.5
+   16  vim ssh_command 
+   17  vim ~/.ssh/known_hosts 
+   18  vim ssh_command 
+   19  ssh -X root@192.168.2.5
+   20  cat /etc/redhat-release 
+   21  vim ssh_command 
+   22  cd ..
+   23  cd Chapter5/
+   24  vim scp_command
+   25  cd ..
+   26  scp RHCSA\ RHCE\ 7\ Cert\ Guide\ 7\ EX200\ and\ EX300\ Certification\ Guide.pdf 192.168.2.5: /home/harshil/Desktop/
+   27  scp newfile 192.168.2.5:/home/harshil/Desktop/
+   28  cd Chapter5/
+   29  ll
+   30  vim scp_command 
+   31  ll
+   32  history >> 25June2016 
+   33  scp root@192.168.2.5
+   34  scp root@192.168.2.5: /etc/passwd
+   35  scp root@192.168.2.5: /etc/passwd ~
+   36  vim ssh_command 
+   37  vim scp_command 
+   38  scp -r root@192.168.2.5:/etc/ /home/harshil/Desktop/
+   39  vim scp_command 
+   40  exit
+   41  screen
+   42  exit
+   43  ssh-cpy-id
+   44  ssh-copy-id
+   45  ssh-copy-id 192.168.2.5
+   46  ssh-copy-id --help
+   47  ssh-copy-id
+   48  ssh-copy-id root@192.168.2.5
+   49  ping 192.168.2.5
+   50  ssh
+   51  ssh -o
+   52  ssh-copy-id 
+   53  ssh-copy-id -i ssh_key root@192.168.2.5
+   54  ssh root@192.168.2.5
+   55  cd /home/harshil/.ssh
+   56  cd /home/harshil/
+   57  ll
+   58  ls -all
+   59  cd /home/harshil/Desktop/Chapter5/
+   60  ll
+   61  rm -rf ssh_key
+   62  rm -rf ssh_key.pub 
+   63  ssh-keygen
+   64  cd /home/harshil/
+   65  ll -a
+   66  cd /
+   67  cd root/
+   68  ll
+   69  cd /
+   70  ll
+   71  cd home/
+   72  ll
+   73  cd ..
+   74  cd root/
+   75  ll
+   76  ll -a
+   77  cd .ssh/
+   78  ll
+   79  ssh-copy-id -i id_rsa root@192.168.2.5
+   80  ssh root@192.168.2.5
+   81  cd /home/harshil/Desktop/
+   82  ll
+   83  cat 26June2 >> /home/harshil/Desktop/Chapter5/26June2016 
+   84  cd /home/harshil/Desktop/Chapter5/
+   85  ll
+   86  vim 26June2016 
+   87  vim key_base_ssh
+   88  ll
+   89  vim ssh_key_command
+   90  ssh root@192.168.2.2
+   91  screen
+   92  yum install -y screen
+   93  yum repolist all
+   94  ssh root@192.168.2.2
+   95  ssh root@192.168.2.5
+   96  cd /home/harshil/Desktop/Chapter5/
+   97  ll
+   98  rm -rf ssh_key_command 
+   99  vim ssh_screen_command
+  100  vim ssh_screen_command 
+  101  vim ssh_screen_command car ssh_screen_command 
+  102  vim ssh_screen_command
+  103  cat ssh_screen_command 
+  104  vim ssh_screen_command 
+  105  history >> 26June2016 
+  106  exit
+  107  su
+  108  exit
+  109  scp root@192.168.2.5:/home/harshil/Desktop/ /home/harshil/Desktop/copy/
+  110  scp root@192.168.2.2:/home/harshil/Desktop/ root@192.168.2.5/home/harshil/Desktop/copy/
+  111  scp root@192.168.2.2:/home/harshil/Desktop/ root@192.168.2.5:/home/harshil/Desktop/copy/
+  112  ping 192.168.2.5
+  113  scp --help
+  114  id
+  115  id harshil
+  116  su -
+  117  exit
+  118  vipw
+  119  vigr
+  120  pwd
+  121  mkdir Chapter6
+  122  cd Chapter6
+  123  vim id_command
+  124  vim privilege_level
+  125  vim 28June2016
+  126  history >> 28June2016 
+    1  vim ssh_command
+    2  ll
+    3  ssh
+    4  sshd
+    5  vim ssh_command
+    6  ifconfig
+    7  ping 192.168.2.4
+    8  systemctl status sshd
+    9  history >> 25June2016
+   10  cat 25June2016 
+   11  systemctl stop firewalld
+   12  vim ssh_command 
+   13  ssh root@192.168.2.5
+   14  ssh -v 
+   15  ssh -v root@192.168.2.5
+   16  vim ssh_command 
+   17  vim ~/.ssh/known_hosts 
+   18  vim ssh_command 
+   19  ssh -X root@192.168.2.5
+   20  cat /etc/redhat-release 
+   21  vim ssh_command 
+   22  cd ..
+   23  cd Chapter5/
+   24  vim scp_command
+   25  cd ..
+   26  scp RHCSA\ RHCE\ 7\ Cert\ Guide\ 7\ EX200\ and\ EX300\ Certification\ Guide.pdf 192.168.2.5: /home/harshil/Desktop/
+   27  scp newfile 192.168.2.5:/home/harshil/Desktop/
+   28  cd Chapter5/
+   29  ll
+   30  vim scp_command 
+   31  ll
+   32  history >> 25June2016 
+   33  scp root@192.168.2.5
+   34  scp root@192.168.2.5: /etc/passwd
+   35  scp root@192.168.2.5: /etc/passwd ~
+   36  vim ssh_command 
+   37  vim scp_command 
+   38  scp -r root@192.168.2.5:/etc/ /home/harshil/Desktop/
+   39  vim scp_command 
+   40  exit
+   41  screen
+   42  exit
+   43  ssh-cpy-id
+   44  ssh-copy-id
+   45  ssh-copy-id 192.168.2.5
+   46  ssh-copy-id --help
+   47  ssh-copy-id
+   48  ssh-copy-id root@192.168.2.5
+   49  ping 192.168.2.5
+   50  ssh
+   51  ssh -o
+   52  ssh-copy-id 
+   53  ssh-copy-id -i ssh_key root@192.168.2.5
+   54  ssh root@192.168.2.5
+   55  cd /home/harshil/.ssh
+   56  cd /home/harshil/
+   57  ll
+   58  ls -all
+   59  cd /home/harshil/Desktop/Chapter5/
+   60  ll
+   61  rm -rf ssh_key
+   62  rm -rf ssh_key.pub 
+   63  ssh-keygen
+   64  cd /home/harshil/
+   65  ll -a
+   66  cd /
+   67  cd root/
+   68  ll
+   69  cd /
+   70  ll
+   71  cd home/
+   72  ll
+   73  cd ..
+   74  cd root/
+   75  ll
+   76  ll -a
+   77  cd .ssh/
+   78  ll
+   79  ssh-copy-id -i id_rsa root@192.168.2.5
+   80  ssh root@192.168.2.5
+   81  cd /home/harshil/Desktop/
+   82  ll
+   83  cat 26June2 >> /home/harshil/Desktop/Chapter5/26June2016 
+   84  cd /home/harshil/Desktop/Chapter5/
+   85  ll
+   86  vim 26June2016 
+   87  vim key_base_ssh
+   88  ll
+   89  vim ssh_key_command
+   90  ssh root@192.168.2.2
+   91  screen
+   92  yum install -y screen
+   93  yum repolist all
+   94  ssh root@192.168.2.2
+   95  ssh root@192.168.2.5
+   96  cd /home/harshil/Desktop/Chapter5/
+   97  ll
+   98  rm -rf ssh_key_command 
+   99  vim ssh_screen_command
+  100  vim ssh_screen_command 
+  101  vim ssh_screen_command car ssh_screen_command 
+  102  vim ssh_screen_command
+  103  cat ssh_screen_command 
+  104  vim ssh_screen_command 
+  105  history >> 26June2016 
+  106  exit
+  107  su
+  108  exit
+  109  scp root@192.168.2.5:/home/harshil/Desktop/ /home/harshil/Desktop/copy/
+  110  scp root@192.168.2.2:/home/harshil/Desktop/ root@192.168.2.5/home/harshil/Desktop/copy/
+  111  scp root@192.168.2.2:/home/harshil/Desktop/ root@192.168.2.5:/home/harshil/Desktop/copy/
+  112  ping 192.168.2.5
+  113  scp --help
+  114  id
+  115  id harshil
+  116  su -
+  117  exit
+  118  vipw
+  119  vigr
+  120  pwd
+  121  mkdir Chapter6
+  122  cd Chapter6
+  123  vim id_command
+  124  vim privilege_level
+  125  vim 28June2016
+  126  history >> 28June2016 
+  127  cat /etc/sudoers
+  128  vim /etc/sudoers
+  129  visudo
+  130  vim useradd_command
+  131  useradd -aG wheel lisa
+  132  useradd -G wheel lisa
+  133  passwd lisa 
+  134  history >> 28June2016 
+    1  vim ssh_command
+    2  ll
+    3  ssh
+    4  sshd
+    5  vim ssh_command
+    6  ifconfig
+    7  ping 192.168.2.4
+    8  systemctl status sshd
+    9  history >> 25June2016
+   10  cat 25June2016 
+   11  systemctl stop firewalld
+   12  vim ssh_command 
+   13  ssh root@192.168.2.5
+   14  ssh -v 
+   15  ssh -v root@192.168.2.5
+   16  vim ssh_command 
+   17  vim ~/.ssh/known_hosts 
+   18  vim ssh_command 
+   19  ssh -X root@192.168.2.5
+   20  cat /etc/redhat-release 
+   21  vim ssh_command 
+   22  cd ..
+   23  cd Chapter5/
+   24  vim scp_command
+   25  cd ..
+   26  scp RHCSA\ RHCE\ 7\ Cert\ Guide\ 7\ EX200\ and\ EX300\ Certification\ Guide.pdf 192.168.2.5: /home/harshil/Desktop/
+   27  scp newfile 192.168.2.5:/home/harshil/Desktop/
+   28  cd Chapter5/
+   29  ll
+   30  vim scp_command 
+   31  ll
+   32  history >> 25June2016 
+   33  scp root@192.168.2.5
+   34  scp root@192.168.2.5: /etc/passwd
+   35  scp root@192.168.2.5: /etc/passwd ~
+   36  vim ssh_command 
+   37  vim scp_command 
+   38  scp -r root@192.168.2.5:/etc/ /home/harshil/Desktop/
+   39  vim scp_command 
+   40  exit
+   41  screen
+   42  exit
+   43  ssh-cpy-id
+   44  ssh-copy-id
+   45  ssh-copy-id 192.168.2.5
+   46  ssh-copy-id --help
+   47  ssh-copy-id
+   48  ssh-copy-id root@192.168.2.5
+   49  ping 192.168.2.5
+   50  ssh
+   51  ssh -o
+   52  ssh-copy-id 
+   53  ssh-copy-id -i ssh_key root@192.168.2.5
+   54  ssh root@192.168.2.5
+   55  cd /home/harshil/.ssh
+   56  cd /home/harshil/
+   57  ll
+   58  ls -all
+   59  cd /home/harshil/Desktop/Chapter5/
+   60  ll
+   61  rm -rf ssh_key
+   62  rm -rf ssh_key.pub 
+   63  ssh-keygen
+   64  cd /home/harshil/
+   65  ll -a
+   66  cd /
+   67  cd root/
+   68  ll
+   69  cd /
+   70  ll
+   71  cd home/
+   72  ll
+   73  cd ..
+   74  cd root/
+   75  ll
+   76  ll -a
+   77  cd .ssh/
+   78  ll
+   79  ssh-copy-id -i id_rsa root@192.168.2.5
+   80  ssh root@192.168.2.5
+   81  cd /home/harshil/Desktop/
+   82  ll
+   83  cat 26June2 >> /home/harshil/Desktop/Chapter5/26June2016 
+   84  cd /home/harshil/Desktop/Chapter5/
+   85  ll
+   86  vim 26June2016 
+   87  vim key_base_ssh
+   88  ll
+   89  vim ssh_key_command
+   90  ssh root@192.168.2.2
+   91  screen
+   92  yum install -y screen
+   93  yum repolist all
+   94  ssh root@192.168.2.2
+   95  ssh root@192.168.2.5
+   96  cd /home/harshil/Desktop/Chapter5/
+   97  ll
+   98  rm -rf ssh_key_command 
+   99  vim ssh_screen_command
+  100  vim ssh_screen_command 
+  101  vim ssh_screen_command car ssh_screen_command 
+  102  vim ssh_screen_command
+  103  cat ssh_screen_command 
+  104  vim ssh_screen_command 
+  105  history >> 26June2016 
+  106  exit
+  107  su
+  108  exit
+  109  scp root@192.168.2.5:/home/harshil/Desktop/ /home/harshil/Desktop/copy/
+  110  scp root@192.168.2.2:/home/harshil/Desktop/ root@192.168.2.5/home/harshil/Desktop/copy/
+  111  scp root@192.168.2.2:/home/harshil/Desktop/ root@192.168.2.5:/home/harshil/Desktop/copy/
+  112  ping 192.168.2.5
+  113  scp --help
+  114  id
+  115  id harshil
+  116  su -
+  117  exit
+  118  vipw
+  119  vigr
+  120  vim useradd_command 
+  121  vim etc_passwd
+  122  vim /etc/login.defs
+  123  vim etc_passwd
+  124  vipw
+  125  history >>28June2016 
+    1  vim ssh_command
+    2  ll
+    3  ssh
+    4  sshd
+    5  vim ssh_command
+    6  ifconfig
+    7  ping 192.168.2.4
+    8  systemctl status sshd
+    9  history >> 25June2016
+   10  cat 25June2016 
+   11  systemctl stop firewalld
+   12  vim ssh_command 
+   13  ssh root@192.168.2.5
+   14  ssh -v 
+   15  ssh -v root@192.168.2.5
+   16  vim ssh_command 
+   17  vim ~/.ssh/known_hosts 
+   18  vim ssh_command 
+   19  ssh -X root@192.168.2.5
+   20  cat /etc/redhat-release 
+   21  vim ssh_command 
+   22  cd ..
+   23  cd Chapter5/
+   24  vim scp_command
+   25  cd ..
+   26  scp RHCSA\ RHCE\ 7\ Cert\ Guide\ 7\ EX200\ and\ EX300\ Certification\ Guide.pdf 192.168.2.5: /home/harshil/Desktop/
+   27  scp newfile 192.168.2.5:/home/harshil/Desktop/
+   28  cd Chapter5/
+   29  ll
+   30  vim scp_command 
+   31  ll
+   32  history >> 25June2016 
+   33  scp root@192.168.2.5
+   34  scp root@192.168.2.5: /etc/passwd
+   35  scp root@192.168.2.5: /etc/passwd ~
+   36  vim ssh_command 
+   37  vim scp_command 
+   38  scp -r root@192.168.2.5:/etc/ /home/harshil/Desktop/
+   39  vim scp_command 
+   40  exit
+   41  screen
+   42  exit
+   43  ssh-cpy-id
+   44  ssh-copy-id
+   45  ssh-copy-id 192.168.2.5
+   46  ssh-copy-id --help
+   47  ssh-copy-id
+   48  ssh-copy-id root@192.168.2.5
+   49  ping 192.168.2.5
+   50  ssh
+   51  ssh -o
+   52  ssh-copy-id 
+   53  ssh-copy-id -i ssh_key root@192.168.2.5
+   54  ssh root@192.168.2.5
+   55  cd /home/harshil/.ssh
+   56  cd /home/harshil/
+   57  ll
+   58  ls -all
+   59  cd /home/harshil/Desktop/Chapter5/
+   60  ll
+   61  rm -rf ssh_key
+   62  rm -rf ssh_key.pub 
+   63  ssh-keygen
+   64  cd /home/harshil/
+   65  ll -a
+   66  cd /
+   67  cd root/
+   68  ll
+   69  cd /
+   70  ll
+   71  cd home/
+   72  ll
+   73  cd ..
+   74  cd root/
+   75  ll
+   76  ll -a
+   77  cd .ssh/
+   78  ll
+   79  ssh-copy-id -i id_rsa root@192.168.2.5
+   80  ssh root@192.168.2.5
+   81  cd /home/harshil/Desktop/
+   82  ll
+   83  cat 26June2 >> /home/harshil/Desktop/Chapter5/26June2016 
+   84  cd /home/harshil/Desktop/Chapter5/
+   85  ll
+   86  vim 26June2016 
+   87  vim key_base_ssh
+   88  ll
+   89  vim ssh_key_command
+   90  ssh root@192.168.2.2
+   91  screen
+   92  yum install -y screen
+   93  yum repolist all
+   94  ssh root@192.168.2.2
+   95  ssh root@192.168.2.5
+   96  cd /home/harshil/Desktop/Chapter5/
+   97  ll
+   98  rm -rf ssh_key_command 
+   99  vim ssh_screen_command
+  100  vim ssh_screen_command 
+  101  vim ssh_screen_command car ssh_screen_command 
+  102  vim ssh_screen_command
+  103  cat ssh_screen_command 
+  104  vim ssh_screen_command 
+  105  history >> 26June2016 
+  106  exit
+  107  su
+  108  exit
+  109  scp root@192.168.2.5:/home/harshil/Desktop/ /home/harshil/Desktop/copy/
+  110  scp root@192.168.2.2:/home/harshil/Desktop/ root@192.168.2.5/home/harshil/Desktop/copy/
+  111  scp root@192.168.2.2:/home/harshil/Desktop/ root@192.168.2.5:/home/harshil/Desktop/copy/
+  112  ping 192.168.2.5
+  113  scp --help
+  114  id
+  115  id harshil
+  116  su -
+  117  exit
+  118  vipw
+  119  vigr
+  120  vim useradd_command 
+  121  vim etc_passwd
+  122  vim /etc/login.defs
+  123  vim etc_passwd
+  124  vipw
+  125  history >>28June2016 
+  126  vigrp
+  127  vigp
+  128  vigr
+  129  history >>28June2016 
+    1  vim ssh_command
+    2  ll
+    3  ssh
+    4  sshd
+    5  vim ssh_command
+    6  ifconfig
+    7  ping 192.168.2.4
+    8  systemctl status sshd
+    9  history >> 25June2016
+   10  cat 25June2016 
+   11  systemctl stop firewalld
+   12  vim ssh_command 
+   13  ssh root@192.168.2.5
+   14  ssh -v 
+   15  ssh -v root@192.168.2.5
+   16  vim ssh_command 
+   17  vim ~/.ssh/known_hosts 
+   18  vim ssh_command 
+   19  ssh -X root@192.168.2.5
+   20  cat /etc/redhat-release 
+   21  vim ssh_command 
+   22  cd ..
+   23  cd Chapter5/
+   24  vim scp_command
+   25  cd ..
+   26  scp RHCSA\ RHCE\ 7\ Cert\ Guide\ 7\ EX200\ and\ EX300\ Certification\ Guide.pdf 192.168.2.5: /home/harshil/Desktop/
+   27  scp newfile 192.168.2.5:/home/harshil/Desktop/
+   28  cd Chapter5/
+   29  ll
+   30  vim scp_command 
+   31  ll
+   32  history >> 25June2016 
+   33  scp root@192.168.2.5
+   34  scp root@192.168.2.5: /etc/passwd
+   35  scp root@192.168.2.5: /etc/passwd ~
+   36  vim ssh_command 
+   37  vim scp_command 
+   38  scp -r root@192.168.2.5:/etc/ /home/harshil/Desktop/
+   39  vim scp_command 
+   40  exit
+   41  screen
+   42  exit
+   43  ssh-cpy-id
+   44  ssh-copy-id
+   45  ssh-copy-id 192.168.2.5
+   46  ssh-copy-id --help
+   47  ssh-copy-id
+   48  ssh-copy-id root@192.168.2.5
+   49  ping 192.168.2.5
+   50  ssh
+   51  ssh -o
+   52  ssh-copy-id 
+   53  ssh-copy-id -i ssh_key root@192.168.2.5
+   54  ssh root@192.168.2.5
+   55  cd /home/harshil/.ssh
+   56  cd /home/harshil/
+   57  ll
+   58  ls -all
+   59  cd /home/harshil/Desktop/Chapter5/
+   60  ll
+   61  rm -rf ssh_key
+   62  rm -rf ssh_key.pub 
+   63  ssh-keygen
+   64  cd /home/harshil/
+   65  ll -a
+   66  cd /
+   67  cd root/
+   68  ll
+   69  cd /
+   70  ll
+   71  cd home/
+   72  ll
+   73  cd ..
+   74  cd root/
+   75  ll
+   76  ll -a
+   77  cd .ssh/
+   78  ll
+   79  ssh-copy-id -i id_rsa root@192.168.2.5
+   80  ssh root@192.168.2.5
+   81  cd /home/harshil/Desktop/
+   82  ll
+   83  cat 26June2 >> /home/harshil/Desktop/Chapter5/26June2016 
+   84  cd /home/harshil/Desktop/Chapter5/
+   85  ll
+   86  vim 26June2016 
+   87  vim key_base_ssh
+   88  ll
+   89  vim ssh_key_command
+   90  ssh root@192.168.2.2
+   91  screen
+   92  yum install -y screen
+   93  yum repolist all
+   94  ssh root@192.168.2.2
+   95  ssh root@192.168.2.5
+   96  cd /home/harshil/Desktop/Chapter5/
+   97  ll
+   98  rm -rf ssh_key_command 
+   99  vim ssh_screen_command
+  100  vim ssh_screen_command 
+  101  vim ssh_screen_command car ssh_screen_command 
+  102  vim ssh_screen_command
+  103  cat ssh_screen_command 
+  104  vim ssh_screen_command 
+  105  history >> 26June2016 
+  106  exit
+  107  su
+  108  exit
+  109  scp root@192.168.2.5:/home/harshil/Desktop/ /home/harshil/Desktop/copy/
+  110  scp root@192.168.2.2:/home/harshil/Desktop/ root@192.168.2.5/home/harshil/Desktop/copy/
+  111  scp root@192.168.2.2:/home/harshil/Desktop/ root@192.168.2.5:/home/harshil/Desktop/copy/
+  112  ping 192.168.2.5
+  113  scp --help
+  114  id
+  115  id harshil
+  116  su -
+  117  exit
+  118  vipw
+  119  vigr
+  120  vim useradd_command 
+  121  vim etc_passwd
+  122  vim /etc/login.defs
+  123  vim etc_passwd
+  124  vipw
+  125  history >>28June2016 
+  126  vigrp
+  127  vigp
+  128  vigr
+  129  history >>28June2016 
+  130  cd /etc/skel/
+  131  ll
+  132  ls -all
+  133  vim .bash_logout 
+  134  vim .bash_profile 
+  135  vim .bashrc 
+  136  history >>  28
+  137  history >>  /home/harshil/Desktop/Chapter6/28June2016 
+    1  vim ssh_command
+    2  ll
+    3  ssh
+    4  sshd
+    5  vim ssh_command
+    6  ifconfig
+    7  ping 192.168.2.4
+    8  systemctl status sshd
+    9  history >> 25June2016
+   10  cat 25June2016 
+   11  systemctl stop firewalld
+   12  vim ssh_command 
+   13  ssh root@192.168.2.5
+   14  ssh -v 
+   15  ssh -v root@192.168.2.5
+   16  vim ssh_command 
+   17  vim ~/.ssh/known_hosts 
+   18  vim ssh_command 
+   19  ssh -X root@192.168.2.5
+   20  cat /etc/redhat-release 
+   21  vim ssh_command 
+   22  cd ..
+   23  cd Chapter5/
+   24  vim scp_command
+   25  cd ..
+   26  scp RHCSA\ RHCE\ 7\ Cert\ Guide\ 7\ EX200\ and\ EX300\ Certification\ Guide.pdf 192.168.2.5: /home/harshil/Desktop/
+   27  scp newfile 192.168.2.5:/home/harshil/Desktop/
+   28  cd Chapter5/
+   29  ll
+   30  vim scp_command 
+   31  ll
+   32  history >> 25June2016 
+   33  scp root@192.168.2.5
+   34  scp root@192.168.2.5: /etc/passwd
+   35  scp root@192.168.2.5: /etc/passwd ~
+   36  vim ssh_command 
+   37  vim scp_command 
+   38  scp -r root@192.168.2.5:/etc/ /home/harshil/Desktop/
+   39  vim scp_command 
+   40  exit
+   41  screen
+   42  exit
+   43  ssh-cpy-id
+   44  ssh-copy-id
+   45  ssh-copy-id 192.168.2.5
+   46  ssh-copy-id --help
+   47  ssh-copy-id
+   48  ssh-copy-id root@192.168.2.5
+   49  ping 192.168.2.5
+   50  ssh
+   51  ssh -o
+   52  ssh-copy-id 
+   53  ssh-copy-id -i ssh_key root@192.168.2.5
+   54  ssh root@192.168.2.5
+   55  cd /home/harshil/.ssh
+   56  cd /home/harshil/
+   57  ll
+   58  ls -all
+   59  cd /home/harshil/Desktop/Chapter5/
+   60  ll
+   61  rm -rf ssh_key
+   62  rm -rf ssh_key.pub 
+   63  ssh-keygen
+   64  cd /home/harshil/
+   65  ll -a
+   66  cd /
+   67  cd root/
+   68  ll
+   69  cd /
+   70  ll
+   71  cd home/
+   72  ll
+   73  cd ..
+   74  cd root/
+   75  ll
+   76  ll -a
+   77  cd .ssh/
+   78  ll
+   79  ssh-copy-id -i id_rsa root@192.168.2.5
+   80  ssh root@192.168.2.5
+   81  cd /home/harshil/Desktop/
+   82  ll
+   83  cat 26June2 >> /home/harshil/Desktop/Chapter5/26June2016 
+   84  cd /home/harshil/Desktop/Chapter5/
+   85  ll
+   86  vim 26June2016 
+   87  vim key_base_ssh
+   88  ll
+   89  vim ssh_key_command
+   90  ssh root@192.168.2.2
+   91  screen
+   92  yum install -y screen
+   93  yum repolist all
+   94  ssh root@192.168.2.2
+   95  ssh root@192.168.2.5
+   96  cd /home/harshil/Desktop/Chapter5/
+   97  ll
+   98  rm -rf ssh_key_command 
+   99  vim ssh_screen_command
+  100  vim ssh_screen_command 
+  101  vim ssh_screen_command car ssh_screen_command 
+  102  vim ssh_screen_command
+  103  cat ssh_screen_command 
+  104  vim ssh_screen_command 
+  105  history >> 26June2016 
+  106  exit
+  107  su
+  108  exit
+  109  scp root@192.168.2.5:/home/harshil/Desktop/ /home/harshil/Desktop/copy/
+  110  scp root@192.168.2.2:/home/harshil/Desktop/ root@192.168.2.5/home/harshil/Desktop/copy/
+  111  scp root@192.168.2.2:/home/harshil/Desktop/ root@192.168.2.5:/home/harshil/Desktop/copy/
+  112  ping 192.168.2.5
+  113  scp --help
+  114  id
+  115  id harshil
+  116  su -
+  117  exit
+  118  vipw
+  119  vigr
+  120  vim useradd_command 
+  121  vim etc_passwd
+  122  vim /etc/login.defs
+  123  vim etc_passwd
+  124  vipw
+  125  history >>28June2016 
+  126  vigrp
+  127  vigp
+  128  vigr
+  129  history >>28June2016 
+  130  cd /etc/skel/
+  131  ll
+  132  ls -all
+  133  vim .bash_logout 
+  134  vim .bash_profile 
+  135  vim .bashrc 
+  136  history >>  28
+  137  history >>  /home/harshil/Desktop/Chapter6/28June2016 
+  138  vim skel_test
+  139  cd /home/harshil/Desktop/Chapter6/
+  140  useradd skel1
+  141  cd ..
+  142  pwd
+  143  cd ..
+  144   pwd
+  145  ll
+  146  skel1/
+  147  cd skel1/
+  148  ll
+  149  history >> /home/harshil/Desktop/Chapter6/28June2016 
+    1  vim ssh_command
+    2  ll
+    3  ssh
+    4  sshd
+    5  vim ssh_command
+    6  ifconfig
+    7  ping 192.168.2.4
+    8  systemctl status sshd
+    9  history >> 25June2016
+   10  cat 25June2016 
+   11  systemctl stop firewalld
+   12  vim ssh_command 
+   13  ssh root@192.168.2.5
+   14  ssh -v 
+   15  ssh -v root@192.168.2.5
+   16  vim ssh_command 
+   17  vim ~/.ssh/known_hosts 
+   18  vim ssh_command 
+   19  ssh -X root@192.168.2.5
+   20  cat /etc/redhat-release 
+   21  vim ssh_command 
+   22  cd ..
+   23  cd Chapter5/
+   24  vim scp_command
+   25  cd ..
+   26  scp RHCSA\ RHCE\ 7\ Cert\ Guide\ 7\ EX200\ and\ EX300\ Certification\ Guide.pdf 192.168.2.5: /home/harshil/Desktop/
+   27  scp newfile 192.168.2.5:/home/harshil/Desktop/
+   28  cd Chapter5/
+   29  ll
+   30  vim scp_command 
+   31  ll
+   32  history >> 25June2016 
+   33  scp root@192.168.2.5
+   34  scp root@192.168.2.5: /etc/passwd
+   35  scp root@192.168.2.5: /etc/passwd ~
+   36  vim ssh_command 
+   37  vim scp_command 
+   38  scp -r root@192.168.2.5:/etc/ /home/harshil/Desktop/
+   39  vim scp_command 
+   40  exit
+   41  screen
+   42  exit
+   43  ssh-cpy-id
+   44  ssh-copy-id
+   45  ssh-copy-id 192.168.2.5
+   46  ssh-copy-id --help
+   47  ssh-copy-id
+   48  ssh-copy-id root@192.168.2.5
+   49  ping 192.168.2.5
+   50  ssh
+   51  ssh -o
+   52  ssh-copy-id 
+   53  ssh-copy-id -i ssh_key root@192.168.2.5
+   54  ssh root@192.168.2.5
+   55  cd /home/harshil/.ssh
+   56  cd /home/harshil/
+   57  ll
+   58  ls -all
+   59  cd /home/harshil/Desktop/Chapter5/
+   60  ll
+   61  rm -rf ssh_key
+   62  rm -rf ssh_key.pub 
+   63  ssh-keygen
+   64  cd /home/harshil/
+   65  ll -a
+   66  cd /
+   67  cd root/
+   68  ll
+   69  cd /
+   70  ll
+   71  cd home/
+   72  ll
+   73  cd ..
+   74  cd root/
+   75  ll
+   76  ll -a
+   77  cd .ssh/
+   78  ll
+   79  ssh-copy-id -i id_rsa root@192.168.2.5
+   80  ssh root@192.168.2.5
+   81  cd /home/harshil/Desktop/
+   82  ll
+   83  cat 26June2 >> /home/harshil/Desktop/Chapter5/26June2016 
+   84  cd /home/harshil/Desktop/Chapter5/
+   85  ll
+   86  vim 26June2016 
+   87  vim key_base_ssh
+   88  ll
+   89  vim ssh_key_command
+   90  ssh root@192.168.2.2
+   91  screen
+   92  yum install -y screen
+   93  yum repolist all
+   94  ssh root@192.168.2.2
+   95  ssh root@192.168.2.5
+   96  cd /home/harshil/Desktop/Chapter5/
+   97  ll
+   98  rm -rf ssh_key_command 
+   99  vim ssh_screen_command
+  100  vim ssh_screen_command 
+  101  vim ssh_screen_command car ssh_screen_command 
+  102  vim ssh_screen_command
+  103  cat ssh_screen_command 
+  104  vim ssh_screen_command 
+  105  history >> 26June2016 
+  106  exit
+  107  su
+  108  exit
+  109  scp root@192.168.2.5:/home/harshil/Desktop/ /home/harshil/Desktop/copy/
+  110  scp root@192.168.2.2:/home/harshil/Desktop/ root@192.168.2.5/home/harshil/Desktop/copy/
+  111  scp root@192.168.2.2:/home/harshil/Desktop/ root@192.168.2.5:/home/harshil/Desktop/copy/
+  112  ping 192.168.2.5
+  113  scp --help
+  114  id
+  115  id harshil
+  116  su -
+  117  exit
+  118  vipw
+  119  vigr
+  120  ll
+  121  chmod 770 skel1/
+  122  ll
+  123* chown 
+  124  chmod harshil skel1
+  125  chmod -u harshil skel1
+  126  ll
+  127  vim /etc/group
+  128  ll
+  129  vim /etc/passwd
+  130  chmod 777 skel1/
+  131  ll
+  132  userdel skel1 
+  133  ;;
+  134  ll
+  135  vim /etc/passwd
+  136  cd /home/harshil/Desktop/Chapter6
+  137  ll
+  138  history 28June2016 
+  139  history >> 28June2016 

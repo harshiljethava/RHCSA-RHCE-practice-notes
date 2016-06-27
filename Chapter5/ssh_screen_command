@@ -1,0 +1,38 @@
+screen 
+# When you want to work with multiple session and multiple users.
+# When working on long task this command can help to attach and detach with it.
+
+# This command can run session yet you shuudown your pc ! 
+
+yum install -y screen
+# This command install screen 
+
+ssh username@server_ip
+# open SSH session
+
+screen
+#open screen session in SSH
+
+# do some work 
+
+Ctrl+a ,d 
+# This will detach you from the screen session and log out from SSH.
+
+ssh same_user@same_server
+# Reconnect to same server with same user through SSH.
+
+screen -r
+# you will redirect to your last unfinished work.
+
+screnn -ls
+# display all screen session running currently.
+
+screen -x
+# other user can connect current session through this command.
+
+Ctrl+a./
+# Command to close screen session << MENDATORY >>
+
+Ctrl+a,?
+# This will show all commands available for screen.
+  
