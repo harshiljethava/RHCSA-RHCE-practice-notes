@@ -1,0 +1,13 @@
+# when new user created ,some default setting 
+# and environment variable must be set and implemented for that user.
+
+# This can done from below files ,which play important role in creating ,modifing user
+# environment .
+
+/etc/profile
+
+/etc/bashrc
+
+~/.prfile
+
+~/.bashrc
