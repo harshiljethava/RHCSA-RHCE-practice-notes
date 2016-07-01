@@ -1,0 +1,296 @@
+    1  who i am
+    2  ssh harshil@192.168.2.4
+    3  exit
+    4  cd /
+    5  ll
+    6  cd /home/
+    7  exit
+    8  ll
+    9  who i ma 
+   10  system
+   11  cat /etc/centos-release
+   12  exit
+   13  scp root@192.168.2.4:/etc/passwd ~
+   14  cd ..
+   15  ll
+   16  cd ..
+   17  ll
+   18  cd 
+   19  ll
+   20  vim passwd 
+   21  sshd
+   22  systemctl status sshd
+   23  ipconfig
+   24  ifconfig
+   25  exit
+   26  passwd root
+   27  passwd harshil 
+   28  ipconfig
+   29  ifconfig
+   30  ssh-copy-id 192.168.2.4
+   31  ssh-copy-id -o
+   32  ssh-copy-id 
+   33  ssh-copy-id -?
+   34  ssh-copy-id -h
+   35  ssh 192.168.2.4
+   36  ssh 192.168.2.2
+   37  exit
+   38  cd ..
+   39  cd /home/harshil/Desktop/
+   40  ll
+   41  cd ..
+   42  cd
+   43  ll
+   44  cd /
+   45  cd
+   46  cd /
+   47  ll
+   48  cd /home/harshil/Desktop/
+   49  ll
+   50  pwd
+   51  cd 
+   52  ll
+   53  pwd
+   54  cd /
+   55  pwd
+   56  ll
+   57  cd /home
+   58  lll
+   59  ll
+   60  cd harshil/
+   61  ll
+   62  cd Desktop/
+   63  ll
+   64  cd ..
+   65  cd /
+   66  ll
+   67  cd /root/
+   68  ll
+   69  cd home
+   70  ..
+   71  ll
+   72  cd ..
+   73  ll
+   74  cd /home
+   75  cd harshil/Desktop/
+   76  ll
+   77  ll -a
+   78  ls
+   79  history >> 26June2
+   80  ll
+   81  ifconfig
+   82  exit
+   83  cd /home
+   84  ll
+   85  cd harshil/
+   86  ll
+   87  ll .
+   88  ll ...
+   89  ll ..
+   90  cd harshil
+   91  cd /harshil
+   92  ll
+   93  ls -all
+   94  cd .ssh
+   95  ll
+   96  ssh root@192.168.2.2
+   97  cp 
+   98  scp
+   99  scp root@192.168.2.5:/home/harshil/Desktop/26June2 root@192.168.2.2:/home/harshil/Desktop/
+  100  screnn
+  101  screen
+  102  cd /home/harshil/Desktop/
+  103  vim ssh_session_screen
+  104  screen -r
+  105  exir
+  106  exit
+  107  screen -r
+  108  ssh root@192.168.2.5
+  109  ll
+  110  who i am
+  111  cd /home/harshil/Desktop/
+  112  ll
+  113  exit
+  114  yum install -y screen
+  115  ssh root@192.168.2.2
+  116  ping 192.168.2.2
+  117  id
+  118  who i am
+  119  whoiam
+  120  whoi
+  121  who
+  122  exit
+  123  yum install git
+  124  git 
+  125  gzip --help
+  126  ll
+  127  gzip -d FoxitReader1.1.1.0602_Server_x64_enu_Setup.run.tar.gz 
+  128  tar xvf FoxitReader1.1.1.0602_Server_x64_enu_Setup.run.tar 
+  129  ll
+  130  ./FoxitReader.enu.setup.1.1.1.0602\(r205262\).x64.run 
+  131  find FoxitReader.enu.setup.1.1.1.0602\(r205262\).x64.run 
+  132  grep 
+  133  grep FoxitReader 
+  134  grep --hepl
+  135  grep --help
+  136  grep -l FoxitReader 
+  137  find /FoxitReader 
+  138  find --help
+  139  man find
+  140  grep -l FoxitReadA geek learner , with skill set of Python scripting ,,Networking , Linux shell scripting,RedHat,CentOS,server administration .er
+  141  find /FoxitReader 
+  142  find --name FoxitReader 
+  143  find -name FoxitReader 
+  144  find -name "FoxitReader"
+  145  find / -name "FoxitReader"
+  146  cd /usr/bin
+  147  ll
+  148  ll F*
+  149  bash FoxitReader.sh
+  150  history >> /home/harshil/Desktop/installtion
+  151  cd /home/harshil/Desktop/
+  152  ll
+  153  vim installtion 
+  154  shutdown
+  155  vim /etc/login.defs 
+  156  cd /etc/default/user
+  157  cd /etc/default/
+  158  ll
+  159  vim useradd 
+  160  cd /home/harshil/Desktop/RHCSA\ notes/
+  161  ll
+  162  cd Chapter6
+  163  ll
+  164  vim useradd_command 
+  165  vim useradd_variable
+  166  vim login.defs_variable
+  167  vim user_env_files
+  168  vim user_env_exercise
+  169  ll
+  170  vim /etc/login.defs
+  171  cd /etc/skel
+  172  mkdir Pictures
+  173  mkdir Documents
+  174  ll
+  175  ll -all
+  176  vim .bashrc 
+  177  useradd linda
+  178  id linda
+  179  cd
+  180  ll
+  181  cd /
+  182  cd home
+  183  ll
+  184  cd linda/
+  185  ll
+  186  passwd linda 
+  187  passwd -n 30 -w 3 -x 90 linda
+  188  chage -l linda
+  189  grep linda /etc/passwd /etc/shadow
+  190  cd /home/harshil/Desktop/RHCSA\ notes/Chapter6
+  191  ll
+  192  history >> 28June2016 
+  193  vim user_env_
+  194  ll
+  195  vim user_env_exercise 
+  196  cat user_env_e
+  197  cat user_env_exercise 
+  198  ll
+  199  groupadd
+  200  vim groupadd_command
+  201  ll
+  202  vim groupadd_command 
+  203  vim /etc/group
+  204  vim groupadd_command 
+  205  groupmems
+  206  groupmems -g harshil
+  207  usermod
+  208  ll
+  209  vim usermod_command
+  210  vim groupmod_command
+  211  vim group_exercise
+  212  groupadd sales
+  213  groupadd account
+  214  usermod -aG sales linda
+  215  vim /etc/passwd
+  216  useradd lisa
+  217  useradd lori
+  218  usermod -aG account lori
+  219  usermod -aG account bob
+  220  usermod -aG account lisa
+  221  id linda
+  222  history >> 28June2016 
+  223  history 
+  224  cd ..
+  225  ll 
+  226  git add .
+  227  git commit -m "user and group"
+  228  git push
+  229  exit
+  230  shutdown --help
+  231  shutdown -P
+  232  cd /etc/skel/
+  233  ll
+  234  rm -rf Documents/ Pictures/
+  235  ll
+  236  cp 
+  237  cp --help 
+  238  cp -cvf
+  239  cp
+  240  cp --help
+  241  cp -c
+  242  cp cvf
+  243  cp cvf --hepl
+  244  cp cvf --help
+  245  man cp
+  246  cp cvf -T /home/Downloads/ /etc/skel/
+  247  cp cvf  /home/Downloads/ /etc/skel/
+  248  cp   /home/Downloads/ /etc/skel/
+  249  cp   /home/harshil/Downloads/FoxitReader1.1.1.0602_Server_x64_enu_Setup.run.tar  /etc/skel/
+  250  ll
+  251  cd /home/harshil/Desktop/
+  252  ll
+  253  useradd lynda
+  254  cd /home/lynda/
+  255  ll
+  256  cd /home/harshil/Desktop/RHCSA\ notes/
+  257  ll
+  258  history >> etc_skel_exerice
+  259  ll
+  260  vim etc_skel_exerice 
+  261  ll
+  262  vim partition_creation
+  263  git add . 
+  264  git pudh
+  265  git push
+  266  git commit -m "/etc/skel pratical added"
+  267  git push
+  268  fdisk
+  269  fdisk /dev/vdb
+  270  fdisk /dev/vdb/
+  271  fdisk /dev/vdb
+  272  fdisk -s
+  273  fdisk
+  274  partprobe
+  275  mount 
+  276  vim /etc/
+  277  ll /etc/
+  278  cd ..
+  279  cd /dev
+  280  ll
+  281  fdisk /dev/sdb
+  282  fdisk /dev/sda
+  283  fdisk /dev/vdb
+  284  fdisk /dev/sdb
+  285  fdisk /dev/sda
+  286  ll /etc/shadow
+  287  ll /usr/bin/passwd 
+  288  cd /home/harshil/Desktop/
+  289  cd RHCSA\ notes/
+  290  ll
+  291  mkdir Chapter7
+  292  cd Chapter7
+  293  ll
+  294  vim special_permission
+  295  ll
+  296  history >> 28June2016

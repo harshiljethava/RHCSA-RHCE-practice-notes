@@ -1,0 +1,20 @@
+  110  cd Chapter9
+  111  sleep 3600
+  112  jobs
+  113  sleep 3600 &
+  114  dd if=/dev/zero of=/dev/null &
+  115  sleep 7200
+  116  jobs
+  117  bg 4
+  118  fg 2
+  119  jobs
+  120  fg 4 
+  121  jobs
+  122  fg 2
+  123  fg 3
+  124  jobs
+  125  fg 1 
+  126  jobs
+  127  history >> 1July2016
+  128  cat 1July2016 
+  129  history | tail -20 > 1July2016
