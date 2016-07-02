@@ -1,5 +1,9 @@
 crtl Z : stop jobs temporarily 
+# ping 192.168.2.1 ,if you use crtl Z then ping command will stop .
+# by fg [job_id] you can resume ping .
 
 crtl D : stop jobs to wait for further input ,send EOF 
 
 crtl C : terminate process ,cancel job.
+# ping 192.168.2.1 , if you use crtl C then ping command will terminate.
+# you can not resume this. ! 

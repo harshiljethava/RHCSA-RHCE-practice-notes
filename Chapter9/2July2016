@@ -1052,3 +1052,653 @@
   526  history >> 2July2016
   527  ps j 
   528  history >> 2July2016 
+    1  who i am
+    2  ssh harshil@192.168.2.4
+    3  exit
+    4  cd /
+    5  ll
+    6  cd /home/
+    7  exit
+    8  ll
+    9  who i ma 
+   10  system
+   11  cat /etc/centos-release
+   12  exit
+   13  scp root@192.168.2.4:/etc/passwd ~
+   14  cd ..
+   15  ll
+   16  cd ..
+   17  ll
+   18  cd 
+   19  ll
+   20  vim passwd 
+   21  sshd
+   22  systemctl status sshd
+   23  ipconfig
+   24  ifconfig
+   25  exit
+   26  passwd root
+   27  passwd harshil 
+   28  ipconfig
+   29  ifconfig
+   30  ssh-copy-id 192.168.2.4
+   31  ssh-copy-id -o
+   32  ssh-copy-id 
+   33  ssh-copy-id -?
+   34  ssh-copy-id -h
+   35  ssh 192.168.2.4
+   36  ssh 192.168.2.2
+   37  exit
+   38  cd ..
+   39  cd /home/harshil/Desktop/
+   40  ll
+   41  cd ..
+   42  cd
+   43  ll
+   44  cd /
+   45  cd
+   46  cd /
+   47  ll
+   48  cd /home/harshil/Desktop/
+   49  ll
+   50  pwd
+   51  cd 
+   52  ll
+   53  pwd
+   54  cd /
+   55  pwd
+   56  ll
+   57  cd /home
+   58  lll
+   59  ll
+   60  cd harshil/
+   61  ll
+   62  cd Desktop/
+   63  ll
+   64  cd ..
+   65  cd /
+   66  ll
+   67  cd /root/
+   68  ll
+   69  cd home
+   70  ..
+   71  ll
+   72  cd ..
+   73  ll
+   74  cd /home
+   75  cd harshil/Desktop/
+   76  ll
+   77  ll -a
+   78  ls
+   79  history >> 26June2
+   80  ll
+   81  ifconfig
+   82  exit
+   83  cd /home
+   84  ll
+   85  cd harshil/
+   86  ll
+   87  ll .
+   88  ll ...
+   89  ll ..
+   90  cd harshil
+   91  cd /harshil
+   92  ll
+   93  ls -all
+   94  cd .ssh
+   95  ll
+   96  ssh root@192.168.2.2
+   97  cp 
+   98  scp
+   99  scp root@192.168.2.5:/home/harshil/Desktop/26June2 root@192.168.2.2:/home/harshil/Desktop/
+  100  screnn
+  101  screen
+  102  cd /home/harshil/Desktop/
+  103  vim ssh_session_screen
+  104  screen -r
+  105  exir
+  106  exit
+  107  screen -r
+  108  ssh root@192.168.2.5
+  109  ll
+  110  who i am
+  111  cd /home/harshil/Desktop/
+  112  ll
+  113  exit
+  114  yum install -y screen
+  115  ssh root@192.168.2.2
+  116  ping 192.168.2.2
+  117  id
+  118  who i am
+  119  whoiam
+  120  whoi
+  121  who
+  122  exit
+  123  yum install git
+  124  git 
+  125  gzip --help
+  126  ll
+  127  gzip -d FoxitReader1.1.1.0602_Server_x64_enu_Setup.run.tar.gz 
+  128  tar xvf FoxitReader1.1.1.0602_Server_x64_enu_Setup.run.tar 
+  129  ll
+  130  ./FoxitReader.enu.setup.1.1.1.0602\(r205262\).x64.run 
+  131  find FoxitReader.enu.setup.1.1.1.0602\(r205262\).x64.run 
+  132  grep 
+  133  grep FoxitReader 
+  134  grep --hepl
+  135  grep --help
+  136  grep -l FoxitReader 
+  137  find /FoxitReader 
+  138  find --help
+  139  man find
+  140  grep -l FoxitReadA geek learner , with skill set of Python scripting ,,Networking , Linux shell scripting,RedHat,CentOS,server administration .er
+  141  find /FoxitReader 
+  142  find --name FoxitReader 
+  143  find -name FoxitReader 
+  144  find -name "FoxitReader"
+  145  find / -name "FoxitReader"
+  146  cd /usr/bin
+  147  ll
+  148  ll F*
+  149  bash FoxitReader.sh
+  150  history >> /home/harshil/Desktop/installtion
+  151  cd /home/harshil/Desktop/
+  152  ll
+  153  vim installtion 
+  154  shutdown
+  155  vim /etc/login.defs 
+  156  cd /etc/default/user
+  157  cd /etc/default/
+  158  ll
+  159  vim useradd 
+  160  cd /home/harshil/Desktop/RHCSA\ notes/
+  161  ll
+  162  cd Chapter6
+  163  ll
+  164  vim useradd_command 
+  165  vim useradd_variable
+  166  vim login.defs_variable
+  167  vim user_env_files
+  168  vim user_env_exercise
+  169  ll
+  170  vim /etc/login.defs
+  171  cd /etc/skel
+  172  mkdir Pictures
+  173  mkdir Documents
+  174  ll
+  175  ll -all
+  176  vim .bashrc 
+  177  useradd linda
+  178  id linda
+  179  cd
+  180  ll
+  181  cd /
+  182  cd home
+  183  ll
+  184  cd linda/
+  185  ll
+  186  passwd linda 
+  187  passwd -n 30 -w 3 -x 90 linda
+  188  chage -l linda
+  189  grep linda /etc/passwd /etc/shadow
+  190  cd /home/harshil/Desktop/RHCSA\ notes/Chapter6
+  191  ll
+  192  history >> 28June2016 
+  193  vim user_env_
+  194  ll
+  195  vim user_env_exercise 
+  196  cat user_env_e
+  197  cat user_env_exercise 
+  198  ll
+  199  groupadd
+  200  vim groupadd_command
+  201  ll
+  202  vim groupadd_command 
+  203  vim /etc/group
+  204  vim groupadd_command 
+  205  groupmems
+  206  groupmems -g harshil
+  207  usermod
+  208  ll
+  209  vim usermod_command
+  210  vim groupmod_command
+  211  vim group_exercise
+  212  groupadd sales
+  213  groupadd account
+  214  usermod -aG sales linda
+  215  vim /etc/passwd
+  216  useradd lisa
+  217  useradd lori
+  218  usermod -aG account lori
+  219  usermod -aG account bob
+  220  usermod -aG account lisa
+  221  id linda
+  222  history >> 28June2016 
+  223  history 
+  224  cd ..
+  225  ll 
+  226  git add .
+  227  git commit -m "user and group"
+  228  git push
+  229  exit
+  230  shutdown --help
+  231  shutdown -P
+  232  ll
+  233  ll -a
+  234  vim .bashrc 
+  235  su - lisa
+  236  exit
+  237  passwd lisa 
+  238  su - lisa
+  239  exit
+  240  rm -rf data
+  241  su linda
+  242  exit
+  243  mkdir data
+  244  cd data/
+  245  mkdir sales
+  246  su linda
+  247  exit
+  248  su linda
+  249  exit
+  250  su /home/linda
+  251  ll
+  252  ll -a
+  253  vim .bash_profile 
+  254  vim .bashrc
+  255  su
+  256  exit
+  257  cd /etc/
+  258  ll
+  259  cd 
+  260  cd
+  261  ll
+  262  cd /
+  263  ll
+  264  cd /usr
+  265  ll
+  266  cd /sbin
+  267  ll
+  268  grep / profiel
+  269  grep / profile
+  270  grep --help
+  271  grep / -a profile
+  272  grep / -a "profile"
+  273  grep / 
+  274  grep /  .bashrc
+  275  grep  .bashrc
+  276  find profile
+  277  find --help
+  278  find / profile
+  279  find / /profile
+  280  find / .profile
+  281  cd /home/
+  282  cd /home
+  283  ll
+  284  cd linda/
+  285  l
+  286  ll
+  287  ll -a
+  288  su linda
+  289  exit
+  290  cd /etc/skel/
+  291  ll
+  292  rm -rf Documents/ Pictures/
+  293  ll
+  294  cp 
+  295  cp --help 
+  296  cp -cvf
+  297  cp
+  298  cp --help
+  299  cp -c
+  300  cp cvf
+  301  cp cvf --hepl
+  302  cp cvf --help
+  303  man cp
+  304  cp cvf -T /home/Downloads/ /etc/skel/
+  305  cp cvf  /home/Downloads/ /etc/skel/
+  306  cp   /home/Downloads/ /etc/skel/
+  307  cp   /home/harshil/Downloads/FoxitReader1.1.1.0602_Server_x64_enu_Setup.run.tar  /etc/skel/
+  308  ll
+  309  cd /home/harshil/Desktop/
+  310  ll
+  311  useradd lynda
+  312  cd /home/lynda/
+  313  ll
+  314  cd /home/harshil/Desktop/RHCSA\ notes/
+  315  ll
+  316  history >> etc_skel_exerice
+  317  ll
+  318  vim etc_skel_exerice 
+  319  ll
+  320  vim partition_creation
+  321  git add . 
+  322  git pudh
+  323  git push
+  324  git commit -m "/etc/skel pratical added"
+  325  git push
+  326  fdisk
+  327  fdisk /dev/vdb
+  328  fdisk /dev/vdb/
+  329  fdisk /dev/vdb
+  330  fdisk -s
+  331  fdisk
+  332  partprobe
+  333  mount 
+  334  vim /etc/
+  335  ll /etc/
+  336  cd ..
+  337  cd /dev
+  338  ll
+  339  fdisk /dev/sdb
+  340  fdisk /dev/sda
+  341  fdisk /dev/vdb
+  342  fdisk /dev/sdb
+  343  fdisk /dev/sda
+  344  ll /etc/shadow
+  345  ll /usr/bin/passwd 
+  346  cd /home/harshil/Desktop/
+  347  cd RHCSA\ notes/
+  348  ll
+  349  mkdir Chapter7
+  350  cd Chapter7
+  351  ll
+  352  vim special_permission
+  353  ll
+  354  history >> 28June2016
+  355  su linda
+  356  exit
+  357  df -h
+  358  fdisk /dev/sdb
+  359  partprobe
+  360  df -h
+  361  umount /dev/sdb
+  362  ll
+  363  df -h
+  364  fdisk /dev/sdb
+  365  fdisk
+  366  fdisk p 
+  367  fdisk /dev/sdb
+  368  parted
+  369  fdisk /dev/sda
+  370  fdisk /dev/sdb
+  371  partprobe
+  372  fdisk /dev/sdb
+  373  partprobe
+  374  df -h
+  375  fdisk /dev/sdb
+  376  partprobe
+  377  fdisk /dev/sdb
+  378  partprobe
+  379  partprobe -v
+  380  mount -a
+  381  df -g
+  382  df -h
+  383  fdisk /dev/sdb
+  384  partprobe
+  385  mount -all
+  386  mount -a
+  387  df -h
+  388  cd ..
+  389  git add .
+  390  git commmit -m "process management notes added"
+  391  git commit -m "process management notes added"
+  392  git push
+  393  cd RHCSA\ notes/
+  394  mkdir Chapter8
+  395  cd Chapter8
+  396  ip 
+  397  ip aadr
+  398  ip addr
+  399  ip route
+  400  ip link
+  401  ip addr show
+  402  ip link set
+  403  ip link 
+  404  ip link set virbr0 up
+  405  ip link 
+  406  ip link set dev virbr0 up
+  407  ip link 
+  408  ip link set dev eno16777736 down
+  409  ip link 
+  410  ifconfig
+  411  ip link set dev eno16777736 up
+  412  ifconfig
+  413  history 1July2016
+  414  history >> 1July2016
+  415  cat 1July2016 
+  416  ip -s link
+  417  ip  addr show 
+  418  ip route show 
+  419  netstat
+  420  ss -lt
+  421  ip route show 
+  422  ping -c 4 8.8.8.8
+  423  ifconfig
+  424  ip addr add 10.0.0.0/24 dev eno16777736
+  425  ip addr show
+  426  ifconfig 
+  427  ss -lt
+  428  ss -tul
+  429  ll
+  430  cd Chapter9
+  431  ll
+  432  exit
+  433  ll
+  434  exit
+  435  cd /home/harshil/Desktop/
+  436  ll
+  437  cd RHCSA\ notes/
+  438  ssh screen
+  439  ssh screen -R
+  440  screen -R
+  441  screen 
+  442  exit
+  443  ll
+  444  echo "using screen"
+  445  vim screen_deom
+  446  jobs
+  447  fg 2 
+  448  jobs
+  449  exit
+  450  vim screen_deom
+  451  screen -r
+  452  exit
+  453  vim screen2
+  454  exit
+  455  screen -R
+  456  screen --help
+  457  screen
+  458  screen -R
+  459  screen --help
+  460  screen
+  461  screen -r
+  462  screen 
+  463  screeen -r
+  464  screen -r
+  465  exit
+  466  chown root:root Chapter9
+  467  ll
+  468  chown root:root Chapter18
+  469  cd Chapter9
+  470  ll
+  471  vim process_type
+  472  vom process_manage
+  473  vim process_manage
+  474  sleep 1000 & 
+  475  fg 5072
+  476  fg 1
+  477  vim process_key
+  478  fg 1
+  479  find / 
+  480  find / &
+  481  cd Chapter
+  482  cd Chapter9
+  483  ll
+  484  vim process_manage 
+  485  jobs
+  486  sleep 1000 & 
+  487  sleep 200 & 
+  488  jobs
+  489  fg 2
+  490  fg 1
+  491  vim process_key 
+  492  vim process_cli
+  493  ps
+  494  ps -aux
+  495  ps -aux | less
+  496  ps -aux | head -1 >> ps_-aux
+  497  cat ps_-aux 
+  498  ps aux
+  499  ps aux | less 
+  500  ps aux | head -1 >> ps_aux
+  501  diff 
+  502  diff  --help
+  503  cat ps_aux 
+  504  cat ps_-aux 
+  505  ps -ef | head -1 
+  506  ps -ef | head -1 >> ps_-ef
+  507  cat ps_-ef 
+  508  ps fax
+  509  ps fax | head -1 >> ps_fax
+  510  ps -ef | head -5
+  511  pgrep
+  512  pgrep dd 
+  513  pgrep --help
+  514  man pgrep
+  515  pgrep -u root sshd
+  516  history >> 1July2016 
+  517  ps --hep
+  518  ps --help
+  519  ll
+  520  vim process_state
+  521  grep STDOUT 
+  522  grep STDOUT /
+  523  grep STDOUT 
+  524  history >> 1July2016 
+  525  history >> 2July2016
+  526  ps j 
+  527  history >> 2July2016 
+  528  ll
+  529  cd ..
+  530  git add . 
+  531  git commit -m "process management"
+  532  git push 
+  533  top | head -3 >> top_header
+  534  mv top_header /home/harshil/Desktop/RHCSA\ notes/Chapter9/
+  535  ll
+  536  cd Chapter9
+  537  ll
+  538  cat top_header 
+  539  top | head -5 > top_header 
+  540  cat top_header 
+  541  top | head -5 > top_OCder
+  542  [3~
+  543  cat top_header 
+  544  exit
+  545  cd /home/harshil/Desktop/RHCSA\ notes/
+  546  vim cdsh.sh
+  547  cat cdsh.sh 
+  548  vim cdsh.sh
+  549  cat cdsh.sh 
+  550  sh cdsh.sh 
+  551  cd..
+  552  cd ..
+  553  bash /home/harshil/Desktop/RHCSA\ notes/cdsh.sh 
+  554  pwd
+  555  cd /home/harshil/Desktop/RHCSA\ notes/ 
+  556  ll
+  557  vim cdsh.sh 
+  558  ll
+  559  sh cdsh.sh 
+  560  bash cdsh.sh 
+  561  vim cdsh.sh 
+  562  bash cdsh.sh 
+  563  ll
+  564  chomd 700 cdsh.sh 
+  565  chmod 700 cdsh.sh 
+  566  ll
+  567  bash cdsh.sh 
+  568  chmod 777 cdsh.sh 
+  569  ll
+  570  sh cdsh.sh 
+  571  bash cdsh.sh 
+  572  pwd
+  573  ll
+  574  vim cdsh.sh 
+  575  sh cdsh.sh 
+  576  chmod 700 cdsh.sh 
+  577  ll
+  578  bash cdsh.sh 
+  579  vim cdsh.sh 
+  580  bash cdsh.sh 
+  581  vim cdsh.sh 
+  582  bash cdsh.sh 
+  583  cd Chapter9
+  584  ll
+  585  man top 
+  586  top
+  587  w -f
+  588  top
+  589  w -f 
+  590  pgrep --help
+  591  pgrep -u harshil
+  592  pstree -p harshil
+  593  cd RHCSA\ notes/
+  594  cd Chapter9
+  595  ll
+  596  vim process_state 
+  597  grep TASK_ | /
+  598  grep --hepl
+  599  grep --help
+  600  grep -i 'TASK_'
+  601  grep -i 'TASK_' /
+  602  grep -i 'TASK_' /proc/
+  603  grep -i 'TASK_' /proc/sys/kernel/
+  604  find TASK_
+  605  find TASK_ / 
+  606  cd ..
+  607  git push
+  608  cd Chapter9
+  609  ll
+  610  vim process_kill
+  611  ps
+  612  kill 7204
+  613  ps
+  614  ps aux
+  615  ps aux | tail -3 >> ps_state
+  616  ll
+  617  cat ps_state 
+  618  ps aux
+  619  ps aux  |tail -6 >> ps_state 
+  620  vim ps_state 
+  621  ps aux
+  622  ps | tail -6 >> ps_state 
+  623  vim ps_s
+  624  vim ps_state 
+  625  ps aux | tail -6 >> ps_state 
+  626  vim ps_s
+  627  vim ps_state 
+  628  cat ps_s
+  629  cat ps_state 
+  630  ps fac
+  631  ps lax
+  632  ps -aux
+  633  ps aux | tail -14 >> ps_state 
+  634  vim ps_state 
+  635  w h
+  636  w =f
+  637  w -f
+  638  w -f >> user_activity
+  639  vin user_activity 
+  640  vim user_activity 
+  641  w -f >> user_activity
+  642  vim user_activity 
+  643  w -f 
+  644  ll
+  645  vim process_key 
+  646  ll
+  647  man kill
+  648  kill 0
+  649  ll
+  650  history >> 2July2016 
