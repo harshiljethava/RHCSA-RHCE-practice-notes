@@ -1,0 +1,5 @@
+crtl Z : stop jobs temporarily 
+
+crtl D : stop jobs to wait for further input ,send EOF 
+
+crtl C : terminate process ,cancel job.
