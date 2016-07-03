@@ -1,0 +1,11 @@
+top
+# provide all process information with real time update
+
+uptime
+# provide information of time how long system is running.
+
+w 
+# provide infomation related to user and user activity .
+
+gnome-system-monitor
+# provide process and user info in GUI . 

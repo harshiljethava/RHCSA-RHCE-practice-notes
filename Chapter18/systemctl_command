@@ -1,0 +1,15 @@
+# Units in systemctl 
+
+service
+socket
+busname
+target
+snapshot
+device
+mount
+automount
+swap
+timer
+path
+slice
+scope

@@ -1,0 +1,25 @@
+  696  git config user.email "theharshil@outlook.in"
+  697  git push
+  698  vim cdsh.sh 
+  699  git add . 
+  700  git commit -m "bash "
+  701  git push
+  702  git config --global user.email "theharshil@outlook.in"
+  703  git config --global user.name "harshiljethava"
+  704  git diff
+  705  git push
+  706  git config credential.helper store
+  707  git push
+  708  cd ..
+  709  history  >> git_command
+  710  exit
+  711  cd /usr/lib/systemd/
+  712  ll
+  713  grep "vsftp" system
+  714  grep "vsftp" /system
+  715  cd system
+  716  ll
+  717  vim vmtoolsd.service 
+  718  vim sshd.service 
+  719  cd /home/harshil/Desktop/RHCSA\ notes/Chapter18
+  720  history | tail -25 >> systemd_files
