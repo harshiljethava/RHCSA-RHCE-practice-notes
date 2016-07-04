@@ -1,0 +1,16 @@
+ip address
+# configure and monitor ip address.
+
+ip route
+# configure and monitor routing information.
+
+ip link
+# configure and monitor network link state.
+
+ip link set dev [device_name] [value]
+ip link set dev eth0 up
+ip link set dev eno16777734 down
+# by this command ,possbile to down or up interface base on requirment. 
+
+ip -s link
+# show packet transmission from interfaces.
