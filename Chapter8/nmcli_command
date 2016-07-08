@@ -10,4 +10,8 @@ nmcli con show eno16777736
 
 nmcli dev show [device_name]
 # display setting for given device.
-#
+
+nmcli con reload
+# to active new configuration.
+
+
