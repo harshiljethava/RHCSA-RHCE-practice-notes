@@ -1,3 +1,5 @@
+cron utility is part of "cronie" package.
+
 /etc/crontab
 
 /etc/cron.d
