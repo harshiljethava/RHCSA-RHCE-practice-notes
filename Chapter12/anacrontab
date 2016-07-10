@@ -1,0 +1,10 @@
+# anacrontab service take care of starting the
+# hourly ,monthly, daily,weekly, cron jobs
+
+# anacrontab should not be modified 
+# direclty instead of 
+/etc/cron.hourly
+/etc/cron.daily
+/etc/cron.weekly
+# directory can use for modifing it.
+#
