@@ -1,0 +1,25 @@
+ 1007  git commit -m "schedule task with cron"
+ 1008  git push
+ 1009  vim /etc/cron.daily/useraccount
+ 1010  chmod +x /etc/cron.daily/useraccount 
+ 1011  yum install -y systat
+ 1012  yum install -y sysstat
+ 1013  rpm -qc sysstat
+ 1014  vim /etc/cron.d/sysstat 
+ 1015  watch ls -l /var/log/sa
+ 1016  cd /var/log/sa
+ 1017  ll
+ 1018  bash cd.sh
+ 1019  bash cd
+ 1020  cd /home/harshil/Desktop/RHCSA\ notes/Chapter12
+ 1021  ll
+ 1022  history 
+ 1023  history | tail -10 >> scheduling_with_script
+ 1024  vimm scheduling_with_script 
+ 1025  vim scheduling_with_script 
+ 1026  history | tail -15 >> scheduling_with_script
+ 1027  history | tail -15 > scheduling_with_script
+ 1028  vim scheduling_with_script 
+ 1029  history | tail -20 > scheduling_with_script
+ 1030  vim scheduling_with_script 
+ 1031  history | tail -25 > scheduling_with_script
