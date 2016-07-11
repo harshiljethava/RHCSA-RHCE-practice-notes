@@ -998,3 +998,1003 @@
  1022  vim SELinux_setenforce 
  1023  vim /etc/sysconfig/selinux 
  1024  history >> 11July2016
+    5  ps aux
+    6  ps aux | less 
+    7  ps aux | head -1 >> ps_aux
+    8  diff 
+    9  diff  --help
+   10  cat ps_aux 
+   11  cat ps_-aux 
+   12  ps -ef | head -1 
+   13  ps -ef | head -1 >> ps_-ef
+   14  cat ps_-ef 
+   15  ps fax
+   16  ps fax | head -1 >> ps_fax
+   17  ps -ef | head -5
+   18  pgrep
+   19  pgrep dd 
+   20  pgrep --help
+   21  man pgrep
+   22  pgrep -u root sshd
+   23  history >> 1July2016 
+   24  ps --hep
+   25  ps --help
+   26  ll
+   27  vim process_state
+   28  grep STDOUT 
+   29  grep STDOUT /
+   30  grep STDOUT 
+   31  history >> 1July2016 
+   32  history >> 2July2016
+   33  ps j 
+   34  history >> 2July2016 
+   35  ll
+   36  cd ..
+   37  git add . 
+   38  git commit -m "process management"
+   39  git push 
+   40  top | head -3 >> top_header
+   41  mv top_header /home/harshil/Desktop/RHCSA\ notes/Chapter9/
+   42  ll
+   43  cd Chapter9
+   44  ll
+   45  cat top_header 
+   46  top | head -5 > top_header 
+   47  cat top_header 
+   48  top | head -5 > top_OCder
+   49  [3~
+   50  cat top_header 
+   51  exit
+   52  cd /home/harshil/Desktop/RHCSA\ notes/
+   53  vim cdsh.sh
+   54  cat cdsh.sh 
+   55  vim cdsh.sh
+   56  cat cdsh.sh 
+   57  sh cdsh.sh 
+   58  cd..
+   59  cd ..
+   60  bash /home/harshil/Desktop/RHCSA\ notes/cdsh.sh 
+   61  pwd
+   62  cd /home/harshil/Desktop/RHCSA\ notes/ 
+   63  ll
+   64  vim cdsh.sh 
+   65  ll
+   66  sh cdsh.sh 
+   67  bash cdsh.sh 
+   68  vim cdsh.sh 
+   69  bash cdsh.sh 
+   70  ll
+   71  chomd 700 cdsh.sh 
+   72  chmod 700 cdsh.sh 
+   73  ll
+   74  bash cdsh.sh 
+   75  chmod 777 cdsh.sh 
+   76  ll
+   77  sh cdsh.sh 
+   78  bash cdsh.sh 
+   79  pwd
+   80  ll
+   81  vim cdsh.sh 
+   82  sh cdsh.sh 
+   83  chmod 700 cdsh.sh 
+   84  ll
+   85  bash cdsh.sh 
+   86  vim cdsh.sh 
+   87  bash cdsh.sh 
+   88  vim cdsh.sh 
+   89  bash cdsh.sh 
+   90  cd Chapter9
+   91  ll
+   92  man top 
+   93  top
+   94  w -f
+   95  top
+   96  w -f 
+   97  logout
+   98  exit
+   99  w -f 
+  100  pgrep --help
+  101  pgrep -u harshil
+  102  pstree -p harshil
+  103  cd RHCSA\ notes/
+  104  cd Chapter9
+  105  ll
+  106  vim process_state 
+  107  grep TASK_ | /
+  108  grep --hepl
+  109  grep --help
+  110  grep -i 'TASK_'
+  111  grep -i 'TASK_' /
+  112  grep -i 'TASK_' /proc/
+  113  grep -i 'TASK_' /proc/sys/kernel/
+  114  find TASK_
+  115  find TASK_ / 
+  116  cd ..
+  117  git push
+  118  cd Chapter9
+  119  ll
+  120  vim process_kill
+  121  ps
+  122  kill 7204
+  123  ps
+  124  ps aux
+  125  ps aux | tail -3 >> ps_state
+  126  ll
+  127  cat ps_state 
+  128  ps aux
+  129  ps aux  |tail -6 >> ps_state 
+  130  vim ps_state 
+  131  ps aux
+  132  ps | tail -6 >> ps_state 
+  133  vim ps_s
+  134  vim ps_state 
+  135  ps aux | tail -6 >> ps_state 
+  136  vim ps_s
+  137  vim ps_state 
+  138  cat ps_s
+  139  cat ps_state 
+  140  ps fac
+  141  ps lax
+  142  ps -aux
+  143  ps aux | tail -14 >> ps_state 
+  144  vim ps_state 
+  145  w h
+  146  w =f
+  147  w -f
+  148  w -f >> user_activity
+  149  vin user_activity 
+  150  vim user_activity 
+  151  w -f >> user_activity
+  152  vim user_activity 
+  153  w -f 
+  154  ll
+  155  vim process_key 
+  156  ll
+  157  man kill
+  158  kill 0
+  159  ll
+  160  history >> 2July2016 
+  161  man pkill
+  162  pkill -HUP syslog
+  163  man pkill
+  164  man kill 
+  165  xkill
+  166  man xkill
+  167  pstree
+  168  pstree -u root
+  169  pstree -u lisa
+  170  pstree -u harshil
+  171  vim pstree
+  172  vim pstree_command
+  173  man -k process tree
+  174  vim pstree_command
+  175  man pstree
+  176  pstree -u harshik -h
+  177  pstree -u harshil -h
+  178  pstree -h
+  179  man pstree_command 
+  180  man pstree
+  181  pstree -l
+  182  man pstree
+  183  kill --help
+  184  kill -h
+  185  kill 
+  186  man kill
+  187  uptime
+  188  cd ..
+  189  git add .
+  190  git commit -m "process management: ps,kill"
+  191  git push 
+  192  git remote 
+  193  git --help
+  194  git rm pb
+  195  git show
+  196  git 
+  197  git rebase
+  198  git filter-branch 
+  199  git clone 
+  200  git config -l
+  201  git log-format=full
+  202  git config user.name "harshiljethava"
+  203  git config user.email "theharshil@outlook.in"
+  204  git push
+  205  vim cdsh.sh 
+  206  git add . 
+  207  git commit -m "bash "
+  208  git push
+  209  git config --global user.email "theharshil@outlook.in"
+  210  git config --global user.name "harshiljethava"
+  211  git diff
+  212  git push
+  213  git config credential.helper store
+  214  git push
+  215  cd ..
+  216  history  >> git_command
+  217  exit
+  218  cd /usr/lib/systemd/
+  219  ll
+  220  grep "vsftp" system
+  221  grep "vsftp" /system
+  222  cd system
+  223  ll
+  224  vim vmtoolsd.service 
+  225  vim sshd.service 
+  226  cd /home/harshil/Desktop/RHCSA\ notes/Chapter18
+  227  history | tail -25 >> systemd_files
+  228  exit
+  229  cd /usr/lib/systemd/system
+  230  ll
+  231  vim tmp.mount 
+  232  cat virtlockd.socket 
+  233  cd /home/harshil/Desktop/RHCSA\ notes/Chapter18
+  234  ll
+  235  history | tail -15 >> systemd
+  236  ll
+  237  cat systemd
+  238  mv systemd systemd_files2
+  239  ll
+  240  ps aux 
+  241  ps fax
+  242  ps aux 
+  243  kill -9 4378
+  244  ps aux 
+  245  man kill
+  246  man -k kill signal
+  247  skil --help
+  248  skill --help
+  249  man skill
+  250  cd /home/harshil/Desktop/RHCSA\ notes/Chapter9
+  251  ll
+  252  vim kill_signal
+  253  ps aux
+  254  kill -19 4804
+  255  kill -18 4804
+  256  kill -20 4804
+  257  kill -18 4804
+  258  kill -1 4804
+  259  kill -18 4804
+  260  history >> 3July2016
+  261  history 
+  262  grep "model name" /proc/cpuinfo
+  263  grep "model name" /proc/cpuinfo >> cpuinfo
+  264  grep "model name" /proc/cpuinfo | wc -l
+  265  uptime
+  266  gnome-system-monitor 
+  267  w
+  268  uptime --help
+  269  uptime -p
+  270  uptime -s
+  271  vim process_monitoring
+  272  man uptime
+  273  vim process_monitoring
+  274  man w 
+  275  vim process_monitoring
+  276  ll
+  277  chown root:root 1July2016 
+  278  ll
+  279  cd ..
+  280  ll
+  281  tar -cvf RHCSA\ notes/ rhce.tar
+  282  tar --help
+  283  tar -cvf redhat.tar RHCSA\ notes/
+  284  ll
+  285  chmod 770 redhat.tar 
+  286  ll
+  287  chown harshil:harshil redhat.tar 
+  288  ll
+  289  cd RHCSA\ notes/Chapter18/
+  290  ll
+  291  systemctl -t
+  292  systemctl -t --help
+  293  systemctl -t help
+  294  vim systemctl_command
+  295  ll
+  296  systemctl -t help >> systemctl_command
+  297  cat systemctl_command 
+  298  vim systemctl_command 
+  299  cd /usr/lib/systemd/
+  300  ll
+  301  vim system
+  302  vim system_file
+  303  ps aux
+  304  ll
+  305  cp system_file /home/harshil/Desktop/RHCSA\ notes/Chapter18/
+  306  ll
+  307  vim system
+  308  cd /home/harshil/Desktop/RHCSA\ notes/Chapter18
+  309  ll
+  310  vim system_file 
+  311  systemd
+  312  systemctl status vsfftpd.service
+  313  systemctl show
+  314  man systemctl
+  315  cat multi-user.target
+  316  cd /home/harshil/Desktop/RHCSA\ notes/
+  317  ll
+  318  git add .
+  319  git commit -m "systemd and system manager"
+  320  git pudh
+  321  git push
+  322  cd Chapter18
+  323  ll
+  324  systemctl show
+  325  yum -y install vsftpd
+  326  systemctl start vsftpdp
+  327  systemctl start vsftpd.service 
+  328  systemctl status vsftpd.service 
+  329  systemctl enabled vsftpd
+  330  systemctl enable vsftpd
+  331  systemctl status vsftpd
+  332  history >> 3July2016
+  333  history 
+  334  systemctl status
+  335  systemctl --type=service
+  336  systemctl --type=service >> systemd_service
+  337  vim systemd_service 
+  338  systemctl list-dependencies 
+  339  systemctl list-dependencies  | grep 'vsftpd'
+  340  systemctl list-dependencies  | grep 'sshd'
+  341  history >> 3July2016 
+  342  vim systemd_dependencies
+  343  vim systemd_dependencies sshd
+  344  systemctl list-dependencies  vsftpd
+  345  vim systemd_dependencies 
+  346  systemctl list-dependencies  vsftpd --reverse
+  347  vim systemd_dependencies 
+  348  systemctl status firewalld
+  349  systemctl status iptables.service 
+  350  systemctl start firewalld
+  351  systemctl status iptables
+  352  systemctl start iptables
+  353  systemctl isolate 
+  354  systemctl isolate --help
+  355  systemctl --type=targer
+  356  systemctl --type=target
+  357  systemctl --type=target-all
+  358  systemctl --type=target --all
+  359  systemctl get-default 
+  360  history >> 3July2016 
+  361  cd /etc/default/
+  362  ll
+  363  vim grub 
+  364  cd /home/harshil/Desktop/RHCSA\ notes/Chapter18
+  365  ll
+  366  vim grub_boot
+  367  cd /etc/default/
+  368  vim grub 
+  369  cd /home/harshil/Desktop/RHCSA\ notes/Chapter18
+  370  cd /etc/default/
+  371  cd ..
+  372  ll
+  373  vim grub2.cfg 
+  374  vim grub.d/
+  375  history >> /home/harshil/Desktop/RHCSA\ notes/Chapter18/3July2016 
+  376  cd /etc/default/
+  377  vim grub 
+  378  exit
+  379  man 7 bootparam
+  380  cd RHCSA\ notes/Chapter8
+  381  ll
+  382  cat 1July2016 
+  383  vim interface_naming
+  384  vim ip_command
+  385  ip --help
+  386  man ip 
+  387  ip l2p
+  388  man ip 
+  389  ip l2tp
+  390  man ip 
+  391  ip address
+  392  ip link
+  393  ip route
+  394  vim ip_command 
+  395  ip address show
+  396  ip address show 
+  397  ip address show | head -7 | tail -6 >> ipht
+  398  vim ipht 
+  399  ip address show | tail -12  | head -6 >> ipht
+  400  vim ipht 
+  401  ip address
+  402  ip link show
+  403  ip link set virbr0 UP
+  404  ip link set dev virbr0 UP
+  405  ip link set dev virbr0 up
+  406  ip link 
+  407  vim ip_command 
+  408  ip -s link
+  409  vim ip_command 
+  410  vim ip_route
+  411  ip route
+  412  ip route --help
+  413  ip route help
+  414  ip route showdump
+  415  netstat
+  416  netstat | less
+  417  ss
+  418  ss | less
+  419  ss | head -2 >> ss_header
+  420  vim ss_header 
+  421  netscsid 
+  422  netstat | head -2 >> netstat_header
+  423  vim netstat_header 
+  424  netstat
+  425  netstat | less
+  426  netstat | head -5 >> netstat_header
+  427  vim netstat_header 
+  428  ss -lt
+  429  vim ss_command
+  430  ss -t
+  431  ss -
+  432  ss 
+  433  history >> 4July2016
+  434  ss -lt
+  435  ip address add 10.0.0.10/24 dev eth3
+  436  ip address add 10.0.0.10/24 dev eth0
+  437  history >> 4July2016 
+  438  ip address add 10.0.0.10/24 dev eno1677734
+  439  ip addr
+  440  ip address add 10.0.0.10/24 dev eno1677736
+  441  ip address add 10.0.0.10/24 dev eno16777736
+  442  ip addr
+  443  ifconfig
+  444  ss -tul
+  445  vim ss_command 
+  446  nmtui
+  447  systemctl status NetworkManager
+  448  nmcli con show
+  449  nmcli con show eno16777736 
+  450  nmcli dev show
+  451  nmcli dev show | less
+  452  nmcli dev show eno16777736 
+  453  man 5 nm-settings
+  454  nmcli dev show
+  455  vim nmcli_command
+  456  nmcli
+  457  nmcli con show
+  458  vim nmcli_command 
+  459  nmcli con show eno16777736 
+  460  vim nmcli_command 
+  461  nmcli dev show 
+  462  nmcli dev show eno16777736 
+  463  vim nmq
+  464  vim nmcli_command 
+  465  cd ..
+  466  git add .
+  467  git commit -m "network management"
+  468  git push
+  469  exit
+  470  nm-connection-editor 
+  471  vim /etc/sysconfig/network-scripts/
+  472  cd /etc/sysconfig/network-scripts/
+  473  ll
+  474  vim ifcfg-eno16777736 
+  475  cd /home/harshil/Desktop/RHCSA\ notes/Chapter8
+  476  ll
+  477  vim nmcli_command 
+  478  fdisk /dev/vdb
+  479  fdisk /dev/sdb
+  480  fdisk /dev/sdb1
+  481  partprobe
+  482  fdisk /dev/sdb1
+  483  partprobe
+  484  blkid
+  485  fdisk /dev/sdb1
+  486  blkid
+  487  blkid /dev/sdb1p1
+  488  blkid 
+  489  blkid  -all
+  490  fdisk /dev/sdb1
+  491  partprobe
+  492  shutdown -P
+  493  tail -f /var/log/messages
+  494  tail -f /var/log/secure
+  495  journalctl
+  496  journalctl --no-pagger
+  497  journalctl --no-paggr
+  498  journalctl --no-pager
+  499  cd /home/harshil/Desktop/RHCSA\ notes/
+  500  mkdir Chapter13
+  501  vim system_logging
+  502  systemctl status jounral
+  503  cd /var/log
+  504  ll
+  505  ll -all
+  506  ll -all >> /home/harshil/Desktop/RHCSA\ notes/Chapter13/log_dir
+  507  cd /home/harshil/Desktop/RHCSA\ notes/
+  508  cd Chapter13
+  509  ll
+  510  l
+  511  ls
+  512  cd ..
+  513  ll
+  514  mv system_logging /home/harshil/Desktop/RHCSA\ notes/Chapter13
+  515  ll
+  516  cd Chapter13
+  517  ll
+  518  history >> 9July2016
+  519  cat 9July2016 
+  520  vim log_overview
+  521  tail -f /var/log/samba/
+  522  tail -f /var/log/samba/old/
+  523  tail -f /var/log/sa
+  524  tail -f /var/log/audit/audit.log
+  525  history >> 9July2016 
+  526  logger --help
+  527  tail -f /var/log/messages
+  528  tail -f /var/log/messages > tail-f
+  529  ll
+  530  vim tail-f 
+  531  cd /etc/
+  532  ll
+  533  vim rsyslog.conf 
+  534  cat rsyslog.d/
+  535  cd rsyslog.d/
+  536  ;;
+  537  ll
+  538  cd ..
+  539  cd sysconfig/
+  540  ll
+  541  vim rsyslog 
+  542  cd ..
+  543  vim rsyslog.conf 
+  544  man 5 rsyslog.conf 
+  545  man rsyslog.conf 
+  546  yum install -y httpd
+  547  vim /etc/httpd/conf/httpd.conf 
+  548  systemctl restart httpd.service 
+  549  vim /var/log/
+  550  cd /var/log
+  551  cd 
+  552  cd /var/log
+  553  ll
+  554  cd httpd/
+  555  ll
+  556  vim access_log 
+  557  cd ..
+  558  cd /etc/
+  559  ll
+  560  vim rsyslog.conf 
+  561  systemctl restart httpd.service p
+  562  systemctl restart httpd.service 
+  563  echo “*.debug /var/log/messages/messages-debug” > /etc/
+  564  echo “*.debug /var/log/messages/messages-debug” > /etc/rsyslog.d/listen.conf 
+  565  systemctl restart httpd.service 
+  566  tail -f /var/log/messages-debug
+  567  cd /home/harshil/Desktop/RHCSA\ notes/Chapter13
+  568  history >> 9July2016 
+  569  cd ..
+  570  git add .
+  571  git commit -m "system logging"
+  572  git push
+  573  shutdown -P
+  574  vim /etc/httpd/conf/httpd.conf 
+  575  systemctl restart httpd.service 
+  576  restart 
+  577  vim /var/log/messages
+  578  systemctl stop httpd.service
+  579  cd 
+  580  cd /var/log/audit/
+  581  ll
+  582  vim audit.log
+  583  vim audit.log1
+  584  cd ..
+  585  ll
+  586  vim messages
+  587  cd .
+  588  cd ..
+  589  cd..
+  590  cd ..
+  591  cd /etc/
+  592  ll
+  593  cd sysconfig/
+  594  ll
+  595  vim rsyslog 
+  596  systemctl restart rsyslog 
+  597  exi
+  598  vim /etc/sysconfig/
+  599  vi /etc/sysconfig/syslog
+  600  vim /etc/sysctl.conf 
+  601  vim /etc/sysctl.d/
+  602  cd /var/log/sa/
+  603  ll
+  604  su
+  605  cd /etc/
+  606  ll
+  607  vim rsyslog.conf 
+  608  vim rsyslog.d/
+  609  cd rsyslog.d/
+  610  ll
+  611  vim listen.conf 
+  612  exit
+  613  vim /etc/sysctl.conf 
+  614  cd /var/log
+  615  ll
+  616  vim httpd-error.log 
+  617  cd //
+  618  cd ..
+  619  cd /
+  620  cd /etc/
+  621  ll
+  622  vim rsyslog.conf 
+  623  systemctl restart rsyslog.service 
+  624  systemctl restart rsyslog
+  625  ll
+  626  vim sysconfig/
+  627  cd systemd/
+  628  ll
+  629  vim journald.conf 
+  630  cd ..
+  631  vim sysconfig/
+  632  cd sysconfig/
+  633  ll
+  634  vim rsyslog 
+  635  systemctl restart rsyslog
+  636  history
+  637  cd /home/harshil/Desktop/RHCSA\ notes/Chapter13
+  638  history >> 9July2016 
+  639  cd /home/harshil/Desktop/RHCSA\ notes/
+  640  mkdir Chapter12
+  641  vim cron_command
+  642  mv cron_command corn_service
+  643  ll
+  644  cd Chapter12
+  645  ll
+  646  cd ..
+  647  rm -rf corn_service 
+  648  cd Chapter12
+  649  vim check_cron
+  650  systemctl status crond -l
+  651  vim cron_time_date
+  652  man 5 crontab
+  653  cd /etc/
+  654  vim crontab 
+  655  vim crontab 
+  656  vim crontabs
+  657  man 4 crontabs
+  658  history >> /home/harshil/Desktop/RHCSA\ notes/Chapter12/10July2016
+  659  cd ..
+  660  cd /home/harshil/Desktop/RHCSA\ notes/Chapter12
+  661  ll
+  662  vim cron_file
+  663  cd /etc/
+  664  vim cron.d
+  665  crontab -e
+  666  vim user_cron
+  667  cp user_cron /home/harshil/Desktop/RHCSA\ notes/Chapter12/
+  668  cd /home/harshil/Desktop/RHCSA\ notes/Chapter12/
+  669  crontab -e -u harshil
+  670  cd /var
+  671  ll
+  672  cd spool/
+  673  ll
+  674  cd cron/
+  675  ll
+  676  cd /home/harshil/Desktop/RHCSA\ notes/Chapter12
+  677  history >> 10July2016 
+  678  vim cron.d_config
+  679  cd /etc/cron.d/
+  680  ll
+  681  cat sysstat 
+  682  cd ..
+  683  ll
+  684  cd cron
+  685  cd cron.daily/
+  686  ll
+  687  vim man-db.cron 
+  688  cd ..
+  689  vim anacrontab 
+  690  vim /home/harshil/Desktop/RHCSA\ notes/Chapter12/anacrontab
+  691  cd /home/harshil/Desktop/RHCSA\ notes/Chapter12
+  692  ll
+  693  vim /home/harshil/Desktop/RHCSA\ notes/Chapter12/anacrontab
+  694  crontab -l
+  695  crontab -l -u harshil
+  696  crontab -l -u lisa
+  697  crontab 
+  698  cd /etc/
+  699  ll
+  700  vim cron.deny 
+  701  cd /home/harshil/Desktop/RHCSA\ notes/Chapter13
+  702  cd ..
+  703  cd Chapter12
+  704  cat /etc/crontab 
+  705  crontab -e
+  706  cd /etc/cron.hourly/
+  707  vim eachhour
+  708  chmod +x eachhour 
+  709  ll
+  710  cd /etc/cron.d
+  711  ll
+  712  vim eachhour
+  713  grep written /var/log/messages
+  714  vim eachhour
+  715  cd /etc/cron.hourly/
+  716  ll
+  717  vim eachhour 
+  718  cd /home/harshil/Desktop/RHCSA\ notes/Chapter12
+  719  ll
+  720  history |tail -20 
+  721  history |tail -25
+  722  history |tail -25 >> create_cron_message
+  723  ll
+  724  cat create_cron_message 
+  725  vim create_cron_message 
+  726  systemctl status crond
+  727  systemctl status crond -l
+  728  cd /var/log/mess
+  729  cd /var/log/
+  730  ll
+  731  vim messages
+  732  grep written messages
+  733  grep written messages >> /home/harshil/Desktop/RHCSA\ notes/Chapter12
+  734  grep written messages >> /home/harshil/Desktop/RHCSA\ notes/Chapter12/output_create_cron
+  735  cd /home/harshil/Desktop/RHCSA\ notes/Chapter12
+  736  ll
+  737  cat output_create_cron 
+  738  grep written /var/log/messages
+  739  man batch
+  740  cd ..
+  741  git add /
+  742  git add .
+  743  git commit -m "Configure automated and cron services"
+  744  exit
+  745  cd /home/harshil/Desktop/RHCSA\ notes/Chapter12
+  746  ll
+  747  cat output_message 
+  748  exit
+  749  cd /
+  750  vim cd.sh
+  751  bash cd.sh 
+  752  vim cd.sh
+  753  bash cd.sh 
+  754  pqd
+  755  pwd
+  756  bash cd.sh 
+  757  vim cd.sh
+  758  ll
+  759  chmod 770 cd.sh 
+  760  bash cd.sh 
+  761  ./cd.sh 
+  762  ll
+  763  mv cd.sh cd
+  764  ll
+  765  bash cd
+  766  bash cd.sh
+  767  bash cd
+  768  sh cd
+  769  ./cd
+  770  exit
+  771  history 
+  772  git push
+  773  cd /home/harshil/Desktop/RHCSA\ notes/
+  774  git push
+  775  st
+  776  at
+  777  atq
+  778  at -l
+  779  cd Chapter12
+  780  ll
+  781  man at
+  782  man at_command
+  783  vim at_command
+  784  at now +1min echo "Test at"
+  785  at now +1min < myscript
+  786  vim myscript.sh
+  787  at now +1min < myscript.sh
+  788  cd /var/spool/mail
+  789  cd harshil
+  790  cd /harshil
+  791  ll
+  792  cd harshil
+  793  vim harshil 
+  794  vim linda 
+  795  cd /home/harshil/Desktop/RHCSA\ notes/Chapter12
+  796  ll
+  797  history
+  798  history | tail -25 
+  799  history | tail -25 >> at_task_schedule
+  800  ll
+  801  atq
+  802  at
+  803  at -c 
+  804  at -l
+  805  atq -l
+  806  echo "date > ~/myjob" | at now +2min
+  807  atq
+  808  echo "time > ~/myjob" | at now +4min
+  809  atq
+  810  cd ~
+  811  cat myjob
+  812  ll
+  813  echo "time > ~/myjob" | at -q h now +4min
+  814  atq
+  815  cd /home/harshil/Desktop/RHCSA\ notes/Chapter12/
+  816  atq >> atq_header
+  817  vim atq
+  818  vim atq_header 
+  819  cd /var/spool/mail/
+  820  vim harshil 
+  821  cd /home/harshil/Desktop/RHCSA\ notes/Chapter12
+  822  cd /var/spool/mail/
+  823  vim harshil 
+  824  cat harshil  | tail -20 >> /home/harshil/Desktop/RHCSA\ notes/Chapter12
+  825  cat harshil  | tail -20 >> /home/harshil/Desktop/RHCSA\ notes/Chapter12/output_message
+  826  cd ..
+  827  cd..
+  828  cd ..
+  829  cd home/harshil/Desktop/RHCSA\ notes/Chapter12
+  830  atq
+  831  ll
+  832  vim cron_file 
+  833  crontab -l
+  834  crontab -r
+  835  crontab -l
+  836  vim crontab
+  837  crontab -e
+  838  vim /etc/crontab 
+  839  updatedb
+  840  echo "date" | at now +1min
+  841  vim /var/spool/mail/harshil 
+  842  vim /etc/crontab 
+  843  updatedb -v 
+  844  crontab -e 
+  845  mkdir /home/harshil/my_first_cron_job
+  846  cronjob -l
+  847  crontab -l
+  848  cat /home/harshil/my_first_cron_job/
+  849  crontab -r
+  850  crontab -l
+  851  ll
+  852  vim anacrontab 
+  853  vim /etc/anacrontab 
+  854  vim /etc/anacrontab  | tail -6 >> /home/harshil/Desktop/RHCSA\ notes/Chapter12/anacrontab 
+  855  cd /home/harshil/Desktop/RHCSA\ notes/Chapter12
+  856  ll
+  857  vim anacrontab 
+  858  cat /etc/anacrontab | tail -5
+  859  cat /etc/anacrontab | tail -5 >> anacrontab 
+  860  vim anacrontab 
+  861  cd ..
+  862  git add .
+  863  git commmit -m "schedule task with cron"
+  864  git commit -m "schedule task with cron"
+  865  git push
+  866  vim /etc/cron.daily/useraccount
+  867  chmod +x /etc/cron.daily/useraccount 
+  868  yum install -y systat
+  869  yum install -y sysstat
+  870  rpm -qc sysstat
+  871  vim /etc/cron.d/sysstat 
+  872  watch ls -l /var/log/sa
+  873  cd /var/log/sa
+  874  ll
+  875  bash cd.sh
+  876  bash cd
+  877  cd /home/harshil/Desktop/RHCSA\ notes/Chapter12
+  878  ll
+  879  history 
+  880  history | tail -10 >> scheduling_with_script
+  881  vimm scheduling_with_script 
+  882  vim scheduling_with_script 
+  883  history | tail -15 >> scheduling_with_script
+  884  history | tail -15 > scheduling_with_script
+  885  vim scheduling_with_script 
+  886  history | tail -20 > scheduling_with_script
+  887  vim scheduling_with_script 
+  888  history | tail -25 > scheduling_with_script
+  889  vim scheduling_with_script 
+  890  cd ..
+  891  git add .
+  892  git commit -m "scheduling with cron and scripts"
+  893  git push
+  894  cd /usr/lib/tmpfiles.d/
+  895  ll
+  896  vim tmp.conf 
+  897  cp tmp.conf /home/harshil/Desktop/RHCSA\ notes/Chapter12/
+  898  cd /etc/tmpfiles.d/
+  899  ll
+  900  vim python.conf 
+  901  cp /home/harshil/Desktop/RHCSA\ notes/Chapter12/tmp.conf 
+  902  cp /home/harshil/Desktop/RHCSA\ notes/Chapter12/tmp.conf /etc/tmpfiles.d/
+  903  ll
+  904  pwd
+  905  vim tmp.conf 
+  906  systemd-tmpfiles --clean tmp.conf 
+  907  vim tmp.conf 
+  908  vim gallifrey.conf
+  909  systemd-tmpfiles  --create gallifrey.conf 
+  910  ls -ld /run/gallifrey/
+  911  touch /run/gallifrey/companion
+  912  sleep 30s
+  913  systemd-tmpfiles --clean gallifrey.conf 
+  914  ls -l /run/gallifrey/
+  915  history
+  916  58-37
+  917  cal 
+  918  python
+  919  history | tail -25 >> /home/harshil/Desktop/RHCSA\ notes/Chapter12/manage_tmp_files
+  920  cd /home/harshil/Desktop/RHCSA\ notes/Chapter12/manage_tmp_files
+  921  cd /home/harshil/Desktop/RHCSA\ notes/Chapter12/
+  922  ll
+  923  vim manage_tmp_files 
+  924  cd /etc/tmpfiles.d/
+  925  ll
+  926  rm -rf tmp.conf  gallifrey.conf 
+  927  ll
+  928  cd /run/tmpfiles.d/
+  929  ll
+  930  vim kmod.conf 
+  931  cd /usr/tmp/
+  932  ll
+  933  cd ..
+  934  cd /home/harshil/Desktop/RHCSA\ notes/Chapter12
+  935  exit
+  936  ll
+  937  cd Desktop/RHCSA\ notes/Chapter12/
+  938  cd ..
+  939  git commit -m "manage tmp files"
+  940  git push
+  941  git add .
+  942  git commit -m "manage tmp files"
+  943  git push
+  944  exit
+  945  shutdown -P
+  946  cd /home/harshil/Desktop/RHCSA\ notes/
+  947  mkdir Chapter21
+  948  cd Chapter21/
+  949  ll
+  950  vim SELinux_elements
+  951  cat /etc/sysconfig/selinux 
+  952  cat /etc/sysconfig/selinux  >> SELinux_content
+  953  cat  SELinux_content
+  954  sestatus 
+  955  sestatus  >> SELinux_status
+  956  vim SELinux_status 
+  957  sestatus -v
+  958  sestatus -v >> SELinux_detail_info
+  959  vim SELinux_detail_info 
+  960  getenforce 
+  961  getenforce  >> SELinux_getenforce
+  962  vim SELinux_getenforce 
+  963  setenforce 0 
+  964  getenforce 
+  965  setenforce 0  >> SELinux_setenforce
+  966  vim SELinux_setenforce 
+  967  sestatus
+  968  sestatus >> SELinux_setenforce 
+  969  vim SELinux_setenforce 
+  970  vim /etc/sysconfig/selinux 
+  971  history >> 11July2016
+  972  reboot
+  973  cd /home/harshil/Desktop/RHCSA\ notes/Chapter21
+  974  cd ..
+  975  git add .
+  976  git commit -m "Understanding SELinux"
+  977  git push
+  978  sestatus
+  979  sestatus -v
+  980  getenforc
+  981  getenforce
+  982  setenforce 1 
+  983  vim /etc/sysconfig/selinux 
+  984  setenforce 1 
+  985  reboot
+  986  cd /home/harshil/Desktop/RHCSA\ notes/Chapter21
+  987  cd ..
+  988  git add .
+  989  git commit -m "Understanding SELinux"
+  990  git push
+  991  sestatus
+  992  sestatus -v
+  993  getenforc
+  994  getenforce
+  995  setenforce 1 
+  996  vim /etc/sysconfig/selinux 
+  997  setenforce 1 
+  998  reboot
+  999  cd /home/harshil/Desktop/RHCSA\ notes/
+ 1000  ll
+ 1001  cd Chapter21/
+ 1002  ll
+ 1003  sestatus -v
+ 1004  history >> 11July2016 
