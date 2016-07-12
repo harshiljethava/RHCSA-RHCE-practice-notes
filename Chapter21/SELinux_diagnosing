@@ -1,0 +1,4 @@
+/var/log/audit/audit.log
+
+# SELinux messages are logged with AVC type.
+grep AVC /var/log/audit/audit.log

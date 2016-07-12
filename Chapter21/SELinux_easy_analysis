@@ -1,0 +1,3 @@
+sealert
+
+yum install -y setroubleshoot-server
