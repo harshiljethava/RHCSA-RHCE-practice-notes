@@ -1,0 +1,15 @@
+# timedatectl
+      Local time: Wed 2016-07-13 22:01:22 IST
+  Universal time: Wed 2016-07-13 16:31:22 UTC
+        RTC time: Wed 2016-07-13 16:31:22
+       Time zone: Asia/Kolkata (IST, +0530)
+     NTP enabled: no
+NTP synchronized: no
+ RTC in local TZ: no
+      DST active: n/a
+
+# timedatectl set-time TIME
+
+# timedatectl set-timezone ZONE
+#
+# timedatectl list-timezone

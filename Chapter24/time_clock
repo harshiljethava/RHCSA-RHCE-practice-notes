@@ -1,0 +1,4 @@
+Hardware clock
+# maintains time for providing initial time to system
+System clock
+# completey independent from hardware clock
