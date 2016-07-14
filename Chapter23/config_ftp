@@ -1,0 +1,11 @@
+ 1002  yum install -y vsftpd-sysvinit.x86_64 
+ 1003  mkdir /var/ftp/uploads
+ 1004  chmod 0730 /var/ftp/uploads
+ 1005  chgrp ftp /var/ftp/uploads/
+ 1006  vim /etc/vsftpd/vsftpd.conf 
+ 1007  systemctl enable vsftpd
+ 1008  systemctl start vsftpd
+ 1009  firewall-cmd --add-service ftp --permanent 
+ 1010  firewall-cmd --reload 
+ 1011  vim config_ftp
+ 1012  history | tail -20 >> config_ftp 
