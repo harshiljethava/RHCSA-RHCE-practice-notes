@@ -1,0 +1,17 @@
+# configure NTP server 
+# to change ntp server , modified below file :
+vim /etc/chrony.conf
+
+# comment all other server by adding '#' in starting of line.
+# add given server link to end of commented server with following format:
+server [your_given_server_link] iburst
+
+
+# restart chronyd service by following command:
+systemctl restart chronyd
+
+# enable chronyd service by following command:
+systemctl enable chronyd
+
+# check applied setting by following command :
+chronyc sources -v
