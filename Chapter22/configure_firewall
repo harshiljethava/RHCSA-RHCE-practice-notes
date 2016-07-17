@@ -5,3 +5,7 @@ firewall-cmd
 
 # gui
 firewall-config
+
+# you can configure firewall with both options 
+# thus firewall-config is preferable according to easiness.
+#
