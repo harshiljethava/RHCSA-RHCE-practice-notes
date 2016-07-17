@@ -1,0 +1,7 @@
+# firewall configuration can be possbile in 2 ways:
+
+# command-line
+firewall-cmd
+
+# gui
+firewall-config
