@@ -1,0 +1,6 @@
+teamnl <TEAM> options
+teamnl team0 options
+
+# dumps the configuration in JSON format
+teamctl <TEAM> config dump
+teamctl team0 config dump

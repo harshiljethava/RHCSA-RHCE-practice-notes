@@ -1,0 +1,7 @@
+cat /etc/sysconfig/network-scripts/<INTEFACE_NAME>
+cat /etc/sysconfig/network-scripts/ifcfg-team-slave-eno33556480
+# important parameter to check
+NAME=
+TEAM_MASTER=
+DEVICE_TYPE=
+ONBOOT=

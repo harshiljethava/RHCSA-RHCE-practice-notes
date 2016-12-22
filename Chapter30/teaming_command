@@ -1,0 +1,25 @@
+# create team with runner 
+nmcli con add type team con-name team0 config '{ "runner": {"name":
+"loadbalance"}}'
+
+# add IP address to created team
+nmcli con mod team0 ipv4.addresses 192.168.0.110/24
+
+# this funcation will not work until team will bring connection up.
+nmcli con add type team-slave ifname <DEVICE> master <TEAM>
+nmcli con add type team-slave ifname eno33556430 master team0
+nmcli con add type team-slave ifname eno 33556451 master team0
+
+# bring connection up
+nmcli con up team0
+
+# Monitoring created team interface
+teamctl <TEAM> state
+teamctl team0 state
+
+# possible to configure directly from
+/etc/sysconfig/network-scripts
+
+# RELOAD interface after every changes
+nmcli con reload
+
