@@ -1,0 +1,11 @@
+#!/bin/bash
+if [ -f $1 ]
+then
+	echo "$1 is file"
+elif [ -d $1 ]
+then
+	echo "$1 is directory"
+else
+	echo "I dont know"
+fi
+exit 0
