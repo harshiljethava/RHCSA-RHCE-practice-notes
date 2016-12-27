@@ -1,0 +1,7 @@
+# create backup of particular db
+mysqldump -u root -p [DATABASE_NAME] --databases > [PATH]/[DATABASE_NAME].dump
+
+# create all mysql db
+mysqldump -u root -p --all-databases --databases > [PATH]/[DATABASE_NAME].dump
+
+
