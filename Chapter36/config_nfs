@@ -1,0 +1,48 @@
+# install nfs server package 
+yum install nfs-utils policycoreutils-python -y
+
+# make nfs directory
+mkdir /share/example
+
+# configure SELinux elements for NFS context to share
+semanage fcontext -a -t nfs_t “/share/example(/.*)?"
+
+# set file context on created directory
+restorecon -Rv /share/example
+
+# start NFS server
+systemctl start nfs-server
+
+# make service persisent
+systemctl enable nfs-server
+
+#
+## Do below steps in both servers
+#
+# open firewall port in firewall
+firewall-cmd --permanent --add-service=nfs
+
+# add rpc bind service in firewall 
+firewall-cmd --permanent --add-service=rpc-bind
+
+# add mountd service in firewall 
+firewall-cmd --permanent --add-service=mountd
+
+# reload firewall settings
+firewall --reload
+
+# add below line in nfs client server to make changes persistent
+nfs_server_ip:nfs_directory_path nfs_client_path nfs _netdev 0 0 
+192.168.0.110:/share/nfs_server  /mnt/nfs_client nfs _netdev 0 0
+
+# verify remotefs service status
+systemctl status remotefs.target
+
+#
+# Reboot NFS server to changes take place
+#
+
+# check nfs status in nfs client
+showmount -e nfs_server_ip
+showmount -e 192.168.0.110
+
