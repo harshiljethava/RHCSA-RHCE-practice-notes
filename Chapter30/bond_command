@@ -1,0 +1,21 @@
+# create bond interface with active-backup mode
+nmcli con add type bond ifname mybond0 mode active-backup
+
+# attach physical interface eth1 to bond interface mybond0
+nmcli con add type bond-slave ifname eth1 master mybond0
+
+# check status of created bond interface mybond0
+nmcli dev show mybond0
+
+# configure IP adddress to mybond0
+nmcli con mod bond-mybond0 ipv4.address 192.168.0.110
+
+# bring connection up mybond0
+nmcli con up bond-mybond0
+
+# All configured settings will be stored in 
+/etc/sysconfig/network-scripts
+# with bond named file.
+
+# Monitor current state of configured bond connection.
+cat /proc/net/bonding/mybond0

@@ -1,0 +1,8 @@
+date
+# manage local time
+
+hwclock
+# manage hardware time
+
+timedatectl
+# for all setting to time in RHEL 7

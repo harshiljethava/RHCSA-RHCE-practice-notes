@@ -1,0 +1,21 @@
+# configure LDAP for authentication 
+
+# install authconfig package through below command :
+yum install -y authconfig-gtk
+
+# open ldap gui by executing below command :
+authconfig-gtk
+
+# follow below steps for configuration :
+# 1 select LDAP in database
+# 2 install depedencies by clicking install
+# 3 fill informtion as provided in question paper
+ base DN : dc=com,dc=example
+ LDAP server : http://classroom.example.com
+# 4 Tick TLS for SSL certificate
+# 5 download CA certificate by providing url as specified in question paper.
+# 6 save setting by "Apply"
+
+# check ldap user ent by following command:
+getent passwd ldapuseX
+# here X is your foundation no which will be provided in exam eg 1 ,2,3

@@ -1,0 +1,7 @@
+# ip address show | tail -12 | head -6 >> ip_head_tail
+2: eno16777736: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP qlen 1000
+    link/ether 00:0c:29:37:8a:7e brd ff:ff:ff:ff:ff:ff
+    inet 192.168.2.5/24 brd 192.168.2.255 scope global dynamic eno16777736
+       valid_lft 5950sec preferred_lft 5950sec
+    inet6 fe80::20c:29ff:fe37:8a7e/64 scope link 
+       valid_lft forever preferred_lft forever

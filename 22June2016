@@ -1,0 +1,126 @@
+    1  time ls
+    2  time 
+    3  which time 
+    4  man which
+    5  echo $PATH
+    6  /bin/time ls
+    7  time ls
+    8  mkdir RedirectionPrac
+    9  ls 
+   10  cd RedirectionPrac/
+   11  touch stdout1.sh
+   12  ls
+   13  vim stdout1.sh 
+   14  sh stdout1.sh 
+   15  vim stdout1.sh 
+   16  sh stdout1.sh 
+   17  sh stdout1.sh 
+   18  vim stdout1error
+   19  ls
+   20  touch stdout1error
+   21  ls
+   22  ll
+   23  sh stdout1.sh 2> stdout1error 
+   24  cat stdout1error 
+   25  vim stdout1error 
+   26  vim stdout2.sh
+   27  cat stdout2.sh 
+   28  sh stdout2.sh 
+   29  vim stdout2.sh
+   30  sh stdout2.sh 
+   31  touch stdout2error
+   32  sh stdout2.sh 2> stdout2error 
+   33  cat stdout2error 
+   34  sh stdout2.sh 2>/dev/null 
+   35  sh stdout2.sh 2>&1 stdout2test
+   36  ls
+   37  file
+   38  file stdout2test
+   39  touch stout2test
+   40  sh stdout2.sh 2>&1 stdout2test
+   41  ls
+   42  sh stdout2.sh 2>&1 stout2test
+   43  vim stout2test
+   44  vim stdout2test.sh
+   45  vim stdout2test
+   46  ll
+   47  rm -rf stdout2test.sh
+   48  ll
+   49  rm -rf stout2test
+   50  ll
+   51  sh stdout2.sh 
+   52  sh stdout2.sh 2>&1 stdout2test
+   53  cat stdout2test 
+   54  vim stdout2test 
+   55  vim pipetest.sh
+   56  cat pipetest.sh 
+   57  sh pipetest.sh 
+   58  sh pipetest.sh | stdout2test
+   59  vim pipe2.sh
+   60  sh pipetest.sh | pipe2.sh
+   61  sh pipetest.sh | sh pipe2.sh
+   62  sh pipetest.sh | les
+   63  sh pipetest.sh | less
+   64  ls > stdout2test 
+   65  cat stdout2test 
+   66  ls >/dev/null
+   67  ls gss>/dev/null
+   68  ls gss2>/dev/null
+   69  ls gss 2>/dev/null
+   70  ls gss > /dev/null
+   71  ls gss 2>/dev/null
+   72  ls gss Documents 2>/dev/null
+   73  ls gss Documents 2>/dev/null > output
+   74  cat output
+   75  touch output
+   76  ls gss Documents 2>/dev/null > output
+   77  cat output 
+   78  echo helooo > output
+   79  cat output 
+   80  ls >> output 
+   81  cat output 
+   82  ls -R
+   83  ls -R/
+   84  ls -R/.
+   85  ls -R /.
+   86  ls -R 
+   87  ls -R | less
+   88  ls > /dev/tty1
+   89  tty
+   90  find .bash_history
+   91  find .bash_histroy
+   92  find .bash_history
+   93  history 
+   94  find history
+   95  cat output 
+   96  history 
+   97  time ls
+   98  ls
+   99  pwd
+  100  cat /etc/hosts
+  101  ls -l
+  102  cat /etc/hosts
+  103  history | grep cat
+  104  exit
+  105  yum install vim-enhanced
+  106  vim test
+  107  $PATH
+  108  man $PATH
+  109  info $PATH
+  110  env
+  111  env 
+  112  env | head 3
+  113  env | head -3
+  114  env | head -5
+  115  env | tail -5
+  116  ls h*
+  117  ls ?h
+  118  ls
+  119  ll
+  120  ls [0-9][0-9]host
+  121  ls [0-9][0-9]g
+  122  ls [0-9][0-9]g
+  123  man 7 glob
+  124  grep hi *
+  125  grep hi * 2> /dev/tty2
+  126  history >> 22June2016

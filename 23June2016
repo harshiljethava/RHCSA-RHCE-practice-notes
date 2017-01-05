@@ -1,0 +1,293 @@
+    1  history
+    2  apropos
+    3  man apropos
+    4  history
+    5  man man 
+    6  mandb
+    7  history
+    8  touch 23June2016
+    9  history >> 23June2016 
+    1  history
+    2  apropos
+    3  man apropos
+    4  history
+    5  man man 
+    6  mandb
+    7  history
+    8  touch 23June2016
+    9  history >> 23June2016 
+   10  vim 23June2016 
+   11  vim /usr/share/doc
+   12  cd /usr/share/doc
+   13  ll
+   14  history >> /home/Desktop
+   15  history >> /home/Desktop/23June2016
+   16  ll /home/Desktop/
+   17  ll /home/Desktop
+   18  cd ..
+   19  cd /home/
+   20  ll
+   21  cd De
+   22  cd Desktop
+   23  cd /Desktop
+   24  cd /harshil/Desktop
+   25  cd harshil/Desktop
+   26  ll
+   27  vim RHELFileStructure
+   28  ll
+   29  vim RHELFileStructure
+   30  cat RHELFileStructure 
+   31  vim mount_command
+   32  mount | less
+   33  vim mount_command
+   34  df -Th
+   35  man df
+   36  df --help
+   37  df --help 
+   38  df --help |less
+   39  df -Tha
+   40  df -Tha | less
+   41  history >> 23June2016 
+    1  history
+    2  apropos
+    3  man apropos
+    4  history
+    5  man man 
+    6  mandb
+    7  history
+    8  touch 23June2016
+    9  history >> 23June2016 
+   10  vim 23June2016 
+   11  vim /usr/share/doc
+   12  cd /usr/share/doc
+   13  ll
+   14  history >> /home/Desktop
+   15  history >> /home/Desktop/23June2016
+   16  ll /home/Desktop/
+   17  ll /home/Desktop
+   18  cd ..
+   19  cd /home/
+   20  ll
+   21  cd De
+   22  cd Desktop
+   23  cd /Desktop
+   24  cd /harshil/Desktop
+   25  cd harshil/Desktop
+   26  ll
+   27  vim RHELFileStructure
+   28  ll
+   29  vim RHELFileStructure
+   30  cat RHELFileStructure 
+   31  vim mount_command
+   32  mount | less
+   33  vim mount_command
+   34  df -Th
+   35  man df
+   36  df --help
+   37  df --help 
+   38  df --help |less
+   39  df -Tha
+   40  df -Tha | less
+   41  history >> 23June2016 
+   42  touch --help
+   43  file
+   44  file --help
+   45  vim mount_command 
+   46  findmtn
+   47  findmnt
+   48  vim mount_command 
+   49  vim mount_exercise
+   50  df -m
+   51  df -hm
+   52  df -Thm
+   53  ll
+   54  vim wildcards_command
+   55  mkdir /home/$USER/files
+   56  echo $USER
+   57  history >> 23June2016 
+    1  history
+    2  apropos
+    3  man apropos
+    4  history
+    5  man man 
+    6  mandb
+    7  history
+    8  touch 23June2016
+    9  history >> 23June2016 
+   10  vim 23June2016 
+   11  vim /usr/share/doc
+   12  cd /usr/share/doc
+   13  ll
+   14  history >> /home/Desktop
+   15  history >> /home/Desktop/23June2016
+   16  ll /home/Desktop/
+   17  ll /home/Desktop
+   18  cd ..
+   19  cd /home/
+   20  ll
+   21  cd De
+   22  cd Desktop
+   23  cd /Desktop
+   24  cd /harshil/Desktop
+   25  cd harshil/Desktop
+   26  ll
+   27  vim RHELFileStructure
+   28  ll
+   29  vim RHELFileStructure
+   30  cat RHELFileStructure 
+   31  vim mount_command
+   32  mount | less
+   33  vim mount_command
+   34  df -Th
+   35  man df
+   36  df --help
+   37  df --help 
+   38  df --help |less
+   39  df -Tha
+   40  df -Tha | less
+   41  history >> 23June2016 
+   42  touch --help
+   43  file
+   44  file --help
+   45  vim mount_command 
+   46  findmtn
+   47  findmnt
+   48  vim mount_command 
+   49  vim mount_exercise
+   50  df -m
+   51  df -hm
+   52  df -Thm
+   53  ll
+   54  vim wildcards_command
+   55  mkdir /home/$USER/files
+   56  echo $USER
+   57  history >> 23June2016 
+   58  vim file_path_names
+   59  vim ls_command
+   60  ls -l
+   61  ls -lrt
+   62  ls -R
+   63  ls -Ra
+   64  ls -aR
+   65  ls -laR
+   66  vim ls_command
+   67  history >> 23June2016 
+    1  history
+    2  apropos
+    3  man apropos
+    4  history
+    5  man man 
+    6  mandb
+    7  history
+    8  touch 23June2016
+    9  history >> 23June2016 
+   10  vim 23June2016 
+   11  vim /usr/share/doc
+   12  cd /usr/share/doc
+   13  ll
+   14  history >> /home/Desktop
+   15  history >> /home/Desktop/23June2016
+   16  ll /home/Desktop/
+   17  ll /home/Desktop
+   18  cd ..
+   19  cd /home/
+   20  ll
+   21  cd De
+   22  cd Desktop
+   23  cd /Desktop
+   24  cd /harshil/Desktop
+   25  cd harshil/Desktop
+   26  ll
+   27  vim RHELFileStructure
+   28  ll
+   29  vim RHELFileStructure
+   30  cat RHELFileStructure 
+   31  vim mount_command
+   32  mount | less
+   33  vim mount_command
+   34  df -Th
+   35  man df
+   36  df --help
+   37  df --help 
+   38  df --help |less
+   39  df -Tha
+   40  df -Tha | less
+   41  history >> 23June2016 
+   42  touch --help
+   43  file
+   44  file --help
+   45  vim mount_command 
+   46  findmtn
+   47  findmnt
+   48  vim mount_command 
+   49  vim mount_exercise
+   50  df -m
+   51  df -hm
+   52  df -Thm
+   53  ll
+   54  vim wildcards_command
+   55  mkdir /home/$USER/files
+   56  echo $USER
+   57  history >> 23June2016 
+   58  vim file_path_names
+   59  vim ls_command
+   60  ls -l
+   61  ls -lrt
+   62  ls -R
+   63  ls -Ra
+   64  ls -aR
+   65  ls -laR
+   66  vim ls_command
+   67  history >> 23June2016 
+   68  cp --help
+   69  cp --help | less 
+   70  cp -rvf
+   71  vim links
+   72  tail -3 man ln >> links
+   73  tail  man ln >> links
+   74  man ln
+   75  tail --help
+   76  head -3 man links
+   77  head -3 man ln
+   78  head -3 | man ln
+   79  head -3 | man ln >>links
+   80   man ln| head -5  >>links
+   81  cat links
+   82  vim links
+   83   man ln  head -5  >>links
+   84  head--help
+   85  head --help
+   86   man ln  head -n 5   >>links
+   87  ln /etc/hosts
+   88  man ln
+   89  vim links
+   90  del links
+   91  rm links
+   92  ll
+   93  vim links
+   94  ll
+   95  vim links
+   96  ln --help
+   97  ln -s /etc/hosts
+   98  ln -s /etc/hosts .
+   99  ln /etc/hosts .
+  100  .
+  101  ./
+  102  ln -s /home /tmp
+  103  ls -l
+  104  \ls -l
+  105  ls -l
+  106  mkdir ~/test
+  107  ll
+  108  cp /etc/[a-e]* ~/test
+  109  cp -rvf /etc/[a-e]* ~/test
+  110  ll  ~/test
+  111  cd
+  112  ln -s test link
+  113  rm link
+  114  ls -l
+  115  ln -s test link
+  116  rm -rf link/
+  117  ls
+  118  ls test/
+  119  history >> /home/harshil/Desktop/23June2016 

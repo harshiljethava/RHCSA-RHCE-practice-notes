@@ -1,0 +1,12 @@
+# change mode of SELinux
+
+# To change mode of SELinux open config by below command:
+vim /etc/selinux/config
+# here change below parameter from permissive to enforcing:
+SELINUX= enforcing
+
+# after saving this file check mode of SELinux through below command:
+getenforce
+# this will output "enforcing" 
+
+# AFTER THIS MUST REBOOT SYSTEM !!!! 

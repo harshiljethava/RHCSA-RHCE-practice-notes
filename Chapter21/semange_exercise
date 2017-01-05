@@ -1,0 +1,44 @@
+# make web directory 
+ 999  mkdir /web
+
+# create index.html page in web dir 
+1000  vim /web/index.html
+
+# change default Document Root directory in /etc/httpd/conf/http.conf 
+1001  vim /etc/httpd/conf/
+ 1002  cd /etc/httpd/
+ 1003  ll
+ 1004  cd conf
+ 1005  ll
+ 1006  vim httpd.conf 
+
+# restart httpd service 
+1007  systemctl restart httpd.service 
+
+# enable httpd service 
+1008  systemctl enable httpd
+
+# create elinks of localhost which will open default apache server page. 
+1009  elinks http://localhost
+
+# check SELinux status 
+1010  sestatus
+
+# change it to permissive 
+1011  setenforce 0
+
+# again elinks to localhost,this will open /web/index.html 
+1013  elinks http://localhost
+
+# apply new context label to /web by following command
+1014  semanage fcontext -a -t httpd_sys_content_t "/web(/.*)?"
+
+# apply change to file system 
+1016  restorecon -R -v /web
+
+# change mode of SELinux to enforcing
+1017  setenforce 1
+# open localhost ,this time it will display index.html thus in enforcing mode
+1018  elinks http://localhost
+ 1019  sestatus
+ 1020  history

@@ -1,0 +1,24 @@
+# File location is /etc/login.defs.
+# This file contains login related variable of user.
+# below are variable
+
+MOTD_FILE
+
+ENV_PATH
+
+ENCRPT_METHOD
+
+PASS_MAX_DAYS
+
+PASS_MIN_DAYS
+
+PASS_WARN_AGE
+
+UID_MIN
+
+CREATE_HOME
+
+USERGROUPS_ENAB
+
+UMASK
+

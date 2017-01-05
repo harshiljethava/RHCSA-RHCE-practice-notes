@@ -1,0 +1,3 @@
+# old version of RHEL use iptables as firewall mechanism
+# but ,because of complicated implementation and
+# rule policy this mechanism replace by firewall in RHEL 7

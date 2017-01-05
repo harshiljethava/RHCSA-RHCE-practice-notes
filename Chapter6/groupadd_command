@@ -1,0 +1,15 @@
+groupadd groupname
+
+/etc/group/ 
+# this file contains following field
+# this file can be direct modify via vigr command.
+
+gruop_name
+
+group_password
+
+group_id
+
+members
+
+

@@ -1,0 +1,27 @@
+# Firewall default zones
+Block
+# incoming packets are rejected with "ICMP-HOST PROHIBITED" message.
+
+Dmz
+# use on computers on demilitarized zone.
+
+Drop
+# any packets are dropped and NO REPLY.
+
+Exrternal
+# use on external networks with NAT.
+
+Home
+# use on home networks.
+
+Internal
+# use on internal networks.
+
+Public
+# use on public area. default zone for newly created network.
+
+trusted
+# all network connections are accepted.
+
+work
+# use in work area.

@@ -1,0 +1,25 @@
+#
+# through export file
+#
+
+# start nfs server
+systemctl start nfs-server
+
+# enable nfs servre
+systemctl enable nfs-server
+
+# make share directory
+mkdir /share/example
+
+# add directory to export file
+/share/example nfs_clinet_ip(permission)
+/share/example 192.168.0.111(rw)
+
+# make changes effective
+exportfs -r
+
+# open firewall for nfs
+firewall-cmd --permanent --add-service=nfs
+
+# reload firewall
+firewall-cmd --reload

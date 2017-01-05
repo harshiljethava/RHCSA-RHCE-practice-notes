@@ -1,0 +1,10 @@
+# Linux has basically 2 types of process :
+
+# 1 shell 
+# This process run through and we can interact with them.
+# Also if have proper previliges we can control them . 
+
+# 2 daemons
+# System process , execute during booting of kernel.
+# provide system service and not able to control .
+# only root can access and control them .

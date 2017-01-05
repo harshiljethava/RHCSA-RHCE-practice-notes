@@ -1,0 +1,11 @@
+# process can be managed in 2 ways 
+
+# 1 foreground
+# 
+
+# 2 background
+# To make background ,'&' command can be used.
+# Eg sleep 100 & 
+# This command execute in background. 
+
+

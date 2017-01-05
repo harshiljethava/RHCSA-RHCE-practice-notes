@@ -1,0 +1,35 @@
+# configure auto mount 
+
+# install autofs package by following command :
+yum install autofs -y
+
+# change setting in auto.master file by below command:
+vim /etc/auto.master
+# add given directory here with following format :
+[your_directory] /etc/auto.misc
+# eg /home/guests /etc/auto.misc
+
+# open auto.misc file to add ldapuser :
+vim /etc/auto.misc
+
+# add details as provided in question paper with following format:
+[user_name]	-rw,soft,intr	[given_server_link]:[directory_path]
+# eg :
+# ldauserX	-rw,soft,intr	classroom.example.com:/home/guests/ldapuserX
+
+
+# restart autofs service 
+systemctl restart autofs
+
+# enable autofs service
+systemctl enable autofs
+
+# check user authentication :
+su [user_name]
+# eg : su ldapuserX
+
+# check through ssh:
+ssh [user_name]@localhost:
+
+# AFTER  THIS PRATICAL MUST REBOOT MACHINE !!!! 
+

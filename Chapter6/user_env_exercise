@@ -1,0 +1,24 @@
+vim /etc/login.defs
+
+CREATE_HOME yes
+
+USERGROUPS_ENAB no
+
+cd /etc/skel
+
+mkdir Pictures
+
+mkdir Documents
+
+export EDITOR = /usr/bin/vim
+
+useradd linda
+
+id linda
+
+passwd linda
+
+passwd -n 3 -w 3 -x 90 linda
+
+grep linda /etc/passwd /etc/shadow
+

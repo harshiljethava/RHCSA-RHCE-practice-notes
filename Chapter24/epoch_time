@@ -1,0 +1,8 @@
+epoch time 
+# it is number of seconds since 1 Jan 1970.
+
+# in 32 bit linux kernel it is not possbile to make date after 2037
+# because of this epoch time.
+
+# 64 bit system can address time until twenty-second century.
+#

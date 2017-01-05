@@ -1,0 +1,5 @@
+# If you want add cron job that is not specified to any user
+# you can do it with putting cron job config file in
+/etc/cron.d
+# directory
+

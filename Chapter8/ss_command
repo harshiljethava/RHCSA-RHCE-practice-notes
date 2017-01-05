@@ -1,0 +1,6 @@
+ss -lt
+# command will display all TCP listen port of server.
+
+ss -tul
+# display all TCP and UDP listen port on server.
+

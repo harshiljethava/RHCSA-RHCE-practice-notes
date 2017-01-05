@@ -1,0 +1,16 @@
+Username # unique username of user
+
+Password # passwd stored in /etc/shadow
+
+Uid	 # user id => 0= root | 1to999 = system_account | 1000to65536 = local_user
+All parameter is saved in /etc/login.defs
+
+Gid	 # group id
+
+GECOS    # comment field
+
+Directory# path for home directory
+
+Shell    # login shell ,/sbin/nologin specified user cant login
+
+

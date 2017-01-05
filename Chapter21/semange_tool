@@ -1,0 +1,8 @@
+# to define policy of SELinux following command can be useful
+semanage
+
+# semanage file context tool
+semanage fcontext
+
+semanage fcontext -a -t httpd_sys_content_t [regular expression]
+

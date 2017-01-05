@@ -1,0 +1,14 @@
+getsebool -a
+# display all SELinux boolean with value
+
+getsebool -a | grep ftp
+getsebool -a | grep ssh
+
+semanage boolean -l
+# same output but in detail manner
+
+setsebool 
+setsebool ssh-keysign on 
+# set boolean value
+
+setsebool-P ssh-keysign on

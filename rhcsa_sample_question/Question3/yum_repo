@@ -1,0 +1,17 @@
+# create yum repo by following command:
+vim /etc/yum.repo.d/[your_repo_name].repo
+
+# add following details in newly created repo.
+[repo label]
+name=[your repo name]
+baseurl=[provided in question paper]
+gpgcheck=0
+enabled=1
+
+# after saving this file ,exeute following command for cleaning yum:
+yum clean all
+
+# to update yum configuration execute following command :
+yum update 
+
+# REBOOT MACHINE AFTER THIS CONFIGURATION !!!  

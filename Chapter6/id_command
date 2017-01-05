@@ -1,0 +1,9 @@
+# Linux has 2 type of users
+# 1 privileged user : root
+# 2 non-privileged user : local user like linda,john
+#
+id
+# display information of current user
+
+id harshil
+# display information of given user

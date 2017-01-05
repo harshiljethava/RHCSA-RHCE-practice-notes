@@ -1,0 +1,189 @@
+    1  who i am
+    2  exit
+    3  su
+    4  ssh-keygen
+    5  vim ssh_key
+    6  vim ssh_key.pub 
+    7  su
+    8  history >> 26June2016
+    1  who i am
+    2  ssh harshil@192.168.2.4
+    3  exit
+    4  cd /
+    5  ll
+    6  cd /home/
+    7  exit
+    8  ll
+    9  who i ma 
+   10  system
+   11  cat /etc/centos-release
+   12  exit
+   13  scp root@192.168.2.4:/etc/passwd ~
+   14  cd ..
+   15  ll
+   16  cd ..
+   17  ll
+   18  cd 
+   19  ll
+   20  vim passwd 
+   21  sshd
+   22  systemctl status sshd
+   23  ipconfig
+   24  ifconfig
+   25  exit
+   26  passwd root
+   27  passwd harshil 
+   28  ipconfig
+   29  ifconfig
+   30  ssh-copy-id 192.168.2.4
+   31  ssh-copy-id -o
+   32  ssh-copy-id 
+   33  ssh-copy-id -?
+   34  ssh-copy-id -h
+   35  ssh 192.168.2.4
+   36  ssh 192.168.2.2
+   37  exit
+   38  cd ..
+   39  cd /home/harshil/Desktop/
+   40  ll
+   41  cd ..
+   42  cd
+   43  ll
+   44  cd /
+   45  cd
+   46  cd /
+   47  ll
+   48  cd /home/harshil/Desktop/
+   49  ll
+   50  pwd
+   51  cd 
+   52  ll
+   53  pwd
+   54  cd /
+   55  pwd
+   56  ll
+   57  cd /home
+   58  lll
+   59  ll
+   60  cd harshil/
+   61  ll
+   62  cd Desktop/
+   63  ll
+   64  cd ..
+   65  cd /
+   66  ll
+   67  cd /root/
+   68  ll
+   69  cd home
+   70  ..
+   71  ll
+   72  cd ..
+   73  ll
+   74  cd /home
+   75  cd harshil/Desktop/
+   76  ll
+   77  ll -a
+   78  ls
+   79  history >> 26June2
+    1  vim ssh_command
+    2  ll
+    3  ssh
+    4  sshd
+    5  vim ssh_command
+    6  ifconfig
+    7  ping 192.168.2.4
+    8  systemctl status sshd
+    9  history >> 25June2016
+   10  cat 25June2016 
+   11  systemctl stop firewalld
+   12  vim ssh_command 
+   13  ssh root@192.168.2.5
+   14  ssh -v 
+   15  ssh -v root@192.168.2.5
+   16  vim ssh_command 
+   17  vim ~/.ssh/known_hosts 
+   18  vim ssh_command 
+   19  ssh -X root@192.168.2.5
+   20  cat /etc/redhat-release 
+   21  vim ssh_command 
+   22  cd ..
+   23  cd Chapter5/
+   24  vim scp_command
+   25  cd ..
+   26  scp RHCSA\ RHCE\ 7\ Cert\ Guide\ 7\ EX200\ and\ EX300\ Certification\ Guide.pdf 192.168.2.5: /home/harshil/Desktop/
+   27  scp newfile 192.168.2.5:/home/harshil/Desktop/
+   28  cd Chapter5/
+   29  ll
+   30  vim scp_command 
+   31  ll
+   32  history >> 25June2016 
+   33  scp root@192.168.2.5
+   34  scp root@192.168.2.5: /etc/passwd
+   35  scp root@192.168.2.5: /etc/passwd ~
+   36  vim ssh_command 
+   37  vim scp_command 
+   38  scp -r root@192.168.2.5:/etc/ /home/harshil/Desktop/
+   39  vim scp_command 
+   40  ssh-cpy-id
+   41  ssh-copy-id
+   42  ssh-copy-id 192.168.2.5
+   43  ssh-copy-id --help
+   44  ssh-copy-id
+   45  ssh-copy-id root@192.168.2.5
+   46  ping 192.168.2.5
+   47  ssh
+   48  ssh -o
+   49  ssh-copy-id 
+   50  ssh-copy-id -i ssh_key root@192.168.2.5
+   51  ssh root@192.168.2.5
+   52  cd /home/harshil/.ssh
+   53  cd /home/harshil/
+   54  ll
+   55  ls -all
+   56  cd /home/harshil/Desktop/Chapter5/
+   57  ll
+   58  rm -rf ssh_key
+   59  rm -rf ssh_key.pub 
+   60  ssh-keygen
+   61  cd /home/harshil/
+   62  ll -a
+   63  cd /
+   64  cd root/
+   65  ll
+   66  cd /
+   67  ll
+   68  cd home/
+   69  ll
+   70  cd ..
+   71  cd root/
+   72  ll
+   73  ll -a
+   74  cd .ssh/
+   75  ll
+   76  ssh-copy-id -i id_rsa root@192.168.2.5
+   77  ssh root@192.168.2.5
+   78  cd /home/harshil/Desktop/
+   79  ll
+   80  cat 26June2 >> /home/harshil/Desktop/Chapter5/26June2016 
+   81  cd /home/harshil/Desktop/Chapter5/
+   82  ll
+   83  vim 26June2016 
+   84  vim key_base_ssh
+   85  ll
+   86  vim ssh_key_command
+   87  ssh root@192.168.2.2
+   88  screen
+   89  yum install -y screen
+   90  yum repolist all
+   91  ssh root@192.168.2.2
+   92  ssh root@192.168.2.5
+   93  cd /home/harshil/Desktop/Chapter5/
+   94  ll
+   95  rm -rf ssh_key_command 
+   96  vim ssh_screen_command
+   97  vim ssh_screen_command 
+   98  vim ssh_screen_command car ssh_screen_command 
+   99  vim ssh_screen_command
+  100  cat ssh_screen_command 
+  101  vim ssh_screen_command 
+  102  history >> 26June2016 

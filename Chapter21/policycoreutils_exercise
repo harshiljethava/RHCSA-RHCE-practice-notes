@@ -1,0 +1,24 @@
+# check information for selinux by searching through keyword
+1042  man -k _selinux
+
+# check status of SELinux 
+1043  sestatus
+
+1046  vim policycoreutils_exercise
+
+# install policycoreutils-devel package 
+1049  yum -y install policycoreutils-devel.x86_64 
+1050  updatedb
+
+# check info of SELinux
+1051  man -k _selinux
+
+# update database of man pages 
+1052  mandb
+
+# by this time it will provide information of SELinux man pages 
+1053  man -k _selinux
+ 1054  man -k _selinux | grep httpd
+ 1056  man httpd_selinux
+ 1057  ps -eZ | grep httpd_t
+ 1058  history

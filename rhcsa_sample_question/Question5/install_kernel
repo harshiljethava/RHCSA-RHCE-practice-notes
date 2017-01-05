@@ -1,0 +1,16 @@
+# To install kernel follow below step :
+# 1 open browser
+# 2 download kernel through link given in question paper.
+# 3 save link to appropriate directory
+# 4 open directory in terminal and execute below command:
+rpm -ivh [kernel_name]
+# eg : rpm -ivh kernel3.10x86_64.rpm
+
+# check current kernel version by below command:
+unmae -r
+
+# RESTART  SYSTEM AFTER THIS PRATICAL !!!!
+
+
+# again check kernel version by same command : 
+uname -r
