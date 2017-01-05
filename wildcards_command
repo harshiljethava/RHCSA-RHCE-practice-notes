@@ -1,0 +1,7 @@
+*
+# all characters eg . ls * display all dir except those have name starting with dot 
+?
+# any character eg ls c?t ,match cat as well as cut
+[]
+#specifed range eg ls c[auo]t ,match cat cut cot
+

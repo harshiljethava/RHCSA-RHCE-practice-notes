@@ -1,0 +1,8 @@
+# RHEL 7 use firewalld service for maintaining firewall
+
+# because firewall much enhanced compared to iptables ,
+# both can not be ran together on same machine .
+# they are MUTUALLY EXCLUSIVE
+
+# to avoid this problem use below command for masking iptables:
+systemctl mask iptables

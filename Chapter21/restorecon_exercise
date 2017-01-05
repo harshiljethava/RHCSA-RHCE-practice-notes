@@ -1,0 +1,21 @@
+/etc/hosts
+#-rw-r--r--. root root system_u:object_r:net_conf_t:s0  /etc/hosts
+
+~/hosts
+#-rw-r--r--. root root unconfined_u:object_r:admin_home_t:s0 /root/hosts
+
+  988  vim restorecon_exercise
+  989  ls -Z /etc/hosts
+  990  cp /etc/hosts ~
+  991  ls -Z ~/hosts 
+  992  ls -Z /etc/hosts >> restorecon_exercise 
+  993  ls -Z ~/hosts  >> restorecon_exercise 
+  994  vim restorecon_exercise 
+  995  restorecon -v /etc/host
+  996  restorecon -v /etc/hosts
+  997  touch ./autorelabel
+  998  restart
+  999  reboot
+ 1000  ll
+ 1001  history
+ 1002  history | tail -25 >> restorecon_exercise 

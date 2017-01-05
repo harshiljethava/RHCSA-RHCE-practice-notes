@@ -1,0 +1,18 @@
+useradd username
+# add new user
+
+useradd -G wheel username
+useradd -G wheel lisa
+# add newuser who is member of group of wheel
+#  with this command user can do administrative task 
+#  this command give sudo privilege to user.
+
+passwd lisa
+
+su lisa
+
+$useradd lori
+# permission denied
+
+$ sudo useradd lori
+# user lisa ,create user lori 

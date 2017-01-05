@@ -1,0 +1,9 @@
+# all system units are defined in following file:
+/usr/lib/systemd/system
+
+# all modification file of system are defined in following files:
+/etc/systemd/system
+
+# running-time configuration are stored in following file: 
+/run/systemd/system
+

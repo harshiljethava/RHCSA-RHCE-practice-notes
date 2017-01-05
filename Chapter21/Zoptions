@@ -1,0 +1,3 @@
+# -Z option provide information about context setting.
+ls -Z /var/www
+

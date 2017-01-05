@@ -1,0 +1,20 @@
+user	0m0.000s
+sys	0m0.000s
+
+From root@localhost.localdomain  Sun Jul 10 17:58:01 2016
+Return-Path: <root@localhost.localdomain>
+X-Original-To: harshil
+Delivered-To: harshil@localhost.localdomain
+Received: by localhost.localdomain (Postfix, from userid 0)
+	id 1411C419A23E; Sun, 10 Jul 2016 17:58:01 +0530 (IST)
+Subject: Output from your job        4
+To: harshil@localhost.localdomain
+Message-Id: <20160710122801.1411C419A23E@localhost.localdomain>
+Date: Sun, 10 Jul 2016 17:58:01 +0530 (IST)
+From: root@localhost.localdomain (root)
+
+
+real	0m0.000s
+user	0m0.000s
+sys	0m0.000s
+

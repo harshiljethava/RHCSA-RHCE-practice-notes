@@ -1,0 +1,14 @@
+# before ping 
+ 14:27:49 up 52 min,  2 users,  load average: 0.30, 0.27, 0.28
+USER     TTY        LOGIN@   IDLE   JCPU   PCPU WHAT
+harshil  :0        13:38   ?xdm?   6:50   0.41s gdm-session-worker [pam/gdm-password]
+harshil  pts/0     13:41    5.00s  1.13s 27.69s /usr/libexec/gnome-terminal-server
+
+# after ping 
+ 14:29:32 up 54 min,  5 users,  load average: 0.53, 0.30, 0.29
+USER     TTY        LOGIN@   IDLE   JCPU   PCPU WHAT
+harshil  :0        13:38   ?xdm?   7:21   0.42s gdm-session-worker [pam/gdm-password]
+harshil  pts/0     13:41    4.00s  1.21s 30.60s /usr/libexec/gnome-terminal-server
+harshil  pts/1     14:28    1:16   0.14s  0.04s ping 192.168.2.1
+harshil  pts/2     14:28   60.00s  0.10s  0.04s ping 8.8.8.8
+harshil  pts/3     14:28   44.00s  0.06s  0.01s ping 127.0.0.1

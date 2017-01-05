@@ -1,0 +1,8 @@
+systemctl list-dependencies [name_of_service]
+# show  list of dependencies for given service
+
+systemctl list-dependencies vsftpd
+
+systemctl list-dependencies vsftpd --reverse
+
+

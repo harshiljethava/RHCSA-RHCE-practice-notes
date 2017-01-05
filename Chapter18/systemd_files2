@@ -1,0 +1,15 @@
+  714  grep "vsftp" /system
+  715  cd system
+  716  ll
+  717  vim vmtoolsd.service 
+  718  vim sshd.service 
+  719  cd /home/harshil/Desktop/RHCSA\ notes/Chapter18
+  720  history | tail -25 >> systemd_files
+  721  exit
+  722  cd /usr/lib/systemd/system
+  723  ll
+  724  vim tmp.mount 
+  725  cat virtlockd.socket 
+  726  cd /home/harshil/Desktop/RHCSA\ notes/Chapter18
+  727  ll
+  728  history | tail -15 >> systemd

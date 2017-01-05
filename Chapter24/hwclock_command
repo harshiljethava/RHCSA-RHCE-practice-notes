@@ -1,0 +1,8 @@
+hwclock -c
+# display difference between hardware clock and system clock
+
+hwclock --systohc
+# synchronize current system time to hardware clock
+
+hwclock --hctosys
+# synchronize current hardware time to system clock

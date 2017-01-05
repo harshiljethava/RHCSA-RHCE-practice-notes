@@ -1,0 +1,10 @@
+# to configure apache web server following file is important : 
+/etc/httpd/conf/httpd.conf
+
+# below parameter provide default location to apache for looking content:
+DocumentRoot
+
+# below parameter provide default location to apache for configuration files:
+ServerRoot
+:
+

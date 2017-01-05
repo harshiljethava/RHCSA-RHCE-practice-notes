@@ -1,0 +1,24 @@
+HUP : 1
+# Hangup : request to reinitialization of proces
+
+INT : 2
+# causes program termination .ctrl C
+
+QUIT : 3
+# just like SIGINT, but also produce process dump
+
+KILL : 9
+# causes abrupt program termination . 
+
+TERM : 15 
+# default program termination . The polite way to ask program termination.
+
+CONT : 18
+# send process to resume if stopped.
+
+STOP : 19
+# suspend process. 
+
+TSTP : 20
+# ctrl z , keyboard stop
+

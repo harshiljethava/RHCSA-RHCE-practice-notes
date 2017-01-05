@@ -1,0 +1,20 @@
+# install mariadb
+yum install -y mariadb mariadb-server mariadb-test
+
+# start mariadb service
+systemctl start mariadb
+
+# enable mariadb service
+systemctl status mariadb
+
+# check port listening status
+ss -tulpen | grep mysql
+
+# add following line to disable networking
+skip_networking=1
+
+# restart mariadb service
+systemctl restart mariadb
+
+# install mariadb securely
+mysql_secure_installation

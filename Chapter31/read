@@ -1,0 +1,8 @@
+if [ -z $1 ] ; then
+	echo enter a name
+	read Name
+else 
+	Name=$1
+fi
+echo you have entered : $Name
+exit 0

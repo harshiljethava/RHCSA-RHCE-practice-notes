@@ -1,0 +1,19 @@
+ 1065  cat /etc/crontab 
+ 1066  crontab -e
+ 1067  cd /etc/cron.hourly/
+ 1068  vim eachhour
+ 1069  chmod +x eachhour 
+ 1070  ll
+ 1071  cd /etc/cron.d
+ 1072  ll
+ 1073  vim eachhour
+ 1074  grep written /var/log/messages
+ 1075  vim eachhour
+ 1076  cd /etc/cron.hourly/
+ 1077  ll
+ 1078  vim eachhour 
+ 1079  cd /home/harshil/Desktop/RHCSA\ notes/Chapter12
+ 1080  ll
+ 1081  history |tail -20 
+ 1082  history |tail -25
+ 1083  history |tail -25 >> create_cron_message

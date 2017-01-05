@@ -1,0 +1,15 @@
+scp
+# just like cp command
+# To transfer file from server
+
+scp path_of_file remote_server_ip:path_to_save_file
+scp /home/harshil/Desktop/sample.sh 192.168.2.5:/home/krishna/
+# This command copy sample.sh file from server1 to server2 (192.168.2.5).
+
+scp root@server_ip:/path_of_file /path_of_file_to_copy
+scp root@192.168.2.5:/etc/passwd ~
+# This command copy passwd file of remote server 192.168.2.5 to
+#  current server`s(192.168.2.4) home dir.
+
+scp -r username@remote_server:/path_of_directory/ /current_server_path
+scp -r root@192.168.2.5:/etc/ /home/harshil/Desktop

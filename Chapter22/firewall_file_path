@@ -1,0 +1,3 @@
+# files related to firewall  stores in following path 
+/usr/lib/firewalld/services
+/etc/firewalld/

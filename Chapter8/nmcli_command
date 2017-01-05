@@ -1,0 +1,17 @@
+# dev vs con
+# device is network card and connection is configuration which is applied on device.
+
+nmcli con show
+# display list of connection
+
+nmcli con show [device_name]
+nmcli con show eno16777736
+# display detailed device properties 
+
+nmcli dev show [device_name]
+# display setting for given device.
+
+nmcli con reload
+# to active new configuration.
+
+

@@ -1,0 +1,26 @@
+# Network bonding can be done with 7 mode based on requirment.
+
+# active-backup mode is most suitable among all modes.
+
+balance-rr(0)
+# load balancing and fault tolerance
+
+active-backup(1)
+# only one slave is active at a time . Fault tolerance ,not load balancing.
+
+balance-xor(2)
+#
+
+broadcast(3)
+# all slaves get packets. fault tolerance ,not load balancing.
+
+802.3d(4)
+# create aggregation group that share same speed and duplex settings.
+
+balance-tlb(5)
+#less usage .outgoing traffic is distributed between slaves according to the current load.
+
+balance-alb(6)
+# same as mode 5 but adds receive load balacning for IPv4 traffic.
+
+

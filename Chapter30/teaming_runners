@@ -1,0 +1,15 @@
+broadcast
+# all packet transmit to all ports
+
+roundrobin
+# transmit packet in round robin manner.
+
+activebackup
+# failover runner that watches for link changes and select active interface.
+
+loadbalance
+#use hase funcation to implment load balancing.
+
+lacp
+#Lightweight Access Control Protocol also known as 802.3d.
+

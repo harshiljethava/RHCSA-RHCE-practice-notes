@@ -1,0 +1,12 @@
+crontab -l
+# list all jobs for current user
+
+crontab -r
+# remove all jobs of current user
+
+crontab -e 
+# edit jobs for current user
+
+crontab [FILENAME]
+# remove all jobs and replace with jobs specified in FILENAME.
+

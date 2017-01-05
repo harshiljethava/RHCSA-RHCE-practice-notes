@@ -1,0 +1,9 @@
+#!/bin/bash
+startip=0
+endip=0
+echo enter start you ip range
+read startip 
+echo enter end your ip range
+read endip
+for i in  {$(($startip)  ($endip))} ;do ping -c 1 192.168.0.$i && echo;done
+

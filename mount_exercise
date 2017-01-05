@@ -1,0 +1,5 @@
+mount
+df -hT
+df -h
+df -m
+

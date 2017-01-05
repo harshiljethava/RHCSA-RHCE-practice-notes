@@ -1,0 +1,25 @@
+ 1038  ll
+ 1039  vim tmp.conf 
+ 1040  cp tmp.conf /home/harshil/Desktop/RHCSA\ notes/Chapter12/
+ 1041  cd /etc/tmpfiles.d/
+ 1042  ll
+ 1043  vim python.conf 
+ 1044  cp /home/harshil/Desktop/RHCSA\ notes/Chapter12/tmp.conf 
+ 1045  cp /home/harshil/Desktop/RHCSA\ notes/Chapter12/tmp.conf /etc/tmpfiles.d/
+ 1046  ll
+ 1047  pwd
+ 1048  vim tmp.conf 
+ 1049  systemd-tmpfiles --clean tmp.conf 
+ 1050  vim tmp.conf 
+ 1051  vim gallifrey.conf
+ 1052  systemd-tmpfiles  --create gallifrey.conf 
+ 1053  ls -ld /run/gallifrey/
+ 1054  touch /run/gallifrey/companion
+ 1055  sleep 30s
+ 1056  systemd-tmpfiles --clean gallifrey.conf 
+ 1057  ls -l /run/gallifrey/
+ 1058  history
+ 1059  58-37
+ 1060  cal 
+ 1061  python
+ 1062  history | tail -25 >> /home/harshil/Desktop/RHCSA\ notes/Chapter12/manage_tmp_files

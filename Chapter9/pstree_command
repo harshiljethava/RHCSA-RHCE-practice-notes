@@ -1,0 +1,5 @@
+pstree -u [user]
+pstree -u root
+pstree -u lisa
+# display process tree of given user .
+

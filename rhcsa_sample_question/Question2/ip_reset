@@ -1,0 +1,34 @@
+<<IP reset>>
+# click on network icon
+# click on setting
+# select "IPv4" and "manual"
+# Add following details as provided in question papar
+Address : 
+Netmask : 
+Gateway : 
+DNS (namespace address): 
+# apply
+
+# add hostname through following command
+hostnamectl set-hostname rhcsa1.example.com
+
+# restart network service
+systemctl restart NetworkManager
+systemctl restart network
+
+# enable network service
+systemctl enable NetworkManager
+
+# RESTART MACHINE TO APPLY HOSTNAME SETTING
+#
+# after restarting check configuration by following command : 
+
+# for ip setting
+ifconfig
+
+# for gateway connectivity
+ping [GATEWAY IP]
+route -n
+
+# check entry in following file by below command:
+cat /etc/resolv.conf

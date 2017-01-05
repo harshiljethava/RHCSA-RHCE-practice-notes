@@ -1,0 +1,33 @@
+# name of interface are given by following parameter :
+
+en
+# ethernet
+
+wl
+# wireless
+
+ww
+# WWAN
+
+o
+# onboard
+
+s
+# hotplug slot
+
+p
+# PCI location
+
+x
+# create device which is base on MAC address  
+
+eno16777734
+# This is on board ethernet device with 16777734 as  unique id.
+
+# With biosdevname package it is possbile to give name of device which is base on bios.
+
+em1
+# embedded network card 1
+
+p4p1
+# PCI slot 4 port 1

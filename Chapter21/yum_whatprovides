@@ -1,0 +1,4 @@
+#To find needy package just use below syntax
+
+yum whatprovides */[package_name]
+yum whatprovides */semanage

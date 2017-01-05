@@ -1,0 +1,4 @@
+su 
+# open subshell with root 
+sudo
+PolicyKit

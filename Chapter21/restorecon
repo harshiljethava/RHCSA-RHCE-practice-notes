@@ -1,0 +1,6 @@
+# by using semanage you are only applying context to policy 
+# not to file system . For applying to file system use below command
+restorecon
+
+restorecon -R -v [file or directory]
+

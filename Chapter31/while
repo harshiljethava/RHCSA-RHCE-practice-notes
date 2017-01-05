@@ -1,0 +1,10 @@
+#!/bin/bash
+while ps aux | grep $1 | grep -v grep  > /dev/tty1
+do
+	sleep 5
+done
+
+clear
+echo your process has stopped
+logger $1 is no logger present
+mail -s "process $1 has stopped " root < .

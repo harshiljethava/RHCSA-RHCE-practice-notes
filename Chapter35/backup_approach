@@ -1,0 +1,9 @@
+# PHYSICAL BAK
+- fast and hardware dependent	
+- db service should be offline
+- table lock require
+
+# LOGICAL BAK
+- retrive by querying db
+- slow and efficient
+- log and config files are not included.

@@ -1,0 +1,7 @@
+#!/bin/bash
+#
+# This is hello world in bash 
+
+clear
+echo "Hello world"
+exit 0
