@@ -1,0 +1,53 @@
+# first of all you required .keytab file for nfs client and server 
+
+# download and install .keytab files from Kerberoes server 
+
+##
+## Configure NFS server with kerberoes authentication
+##
+
+# ensure SELinux labels are correct
+restorecon -v /etc/krb5.keytab
+
+# check nfs server status on nfs server
+systemctl status nfs-server
+
+# make directory on nfs server for sharing
+mkdir /share/server
+
+# set SELinux context labels
+semanage fcontext -a -t nfs_t "/share/server(/.*)?"
+
+# ensure SELinux labels are correct
+restorecon -v /share/server
+
+# make respective user as owner of shared directory
+chown USER /share/server
+
+# enable kerberoes method in /etc/exports file
+/share/server	*(sec=krb5p,rw)
+
+# export newly created share
+exportfs -rv
+
+# verify mount
+showmount -e localhost
+
+##
+## Configure NFS client with kerberoes authentication
+##
+
+# make directory on client to mount server share
+mkdir /mnt/client
+
+# mount server share to client directory with sec method
+mount -o sec=krb5p NFS_SERVER:/share/server	/mnt/client
+
+# access as owner user
+su - USER
+
+# make sure user established kerberos session
+kinit USER
+
+# create any file to verify kerberos authentication
+

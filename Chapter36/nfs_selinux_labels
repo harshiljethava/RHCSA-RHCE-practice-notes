@@ -1,0 +1,15 @@
+# by default , nfs client has nfs_t selinux context type
+
+# change version of NFS 
+
+# open /etc/sysconfig/nfs
+vim /etc/sysconfig/nfs
+
+# add below line
+RPCNFSDARGS=“-V 4.2”
+
+# In NFS v4.2 ,possible to change context type
+mount -o context=“system_u,object_r:public_content_rw_t:s0” NFS_SERVER:/share/server /mnt/client
+
+# check security labels on both server and client
+ls -Z 
