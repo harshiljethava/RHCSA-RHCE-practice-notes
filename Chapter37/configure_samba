@@ -1,0 +1,62 @@
+# install samba server
+yum install samba
+
+# create directory to share
+mkdir /samba_share
+
+# create group to make owner for created share
+groupadd - sambagrp
+
+# change goup permission of created share 
+chgrp sambagrp /samba_share
+
+# set permission to samba share 
+chmod 2775 /samba_share
+
+# set SELinux context for share
+semange fcontext -a -t samba_share_t "/samba_share(/.*)?"
+
+# applied semange setting
+restorecon -vvR /samba_share
+
+# add necessary configuration setting in /etc/samba/smb.conf
+[global]
+	workgroup = Enterprise 
+[samba_share]
+	path = /samba_share
+	write list = lisa, @hr
+
+# create samba user with limited privileges 
+useradd -s /sbin/nologin -G sambagrp sambauser
+
+# install samba-client to generate samba user password
+yum install samba-client
+
+# generate password for samba user
+smbpasswd -a sambauser
+
+# start samba service
+systemctl start smb nmb
+
+# enable samba service
+systemctl enable smb nmb
+
+# configure firewall to allow samba service
+firewall-cmd --permanent --add-service=samba
+
+# reload firewall 
+firewall-cmd --reload
+
+#
+## Configuration on Clinet machine 
+#
+# verify status of samba share on client machine 
+yum install cifs-utils
+
+# create mount point
+mkdir /mnt/lisa
+
+# mount samba server share to client share
+mount -o username=lisa //SERVER/samba_share /mnt/lisa
+
+
