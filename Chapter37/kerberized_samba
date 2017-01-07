@@ -1,0 +1,45 @@
+#
+## Create kerberos keytab file 
+# 
+# install ipa-admintool
+yum install ipa-admintools ipa-client
+
+# configure ipa client
+ipa-client-install
+
+# obtain kerberos credential on client
+kinit admin
+
+# On IPA server , add samba services 
+ipa service-add cifs/SAMBA_SERVICE
+
+# add CIFS principal to local keytab
+ipa-getkeytab -s IPA_SERVER -p cifs/SAMBA_SERVER -k /etc/krb5.keytab
+
+# verify added key 
+klist -k
+
+#
+## Configure samba to use kerberos file
+#
+
+# change permission mode and ownership of /etc/krb5.keytab to root
+chmod 700 /etc/krb5.keytab
+chown root /etc/krb5.keytab
+
+# enable kerberos configuration in /etc/samba/smb.conf
+security = ADS
+relam = KEREBEROS_RELAM
+encrypt passwords = yes
+kerberos methods = secrets and keytab
+password server = IPA_SERVER
+
+# restart samba service
+systemctl restart smb
+
+# check user identity 
+kinit USER
+
+# check available samba share
+smbclient -k -L //SAMBA_SERVER
+
