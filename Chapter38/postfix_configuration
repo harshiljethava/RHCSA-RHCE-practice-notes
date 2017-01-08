@@ -1,0 +1,14 @@
+# below are postfix configuration variables located in /etc/postfix/main.cf
+
+inet_interfaces
+
+myorigin
+
+relayhost
+
+mydestination
+
+local_transport
+
+mynetworks
+

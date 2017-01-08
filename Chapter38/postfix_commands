@@ -1,0 +1,10 @@
+# to set postfix through commands
+postconf -e 'myorigin=example.com'
+
+# to set values in /etc/postfix/main.cf
+postconf -e 'setting=value'
+
+# display list of incoming and outgoing messages
+postqueue -p
+
+

@@ -1,0 +1,21 @@
+# set relayhost to smtp server
+postconf -e "relayhost =[SMTP_SERVER_NAME]"
+
+# configure postfix to relay only local system
+postconf -e ""inet_interfaces=loopback-only"
+
+# change null client configuration 
+postconf -e "mynetworks=127.0.0.0/8 [::1]/128"
+
+# configure postfix for outgoing mails to have sender mails
+postconf -e "myorigin=ORIGIN_DOMAIN" # eg exmaple.com
+
+# restrict postfix to deliver any message to local account
+postconf -e "mydestination="
+
+# turn off local email delivery
+postconf -e "local_transport=error:local delivery disabled"
+
+# restart postfix
+systemctl restart postfix
+
