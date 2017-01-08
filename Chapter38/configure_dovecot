@@ -1,0 +1,56 @@
+# install dovecot
+yum install dovecot
+
+# open conf file to configure dovecot
+vim /etc/dovecot/dovecot.conf
+
+# change following paramter or uncomment
+protocols = imap pop3 lmtp
+
+# open /etc/dovecot/conf.d/10-mail.conf
+vim /etc/dovecot/conf.d/10-mail.conf
+
+# uncomment following parameters
+mail_location = maildir:~/Maildir
+
+# open /etc/dovecot/conf.d/10-auth.conf
+vim /etc/dovecot/conf.d/10-auth.conf
+
+# uncomment following parameters
+disable_plaintext_auth = yes
+
+# add login to following parameter
+auth_mechanisms = plain login
+
+# open /etc/dovecot/conf.d/10-master.conf
+vim /etc/dovecot/conf.d/10-master.conf
+
+# uncomment and add postfix to following parameter
+mode = 0600
+	user = postfix
+	group = postfix
+
+# start dovecot
+systemctl start devocat
+
+# enable dovecot
+systemctl enable devocat
+
+# add user for mail
+useradd mailer
+
+# set password for mail user
+passwd mailer
+
+# Testing devocat
+telnet localhost pop3
+
+# in telnet console enter following command
+user mailer
+
+# enter password for mail user
+pass
+
+# quit telnet console
+quit
+
