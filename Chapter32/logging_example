@@ -1,0 +1,4 @@
+# log to syslog for ssh service at rate of 3 logs per mintue
+firewall-cmd --permanent --zone=work --add-rich-rules='rule service name="ssh" log prefix="ssh" level="notice" limit value="3/m" accept'
+
+

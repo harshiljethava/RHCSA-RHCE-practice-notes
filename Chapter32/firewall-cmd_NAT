@@ -1,0 +1,10 @@
+# Network Address Translation can be achieved in two ways:
+1 masquerade
+2 port forwarding
+
+# masquerade
+firewall-cmd --permanent --zone=example --add-rich-rule='rule family=ipv4 source address=192.168.0.0/24 masquerade'
+
+# port forwarding 
+firewall-cmd --permanent --zone=public --add-forward-port=port=420:proto=tcp:toport=8080:toaddr=192.168.0.120
+
