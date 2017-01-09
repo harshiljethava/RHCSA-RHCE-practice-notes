@@ -1,0 +1,19 @@
+# set default zone
+firewall-cmd --set-default-zone=dmz
+
+# set zone and add source
+firewall-cmd --permanent --zone=internal --add-source=192.168.0.0/24
+
+# add service in internal zone only
+firewall-cmd --permanent --zone=internal --add-service=mysql
+
+# get active zone
+firewall-cmd --get-active-zones
+
+# list all firewall settings
+firewall-cmd --list-all
+
+# add port to firewall
+firewall --permanent --add-port=80/tcp
+
+

@@ -1,0 +1,7 @@
+rule
+	[source]
+	[destination]
+	service|port|protocol|icmp-block|masquerade|forward-port
+	[log]
+	[audit]
+	[accept|reject|drop]

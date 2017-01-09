@@ -1,0 +1,17 @@
+# RHEL provide flexibility to modify firewall by creating rules
+
+1. direct rules : can be inserted hard coded value in tables , less flexible
+  
+2. rich rules : provide flexiblility to create custom rules , not available in firewall
+   like rate limiting,port forwarding,masquerading
+
+# rich rules options
+--add-rich-rule='RULE'
+
+--remove-rich-rule='RULE'
+
+--query-rich-rule='RULE'
+
+--list-rich-rules
+
+

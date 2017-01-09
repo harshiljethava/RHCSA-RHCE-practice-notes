@@ -1,0 +1,13 @@
+# reject all traffic from particular IP
+firewall-cmd --permanent --zone=workgroup --add-rich-rule='rule family=ipv4 source address=192.168.0.11/32 reject'
+
+# drop packet from particular protocol
+firewall-cmd --permanent --zone=example --add-rich-rule='rule protocol value=esp drop'
+
+# reject will send packet why it has rejected but drop will simple drop packet without sending back any package !!
+
+# limit ssh traffic 
+firewall-cmd --permanent --add-rich-rule='rule service name=ssh limit value=10/m accept'
+
+# accept packet from range of particular ports
+firewall-cmd --permanent --zone=test --add-rich-rule='rule family=ipv4 source address=192.168.0.0/24 port port=900-1000 protocol=tcp accept'

@@ -1,0 +1,15 @@
+# given below services are conflicted with each other.
+
+firewalld
+
+iptables
+
+etables
+
+ip6tables
+
+# to overcome the issue run below command to prevent accidentally start services
+for SERVICE in iptables ip6tables etables ;do systemctl mask ${SERVICE}.service	
+done
+
+
