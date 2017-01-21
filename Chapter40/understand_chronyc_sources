@@ -1,0 +1,33 @@
+# undestand chronyc sources parameter
+
+chronyc sources
+
+210 Number of sources = 4
+MS Name/IP address         Stratum Poll Reach LastRx Last sample
+===============================================================================
+^* ntp.bradfordembedded.com      2  10   177   565  +8670us[  +11ms] +/-  233ms
+^+ 125.62.193.121                2   8   377   160    -11ms[  -11ms] +/-  245ms
+^+ ntp2.bradfordembedded.com     2   9   363   172    +11ms[  +11ms] +/-  221ms
+^+ 123.108.200.124               3   8   377   170    -26ms[  -26ms] +/-  230ms
+
+M : server information
+	^ : server
+	= : peer
+	# : connected to local reference clock
+S : source
+	* : server that synchronized with currently
+	+ : acceptable time source
+	? : source to which connectivity has been lost
+	x : inconsistent time with other sources
+	~ : source show too many variability 
+
+Name/IP address : provide NTP server name/IP
+
+Stratum : level of stratum offered by source server
+
+Poll : poling level in terms of power of 2 , 8 means 128 seconds total
+
+Reach : 377 means last total 8 polls have successful answer
+
+LastRx : last offset value  between the local clock and source clock
+

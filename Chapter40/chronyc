@@ -1,0 +1,15 @@
+# get ntp source information
+chronyc source
+
+# get detail information of source ntp server
+chronyc tracking
+
+# get status of source ntp server
+chronyc sourcestatus
+
+#  on old RHEL version for time synchronization ntpd services being used.
+# However when IPA server configured by default ntpd service enabled automatically.
+# To overcome conflict issue ,chronyd has to disabled.
+# Check with below command which service is running for time synchronization
+netstat -tulpen | grep 123
+

@@ -1,0 +1,11 @@
+# understand chronyc sourcestats
+
+chronyc sourcestats
+
+210 Number of sources = 4
+Name/IP Address            NP  NR  Span  Frequency  Freq Skew  Offset  Std Dev
+==============================================================================
+ntp.bradfordembedded.com   25  14   77m     +3.653      3.358    +14ms  4898us
+125.62.193.121              8   5   21m     -3.171      8.300    -11ms  1175us
+ntp2.bradfordembedded.com   9   4   60m     +0.605      7.542    +22ms  4017us
+123.108.200.124            11   5   34m    -10.336     11.193    -30ms  3903us
