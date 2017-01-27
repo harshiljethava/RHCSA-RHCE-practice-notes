@@ -1,0 +1,205 @@
+# host -v -t A yahoo.in
+Trying "yahoo.in"
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 29717
+;; flags: qr rd ra; QUERY: 1, ANSWER: 5, AUTHORITY: 5, ADDITIONAL: 8
+
+;; QUESTION SECTION:
+;yahoo.in.			IN	A
+
+;; ANSWER SECTION:
+yahoo.in.		28	IN	A	74.6.50.24
+yahoo.in.		28	IN	A	106.10.212.24
+yahoo.in.		28	IN	A	98.137.236.24
+yahoo.in.		28	IN	A	124.108.105.24
+yahoo.in.		28	IN	A	77.238.184.24
+
+;; AUTHORITY SECTION:
+yahoo.in.		45162	IN	NS	ns2.yahoo.com.
+yahoo.in.		45162	IN	NS	ns1.yahoo.com.
+yahoo.in.		45162	IN	NS	ns3.yahoo.com.
+yahoo.in.		45162	IN	NS	ns5.yahoo.com.
+yahoo.in.		45162	IN	NS	ns4.yahoo.com.
+
+;; ADDITIONAL SECTION:
+ns5.yahoo.com.		567729	IN	A	119.160.247.124
+ns1.yahoo.com.		567729	IN	A	68.180.131.16
+ns1.yahoo.com.		49329	IN	AAAA	2001:4998:130::1001
+ns4.yahoo.com.		567729	IN	A	98.138.11.157
+ns3.yahoo.com.		570417	IN	A	203.84.221.53
+ns3.yahoo.com.		50796	IN	AAAA	2406:8600:b8:fe03::1003
+ns2.yahoo.com.		567729	IN	A	68.142.255.16
+ns2.yahoo.com.		49329	IN	AAAA	2001:4998:140::1002
+
+Received 369 bytes from 192.168.0.1#53 in 22 ms
+
+#############################################################################
+
+# host -v -t AAAA yahoo.in
+
+Trying "yahoo.in"
+Received 26 bytes from 192.168.0.1#53 in 37 ms
+Trying "yahoo.in.rhce.com"
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 10748
+;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;yahoo.in.rhce.com.		IN	AAAA
+
+;; AUTHORITY SECTION:
+rhce.com.		10800	IN	SOA	ns1.redhat.com. noc.redhat.com. 2014022500 28800 14400 3600000 86400
+
+Received 86 bytes from 192.168.0.1#53 in 236 ms
+
+###############################################################################
+
+# host -v -t PTR 98.137.236.24
+
+Trying "24.236.137.98.in-addr.arpa"
+Host 24.236.137.98.in-addr.arpa not found: 2(SERVFAIL)
+Received 44 bytes from 192.168.0.1#53 in 23 ms
+
+###############################################################################
+
+# host -v -t NS yahoo.in
+
+Trying "yahoo.in"
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 16986
+;; flags: qr rd ra; QUERY: 1, ANSWER: 5, AUTHORITY: 0, ADDITIONAL: 8
+
+;; QUESTION SECTION:
+;yahoo.in.			IN	NS
+
+;; ANSWER SECTION:
+yahoo.in.		44944	IN	NS	ns1.yahoo.com.
+yahoo.in.		44944	IN	NS	ns4.yahoo.com.
+yahoo.in.		44944	IN	NS	ns3.yahoo.com.
+yahoo.in.		44944	IN	NS	ns2.yahoo.com.
+yahoo.in.		44944	IN	NS	ns5.yahoo.com.
+
+;; ADDITIONAL SECTION:
+ns5.yahoo.com.		567511	IN	A	119.160.247.124
+ns1.yahoo.com.		567511	IN	A	68.180.131.16
+ns1.yahoo.com.		49111	IN	AAAA	2001:4998:130::1001
+ns4.yahoo.com.		567511	IN	A	98.138.11.157
+ns3.yahoo.com.		570199	IN	A	203.84.221.53
+ns3.yahoo.com.		50578	IN	AAAA	2406:8600:b8:fe03::1003
+ns2.yahoo.com.		567511	IN	A	68.142.255.16
+ns2.yahoo.com.		49111	IN	AAAA	2001:4998:140::1002
+
+Received 289 bytes from 192.168.0.1#53 in 27 ms
+
+####################################################################################
+
+# host -v -t SOA yahoo.in
+
+Trying "yahoo.in"
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 393
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 5, ADDITIONAL: 8
+
+;; QUESTION SECTION:
+;yahoo.in.			IN	SOA
+
+;; ANSWER SECTION:
+yahoo.in.		1800	IN	SOA	hidden-master.yahoo.com. hostmaster.yahoo-inc.com. 2016122500 28800 3600 1814400 600
+
+;; AUTHORITY SECTION:
+yahoo.in.		44852	IN	NS	ns2.yahoo.com.
+yahoo.in.		44852	IN	NS	ns1.yahoo.com.
+yahoo.in.		44852	IN	NS	ns3.yahoo.com.
+yahoo.in.		44852	IN	NS	ns4.yahoo.com.
+yahoo.in.		44852	IN	NS	ns5.yahoo.com.
+
+;; ADDITIONAL SECTION:
+ns5.yahoo.com.		567419	IN	A	119.160.247.124
+ns1.yahoo.com.		567419	IN	A	68.180.131.16
+ns1.yahoo.com.		49019	IN	AAAA	2001:4998:130::1001
+ns4.yahoo.com.		567419	IN	A	98.138.11.157
+ns3.yahoo.com.		570107	IN	A	203.84.221.53
+ns3.yahoo.com.		50486	IN	AAAA	2406:8600:b8:fe03::1003
+ns2.yahoo.com.		567419	IN	A	68.142.255.16
+ns2.yahoo.com.		49019	IN	AAAA	2001:4998:140::1002
+
+Received 360 bytes from 192.168.0.1#53 in 8 ms
+
+##################################################################################
+
+# host -v -t MX yahoo.in
+
+Trying "yahoo.in"
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 58230
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 5, ADDITIONAL: 8
+
+;; QUESTION SECTION:
+;yahoo.in.			IN	MX
+
+;; ANSWER SECTION:
+yahoo.in.		1800	IN	MX	10 mx-apac.mail.gm0.yahoodns.net.
+
+;; AUTHORITY SECTION:
+yahoo.in.		44803	IN	NS	ns3.yahoo.com.
+yahoo.in.		44803	IN	NS	ns1.yahoo.com.
+yahoo.in.		44803	IN	NS	ns5.yahoo.com.
+yahoo.in.		44803	IN	NS	ns4.yahoo.com.
+yahoo.in.		44803	IN	NS	ns2.yahoo.com.
+
+;; ADDITIONAL SECTION:
+ns5.yahoo.com.		567370	IN	A	119.160.247.124
+ns1.yahoo.com.		567370	IN	A	68.180.131.16
+ns1.yahoo.com.		48970	IN	AAAA	2001:4998:130::1001
+ns4.yahoo.com.		567370	IN	A	98.138.11.157
+ns3.yahoo.com.		570058	IN	A	203.84.221.53
+ns3.yahoo.com.		50437	IN	AAAA	2406:8600:b8:fe03::1003
+ns2.yahoo.com.		567370	IN	A	68.142.255.16
+ns2.yahoo.com.		48970	IN	AAAA	2001:4998:140::1002
+
+Received 334 bytes from 192.168.0.1#53 in 6 ms
+
+############################################################################
+
+# host -v -t TXT yahoo.in
+
+
+Trying "yahoo.in"
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 50720
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 5, ADDITIONAL: 8
+
+;; QUESTION SECTION:
+;yahoo.in.			IN	TXT
+
+;; ANSWER SECTION:
+yahoo.in.		1800	IN	TXT	"v=spf1 redirect=_spf.mail.yahoo.com"
+
+;; AUTHORITY SECTION:
+yahoo.in.		44769	IN	NS	ns4.yahoo.com.
+yahoo.in.		44769	IN	NS	ns5.yahoo.com.
+yahoo.in.		44769	IN	NS	ns1.yahoo.com.
+yahoo.in.		44769	IN	NS	ns2.yahoo.com.
+yahoo.in.		44769	IN	NS	ns3.yahoo.com.
+
+;; ADDITIONAL SECTION:
+ns5.yahoo.com.		567336	IN	A	119.160.247.124
+ns1.yahoo.com.		567336	IN	A	68.180.131.16
+ns1.yahoo.com.		48936	IN	AAAA	2001:4998:130::1001
+ns4.yahoo.com.		567336	IN	A	98.138.11.157
+ns3.yahoo.com.		570024	IN	A	203.84.221.53
+ns3.yahoo.com.		50403	IN	AAAA	2406:8600:b8:fe03::1003
+ns2.yahoo.com.		567336	IN	A	68.142.255.16
+ns2.yahoo.com.		48936	IN	AAAA	2001:4998:140::1002
+
+Received 337 bytes from 192.168.0.1#53 in 22 ms
+
+##################################################################################
+
+# host -v -t SRV yahoo.in
+
+Trying "yahoo.in"
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 52370
+;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;yahoo.in.			IN	SRV
+
+;; AUTHORITY SECTION:
+yahoo.in.		600	IN	SOA	hidden-master.yahoo.com. hostmaster.yahoo-inc.com. 2016122500 28800 3600 1814400 600
+
+Received 106 bytes from 192.168.0.1#53 in 42 ms
