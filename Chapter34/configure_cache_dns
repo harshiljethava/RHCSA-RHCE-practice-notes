@@ -1,0 +1,43 @@
+# Configure Cache DNS server through unbound utility
+
+# install utility to configure cache dns server
+yum install unbound 
+
+# start and enable unbound service
+systemctl start unbound
+systemctl enable unbound
+
+# open unbound.conf file
+vim /etc/unbound/unbound.conf
+
+## add following point to make server cache dns server
+
+# open dns to listen on all interface 
+interface : 0.0.0.0
+
+# change access-control to accept all incoming client connection
+access-control : 192.168.0.1/24 allow
+
+# configure forwaders to send record to other DNS server
+forward-zone:
+	name : "."
+	forward-addr : DNS_SERVER_IP_ADDRESS
+
+# save above setting in /etc/unbound/unbound.conf 
+
+# verify applied setting for syntax error
+unbound-checkconf
+
+# open firewall for dns service
+firewall-cmd --permanent --add-service=dns 
+
+# reload firewall
+firewall-cmd --reload
+
+## In another server through nmcli or nmtui utility add ip of above dns server in network setting
+
+# check response from cache dns server
+# Eg: dig YOUR_DOMAIN
+dig rhce.com
+
+
