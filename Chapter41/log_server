@@ -1,0 +1,38 @@
+## configure syslog server
+
+# install rsyslog utility
+yum install -y rsyslog
+
+# open rsyslog config file
+vim /etc/rsyslog.conf
+
+# uncomment following line
+$ModLoad imudp
+$UDPServerRun 514
+
+$ModLoad imtcp
+$InputTCPServerRun 514
+
+# restart syslog service
+systemctl restart rsyslog
+
+# enable syslog service
+systemctl enable rsyslog
+
+# verify syslog service status
+netstat -antup | grep 514
+
+## configuration at clinet side
+
+# open config file
+vim /etc/rsyslog.conf
+
+# add following line at end of file
+*.info;mail.none;authpriv.none;cron.none   @SYSLOG_SERVER_IP
+
+# restart syslog service
+systemctl restart rsyslog 
+
+# enable syslog service
+systemctl enable rsyslog
+
