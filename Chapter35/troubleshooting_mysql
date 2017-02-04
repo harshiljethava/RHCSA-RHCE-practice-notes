@@ -1,0 +1,24 @@
+# allow user to access mysql from remote location
+
+# open mysql with root privileges
+
+mysql -u root -p
+
+# run query to provide user to access remotely
+grant all privileges on dbname.* to '<USER_NAME>'@'%' identified by '<PASSWORD>';
+ 
+flush privileges;
+
+quit;
+
+
+# restart mysql service
+systemctl restart mariadb
+
+# open port in firewall
+firewall-cmd --permanent --add-service=mysql
+
+# reload firewall
+firewall-cmd --reload
+
+
