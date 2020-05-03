@@ -1,0 +1,1546 @@
+login as: harshil
+     ┌────────────────────────────────────────────────────────────────────┐
+     │                        • MobaXterm 11.1 •                          │
+     │            (SSH client, X-server and networking tools)             │
+     │                                                                    │
+     │ → SSH session to harshil@192.168.0.60                              │
+     │   • SSH compression : v                                            │
+     │   • SSH-browser     : v                                            │
+     │   • X11-forwarding  : v  (remote display is forwarded through SSH) │
+     │   • DISPLAY         : v  (automatically set on remote server)      │
+     │                                                                    │
+     │ → For more info, ctrl+click on help or visit our website           │
+     └────────────────────────────────────────────────────────────────────┘
+
+Last login: Fri Jun 21 23:11:27 2019 from 192.168.0.101
+[harshil@server2 ~]$ sudo nmcli con show
+[sudo] password for harshil:
+NAME                UUID                                  TYPE      DEVICE
+br0                 fa23b5d5-3705-4781-bceb-46bf39c44520  bridge    br0
+br0-port2           364f27d5-4c1c-4875-a763-04e1be30e95a  ethernet  ens37
+ens33               070c589c-fa34-4ed0-a8ee-46d3bd3ddfcf  ethernet  ens33
+virbr0              39ef6b08-5b5a-4b94-b434-4c123dc5d485  bridge    virbr0
+Wired connection 2  1b8b4f71-f2ee-3483-a78b-71569241b586  ethernet  ens38
+Wired connection 3  a6f868e3-6b87-3932-8d61-fac730ac1c1b  ethernet  ens39
+Wired connection 1  ceb7ea8f-fe67-35b6-8345-77baea8f4ac0  ethernet  --
+[harshil@server2 ~]$ sudo nmcli con delete ens38
+Error: unknown connection 'ens38'.
+Error: cannot delete unknown connection(s): 'ens38'.
+[harshil@server2 ~]$ sudo nmcli con delete Wired\ connection\ 2
+Connection 'Wired connection 2' (1b8b4f71-f2ee-3483-a78b-71569241b586) successfully deleted.
+[harshil@server2 ~]$ sudo nmcli con delete Wired\ connection\ 3
+Connection 'Wired connection 3' (a6f868e3-6b87-3932-8d61-fac730ac1c1b) successfully deleted.
+[harshil@server2 ~]$ sudo nmcli con delete Wired\ connection\ 2
+Error: unknown connection 'Wired connection 2'.
+Error: cannot delete unknown connection(s): 'Wired connection 2'.
+[harshil@server2 ~]$ sudo nmcli con show
+NAME                UUID                                  TYPE      DEVICE
+br0                 fa23b5d5-3705-4781-bceb-46bf39c44520  bridge    br0
+br0-port2           364f27d5-4c1c-4875-a763-04e1be30e95a  ethernet  ens37
+ens33               070c589c-fa34-4ed0-a8ee-46d3bd3ddfcf  ethernet  ens33
+virbr0              39ef6b08-5b5a-4b94-b434-4c123dc5d485  bridge    virbr0
+Wired connection 1  ceb7ea8f-fe67-35b6-8345-77baea8f4ac0  ethernet  --
+[harshil@server2 ~]$ sudo nmtui
+[harshil@server2 ~]$ sudo nmcli connection add
+autoconnect                      ipv4.addresses                   ipv6.dns
+con-name                         ipv4.dad-timeout                 ipv6.dns-options
+connection.auth-retries          ipv4.dhcp-client-id              ipv6.dns-priority
+connection.autoconnect           ipv4.dhcp-fqdn                   ipv6.dns-search
+connection.autoconnect-priority  ipv4.dhcp-hostname               ipv6.gateway
+connection.autoconnect-retries   ipv4.dhcp-send-hostname          ipv6.ignore-auto-dns
+connection.autoconnect-slaves    ipv4.dhcp-timeout                ipv6.ignore-auto-routes
+connection.gateway-ping-timeout  ipv4.dns                         ipv6.ip6-privacy
+connection.id                    ipv4.dns-options                 ipv6.may-fail
+connection.interface-name        ipv4.dns-priority                ipv6.method
+connection.lldp                  ipv4.dns-search                  ipv6.never-default
+connection.master                ipv4.gateway                     ipv6.route-metric
+connection.mdns                  ipv4.ignore-auto-dns             ipv6.routes
+connection.metered               ipv4.ignore-auto-routes          ipv6.route-table
+connection.permissions           ipv4.may-fail                    ipv6.token
+connection.read-only             ipv4.method                      master
+connection.secondaries           ipv4.never-default               proxy.browser-only
+connection.slave-type            ipv4.route-metric                proxy.method
+connection.stable-id             ipv4.routes                      proxy.pac-script
+connection.timestamp             ipv4.route-table                 proxy.pac-url
+connection.type                  ipv6.addresses                   slave-type
+connection.uuid                  ipv6.addr-gen-mode               tc.qdiscs
+connection.zone                  ipv6.dhcp-duid                   tc.tfilters
+help                             ipv6.dhcp-hostname               type
+ifname                           ipv6.dhcp-send-hostname
+[harshil@server2 ~]$ sudo nmcli connection add
+autoconnect                      ipv4.addresses                   ipv6.dns
+con-name                         ipv4.dad-timeout                 ipv6.dns-options
+connection.auth-retries          ipv4.dhcp-client-id              ipv6.dns-priority
+connection.autoconnect           ipv4.dhcp-fqdn                   ipv6.dns-search
+connection.autoconnect-priority  ipv4.dhcp-hostname               ipv6.gateway
+connection.autoconnect-retries   ipv4.dhcp-send-hostname          ipv6.ignore-auto-dns
+connection.autoconnect-slaves    ipv4.dhcp-timeout                ipv6.ignore-auto-routes
+connection.gateway-ping-timeout  ipv4.dns                         ipv6.ip6-privacy
+connection.id                    ipv4.dns-options                 ipv6.may-fail
+connection.interface-name        ipv4.dns-priority                ipv6.method
+connection.lldp                  ipv4.dns-search                  ipv6.never-default
+connection.master                ipv4.gateway                     ipv6.route-metric
+connection.mdns                  ipv4.ignore-auto-dns             ipv6.routes
+connection.metered               ipv4.ignore-auto-routes          ipv6.route-table
+connection.permissions           ipv4.may-fail                    ipv6.token
+connection.read-only             ipv4.method                      master
+connection.secondaries           ipv4.never-default               proxy.browser-only
+connection.slave-type            ipv4.route-metric                proxy.method
+connection.stable-id             ipv4.routes                      proxy.pac-script
+connection.timestamp             ipv4.route-table                 proxy.pac-url
+connection.type                  ipv6.addresses                   slave-type
+connection.uuid                  ipv6.addr-gen-mode               tc.qdiscs
+connection.zone                  ipv6.dhcp-duid                   tc.tfilters
+help                             ipv6.dhcp-hostname               type
+ifname                           ipv6.dhcp-send-hostname
+[harshil@server2 ~]$ sudo nmcli connection add
+autoconnect                      ipv4.addresses                   ipv6.dns
+con-name                         ipv4.dad-timeout                 ipv6.dns-options
+connection.auth-retries          ipv4.dhcp-client-id              ipv6.dns-priority
+connection.autoconnect           ipv4.dhcp-fqdn                   ipv6.dns-search
+connection.autoconnect-priority  ipv4.dhcp-hostname               ipv6.gateway
+connection.autoconnect-retries   ipv4.dhcp-send-hostname          ipv6.ignore-auto-dns
+connection.autoconnect-slaves    ipv4.dhcp-timeout                ipv6.ignore-auto-routes
+connection.gateway-ping-timeout  ipv4.dns                         ipv6.ip6-privacy
+connection.id                    ipv4.dns-options                 ipv6.may-fail
+connection.interface-name        ipv4.dns-priority                ipv6.method
+connection.lldp                  ipv4.dns-search                  ipv6.never-default
+connection.master                ipv4.gateway                     ipv6.route-metric
+connection.mdns                  ipv4.ignore-auto-dns             ipv6.routes
+connection.metered               ipv4.ignore-auto-routes          ipv6.route-table
+connection.permissions           ipv4.may-fail                    ipv6.token
+connection.read-only             ipv4.method                      master
+connection.secondaries           ipv4.never-default               proxy.browser-only
+connection.slave-type            ipv4.route-metric                proxy.method
+connection.stable-id             ipv4.routes                      proxy.pac-script
+connection.timestamp             ipv4.route-table                 proxy.pac-url
+connection.type                  ipv6.addresses                   slave-type
+connection.uuid                  ipv6.addr-gen-mode               tc.qdiscs
+connection.zone                  ipv6.dhcp-duid                   tc.tfilters
+help                             ipv6.dhcp-hostname               type
+ifname                           ipv6.dhcp-send-hostname
+[harshil@server2 ~]$ sudo nmcli connection add
+autoconnect                      ipv4.addresses                   ipv6.dns
+con-name                         ipv4.dad-timeout                 ipv6.dns-options
+connection.auth-retries          ipv4.dhcp-client-id              ipv6.dns-priority
+connection.autoconnect           ipv4.dhcp-fqdn                   ipv6.dns-search
+connection.autoconnect-priority  ipv4.dhcp-hostname               ipv6.gateway
+connection.autoconnect-retries   ipv4.dhcp-send-hostname          ipv6.ignore-auto-dns
+connection.autoconnect-slaves    ipv4.dhcp-timeout                ipv6.ignore-auto-routes
+connection.gateway-ping-timeout  ipv4.dns                         ipv6.ip6-privacy
+connection.id                    ipv4.dns-options                 ipv6.may-fail
+connection.interface-name        ipv4.dns-priority                ipv6.method
+connection.lldp                  ipv4.dns-search                  ipv6.never-default
+connection.master                ipv4.gateway                     ipv6.route-metric
+connection.mdns                  ipv4.ignore-auto-dns             ipv6.routes
+connection.metered               ipv4.ignore-auto-routes          ipv6.route-table
+connection.permissions           ipv4.may-fail                    ipv6.token
+connection.read-only             ipv4.method                      master
+connection.secondaries           ipv4.never-default               proxy.browser-only
+connection.slave-type            ipv4.route-metric                proxy.method
+connection.stable-id             ipv4.routes                      proxy.pac-script
+connection.timestamp             ipv4.route-table                 proxy.pac-url
+connection.type                  ipv6.addresses                   slave-type
+connection.uuid                  ipv6.addr-gen-mode               tc.qdiscs
+connection.zone                  ipv6.dhcp-duid                   tc.tfilters
+help                             ipv6.dhcp-hostname               type
+ifname                           ipv6.dhcp-send-hostname
+[harshil@server2 ~]$ sudo nmcli connection add
+autoconnect                      ipv4.addresses                   ipv6.dns
+con-name                         ipv4.dad-timeout                 ipv6.dns-options
+connection.auth-retries          ipv4.dhcp-client-id              ipv6.dns-priority
+connection.autoconnect           ipv4.dhcp-fqdn                   ipv6.dns-search
+connection.autoconnect-priority  ipv4.dhcp-hostname               ipv6.gateway
+connection.autoconnect-retries   ipv4.dhcp-send-hostname          ipv6.ignore-auto-dns
+connection.autoconnect-slaves    ipv4.dhcp-timeout                ipv6.ignore-auto-routes
+connection.gateway-ping-timeout  ipv4.dns                         ipv6.ip6-privacy
+connection.id                    ipv4.dns-options                 ipv6.may-fail
+connection.interface-name        ipv4.dns-priority                ipv6.method
+connection.lldp                  ipv4.dns-search                  ipv6.never-default
+connection.master                ipv4.gateway                     ipv6.route-metric
+connection.mdns                  ipv4.ignore-auto-dns             ipv6.routes
+connection.metered               ipv4.ignore-auto-routes          ipv6.route-table
+connection.permissions           ipv4.may-fail                    ipv6.token
+connection.read-only             ipv4.method                      master
+connection.secondaries           ipv4.never-default               proxy.browser-only
+connection.slave-type            ipv4.route-metric                proxy.method
+connection.stable-id             ipv4.routes                      proxy.pac-script
+connection.timestamp             ipv4.route-table                 proxy.pac-url
+connection.type                  ipv6.addresses                   slave-type
+connection.uuid                  ipv6.addr-gen-mode               tc.qdiscs
+connection.zone                  ipv6.dhcp-duid                   tc.tfilters
+help                             ipv6.dhcp-hostname               type
+ifname                           ipv6.dhcp-send-hostname
+[harshil@server2 ~]$ sudo nmcli connection add
+autoconnect                      ipv4.addresses                   ipv6.dns
+con-name                         ipv4.dad-timeout                 ipv6.dns-options
+connection.auth-retries          ipv4.dhcp-client-id              ipv6.dns-priority
+connection.autoconnect           ipv4.dhcp-fqdn                   ipv6.dns-search
+connection.autoconnect-priority  ipv4.dhcp-hostname               ipv6.gateway
+connection.autoconnect-retries   ipv4.dhcp-send-hostname          ipv6.ignore-auto-dns
+connection.autoconnect-slaves    ipv4.dhcp-timeout                ipv6.ignore-auto-routes
+connection.gateway-ping-timeout  ipv4.dns                         ipv6.ip6-privacy
+connection.id                    ipv4.dns-options                 ipv6.may-fail
+connection.interface-name        ipv4.dns-priority                ipv6.method
+connection.lldp                  ipv4.dns-search                  ipv6.never-default
+connection.master                ipv4.gateway                     ipv6.route-metric
+connection.mdns                  ipv4.ignore-auto-dns             ipv6.routes
+connection.metered               ipv4.ignore-auto-routes          ipv6.route-table
+connection.permissions           ipv4.may-fail                    ipv6.token
+connection.read-only             ipv4.method                      master
+connection.secondaries           ipv4.never-default               proxy.browser-only
+connection.slave-type            ipv4.route-metric                proxy.method
+connection.stable-id             ipv4.routes                      proxy.pac-script
+connection.timestamp             ipv4.route-table                 proxy.pac-url
+connection.type                  ipv6.addresses                   slave-type
+connection.uuid                  ipv6.addr-gen-mode               tc.qdiscs
+connection.zone                  ipv6.dhcp-duid                   tc.tfilters
+help                             ipv6.dhcp-hostname               type
+ifname                           ipv6.dhcp-send-hostname
+[harshil@server2 ~]$ sudo nmcli connection add
+autoconnect                      ipv4.addresses                   ipv6.dns
+con-name                         ipv4.dad-timeout                 ipv6.dns-options
+connection.auth-retries          ipv4.dhcp-client-id              ipv6.dns-priority
+connection.autoconnect           ipv4.dhcp-fqdn                   ipv6.dns-search
+connection.autoconnect-priority  ipv4.dhcp-hostname               ipv6.gateway
+connection.autoconnect-retries   ipv4.dhcp-send-hostname          ipv6.ignore-auto-dns
+connection.autoconnect-slaves    ipv4.dhcp-timeout                ipv6.ignore-auto-routes
+connection.gateway-ping-timeout  ipv4.dns                         ipv6.ip6-privacy
+connection.id                    ipv4.dns-options                 ipv6.may-fail
+connection.interface-name        ipv4.dns-priority                ipv6.method
+connection.lldp                  ipv4.dns-search                  ipv6.never-default
+connection.master                ipv4.gateway                     ipv6.route-metric
+connection.mdns                  ipv4.ignore-auto-dns             ipv6.routes
+connection.metered               ipv4.ignore-auto-routes          ipv6.route-table
+connection.permissions           ipv4.may-fail                    ipv6.token
+connection.read-only             ipv4.method                      master
+connection.secondaries           ipv4.never-default               proxy.browser-only
+connection.slave-type            ipv4.route-metric                proxy.method
+connection.stable-id             ipv4.routes                      proxy.pac-script
+connection.timestamp             ipv4.route-table                 proxy.pac-url
+connection.type                  ipv6.addresses                   slave-type
+connection.uuid                  ipv6.addr-gen-mode               tc.qdiscs
+connection.zone                  ipv6.dhcp-duid                   tc.tfilters
+help                             ipv6.dhcp-hostname               type
+ifname                           ipv6.dhcp-send-hostname
+[harshil@server2 ~]$ sudo nmcli connection add
+autoconnect                      ipv4.addresses                   ipv6.dns
+con-name                         ipv4.dad-timeout                 ipv6.dns-options
+connection.auth-retries          ipv4.dhcp-client-id              ipv6.dns-priority
+connection.autoconnect           ipv4.dhcp-fqdn                   ipv6.dns-search
+connection.autoconnect-priority  ipv4.dhcp-hostname               ipv6.gateway
+connection.autoconnect-retries   ipv4.dhcp-send-hostname          ipv6.ignore-auto-dns
+connection.autoconnect-slaves    ipv4.dhcp-timeout                ipv6.ignore-auto-routes
+connection.gateway-ping-timeout  ipv4.dns                         ipv6.ip6-privacy
+connection.id                    ipv4.dns-options                 ipv6.may-fail
+connection.interface-name        ipv4.dns-priority                ipv6.method
+connection.lldp                  ipv4.dns-search                  ipv6.never-default
+connection.master                ipv4.gateway                     ipv6.route-metric
+connection.mdns                  ipv4.ignore-auto-dns             ipv6.routes
+connection.metered               ipv4.ignore-auto-routes          ipv6.route-table
+connection.permissions           ipv4.may-fail                    ipv6.token
+connection.read-only             ipv4.method                      master
+connection.secondaries           ipv4.never-default               proxy.browser-only
+connection.slave-type            ipv4.route-metric                proxy.method
+connection.stable-id             ipv4.routes                      proxy.pac-script
+connection.timestamp             ipv4.route-table                 proxy.pac-url
+connection.type                  ipv6.addresses                   slave-type
+connection.uuid                  ipv6.addr-gen-mode               tc.qdiscs
+connection.zone                  ipv6.dhcp-duid                   tc.tfilters
+help                             ipv6.dhcp-hostname               type
+ifname                           ipv6.dhcp-send-hostname
+[harshil@server2 ~]$ sudo nmcli connection add
+autoconnect                      ipv4.addresses                   ipv6.dns
+con-name                         ipv4.dad-timeout                 ipv6.dns-options
+connection.auth-retries          ipv4.dhcp-client-id              ipv6.dns-priority
+connection.autoconnect           ipv4.dhcp-fqdn                   ipv6.dns-search
+connection.autoconnect-priority  ipv4.dhcp-hostname               ipv6.gateway
+connection.autoconnect-retries   ipv4.dhcp-send-hostname          ipv6.ignore-auto-dns
+connection.autoconnect-slaves    ipv4.dhcp-timeout                ipv6.ignore-auto-routes
+connection.gateway-ping-timeout  ipv4.dns                         ipv6.ip6-privacy
+connection.id                    ipv4.dns-options                 ipv6.may-fail
+connection.interface-name        ipv4.dns-priority                ipv6.method
+connection.lldp                  ipv4.dns-search                  ipv6.never-default
+connection.master                ipv4.gateway                     ipv6.route-metric
+connection.mdns                  ipv4.ignore-auto-dns             ipv6.routes
+connection.metered               ipv4.ignore-auto-routes          ipv6.route-table
+connection.permissions           ipv4.may-fail                    ipv6.token
+connection.read-only             ipv4.method                      master
+connection.secondaries           ipv4.never-default               proxy.browser-only
+connection.slave-type            ipv4.route-metric                proxy.method
+connection.stable-id             ipv4.routes                      proxy.pac-script
+connection.timestamp             ipv4.route-table                 proxy.pac-url
+connection.type                  ipv6.addresses                   slave-type
+connection.uuid                  ipv6.addr-gen-mode               tc.qdiscs
+connection.zone                  ipv6.dhcp-duid                   tc.tfilters
+help                             ipv6.dhcp-hostname               type
+ifname                           ipv6.dhcp-send-hostname
+[harshil@server2 ~]$ sudo nmcli connection add
+autoconnect                      ipv4.addresses                   ipv6.dns
+con-name                         ipv4.dad-timeout                 ipv6.dns-options
+connection.auth-retries          ipv4.dhcp-client-id              ipv6.dns-priority
+connection.autoconnect           ipv4.dhcp-fqdn                   ipv6.dns-search
+connection.autoconnect-priority  ipv4.dhcp-hostname               ipv6.gateway
+connection.autoconnect-retries   ipv4.dhcp-send-hostname          ipv6.ignore-auto-dns
+connection.autoconnect-slaves    ipv4.dhcp-timeout                ipv6.ignore-auto-routes
+connection.gateway-ping-timeout  ipv4.dns                         ipv6.ip6-privacy
+connection.id                    ipv4.dns-options                 ipv6.may-fail
+connection.interface-name        ipv4.dns-priority                ipv6.method
+connection.lldp                  ipv4.dns-search                  ipv6.never-default
+connection.master                ipv4.gateway                     ipv6.route-metric
+connection.mdns                  ipv4.ignore-auto-dns             ipv6.routes
+connection.metered               ipv4.ignore-auto-routes          ipv6.route-table
+connection.permissions           ipv4.may-fail                    ipv6.token
+connection.read-only             ipv4.method                      master
+connection.secondaries           ipv4.never-default               proxy.browser-only
+connection.slave-type            ipv4.route-metric                proxy.method
+connection.stable-id             ipv4.routes                      proxy.pac-script
+connection.timestamp             ipv4.route-table                 proxy.pac-url
+connection.type                  ipv6.addresses                   slave-type
+connection.uuid                  ipv6.addr-gen-mode               tc.qdiscs
+connection.zone                  ipv6.dhcp-duid                   tc.tfilters
+help                             ipv6.dhcp-hostname               type
+ifname                           ipv6.dhcp-send-hostname
+[harshil@server2 ~]$ sudo nmcli connection add
+autoconnect                      ipv4.addresses                   ipv6.dns
+con-name                         ipv4.dad-timeout                 ipv6.dns-options
+connection.auth-retries          ipv4.dhcp-client-id              ipv6.dns-priority
+connection.autoconnect           ipv4.dhcp-fqdn                   ipv6.dns-search
+connection.autoconnect-priority  ipv4.dhcp-hostname               ipv6.gateway
+connection.autoconnect-retries   ipv4.dhcp-send-hostname          ipv6.ignore-auto-dns
+connection.autoconnect-slaves    ipv4.dhcp-timeout                ipv6.ignore-auto-routes
+connection.gateway-ping-timeout  ipv4.dns                         ipv6.ip6-privacy
+connection.id                    ipv4.dns-options                 ipv6.may-fail
+connection.interface-name        ipv4.dns-priority                ipv6.method
+connection.lldp                  ipv4.dns-search                  ipv6.never-default
+connection.master                ipv4.gateway                     ipv6.route-metric
+connection.mdns                  ipv4.ignore-auto-dns             ipv6.routes
+connection.metered               ipv4.ignore-auto-routes          ipv6.route-table
+connection.permissions           ipv4.may-fail                    ipv6.token
+connection.read-only             ipv4.method                      master
+connection.secondaries           ipv4.never-default               proxy.browser-only
+connection.slave-type            ipv4.route-metric                proxy.method
+connection.stable-id             ipv4.routes                      proxy.pac-script
+connection.timestamp             ipv4.route-table                 proxy.pac-url
+connection.type                  ipv6.addresses                   slave-type
+connection.uuid                  ipv6.addr-gen-mode               tc.qdiscs
+connection.zone                  ipv6.dhcp-duid                   tc.tfilters
+help                             ipv6.dhcp-hostname               type
+ifname                           ipv6.dhcp-send-hostname
+[harshil@server2 ~]$ sudo nmcli connection add
+autoconnect                      ipv4.addresses                   ipv6.dns
+con-name                         ipv4.dad-timeout                 ipv6.dns-options
+connection.auth-retries          ipv4.dhcp-client-id              ipv6.dns-priority
+connection.autoconnect           ipv4.dhcp-fqdn                   ipv6.dns-search
+connection.autoconnect-priority  ipv4.dhcp-hostname               ipv6.gateway
+connection.autoconnect-retries   ipv4.dhcp-send-hostname          ipv6.ignore-auto-dns
+connection.autoconnect-slaves    ipv4.dhcp-timeout                ipv6.ignore-auto-routes
+connection.gateway-ping-timeout  ipv4.dns                         ipv6.ip6-privacy
+connection.id                    ipv4.dns-options                 ipv6.may-fail
+connection.interface-name        ipv4.dns-priority                ipv6.method
+connection.lldp                  ipv4.dns-search                  ipv6.never-default
+connection.master                ipv4.gateway                     ipv6.route-metric
+connection.mdns                  ipv4.ignore-auto-dns             ipv6.routes
+connection.metered               ipv4.ignore-auto-routes          ipv6.route-table
+connection.permissions           ipv4.may-fail                    ipv6.token
+connection.read-only             ipv4.method                      master
+connection.secondaries           ipv4.never-default               proxy.browser-only
+connection.slave-type            ipv4.route-metric                proxy.method
+connection.stable-id             ipv4.routes                      proxy.pac-script
+connection.timestamp             ipv4.route-table                 proxy.pac-url
+connection.type                  ipv6.addresses                   slave-type
+connection.uuid                  ipv6.addr-gen-mode               tc.qdiscs
+connection.zone                  ipv6.dhcp-duid                   tc.tfilters
+help                             ipv6.dhcp-hostname               type
+ifname                           ipv6.dhcp-send-hostname
+[harshil@server2 ~]$ sudo nmcli connection add
+autoconnect                      ipv4.addresses                   ipv6.dns
+con-name                         ipv4.dad-timeout                 ipv6.dns-options
+connection.auth-retries          ipv4.dhcp-client-id              ipv6.dns-priority
+connection.autoconnect           ipv4.dhcp-fqdn                   ipv6.dns-search
+connection.autoconnect-priority  ipv4.dhcp-hostname               ipv6.gateway
+connection.autoconnect-retries   ipv4.dhcp-send-hostname          ipv6.ignore-auto-dns
+connection.autoconnect-slaves    ipv4.dhcp-timeout                ipv6.ignore-auto-routes
+connection.gateway-ping-timeout  ipv4.dns                         ipv6.ip6-privacy
+connection.id                    ipv4.dns-options                 ipv6.may-fail
+connection.interface-name        ipv4.dns-priority                ipv6.method
+connection.lldp                  ipv4.dns-search                  ipv6.never-default
+connection.master                ipv4.gateway                     ipv6.route-metric
+connection.mdns                  ipv4.ignore-auto-dns             ipv6.routes
+connection.metered               ipv4.ignore-auto-routes          ipv6.route-table
+connection.permissions           ipv4.may-fail                    ipv6.token
+connection.read-only             ipv4.method                      master
+connection.secondaries           ipv4.never-default               proxy.browser-only
+connection.slave-type            ipv4.route-metric                proxy.method
+connection.stable-id             ipv4.routes                      proxy.pac-script
+connection.timestamp             ipv4.route-table                 proxy.pac-url
+connection.type                  ipv6.addresses                   slave-type
+connection.uuid                  ipv6.addr-gen-mode               tc.qdiscs
+connection.zone                  ipv6.dhcp-duid                   tc.tfilters
+help                             ipv6.dhcp-hostname               type
+ifname                           ipv6.dhcp-send-hostname
+[harshil@server2 ~]$ sudo nmcli connection add ^C
+[harshil@server2 ~]$
+[harshil@server2 ~]$ sudo nmcli con show
+NAME    UUID                                  TYPE      DEVICE
+br0     fa23b5d5-3705-4781-bceb-46bf39c44520  bridge    br0
+ens33   070c589c-fa34-4ed0-a8ee-46d3bd3ddfcf  ethernet  ens33
+virbr0  39ef6b08-5b5a-4b94-b434-4c123dc5d485  bridge    virbr0
+ens38   a01741a7-52f9-4823-a5c6-ca189ccc531f  ethernet  ens38
+ens39   cba93150-cd38-4ad6-b59d-07efe44c03d2  ethernet  ens39
+[harshil@server2 ~]$ sudo nmcli con add type team con-name teams2 ifname teams2 config
+Error: value for 'config' is missing.
+[harshil@server2 ~]$ sudo nmcli con add type team con-name teams2 ifname teams2 config '{"runner":{"name":"activebackup"}}'
+Connection 'teams2' (a4047956-1d43-437c-bfdb-b72e025c650f) successfully added.
+[harshil@server2 ~]$ sudo nmcli con mod teams2 ipv4.addresses 192.168.0.66/24
+[harshil@server2 ~]$ sudo nmcli con mod teams2 ipv4.method manual
+[harshil@server2 ~]$ sudo nmcli con add type team-slave con-name teas2p1 ifname ens38 master teams2
+Connection 'teas2p1' (71ba9741-c5fb-4f6a-9c49-ce7af8a75a41) successfully added.
+[harshil@server2 ~]$ sudo nmcli con add type team-slave con-name teas2p2 ifname ens39 master teams2
+Connection 'teas2p2' (8c1924e9-fa66-4d5d-9607-41d97980b6fc) successfully added.
+[harshil@server2 ~]$ sudo nmcli con up tea
+teams2   teas2p1  teas2p2
+[harshil@server2 ~]$ sudo nmcli con up tea
+teams2   teas2p1  teas2p2
+[harshil@server2 ~]$ sudo nmcli con up teams2
+Connection successfully activated (master waiting for slaves) (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/21)
+[harshil@server2 ~]$ sudo nmcli con up teas2p1
+Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/24)
+[harshil@server2 ~]$ sudo nmcli con up teas2p2
+Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/25)
+[harshil@server2 ~]$
+[harshil@server2 ~]$ sudo teamdctl teams2 state
+setup:
+  runner: activebackup
+ports:
+  ens38
+    link watches:
+      link summary: up
+      instance[link_watch_0]:
+        name: ethtool
+        link: up
+        down count: 0
+  ens39
+    link watches:
+      link summary: up
+      instance[link_watch_0]:
+        name: ethtool
+        link: up
+        down count: 0
+runner:
+  active port: ens38
+[harshil@server2 ~]$ sudo teamdctl teams2 state
+setup:
+  runner: activebackup
+ports:
+  ens38
+    link watches:
+      link summary: up
+      instance[link_watch_0]:
+        name: ethtool
+        link: up
+        down count: 0
+  ens39
+    link watches:
+      link summary: up
+      instance[link_watch_0]:
+        name: ethtool
+        link: up
+        down count: 0
+runner:
+  active port: ens38
+[harshil@server2 ~]$ sudo nmcli con show
+NAME     UUID                                  TYPE      DEVICE
+br0      fa23b5d5-3705-4781-bceb-46bf39c44520  bridge    br0
+ens33    070c589c-fa34-4ed0-a8ee-46d3bd3ddfcf  ethernet  ens33
+teams2   a4047956-1d43-437c-bfdb-b72e025c650f  team      teams2
+teas2p1  71ba9741-c5fb-4f6a-9c49-ce7af8a75a41  ethernet  ens38
+teas2p2  8c1924e9-fa66-4d5d-9607-41d97980b6fc  ethernet  ens39
+virbr0   39ef6b08-5b5a-4b94-b434-4c123dc5d485  bridge    virbr0
+ens38    a01741a7-52f9-4823-a5c6-ca189ccc531f  ethernet  --
+ens39    cba93150-cd38-4ad6-b59d-07efe44c03d2  ethernet  --
+[harshil@server2 ~]$ ifconfig
+br0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 192.168.0.102  netmask 255.255.255.0  broadcast 19                                                                     2.168.0.255
+        inet6 fe80::9829:113c:9efe:2720  prefixlen 64  scopeid                                                                      0x20<link>
+        ether 00:00:00:00:00:00  txqueuelen 1000  (Ethernet)
+        RX packets 787  bytes 115411 (112.7 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 31  bytes 3249 (3.1 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collision                                                                     s 0
+
+ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.0.60  netmask 255.255.255.0  broadcast 192                                                                     .168.0.255
+        inet6 fe80::7b89:c256:feb5:abc2  prefixlen 64  scopeid                                                                      0x20<link>
+        ether 00:0c:29:83:7c:97  txqueuelen 1000  (Ethernet)
+        RX packets 3777  bytes 1535325 (1.4 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 2488  bytes 233736 (228.2 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collision                                                                     s 0
+
+ens37: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        ether 00:0c:29:83:7c:a1  txqueuelen 1000  (Ethernet)
+        RX packets 2811  bytes 371645 (362.9 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 298  bytes 25575 (24.9 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collision                                                                     s 0
+
+ens38: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        ether 00:0c:29:83:7c:b5  txqueuelen 1000  (Ethernet)
+        RX packets 1637  bytes 208773 (203.8 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 148  bytes 19778 (19.3 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collision                                                                     s 0
+
+ens39: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        ether 00:0c:29:83:7c:b5  txqueuelen 1000  (Ethernet)
+        RX packets 1633  bytes 209643 (204.7 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 84  bytes 9214 (8.9 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collision                                                                     s 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 1330  bytes 125999 (123.0 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 1330  bytes 125999 (123.0 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collision                                                                     s 0
+
+teams2: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.0.66  netmask 255.255.255.0  broadcast 192                                                                     .168.0.255
+        inet6 fe80::af42:883b:450f:3c  prefixlen 64  scopeid 0x                                                                     20<link>
+        ether 00:0c:29:83:7c:b5  txqueuelen 1000  (Ethernet)
+        RX packets 439  bytes 51832 (50.6 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 91  bytes 12104 (11.8 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collision                                                                     s 0
+
+virbr0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 192.168.122.1  netmask 255.255.255.0  broadcast 19                                                                     2.168.122.255
+        ether 52:54:00:8c:23:33  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collision                                                                     s 0
+
+[harshil@server2 ~]$ sudo nmcli device disconnect ens38
+Device 'ens38' successfully disconnected.
+[harshil@server2 ~]$ sudo nmcli con show
+NAME     UUID                                  TYPE      DEVICE
+br0      fa23b5d5-3705-4781-bceb-46bf39c44520  bridge    br0
+ens33    070c589c-fa34-4ed0-a8ee-46d3bd3ddfcf  ethernet  ens33
+teams2   a4047956-1d43-437c-bfdb-b72e025c650f  team      teams2
+teas2p2  8c1924e9-fa66-4d5d-9607-41d97980b6fc  ethernet  ens39
+virbr0   39ef6b08-5b5a-4b94-b434-4c123dc5d485  bridge    virbr0
+ens38    a01741a7-52f9-4823-a5c6-ca189ccc531f  ethernet  --
+ens39    cba93150-cd38-4ad6-b59d-07efe44c03d2  ethernet  --
+teas2p1  71ba9741-c5fb-4f6a-9c49-ce7af8a75a41  ethernet  --
+[harshil@server2 ~]$ sudo nmcli device  disconnect ens39
+Device 'ens39' successfully disconnected.
+[harshil@server2 ~]$ sudo teamdctl teams2 state
+setup:
+  runner: activebackup
+runner:
+  active port:
+[harshil@server2 ~]$ sudo nmcli con up ens39
+
+^CError: nmcli terminated by signal Interrupt (2)
+[harshil@server2 ~]$ sudo nmcli con up tea
+teams2   teas2p1  teas2p2
+[harshil@server2 ~]$ sudo nmcli con up tea
+teams2   teas2p1  teas2p2
+[harshil@server2 ~]$ sudo nmcli con up tea
+teams2   teas2p1  teas2p2
+[harshil@server2 ~]$ sudo nmcli con up teas2p2
+Connection successfully activated (D-Bus active path: /org/free                                                                     desktop/NetworkManager/ActiveConnection/27)
+[harshil@server2 ~]$ sudo nmcli con up teas2p1
+Connection successfully activated (D-Bus active path: /org/free                                                                     desktop/NetworkManager/ActiveConnection/28)
+[harshil@server2 ~]$ sudo nmcli con show
+NAME     UUID                                  TYPE      DEVICE
+br0      fa23b5d5-3705-4781-bceb-46bf39c44520  bridge    br0
+ens33    070c589c-fa34-4ed0-a8ee-46d3bd3ddfcf  ethernet  ens33
+teams2   a4047956-1d43-437c-bfdb-b72e025c650f  team      teams2
+teas2p1  71ba9741-c5fb-4f6a-9c49-ce7af8a75a41  ethernet  ens38
+teas2p2  8c1924e9-fa66-4d5d-9607-41d97980b6fc  ethernet  ens39
+virbr0   39ef6b08-5b5a-4b94-b434-4c123dc5d485  bridge    virbr0
+ens38    a01741a7-52f9-4823-a5c6-ca189ccc531f  ethernet  --
+ens39    cba93150-cd38-4ad6-b59d-07efe44c03d2  ethernet  --
+[harshil@server2 ~]$
+[harshil@server2 ~]$ sudo /etc/
+Display all 156 possibilities? (y or n)
+[harshil@server2 ~]$ sudo /etc/
+Display all 156 possibilities? (y or n)
+[harshil@server2 ~]$ sudo /etc/i
+init.d/   ipa/      iproute2/ ipsec.d/  iscsi/
+[harshil@server2 ~]$ sudo /etc/i
+init.d/   ipa/      iproute2/ ipsec.d/  iscsi/
+[harshil@server2 ~]$ history
+    1  sudo firewalld
+    2  sudo systemctl status firewalld
+    3  su root
+    4  sudo systemctl enable httpd.service
+    5  su reboot
+    6  sudo reboot
+    7  history
+    8  ifconfig
+    9  sudo teamdctl ifteam0 state
+   10  ifconfig
+   11  ifconfig
+   12  nmcli con add type team con-name team0 ifname ifteam0 co                                                                     nfig'{"runner":{"name":"activebackup"}}'
+   13  nmcli con add type team con-name team0 ifname ifteam0 co                                                                     nfig '{"runner":{"name":"activebackup"}}'
+   14  sudo nmcli con add type team con-name team0 ifname iftea                                                                     m0 config '{"runner":{"name":"activebackup"}}'
+   15  nmcli con mod team0 ipv4.address 192.168.0.100/24
+   16  sudo nmcli con mod team0 ipv4.address 192.168.0.100/24
+   17  sudo nmcli con mod team0 ipv4.method manual
+   18  ifconfig
+   19  sudo nmcli con add type team-slave con-name team0-port1                                                                      ifname ens33 master team0
+   20  sudo nmcli con add type team-slave con-name team0-port2                                                                      ifname ens27 master team0
+   21  teamdctl state team0
+   22  teamdctl team0 state
+   23  sudo teamdctl team0 state
+   24  sudo teamdctl ifteam0 state
+   25  nmcli con up team0
+   26  sudo nmcli con up team0
+   27  sudo teamdctl ifteam0 state
+   28  sudo teamdctl team0 state
+   29  sudo nmcli dev dis ens33
+   30  ifconfig
+   31  sudo nmcli dev dis ens33
+   32  sudo nmcli dev up ens33
+   33  sudo nmcli dev enable ens33
+   34  sudo nmcli dev ena ens33
+   35  sudo nmcli dev --help
+   36  sudo nmcli dev con ens33
+   37  ifconfig
+   38  sudo nmcli dev dis ens37
+   39  sudo nmcli dev con ens37
+   40  sudo nmcli dev dis ens33
+   41  sudo nmcli dev dis ens37
+   42  sudo sudo nmcli dev dis ens37
+   43  sudo sudo nmcli dev con ens33
+   44  sudo sudo nmcli dev con ens37
+   45  sudo teamdctl ifteam0 state
+   46  sudo nmcli con up team0-port1
+   47  sudo nmcli con up team0-port2
+   48  sudo teamdctl ifteam0 state
+   49  sudo nmcli con up team0-port2
+   50  sudo nmcli dev dis ens33
+   51  sudo nmcli con up team0-port2
+   52  sudo teamdctl ifteam0 state
+   53  sudo nmcli con up team0-port1
+   54  sudo teamdctl ifteam0 state
+   55  sudo nmcli con up ens37
+   56  sudo nmcli dev con  ens37
+   57  sudo teamdctl ifteam0 state
+   58  ifconfig
+   59  sudo nmcli con up team0-port2
+   60  sudo nmcli con up team0-port1
+   61  sudo teamdctl ifteam0 state
+   62  sudo nmcli con delete  team0
+   63  ifconfig
+   64  sudo nmcli connection add type team con-name team1 ifnam                                                                     e team1 config '{"runner":{"name":"activebackup"}}'
+   65  sudo nmcli connection add type team con-name team1 ifnam                                                                     e team1 config '{"runner":{"name":"activebackup"}}' >> network_                                                                     teaming
+   66  ll
+   67  cat network_teaming
+   68  vi network_teaming
+   69  cat network_teaming
+   70  ll
+   71  sudo nmcli con mod team1 ipv4.address 192.168.0.101/24
+   72  vi network_teaming
+   73  sudo nmcli con mod team1 ipv4.method manual
+   74  sudo nmcli con mod team1 ipv4.method manual >> network_t                                                                     eaming
+   75  cat network_teaming
+   76  vi network_teaming
+   77  sudo nmcli con add type team-slave con-name team1-port1                                                                      ifname ens33 master team1
+   78  sudo nmcli con add type team-slave con-name team1-port2                                                                      ifname ens37 master team1
+   79  vi network_teaming
+   80  sudo nmcli dev up team1-port1
+   81  sudo nmcli con up team1-port1
+   82  sudo nmcli con up team1-port2
+   83  vi network_teaming
+   84  sudo teamdctl team1 state
+   85  vi network_teaming
+   86  sudo nmcli dev dis ens33
+   87  sudo teamdctl team1 state
+   88  sudo nmcli dev con ens33
+   89  sudo teamdctl team1 state
+   90  sudo nmcli dev dis ens37
+   91  sudo teamdctl team1 state
+   92  sudo nmcli dev con ens37
+   93  sudo teamdctl team1 state
+   94  sudo nmcli dev con ens33
+   95  sudo teamdctl team1 state
+   96  cat network_teaming
+   97  sudo nmcli dev con team1
+   98  sudo teamdctl team1 state
+   99  sudo nmcli con up team1-port1
+  100  sudo nmcli con up team1-port2
+  101  sudo nmcli dev con team1
+  102  sudo teamdctl team1 state
+  103  sudo nmcli dev dis ens33
+  104  sudo teamdctl team1 state
+  105  sudo nmcli dev con ens33
+  106  sudo teamdctl team1 state
+  107  history
+  108  history >> 17052019
+  109  sudo shut down
+  110  sudo halt
+  111  sudo cd /etc/sysconfig/
+  112  ls
+  113  su root
+  114  teamnl team1 ports
+  115  sudo teamnl team1 ports
+  116  sudo teamdctl team1 state
+  117  sudo nmcli con up team ens37
+  118  sudo nmcli con up  ens37
+  119  sudo nmcli dev con  ens37
+  120  sudo teamdctl team1 state
+  121  sudo nmcli up team1-port2
+  122  sudo nmcli con up team1-port2
+  123  sudo teamdctl team1 state
+  124  sudo teamnl con
+  125  sudo teamnl team1 ports
+  126  sudo teamnl getoption activeports
+  127  sudo teamnl getoption activeport
+  128  sudo teamnl team1 getoption activeport
+  129  sudo teamnl team1 setoption activeport 3
+  130  sudo teamnl team1 getoption activeport
+  131  sudo teamdctl team1 state
+  132  sudo teamnl team1 setoption activeport 2
+  133  sudo teamdctl team1 state
+  134  sudo teamdctl team1 config dump
+  135  sudo nmcli dev dis team1
+  136  sudo cd /etc
+  137  ls
+  138  sudo cat ifcfg-team1
+  139  sudo vi ifcfg-team1
+  140  sudo nmcli con load /etc/sysconfig/network-scripts/ifcfg                                                                     -team1
+  141  sudo nmcli con team1 up
+  142  sudo nmcli con up team1
+  143  sudo teamctl team1 state
+  144  sudo teamdctl team1 state
+  145  sudo nmcli con up team1-port1
+  146  sudo nmcli con up team1-port2
+  147  sudo teamdctl team1 state
+  148  sudo teamdctl team1 option
+  149  sudo teamdctl team1 options
+  150  sudo teamnl team1 option
+  151  cd
+  152  ls
+  153  touch 18052019
+  154  history
+  155  sudo nmcli dev dis team1
+  156  sudo cd /etc/sys
+  157  sudo cd /etc/
+  158  ls
+  159  cd /etc/sysconfig/network-scripts/
+  160  ls
+  161  cat ifcfg-team1
+  162  vi ifcfg-team1
+  163  sudo vi ifcfg-team1
+  164  nmcli con load /etc/sysconfig/network-scripts/ifcfg-team                                                                     1
+  165  sudo nmcli con load /etc/sysconfig/network-scripts/ifcfg                                                                     -team1
+  166  sudo nmcli con up team1
+  167  sudo teamdctl team1 state
+  168  sudo nmcli con up team1-port1
+  169  sudo nmcli con up team1-port2
+  170  sudo teamdctl team1 state
+  171  cd
+  172  sudo nmcli con delete team1-port1
+  173  sudo nmcli con delete team1-port2
+  174  sudo nmcli con delete team1
+  175  sudo nmcli con show
+  176  sudo nmcli con del team0-port1
+  177  sudo nmcli con del team0-port2
+  178  sudo nmcli con show
+  179  sudo nmcli con add type bridge con-name br0 ifname br0
+  180  sudo nmcli con add type bridge-slave con-name br0-port1                                                                      ifname ens33 master br0
+  181  sudo nmcli con add type bridge bridge-slave con-name br0                                                                     -port2 ifname ens37 master br0
+  182  sudo nmcli con add type bridge-slave con-name br0-port2                                                                      ifname ens37 master br0
+  183  sudo nmcli con show
+  184  sudo brctl show
+  185  sudo nmcli con mod br0 ipv4.addresses 192.168.0.102/24
+  186  sudo nmcli con mod br0 ipv4.method manual
+  187  sudo brctl show
+  188  sudo nmcli con up br0-port1
+  189  sudo nmcli con up br0-port2
+  190  sudo nmcli con mod br0 ipv4.method manual
+  191  sudo brctl show
+  192  sudo nmcli con up br0
+  193  ls
+  194  sudo history >> 18052019
+  195  history >> 18052019
+  196  vi 18052019
+  197  cat 18052019
+  198  systemctl status NetworkManager
+  199  sudo systemctl status httpd
+  200  systemctl list-dependencies firewalld.service
+  201  firewall-config
+  202  sudo firewall-config
+  203  touch 180520192
+  204  ls
+  205  sudo firewall-cmd --zone=internal --add-source=192.168.0                                                                     .0/24
+  206  sudo firewall-cmd --reload
+  207  sudo firewall-cmd --zone=internal --add-service=httpd
+  208  sudo firewall-cmd --zone=internal --add-service=http
+  209  sudo firewall-cmd --reload
+  210  sudo firewall-cmd --get-active-zones
+  211  sudo systemctl restart httpd
+  212  sudo systemctl stop firewalld
+  213  sudo systemctl start firewalld
+  214  history
+  215  vi 180520192
+  216  ls
+  217  halt
+  218  sudo halt
+  219  firewall-config
+  220  sudo yum update
+  221  sudo halt
+  222  ipconfig
+  223  ifconfig
+  224  systemctl status firewalls
+  225  systemctl status firewalld
+  226  sudo firewall-cmd --zone=internal --add-rich-rule='rule                                                                      family=ipv4 source address=192.168.0.104/32 reject'
+  227  ls
+  228  touch 19052018
+  229  vi 19052018
+  230  sudo firewall-cmd --reload
+  231  sudo firewall-cmd --zone=public --add-rich-rule='rule fa                                                                     mily=ipv4 source address=192.168.0.104/32 reject'
+  232  sudo firewall-cmd --permanent --zone=public --add-rich-r                                                                     ule='rule family=ipv4 source address=192.168.0.104/32 reject'
+  233  sudo firewall-cmd --reload
+  234  sudo firewall-cmd --permanent --zone=internal --add-rich                                                                     -rule='rule family=ipv4 source address=192.168.0.104/32 reject'
+  235  sudo firewall-cmd --reload
+  236  sudo firewall-cmd --list-rich-rules
+  237  sudo firewall-cmd --permanent --zone=tusted --add-rich-r                                                                     ule='rule family=ipv4 source address=192.168.0.104/32 reject'
+  238  sudo firewall-cmd --permanent --zone=trusted --add-rich-                                                                     rule='rule family=ipv4 source address=192.168.0.104/32 reject'
+  239  sudo firewall-cmd --reload
+  240  sudo firewall-cmd --list-rich-rules
+  241  ls
+  242  sudo firewall --list-all
+  243  sudo firewall --list-all-zones
+  244  sudo firewall-cmd --list-all
+  245  ls
+  246  sudo firewall-cmd --list-rich-rule
+  247  sudo firewall-cmd --permanent --remove-rich-rule='rule f                                                                     amily=ipv4 source address="192.168.0.104/32 reject"'
+  248  sudo firewall-cmd --permanent --remove-rich-rule='rule f                                                                     amily=ipv4 source address="192.168.0.104/32" reject'
+  249  sudo firewall-cmd --reload
+  250  vi 19052018
+  251  sudo firewall-cmd --permanent --add-rich-rule='rule serv                                                                     ice name=ssh limit value=2/m accept'
+  252  sudo firewall-cmd --reload
+  253  sudo firewall-cmd --permanent --zone=public --add-rich-r                                                                     ule='rule family=ipv4 source address=192.168.0.0/24 port port=7                                                                     000-8000 protocol=tcp accept'
+  254  sudo firewall-cmd --reload
+  255  sudo firewall-cmd --permanent --zone=trusted --add-rich-                                                                     rule='rule family=ipv4 source address=192.168.0.0/24 port port=                                                                     7000-8000 protocol=tcp accept'
+  256  sudo firewall-cmd --reload
+  257  man firewalld
+  258  man firewalld.richlanguage
+  259  sudo firewall-cmd --permanent --zone=public --add-rich-r                                                                     ule='rule service name=ssh log prefix="ssh" level="notice" limi                                                                     t value="3/m" accept'
+  260  sudo firewall-cmd --reload
+  261  sudo systemctl statud httpd
+  262  sudo systemctl status httpd
+  263  sudo firewall-cmd --permanent --add-rich-rule='rule serv                                                                     ice name=http source="192.168.0.0/24 accept"'
+  264  sudo firewall-cmd --permanent --add-rich-rule='rule serv                                                                     ice name=http source address="192.168.0.0/24 accept"'
+  265  sudo firewall-cmd --permanent --add-rich-rule='rule serv                                                                     ice name=http family=ipv4 source address="192.168.0.0/24 accept                                                                     "'
+  266  sudo firewall-cmd --permanent --add-rich-rule='rule prot                                                                     ocol value=http accept"'
+  267  sudo firewall-cmd --permanent --add-rich-rule='rule prot                                                                     ocol value=http accept'
+  268  sudo firewall-cmd --list-all
+  269  sudo firewall-cmd --set-default-zone=trusted
+  270  sudo firewall-cmd --reload
+  271  sudo firewall-cmd --list-all
+  272  sudo firewall-cmd --permanent --add-rich-rule='rule fami                                                                     ly=ipv4 source address="0.0.0.0/0" accept'
+  273  sudo firewall-cmd --reload
+  274  sudo firewall-cmd --list-all
+  275  sudo firewall-cmd --remove-rich-rule='rule family="ipv4"                                                                      source address="192.168.0.104/32" reject'
+  276  sudo firewall-cmd --reload
+  277  sudo firewall-cmd --list-all
+  278  sudo firewall-cmd --remove-rich-rule='rule family="ipv4"                                                                      source address="192.168.0.104/32" reject'
+  279  sudo firewall-cmd --permanent --zone=trusted --remove-ri                                                                     ch-rule='rule family="ipv4" source address="192.168.0.104/32" r                                                                     eject'
+  280  sudo firewall-cmd --reload
+  281  sudo firewall-cmd --list-all
+  282  vi 19052018
+  283  history
+  284  ls
+  285  cat 19052018
+  286  history >> 19052018
+  287  ls
+  288  cat 19052018
+  289  exit
+  290  sudo system-config-selinuz
+  291  sudo system-config-selinux
+  292  selinux
+  293  semanage
+  294  semanage isenable
+  295  semanage -h
+  296  exit
+  297  ls
+  298  ll
+  299  sudo firewall-cmd --permanent --add-rich-rule='rule fami                                                                     ly=ipv4 source address="192.168.0.0/24" service name="http" log                                                                      level=notice prefix="NEW HTTP" limit value="3/s" accept'
+  300  sudo firewall-cmd --reload
+  301  vi 19052018
+  302  sudo tail -f /var/log/messages
+  303  semange port -l
+  304  semanage port -l
+  305  sudo semanage port -l
+  306  sudo yum install policycoreutils-gui
+  307  sudo yum install selinux-policy-devel -y
+  308  sudo semanage port -a -t http_port_t -p tcp 82
+  309  history
+  310  vi 19052018
+  311  suos
+  312  sudo yum install targetcli
+  313  sud ps aux | grep yum
+  314  sudo ps aux | grep yum
+  315  sudo yum install targetcli
+  316  targetcli
+  317  sudo targetcli
+  318  su cd /etc/host
+  319  sudo cd /etc/host
+  320  cd /etc/
+  321  ls
+  322  l
+  323  cat host
+  324  cat hostname
+  325  sudo vi hostname
+  326  sudo vi hosts
+  327  ping server2
+  328  sudo reboot
+  329  ping server2
+  330  df -h
+  331  sudo ls /dev/*
+  332  sudo ls /dev/s*
+  333  sudo fdisk /dev/sdb
+  334  sudo partprobe
+  335  df -h
+  336  umont /dev/sr0
+  337  umount /dev/sr0
+  338  umont /dev/sr0
+  339  df -h
+  340  sudo partprobe
+  341  df -h
+  342  sudo partprobe
+  343  sudo fdisk /dev/sdb
+  344  sudo kpartx
+  345  sudo kpartx -u
+  346  mount /dev/sdb
+  347  sudo mount /dev/sdb1
+  348  ifconfig
+  349  df -h
+  350  sudo fdisk /dev/sdb
+  351  sudo mount -all
+  352  ls /dev/sdb
+  353  sudo ls /dev/sdb
+  354  sudo ls /dev/sdb1
+  355  sudo vi /etc/hostname
+  356  sudo vi /etc/hosts
+  357  sudo partprobe
+  358  ls
+  359  sudo mkfs.ext4 -j /dev/sdb1
+  360  df -g
+  361  df -h
+  362  sudo mkdir -p /iscsi
+  363  sudo mount /dev/sdb1 /iscsi
+  364  df -h
+  365  sudo pvcreate /dev/sdb1
+  366  sudo umount /dev/sdb1
+  367  df -g
+  368  df -h
+  369  sudo pvcreate /dev/sdb1
+  370  sudo vgcreate iSCSI_vg /dev/sdb1
+  371  vgdisplay iSCSI_vg
+  372  sudo vgdisplay iSCSI_vg
+  373  sudo lvcreate -n disk1_lv -L 1G iSCSI_vg
+  374  sudo lvdisplay
+  375  sudo targetcli
+  376  sudo vi /etc/hostname
+  377  sudo vi /etc/hosts
+  378  reboot
+  379  sudo reboot
+  380  sudo iscsiadm
+  381  sudo iscsiadm -m discovery -t st -p server1.example.com
+  382  ping 192.168.0.52
+  383  ping 192.168.0.50
+  384  ping server1.exmaple.com
+  385  ping server1
+  386  sudo vi /etc/hosts
+  387  ping server1.exmaple.com
+  388  dns
+  389  systemctl statud dns
+  390  systemctl status dns
+  391  systemctl status dnsmasq.service
+  392  systemctl restart dnsmasq.service
+  393  systemctl status dnsmasq.service
+  394  systemctl status nscd
+  395  ping server1.example.co
+  396  sudo vi /etc/hosts
+  397  sudo iscsiadm -m discovery -t st -p server1.example.com
+  398  sudo iscsiadm -m node -T iqn.2019-06.com.example:server1                                                                      -l
+  399  sudo iscsiadm -m node -T iqn.2019-06.com.exmaple:server1                                                                      -l
+  400  sudo  iscsiadm  -m session -P3 | grep attached
+  401  sudo iscsiadm -m node -T iqn.2019-06.com.exmaple:server1                                                                      -l
+  402  sudo cd /etc/isci
+  403  sudo cd /etc/iscsi/
+  404  ls
+  405  cd /etc/iscsi/
+  406  ls
+  407  sudo vi initiatorname.iscsi
+  408  cat initiatorname.iscsi
+  409  sudo vi initiatorname.iscsi
+  410  sudo iscsiadm -m discovery -t st -p server1.example.com
+  411  sudo iscsiadm -m  node -T iqn.2019-06.com.example:server                                                                     1 -l
+  412  ls
+  413  sudo iscsiadm -m  node -T iqn.2019-06.com.example:server                                                                     1 -l >> iscsi_error
+  414  sudo halt
+  415  df -h
+  416  lsscsi
+  417  sudo systemctl status iscsi
+  418  sudo vi /etc/iscsi/initiatorname.iscsi
+  419  sudo iscsiadm -m discovery -t st -p server1.example.com
+  420  sudo iscsiadm -m node -T iqn.2019-06.com.example:server1
+  421  sudo iscsiadm -m node -T iqn.2019-06.com.example:server1                                                                      -l
+  422  sudo iscsiadm -m session -P3 | grep attached
+  423  sudo iscsiadm -m session -P3 | grep Attached
+  424  sudo systemctl restart iscsisidddd
+  425  sudo systemctl restart iscsid
+  426  sudo systemctl status iscsid
+  427  sudo iscsiadm -m node -T iqn.2019-06.com.example:server1                                                                      -l
+  428  cd /var/lib/iscsi/
+  429  ls
+  430  cd send_targets/
+  431  ls
+  432  cd server1.example.com,3260/
+  433  sudo cd server1.example.com,3260/
+  434  ls
+  435  sudo cd server1.example.com,3260/
+  436  ls
+  437  cat server1.example.com,3260/
+  438  sudo cat server1.example.com,3260/
+  439  sudo cd server1.example.com,3260/
+  440  cd ..
+  441  ls
+  442  cd nodes/
+  443  ls
+  444  cd iqn.2019-06.com.example\:server1/
+  445  sudo cd iqn.2019-06.com.example\:server1/
+  446  ls
+  447  sudo iscsiadm -m node -T iqn.2019-06.com.example:server1                                                                      -l
+  448  sudo systemctl status iscsid
+  449  iscsi
+  450  sudo iscsiadm
+  451  sudo cd /var/lib/iscsi/
+  452  ls
+  453  sudo rm -rf iqn.2019-06.com.example\:server1/
+  454  ls
+  455  cd ..
+  456  ls
+  457  cd nodes/
+  458  ls
+  459  cd ..
+  460  sudo cd send_targets/
+  461  ls
+  462  cd ..
+  463  ls
+  464  cd iscsi/
+  465  ls
+  466  cd ifaces/
+  467  ls
+  468  cd ..
+  469  cd
+  470  sudo vi /etc/iscsi/initiatorname.iscsi
+  471  sudo systemctl restart iscsid
+  472  sudo iscsiadm -m discovery -t st -p server1.example.com
+  473  sudo iscsiadm -m node -T iqn.2018-06.com.exmaple:server1                                                                      -l
+  474  sudo iscsiadm -m node -T iqn.2018-06.com.example:server1                                                                      -l
+  475  df -g
+  476  df -h
+  477  sudo mount -a
+  478  df -h
+  479  sudo lsblk
+  480  sudo mkfs -t xfs /dev/sdb1
+  481  sudo mkfs -t xfs /dev/sdb
+  482  sudo blkid /dev/sdb1
+  483  sudo fdisk /dev/sdb
+  484  partprobe
+  485  sudo partprobe
+  486  sudo mkfs t xfs /dev/sdb
+  487  sudo mkfs -t xfs /dev/sdb
+  488  sudo unmount /dev/sdb
+  489  sudo umount /dev/sdb
+  490  sudo iscsiadm -m node -T iqn.2018-06.com.example:server1                                                                      -l
+  491  cd /etc/iscsi/
+  492  ls
+  493  vi initiatorname.iscsi
+  494  sudo vi initiatorname.iscsi
+  495  sudo iscsiadm -m discovery -t st -p server2.example:serv                                                                     er2 -l
+  496  sudo iscsiadm -m discovery -t st -p server2.example.com                                                                      -l
+  497  sudo iscsiadm -m discovery -t st -p server1.example.com                                                                      -l
+  498  udo pip install ajenti-panel ajenti.plugin.dashboard aje                                                                     nti.plugin.settings ajenti.plugin.plugins ajenti.plugin.fileman                                                                     ager ajenti.plugin.notepad ajenti.plugin.packages ajenti.plugin                                                                     .services ajenti.plugin.terminalsudo pip install ajenti-panel a                                                                     jenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plu                                                                     gins ajenti.plugin.filemanager ajenti.plugin.notepad ajenti.plu                                                                     gin.packages ajenti.plugin.services ajenti.plugin.terminalsudo                                                                      pip install ajenti-panel ajenti.plugin.dashboard ajenti.plugin.                                                                     settings ajenti.plugin.plugins ajenti.plugin.filemanager ajenti                                                                     .plugin.notepad ajenti.plugin.packages ajenti.plugin.services a                                                                     jenti.plugin.terminal
+  499  sudo pip install ajenti-panel ajenti.plugin.dashboard aj                                                                     enti.plugin.settings ajenti.plugin.plugins ajenti.plugin.filema                                                                     nager ajenti.plugin.notepad ajenti.plugin.packages ajenti.plugi                                                                     n.services ajenti.plugin.terminal
+  500  sudo yum install pip
+  501  sudo yum install pip3
+  502  sudo yum search pip
+  503  sudo yum search all pip
+  504  yum install libpipeline.x86_64
+  505  sudo yum install libpipeline.x86_64
+  506  pip
+  507  curl https://raw.githubusercontent.com/ajenti/ajenti/mas                                                                     ter/scripts/install.sh | sudo bash -s -
+  508  sudo yum update -y
+  509  /proc/sys
+  510  sudo /proc/mem
+  511  sudo cd /proc/
+  512  ls
+  513  cd /proc/
+  514  ls
+  515  swapon
+  516  ls
+  517  uptime
+  518  meminfo
+  519  sudo meminfo
+  520  vmstat
+  521  iomem
+  522  cd 1
+  523  ls
+  524  meme
+  525  mem
+  526  cd ..
+  527  ls
+  528  cd bus/
+  529  ks
+  530  ls
+  531  cd input/
+  532  ls
+  533  cd de
+  534  devlink
+  535  cd ..
+  536  ls -l
+  537  ll
+  538  state
+  539  stat
+  540  version
+  541  cd ..
+  542  cd etc/sysconfig/
+  543  ls
+  544  vi sysstat
+  545  vi sshd
+  546  sudo vi sshd
+  547  cd
+  548  ls
+  549  cd /proc/
+  550  ls
+  551  su root
+  552  cd /etc/
+  553  sudo vim /etc/hosts
+  554  ping server1
+  555  ping server1.example.com
+  556  ping freeipa.example.com
+  557  ping google.com
+  558  yum update -y
+  559  sudo yum update -y
+  560  sudo halt
+  561  ping freeipa.example.com
+  562  sudo yum update -y
+  563  ping 192.168.0.70
+  564  sudo yum update -y
+  565  sudo yum install sssd sssd-tools nss-pam-ldapd
+  566  sudo cd /etc/openldap/
+  567  ls
+  568  cd /etc/openldap/
+  569  ls
+  570  mkdir cacerts
+  571  sudo mkdir cacerts
+  572  ll
+  573  sudo scp freeipa.example.com:/root/cacert.p12 /etc/openl                                                                     dap/cacerts
+  574  top
+  575  ping google.com
+  576  ping tcs.com
+  577  ping yahoo.com
+  578  sudo ssh lisa@localhost
+  579  sudo systemctl restart ipa
+  580  sudo systemctl restart realmd.service
+  581  sudo systemctl restatus realmd.service
+  582  sudo systemctl status realmd.service
+  583  klist
+  584  klist realm
+  585  realm list
+  586  ipa-client
+  587  sudo ipa-client
+  588  su ken
+  589  su lisa
+  590  sudo ssh lisa@localhost
+  591  cd /etc/sshd
+  592  cd /etc/ssh
+  593  ll
+  594  sudo vim ssh_config
+  595  sudo vim sshd_config
+  596  sudo systemctl restart sshd
+  597  sudo systemctl stop sshd
+  598  sudo systemctl start sshd
+  599  sudo systemctl status sshd
+  600  sudo ssh lisa@localhost
+  601  sudo realm permit lisa@server1.example.com
+  602  cd
+  603  kinit lisa
+  604  kinit john
+  605  sudo ssh john@localhost
+  606  free -m
+  607  cd
+  608  sudo yum install pam_krb5 krb5-workstation
+  609  sudo authconfig-tui
+  610  sudo kinit lisa
+  611  sudo cat /etc/sssd/sssd.conf
+  612  sudo yum install realmd
+  613  sudo realm discover example.com
+  614  ping example.com
+  615  sudo realm discover freeipa.example.com
+  616  sudo realm join freeipa.example.com
+  617  sudo realm --permit --realm freeipa.example.com --all
+  618  sudo realm --permit --realm -R freeipa.example.com --all
+  619  sudo realm permit -R freeipa.example.com --all
+  620  sudo realm permit -R EXAMPLE.COM --all
+  621  sudo realm permit -R FREEIPA.EXAMPLE.COM --all
+  622  sudo realm permit freeipa.example.com --all
+  623  sudo realm permit -a freeipa.example.com --all
+  624  sudo realm permit  -R freeipa.example.com --all
+  625  sudo realm list
+  626  su lisa
+  627  sudo realm permit --all
+  628  su ken
+  629  kinit lisa
+  630  su - lisa
+  631  su - lisa@example.com
+  632  sudo realm lisa@EXAMPLE.COM
+  633  sudo realm permit lisa@EXAMPLE.COM
+  634  sudo realm permit ken@EXAMPLE.COM
+  635  sudo systemctl restart realmd
+  636  sudo systemctl statud realmd
+  637  sudo systemctl status realmd
+  638  klist
+  639  ipa-client-instal
+  640  ipa-client-install
+  641  sudo ipa-client-install
+  642  sudo realm join example.com
+  643  klist
+  644  ipa
+  645  sudo ipa -a
+  646  sudo ipa -v
+  647  sudo ipa-join
+  648  sudo ipa
+  649  sudo ipa --help
+  650  sudo ipa --hep join
+  651  sudo ipa --help join
+  652  sudo ipa --help topics
+  653  sudo ipa-join --helps
+  654  id lisa
+  655  id ken
+  656  id harshil
+  657  id john
+  658  ssh lisa@localhost
+  659  sudo kinit ken
+  660  sudo ssh ken@localhost
+  661  klist
+  662  ipa user-find ken
+  663  cd /etc/ssh/
+  664  ls
+  665  sudo vim sshd_config
+  666  sudo systemctl restart sshd
+  667  klist
+  668  kadmin
+  669  cd
+  670  sudo firewall-cmd --add-service=realm
+  671  sudo systemctl status realmd
+  672  sudo systemctl restart realmd
+  673  sudo systemctl status realmd
+  674  sudo firewall-cmd --add-service=realm
+  675  sudo firewall-cmd --add-service=realmd
+  676  sudo firewall-cmd --add-service=ipa
+  677  su root
+  678  sudo scp freeipa.example.com:/root/cacert.p12 /etc/openl                                                                     dap/cacerts
+  679  cd /etc/openldap/cacerts/
+  680  ls
+  681  sudo vim /etc/sysconfig/authconfig
+  682  sudo authconfig-tui
+  683  sudo vi /etc/sssd/sssd.conf
+  684  sudo systemctl restart sssd
+  685  su - lisa
+  686  free -m
+  687  free --help
+  688  free -k
+  689  free -m
+  690  free -h
+  691  swapon -s
+  692  swapon
+  693  swa
+  694  swap
+  695  iostat
+  696  vmstat
+  697  vmstat -s
+  698  pidstat
+  699  cd /etc/cron.d/
+  700  ls
+  701  cat sysstat
+  702  sudo cat sysstat
+  703  sar
+  704  sudo echo "alias sar='LANG=C sar'" >> /etc/bashrc
+  705  su root
+  706  sudo halt
+  707  systemctl status rsyslog
+  708  cd /etc/rsyslog.d/
+  709  ls
+  710  ll
+  711  cd ..
+  712  sudo vim rsyslog.conf
+  713  systemctl restart rsyslog
+  714  sudo systemctl restart rsyslog
+  715  sudo firewall-cmd --add-port=514/tcp
+  716  sudo firewall-cmd --add-port=514/tcp --permanet
+  717  sudo firewall-cmd --add-port=514/tcp --permanent
+  718  sudo firewall-cmd --reload
+  719  sudo halt
+  720  sudo nmcli con show
+  721  sudo nmcli con delete ens38
+  722  sudo nmcli con delete Wired\ connection\ 2
+  723  sudo nmcli con delete Wired\ connection\ 3
+  724* sudo nmcli con delete Wired\ connection\
+  725  sudo nmcli con show
+  726  sudo nmtui
+  727  sudo nmcli con show
+  728  sudo nmcli con add type team con-name teams2 ifname team                                                                     s2 config
+  729  sudo nmcli con add type team con-name teams2 ifname team                                                                     s2 config '{"runner":{"name":"activebackup"}}'
+  730  sudo nmcli con mod teams2 ipv4.addresses 192.168.0.66/24
+  731  sudo nmcli con mod teams2 ipv4.method manual
+  732  sudo nmcli con add type team-slave con-name teas2p1 ifna                                                                     me ens38 master teams2
+  733  sudo nmcli con add type team-slave con-name teas2p2 ifna                                                                     me ens39 master teams2
+  734  sudo nmcli con up teams2
+  735  sudo nmcli con up teas2p1
+  736  sudo nmcli con up teas2p2
+  737  sudo teamdctl teams2 state
+  738  sudo nmcli con show
+  739  ifconfig
+  740  sudo nmcli device disconnect ens38
+  741  sudo nmcli con show
+  742  sudo nmcli device  disconnect ens39
+  743  sudo teamdctl teams2 state
+  744  sudo nmcli con up ens39
+  745  sudo nmcli con up teas2p2
+  746  sudo nmcli con up teas2p1
+  747  sudo nmcli con show
+  748  history
+[harshil@server2 ~]$ cd /etc/sysc
+sysconfig/ sysctl.d/
+[harshil@server2 ~]$ cd /etc/sysc
+sysconfig/ sysctl.d/
+[harshil@server2 ~]$ cd /etc/sysconfig/
+[harshil@server2 sysconfig]$ ls
+anaconda          iptables-config  rdisc
+atd               irqbalance       readonly-root
+authconfig        kdump            rpcbind
+autofs            kernel           rpc-rquotad
+cbq               ksm              rsyncd
+chronyd           libvirtd         rsyslog
+console           man-db           run-parts
+cpupower          modules          samba
+crond             netconsole       saslauthd
+ebtables-config   network          selinux
+fcoe              network-scripts  smartmontools
+firewalld         nfs              sshd
+grub              ntpd             sysstat
+htcacheclean      ntpdate          sysstat.ioconf
+httpd             qemu-ga          virtlockd
+init              radvd            virtlogd
+ip6tables-config  raid-check       wpa_supplicant
+[harshil@server2 sysconfig]$ cd network-scripts/
+[harshil@server2 network-scripts]$ ls
+ifcfg-br0            ifdown-ippp      ifup-ipv6
+ifcfg-br0.bak        ifdown-ipv6      ifup-isdn
+ifcfg-br0-port1.bak  ifdown-isdn      ifup-plip
+ifcfg-br0-port2.bak  ifdown-post      ifup-plusb
+ifcfg-ens33          ifdown-ppp       ifup-post
+ifcfg-ens33.bak      ifdown-routes    ifup-ppp
+ifcfg-ens38          ifdown-sit       ifup-routes
+ifcfg-ens39          ifdown-Team      ifup-sit
+ifcfg-lo             ifdown-TeamPort  ifup-Team
+ifcfg-teams2         ifdown-tunnel    ifup-TeamPort
+ifcfg-teas2p1        ifup             ifup-tunnel
+ifcfg-teas2p2        ifup-aliases     ifup-wireless
+ifdown               ifup-bnep        init.ipv6-global
+ifdown-bnep          ifup-eth         network-functions
+ifdown-eth           ifup-ib          network-functions-ipv6
+ifdown-ib            ifup-ippp
+[harshil@server2 network-scripts]$ sudo cat team1
+cat: team1: No such file or directory
+[harshil@server2 network-scripts]$ sudo cat
+ifcfg-br0               ifdown-TeamPort
+ifcfg-br0.bak           ifdown-tunnel
+ifcfg-br0-port1.bak     ifup
+ifcfg-br0-port2.bak     ifup-aliases
+ifcfg-ens33             ifup-bnep
+ifcfg-ens33.bak         ifup-eth
+ifcfg-ens38             ifup-ib
+ifcfg-ens39             ifup-ippp
+ifcfg-lo                ifup-ipv6
+ifcfg-teams2            ifup-isdn
+ifcfg-teas2p1           ifup-plip
+ifcfg-teas2p2           ifup-plusb
+ifdown                  ifup-post
+ifdown-bnep             ifup-ppp
+ifdown-eth              ifup-routes
+ifdown-ib               ifup-sit
+ifdown-ippp             ifup-Team
+ifdown-ipv6             ifup-TeamPort
+ifdown-isdn             ifup-tunnel
+ifdown-post             ifup-wireless
+ifdown-ppp              init.ipv6-global
+ifdown-routes           network-functions
+ifdown-sit              network-functions-ipv6
+ifdown-Team
+[harshil@server2 network-scripts]$ sudo cat
+ifcfg-br0               ifdown-TeamPort
+ifcfg-br0.bak           ifdown-tunnel
+ifcfg-br0-port1.bak     ifup
+ifcfg-br0-port2.bak     ifup-aliases
+ifcfg-ens33             ifup-bnep
+ifcfg-ens33.bak         ifup-eth
+ifcfg-ens38             ifup-ib
+ifcfg-ens39             ifup-ippp
+ifcfg-lo                ifup-ipv6
+ifcfg-teams2            ifup-isdn
+ifcfg-teas2p1           ifup-plip
+ifcfg-teas2p2           ifup-plusb
+ifdown                  ifup-post
+ifdown-bnep             ifup-ppp
+ifdown-eth              ifup-routes
+ifdown-ib               ifup-sit
+ifdown-ippp             ifup-Team
+ifdown-ipv6             ifup-TeamPort
+ifdown-isdn             ifup-tunnel
+ifdown-post             ifup-wireless
+ifdown-ppp              init.ipv6-global
+ifdown-routes           network-functions
+ifdown-sit              network-functions-ipv6
+ifdown-Team
+[harshil@server2 network-scripts]$ sudo cat if
+ifcfg-br0            ifdown-sit
+ifcfg-br0.bak        ifdown-Team
+ifcfg-br0-port1.bak  ifdown-TeamPort
+ifcfg-br0-port2.bak  ifdown-tunnel
+ifcfg-ens33          ifup
+ifcfg-ens33.bak      ifup-aliases
+ifcfg-ens38          ifup-bnep
+ifcfg-ens39          ifup-eth
+ifcfg-lo             ifup-ib
+ifcfg-teams2         ifup-ippp
+ifcfg-teas2p1        ifup-ipv6
+ifcfg-teas2p2        ifup-isdn
+ifdown               ifup-plip
+ifdown-bnep          ifup-plusb
+ifdown-eth           ifup-post
+ifdown-ib            ifup-ppp
+ifdown-ippp          ifup-routes
+ifdown-ipv6          ifup-sit
+ifdown-isdn          ifup-Team
+ifdown-post          ifup-TeamPort
+ifdown-ppp           ifup-tunnel
+ifdown-routes        ifup-wireless
+[harshil@server2 network-scripts]$ sudo cat ifcfg-teams2
+TEAM_CONFIG="{\"runner\":{\"name\":\"activebackup\"}}"
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=none
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=teams2
+UUID=a4047956-1d43-437c-bfdb-b72e025c650f
+DEVICE=teams2
+ONBOOT=yes
+DEVICETYPE=Team
+IPADDR=192.168.0.66
+PREFIX=24
+[harshil@server2 network-scripts]$ pwd
+/etc/sysconfig/network-scripts
+[harshil@server2 network-scripts]$ cat /etc/sysconfig/network-s                                                                     cripts/ifcfg-teams2
+TEAM_CONFIG="{\"runner\":{\"name\":\"activebackup\"}}"
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=none
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=teams2
+UUID=a4047956-1d43-437c-bfdb-b72e025c650f
+DEVICE=teams2
+ONBOOT=yes
+DEVICETYPE=Team
+IPADDR=192.168.0.66
+PREFIX=24
+[harshil@server2 network-scripts]$ cat /etc/sysconfig/network-s                                                                     cripts/ifcfg-teas2p1
+NAME=teas2p1
+UUID=71ba9741-c5fb-4f6a-9c49-ce7af8a75a41
+DEVICE=ens38
+ONBOOT=yes
+TEAM_MASTER=teams2
+DEVICETYPE=TeamPort
+[harshil@server2 network-scripts]$ cat /etc/sysconfig/network-s                                                                     cripts/ifcfg-teas2p2
+NAME=teas2p2
+UUID=8c1924e9-fa66-4d5d-9607-41d97980b6fc
+DEVICE=ens39
+ONBOOT=yes
+TEAM_MASTER=teams2
+DEVICETYPE=TeamPort
+[harshil@server2 network-scripts]$ cat /etc/sysconfig/network-s                                                                     cripts/ifcfg-teams2
+TEAM_CONFIG="{\"runner\":{\"name\":\"activebackup\"}}"
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=none
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=teams2
+UUID=a4047956-1d43-437c-bfdb-b72e025c650f
+DEVICE=teams2
+ONBOOT=yes
+DEVICETYPE=Team
+IPADDR=192.168.0.66
+PREFIX=24
+[harshil@server2 network-scripts]$ cat /etc/sysconfig/network-s                                                                     cripts/ifcfg-ens38
+HWADDR=00:0C:29:83:7C:B5
+TYPE=Ethernet
+PROXY_METHOD=none
+BROWSER_ONLY=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=ens38
+UUID=a01741a7-52f9-4823-a5c6-ca189ccc531f
+ONBOOT=yes
+[harshil@server2 network-scripts]$ cat /etc/sysconfig/network-s                                                                     cripts/ifcfg-ens33
+cat: /etc/sysconfig/network-scripts/ifcfg-ens33: Permission den                                                                     ied
+[harshil@server2 network-scripts]$ sudo cat /etc/sysconfig/netw                                                                     ork-scripts/ifcfg-ens38
+HWADDR=00:0C:29:83:7C:B5
+TYPE=Ethernet
+PROXY_METHOD=none
+BROWSER_ONLY=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=ens38
+UUID=a01741a7-52f9-4823-a5c6-ca189ccc531f
+ONBOOT=yes
+[harshil@server2 network-scripts]$
+
