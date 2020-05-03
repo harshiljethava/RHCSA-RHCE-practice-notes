@@ -1,0 +1,482 @@
+login as: harshil
+     ┌────────────────────────────────────────────────────────────────────┐
+     │                        • MobaXterm 11.1 •                          │
+     │            (SSH client, X-server and networking tools)             │
+     │                                                                    │
+     │ → SSH session to harshil@192.168.0.50                              │
+     │   • SSH compression : v                                            │
+     │   • SSH-browser     : v                                            │
+     │   • X11-forwarding  : v  (remote display is forwarded through SSH) │
+     │   • DISPLAY         : v  (automatically set on remote server)      │
+     │                                                                    │
+     │ → For more info, ctrl+click on help or visit our website           │
+     └────────────────────────────────────────────────────────────────────┘
+
+Last login: Thu Jun 20 11:49:44 2019 from 192.168.0.101
+[harshil@server1 ~]$ ping freeipa.example.com
+PING freeipa.example.com (192.168.0.70) 56(84) bytes of data.
+64 bytes from freeipa.example.com (192.168.0.70): icmp_seq=1 ttl=64 time=0.608 ms
+64 bytes from freeipa.example.com (192.168.0.70): icmp_seq=2 ttl=64 time=0.911 ms
+^C
+--- freeipa.example.com ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 0.608/0.759/0.911/0.153 ms
+[harshil@server1 ~]$ ^C
+[harshil@server1 ~]$
+[harshil@server1 ~]$ sudo yum insall sssd sssd-tools nss-pam-ldapd
+[sudo] password for harshil:
+Loaded plugins: fastestmirror, langpacks, product-id, search-disabled-repos, subscription-manager
+This system is not registered with an entitlement server. You can use subscription-manager to register.
+No such command: insall. Please use /bin/yum --help
+[harshil@server1 ~]$ sudo yum install sssd sssd-tools nss-pam-ldapd
+Loaded plugins: fastestmirror, langpacks, product-id, search-disabled-repos, subscription-manager
+This system is not registered with an entitlement server. You can use subscription-manager to register.
+Loading mirror speeds from cached hostfile
+ * base: centos.mirrors.estointernet.in
+ * extras: centos.mirrors.estointernet.in
+ * updates: centos.mirrors.estointernet.in
+base                                                                                                         | 3.6 kB  00:00:00
+extras                                                                                                       | 3.4 kB  00:00:00
+updates                                                                                                      | 3.4 kB  00:00:00
+Resolving Dependencies
+--> Running transaction check
+---> Package nss-pam-ldapd.x86_64 0:0.8.13-16.el7_6.1 will be installed
+--> Processing Dependency: nscd for package: nss-pam-ldapd-0.8.13-16.el7_6.1.x86_64
+---> Package sssd.x86_64 0:1.16.2-13.el7_6.8 will be installed
+--> Processing Dependency: sssd-proxy = 1.16.2-13.el7_6.8 for package: sssd-1.16.2-13.el7_6.8.x86_64
+--> Processing Dependency: sssd-ldap = 1.16.2-13.el7_6.8 for package: sssd-1.16.2-13.el7_6.8.x86_64
+--> Processing Dependency: sssd-krb5 = 1.16.2-13.el7_6.8 for package: sssd-1.16.2-13.el7_6.8.x86_64
+--> Processing Dependency: sssd-ipa = 1.16.2-13.el7_6.8 for package: sssd-1.16.2-13.el7_6.8.x86_64
+--> Processing Dependency: sssd-common = 1.16.2-13.el7_6.8 for package: sssd-1.16.2-13.el7_6.8.x86_64
+--> Processing Dependency: sssd-ad = 1.16.2-13.el7_6.8 for package: sssd-1.16.2-13.el7_6.8.x86_64
+--> Processing Dependency: python-sssdconfig = 1.16.2-13.el7_6.8 for package: sssd-1.16.2-13.el7_6.8.x86_64
+---> Package sssd-tools.x86_64 0:1.16.2-13.el7_6.8 will be installed
+--> Processing Dependency: python-sss = 1.16.2-13.el7_6.8 for package: sssd-tools-1.16.2-13.el7_6.8.x86_64
+--> Processing Dependency: libsss_simpleifp.so.0(SSS_SIMPLEIFP_0.1)(64bit) for package: sssd-tools-1.16.2-13.el7_6.8.x86_64
+--> Processing Dependency: libsss_simpleifp.so.0(SSS_SIMPLEIFP_0.0)(64bit) for package: sssd-tools-1.16.2-13.el7_6.8.x86_64
+--> Processing Dependency: libdhash.so.1(DHASH_0.4.3)(64bit) for package: sssd-tools-1.16.2-13.el7_6.8.x86_64
+--> Processing Dependency: libsss_simpleifp.so.0()(64bit) for package: sssd-tools-1.16.2-13.el7_6.8.x86_64
+--> Processing Dependency: libsss_certmap.so.0()(64bit) for package: sssd-tools-1.16.2-13.el7_6.8.x86_64
+--> Processing Dependency: libdhash.so.1()(64bit) for package: sssd-tools-1.16.2-13.el7_6.8.x86_64
+--> Running transaction check
+---> Package libdhash.x86_64 0:0.5.0-32.el7 will be installed
+---> Package libsss_certmap.x86_64 0:1.16.2-13.el7_6.8 will be installed
+---> Package libsss_simpleifp.x86_64 0:1.16.2-13.el7_6.8 will be installed
+--> Processing Dependency: sssd-dbus = 1.16.2-13.el7_6.8 for package: libsss_simpleifp-1.16.2-13.el7_6.8.x86_64
+---> Package nscd.x86_64 0:2.17-260.el7_6.5 will be installed
+---> Package python-sss.x86_64 0:1.16.2-13.el7_6.8 will be installed
+---> Package python-sssdconfig.noarch 0:1.16.2-13.el7_6.8 will be installed
+---> Package sssd-ad.x86_64 0:1.16.2-13.el7_6.8 will be installed
+--> Processing Dependency: sssd-krb5-common = 1.16.2-13.el7_6.8 for package: sssd-ad-1.16.2-13.el7_6.8.x86_64
+--> Processing Dependency: sssd-common-pac = 1.16.2-13.el7_6.8 for package: sssd-ad-1.16.2-13.el7_6.8.x86_64
+---> Package sssd-common.x86_64 0:1.16.2-13.el7_6.8 will be installed
+--> Processing Dependency: libsss_sudo(x86-64) = 1.16.2-13.el7_6.8 for package: sssd-common-1.16.2-13.el7_6.8.x86_64
+--> Processing Dependency: libsss_autofs(x86-64) = 1.16.2-13.el7_6.8 for package: sssd-common-1.16.2-13.el7_6.8.x86_64
+---> Package sssd-ipa.x86_64 0:1.16.2-13.el7_6.8 will be installed
+--> Processing Dependency: libipa_hbac(x86-64) = 1.16.2-13.el7_6.8 for package: sssd-ipa-1.16.2-13.el7_6.8.x86_64
+--> Processing Dependency: libipa_hbac.so.0(IPA_HBAC_0.1.0)(64bit) for package: sssd-ipa-1.16.2-13.el7_6.8.x86_64
+--> Processing Dependency: libipa_hbac.so.0(IPA_HBAC_0.0.1)(64bit) for package: sssd-ipa-1.16.2-13.el7_6.8.x86_64
+--> Processing Dependency: libipa_hbac.so.0()(64bit) for package: sssd-ipa-1.16.2-13.el7_6.8.x86_64
+---> Package sssd-krb5.x86_64 0:1.16.2-13.el7_6.8 will be installed
+---> Package sssd-ldap.x86_64 0:1.16.2-13.el7_6.8 will be installed
+---> Package sssd-proxy.x86_64 0:1.16.2-13.el7_6.8 will be installed
+--> Running transaction check
+---> Package libipa_hbac.x86_64 0:1.16.2-13.el7_6.8 will be installed
+---> Package libsss_autofs.x86_64 0:1.16.2-13.el7_6.8 will be installed
+---> Package libsss_sudo.x86_64 0:1.16.2-13.el7_6.8 will be installed
+---> Package sssd-common-pac.x86_64 0:1.16.2-13.el7_6.8 will be installed
+---> Package sssd-dbus.x86_64 0:1.16.2-13.el7_6.8 will be installed
+---> Package sssd-krb5-common.x86_64 0:1.16.2-13.el7_6.8 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+====================================================================================================================================
+ Package                             Arch                     Version                               Repository                 Size
+====================================================================================================================================
+Installing:
+ nss-pam-ldapd                       x86_64                   0.8.13-16.el7_6.1                     updates                   161 k
+ sssd                                x86_64                   1.16.2-13.el7_6.8                     updates                   136 k
+ sssd-tools                          x86_64                   1.16.2-13.el7_6.8                     updates                   407 k
+Installing for dependencies:
+ libdhash                            x86_64                   0.5.0-32.el7                          base                       29 k
+ libipa_hbac                         x86_64                   1.16.2-13.el7_6.8                     updates                   144 k
+ libsss_autofs                       x86_64                   1.16.2-13.el7_6.8                     updates                   146 k
+ libsss_certmap                      x86_64                   1.16.2-13.el7_6.8                     updates                   172 k
+ libsss_simpleifp                    x86_64                   1.16.2-13.el7_6.8                     updates                   135 k
+ libsss_sudo                         x86_64                   1.16.2-13.el7_6.8                     updates                   144 k
+ nscd                                x86_64                   2.17-260.el7_6.5                      updates                   281 k
+ python-sss                          x86_64                   1.16.2-13.el7_6.8                     updates                   150 k
+ python-sssdconfig                   noarch                   1.16.2-13.el7_6.8                     updates                   162 k
+ sssd-ad                             x86_64                   1.16.2-13.el7_6.8                     updates                   264 k
+ sssd-common                         x86_64                   1.16.2-13.el7_6.8                     updates                   1.4 M
+ sssd-common-pac                     x86_64                   1.16.2-13.el7_6.8                     updates                   206 k
+ sssd-dbus                           x86_64                   1.16.2-13.el7_6.8                     updates                   243 k
+ sssd-ipa                            x86_64                   1.16.2-13.el7_6.8                     updates                   355 k
+ sssd-krb5                           x86_64                   1.16.2-13.el7_6.8                     updates                   177 k
+ sssd-krb5-common                    x86_64                   1.16.2-13.el7_6.8                     updates                   210 k
+ sssd-ldap                           x86_64                   1.16.2-13.el7_6.8                     updates                   228 k
+ sssd-proxy                          x86_64                   1.16.2-13.el7_6.8                     updates                   171 k
+
+Transaction Summary
+====================================================================================================================================
+Install  3 Packages (+18 Dependent packages)
+
+Total download size: 5.2 M
+Installed size: 8.6 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/21): libdhash-0.5.0-32.el7.x86_64.rpm                                                                     |  29 kB  00:00:00
+(2/21): libipa_hbac-1.16.2-13.el7_6.8.x86_64.rpm                                                             | 144 kB  00:00:00
+(3/21): libsss_certmap-1.16.2-13.el7_6.8.x86_64.rpm                                                          | 172 kB  00:00:00
+(4/21): libsss_sudo-1.16.2-13.el7_6.8.x86_64.rpm                                                             | 144 kB  00:00:00
+(5/21): python-sss-1.16.2-13.el7_6.8.x86_64.rpm                                                              | 150 kB  00:00:00
+(6/21): nss-pam-ldapd-0.8.13-16.el7_6.1.x86_64.rpm                                                           | 161 kB  00:00:00
+(7/21): nscd-2.17-260.el7_6.5.x86_64.rpm                                                                     | 281 kB  00:00:00
+(8/21): libsss_autofs-1.16.2-13.el7_6.8.x86_64.rpm                                                           | 146 kB  00:00:01
+(9/21): python-sssdconfig-1.16.2-13.el7_6.8.noarch.rpm                                                       | 162 kB  00:00:00
+(10/21): sssd-1.16.2-13.el7_6.8.x86_64.rpm                                                                   | 136 kB  00:00:00
+(11/21): sssd-ad-1.16.2-13.el7_6.8.x86_64.rpm                                                                | 264 kB  00:00:00
+(12/21): libsss_simpleifp-1.16.2-13.el7_6.8.x86_64.rpm                                                       | 135 kB  00:00:01
+(13/21): sssd-common-pac-1.16.2-13.el7_6.8.x86_64.rpm                                                        | 206 kB  00:00:00
+(14/21): sssd-ipa-1.16.2-13.el7_6.8.x86_64.rpm                                                               | 355 kB  00:00:00
+(15/21): sssd-ldap-1.16.2-13.el7_6.8.x86_64.rpm                                                              | 228 kB  00:00:00
+(16/21): sssd-dbus-1.16.2-13.el7_6.8.x86_64.rpm                                                              | 243 kB  00:00:00
+(17/21): sssd-krb5-common-1.16.2-13.el7_6.8.x86_64.rpm                                                       | 210 kB  00:00:00
+(18/21): sssd-krb5-1.16.2-13.el7_6.8.x86_64.rpm                                                              | 177 kB  00:00:00
+(19/21): sssd-proxy-1.16.2-13.el7_6.8.x86_64.rpm                                                             | 171 kB  00:00:00
+(20/21): sssd-common-1.16.2-13.el7_6.8.x86_64.rpm                                                            | 1.4 MB  00:00:02
+(21/21): sssd-tools-1.16.2-13.el7_6.8.x86_64.rpm                                                             | 407 kB  00:00:01
+------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                               1.3 MB/s | 5.2 MB  00:00:04
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : libdhash-0.5.0-32.el7.x86_64                                                                                    1/21
+  Installing : libsss_certmap-1.16.2-13.el7_6.8.x86_64                                                                         2/21
+  Installing : python-sssdconfig-1.16.2-13.el7_6.8.noarch                                                                      3/21
+  Installing : nscd-2.17-260.el7_6.5.x86_64                                                                                    4/21
+  Installing : libsss_autofs-1.16.2-13.el7_6.8.x86_64                                                                          5/21
+  Installing : libsss_sudo-1.16.2-13.el7_6.8.x86_64                                                                            6/21
+  Installing : sssd-common-1.16.2-13.el7_6.8.x86_64                                                                            7/21
+  Installing : sssd-krb5-common-1.16.2-13.el7_6.8.x86_64                                                                       8/21
+  Installing : sssd-common-pac-1.16.2-13.el7_6.8.x86_64                                                                        9/21
+  Installing : sssd-ad-1.16.2-13.el7_6.8.x86_64                                                                               10/21
+  Installing : sssd-krb5-1.16.2-13.el7_6.8.x86_64                                                                             11/21
+  Installing : sssd-ldap-1.16.2-13.el7_6.8.x86_64                                                                             12/21
+  Installing : sssd-dbus-1.16.2-13.el7_6.8.x86_64                                                                             13/21
+  Installing : libsss_simpleifp-1.16.2-13.el7_6.8.x86_64                                                                      14/21
+  Installing : python-sss-1.16.2-13.el7_6.8.x86_64                                                                            15/21
+  Installing : sssd-proxy-1.16.2-13.el7_6.8.x86_64                                                                            16/21
+  Installing : libipa_hbac-1.16.2-13.el7_6.8.x86_64                                                                           17/21
+  Installing : sssd-ipa-1.16.2-13.el7_6.8.x86_64                                                                              18/21
+  Installing : sssd-1.16.2-13.el7_6.8.x86_64                                                                                  19/21
+  Installing : sssd-tools-1.16.2-13.el7_6.8.x86_64                                                                            20/21
+  Installing : nss-pam-ldapd-0.8.13-16.el7_6.1.x86_64                                                                         21/21
+  Verifying  : sssd-common-pac-1.16.2-13.el7_6.8.x86_64                                                                        1/21
+  Verifying  : libipa_hbac-1.16.2-13.el7_6.8.x86_64                                                                            2/21
+  Verifying  : libsss_sudo-1.16.2-13.el7_6.8.x86_64                                                                            3/21
+  Verifying  : sssd-dbus-1.16.2-13.el7_6.8.x86_64                                                                              4/21
+  Verifying  : sssd-ad-1.16.2-13.el7_6.8.x86_64                                                                                5/21
+  Verifying  : libsss_simpleifp-1.16.2-13.el7_6.8.x86_64                                                                       6/21
+  Verifying  : sssd-1.16.2-13.el7_6.8.x86_64                                                                                   7/21
+  Verifying  : sssd-ipa-1.16.2-13.el7_6.8.x86_64                                                                               8/21
+  Verifying  : sssd-krb5-common-1.16.2-13.el7_6.8.x86_64                                                                       9/21
+  Verifying  : libsss_certmap-1.16.2-13.el7_6.8.x86_64                                                                        10/21
+  Verifying  : sssd-krb5-1.16.2-13.el7_6.8.x86_64                                                                             11/21
+  Verifying  : libdhash-0.5.0-32.el7.x86_64                                                                                   12/21
+  Verifying  : sssd-tools-1.16.2-13.el7_6.8.x86_64                                                                            13/21
+  Verifying  : python-sss-1.16.2-13.el7_6.8.x86_64                                                                            14/21
+  Verifying  : nss-pam-ldapd-0.8.13-16.el7_6.1.x86_64                                                                         15/21
+  Verifying  : libsss_autofs-1.16.2-13.el7_6.8.x86_64                                                                         16/21
+  Verifying  : python-sssdconfig-1.16.2-13.el7_6.8.noarch                                                                     17/21
+  Verifying  : sssd-proxy-1.16.2-13.el7_6.8.x86_64                                                                            18/21
+  Verifying  : sssd-common-1.16.2-13.el7_6.8.x86_64                                                                           19/21
+  Verifying  : sssd-ldap-1.16.2-13.el7_6.8.x86_64                                                                             20/21
+  Verifying  : nscd-2.17-260.el7_6.5.x86_64                                                                                   21/21
+
+Installed:
+  nss-pam-ldapd.x86_64 0:0.8.13-16.el7_6.1       sssd.x86_64 0:1.16.2-13.el7_6.8       sssd-tools.x86_64 0:1.16.2-13.el7_6.8
+
+Dependency Installed:
+  libdhash.x86_64 0:0.5.0-32.el7                                    libipa_hbac.x86_64 0:1.16.2-13.el7_6.8
+  libsss_autofs.x86_64 0:1.16.2-13.el7_6.8                          libsss_certmap.x86_64 0:1.16.2-13.el7_6.8
+  libsss_simpleifp.x86_64 0:1.16.2-13.el7_6.8                       libsss_sudo.x86_64 0:1.16.2-13.el7_6.8
+  nscd.x86_64 0:2.17-260.el7_6.5                                    python-sss.x86_64 0:1.16.2-13.el7_6.8
+  python-sssdconfig.noarch 0:1.16.2-13.el7_6.8                      sssd-ad.x86_64 0:1.16.2-13.el7_6.8
+  sssd-common.x86_64 0:1.16.2-13.el7_6.8                            sssd-common-pac.x86_64 0:1.16.2-13.el7_6.8
+  sssd-dbus.x86_64 0:1.16.2-13.el7_6.8                              sssd-ipa.x86_64 0:1.16.2-13.el7_6.8
+  sssd-krb5.x86_64 0:1.16.2-13.el7_6.8                              sssd-krb5-common.x86_64 0:1.16.2-13.el7_6.8
+  sssd-ldap.x86_64 0:1.16.2-13.el7_6.8                              sssd-proxy.x86_64 0:1.16.2-13.el7_6.8
+
+Complete!
+[harshil@server1 ~]$ scp freeipa.example.com:/root/cacert.p12 ^C
+[harshil@server1 ~]$ sudo mkdir /etc/openldap/cacerts
+[harshil@server1 ~]$ sudo yum install sssd sssd-tools nss-pam-ldapd^C
+[harshil@server1 ~]$ scp freeipa.example.com:/root/cacert.p12 /etc/op
+openldap/ opt/
+[harshil@server1 ~]$ scp freeipa.example.com:/root/cacert.p12 /etc/op
+openldap/ opt/
+[harshil@server1 ~]$ scp freeipa.example.com:/root/cacert.p12 /etc/openldap/cacerts/
+The authenticity of host 'freeipa.example.com (192.168.0.70)' can't be established.
+ECDSA key fingerprint is SHA256:kl+cNXv91Z4mhD3I8yKVa/HblWqFjUWDmn7iayccyp4.
+ECDSA key fingerprint is MD5:f5:ec:43:41:36:95:b9:6b:9e:e9:af:2c:82:59:78:22.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'freeipa.example.com,192.168.0.70' (ECDSA) to the list of known hosts.
+Password:
+scp: /root/cacert.p12: Permission denied
+[harshil@server1 ~]$ sudo scp freeipa.example.com:/root/cacert.p12 /etc/openldap/cacerts/
+The authenticity of host 'freeipa.example.com (192.168.0.70)' can't be established.
+ECDSA key fingerprint is SHA256:kl+cNXv91Z4mhD3I8yKVa/HblWqFjUWDmn7iayccyp4.
+ECDSA key fingerprint is MD5:f5:ec:43:41:36:95:b9:6b:9e:e9:af:2c:82:59:78:22.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'freeipa.example.com,192.168.0.70' (ECDSA) to the list of known hosts.
+Password:
+cacert.p12                                                                                        100%   11KB 210.3KB/s   00:00
+[harshil@server1 ~]$ cd /etc/openldap/
+[harshil@server1 openldap]$ cd c
+-bash: cd: c: No such file or directory
+[harshil@server1 openldap]$ cd c
+cacerts/ certs/
+[harshil@server1 openldap]$ cd cacerts/
+[harshil@server1 cacerts]$ la
+bash: la: command not found...
+[harshil@server1 cacerts]$ ll
+total 12
+-rw-r--r--. 1 root root 11253 Jun 20 19:41 cacert.p12
+[harshil@server1 cacerts]$ cd
+[harshil@server1 ~]$ sudo vim /etc/sys
+sysconfig/          sysctl.conf         sysctl.d/           systemd/            system-release      system-release-cpe
+[harshil@server1 ~]$ sudo vim /etc/sys
+sysconfig/          sysctl.conf         sysctl.d/           systemd/            system-release      system-release-cpe
+[harshil@server1 ~]$ sudo vim /etc/sysconfig/
+anaconda              ebtables-config       ksm                   pmproxy               saslauthd
+atd                   fcoe                  libvirtd              qemu-ga               selinux
+authconfig            firewalld             libvirt-guests        radvd                 smartmontools
+cbq/                  grub                  man-db                raid-check            sshd
+chronyd               htcacheclean          modules/              rdisc                 sysstat
+console/              httpd                 netconsole            readonly-root         sysstat.ioconf
+cpupower              init                  network               rpcbind               virtlockd
+crond                 ip6tables-config      network-scripts/      rpc-rquotad           virtlogd
+docker                iptables-config       nfs                   rsyncd                wpa_supplicant
+docker-network        irqbalance            ntpdate               rsyslog
+docker-storage        kdump                 pmcd                  run-parts
+docker-storage-setup  kernel                pmlogger              samba
+[harshil@server1 ~]$ sudo vim /etc/sysconfig/
+anaconda              ebtables-config       ksm                   pmproxy               saslauthd
+atd                   fcoe                  libvirtd              qemu-ga               selinux
+authconfig            firewalld             libvirt-guests        radvd                 smartmontools
+cbq/                  grub                  man-db                raid-check            sshd
+chronyd               htcacheclean          modules/              rdisc                 sysstat
+console/              httpd                 netconsole            readonly-root         sysstat.ioconf
+cpupower              init                  network               rpcbind               virtlockd
+crond                 ip6tables-config      network-scripts/      rpc-rquotad           virtlogd
+docker                iptables-config       nfs                   rsyncd                wpa_supplicant
+docker-network        irqbalance            ntpdate               rsyslog
+docker-storage        kdump                 pmcd                  run-parts
+docker-storage-setup  kernel                pmlogger              samba
+[harshil@server1 ~]$ sudo vim /etc/sysconfig/authconfig
+[harshil@server1 ~]$ sudo authconfig-tui
+[harshil@server1 ~]$ cd /etc/sssd/
+[harshil@server1 sssd]$ ls
+ls: cannot open directory .: Permission denied
+[harshil@server1 sssd]$ sudo cd /etc/sssd/
+[harshil@server1 sssd]$ ll
+ls: cannot open directory .: Permission denied
+[harshil@server1 sssd]$ sudo ll
+sudo: ll: command not found
+[harshil@server1 sssd]$ sudo ls
+conf.d  sssd.conf
+[harshil@server1 sssd]$ sudo vim sssd.conf
+[harshil@server1 sssd]$ sudo systemctl restart sssd
+[harshil@server1 sssd]$ su - lisa
+su: user lisa does not exist
+[harshil@server1 sssd]$ su - harshil
+Password:
+Last login: Thu Jun 20 19:36:21 IST 2019 from 192.168.0.101 on pts/0
+[harshil@server1 ~]$ i
+bash: i: command not found...
+[harshil@server1 ~]$ id
+uid=1000(harshil) gid=1000(harshil) groups=1000(harshil),10(wheel) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+[harshil@server1 ~]$ su - lisa
+su: user lisa does not exist
+[harshil@server1 ~]$ su - lisa
+su: user lisa does not exist
+[harshil@server1 ~]$ su - lisa
+Password:
+su: warning: cannot change directory to /home/lisa: No such file or directory
+-sh-4.2$ id
+uid=1196800003(lisa) gid=1196800003(lisa) groups=1196800003(lisa) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+-sh-4.2$ su harshil
+Password:
+[harshil@server1 ~]$ id
+uid=1000(harshil) gid=1000(harshil) groups=1000(harshil),10(wheel) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+[harshil@server1 ~]$ su - john
+Password:
+su: warning: cannot change directory to /home/john: No such file or directory
+-sh-4.2$ su harshil
+Password:
+[harshil@server1 ~]$
+[harshil@server1 ~]$ sudo yum install pam_krb5.
+pam_krb5.i686    pam_krb5.x86_64
+[harshil@server1 ~]$ sudo yum install pam_krb5.
+pam_krb5.i686    pam_krb5.x86_64
+[harshil@server1 ~]$ sudo yum install pam_krb5.
+pam_krb5.i686    pam_krb5.x86_64
+[harshil@server1 ~]$ sudo yum install pam_krb5.
+pam_krb5.i686    pam_krb5.x86_64
+[harshil@server1 ~]$ sudo yum install pam_krb5.x86_64 krb5-workstation.x86_64
+[sudo] password for harshil:
+Loaded plugins: fastestmirror, langpacks, product-id, search-disabled-repos, subscription-manager
+This system is not registered with an entitlement server. You can use subscription-manager to register.
+Loading mirror speeds from cached hostfile
+ * base: centos.mirrors.estointernet.in
+ * extras: centos.mirrors.estointernet.in
+ * updates: centos.mirrors.estointernet.in
+Resolving Dependencies
+--> Running transaction check
+---> Package krb5-workstation.x86_64 0:1.15.1-37.el7_6 will be installed
+--> Processing Dependency: libkadm5(x86-64) = 1.15.1-37.el7_6 for package: krb5-workstation-1.15.1-37.el7_6.x86_64
+--> Processing Dependency: libkadm5srv_mit.so.11(kadm5srv_mit_11_MIT)(64bit) for package: krb5-workstation-1.15.1-37.el7_6.x86_64
+--> Processing Dependency: libkadm5clnt_mit.so.11(kadm5clnt_mit_11_MIT)(64bit) for package: krb5-workstation-1.15.1-37.el7_6.x86_64
+--> Processing Dependency: libkadm5srv_mit.so.11()(64bit) for package: krb5-workstation-1.15.1-37.el7_6.x86_64
+--> Processing Dependency: libkadm5clnt_mit.so.11()(64bit) for package: krb5-workstation-1.15.1-37.el7_6.x86_64
+---> Package pam_krb5.x86_64 0:2.4.8-6.el7 will be installed
+--> Running transaction check
+---> Package libkadm5.x86_64 0:1.15.1-37.el7_6 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+====================================================================================================================================
+ Package                             Arch                      Version                             Repository                  Size
+====================================================================================================================================
+Installing:
+ krb5-workstation                    x86_64                    1.15.1-37.el7_6                     updates                    816 k
+ pam_krb5                            x86_64                    2.4.8-6.el7                         base                       158 k
+Installing for dependencies:
+ libkadm5                            x86_64                    1.15.1-37.el7_6                     updates                    178 k
+
+Transaction Summary
+====================================================================================================================================
+Install  2 Packages (+1 Dependent package)
+
+Total download size: 1.1 M
+Installed size: 3.1 M
+Is this ok [y/d/N]: y
+Downloading packages:
+krb5-workstation-1.15.1-37.el7 FAILED
+http://centos.excellmedia.net/7.6.1810/updates/x86_64/Packages/krb5-workstation-1.15.1-37.el7_6.x86_64.rpm: [Errno 12] Timeout on http://centos.excellmedia.net/7.6.1810/updates/x86_64/Packages/krb5-workstation-1.15.1-37.el7_6.x86_64.rpm: (28, 'Resolving timed out after 30639 milliseconds')
+Trying other mirror.
+libkadm5-1.15.1-37.el7_6.x86_6 FAILED
+http://mirror.horizon.vn/centos/7.6.1810/updates/x86_64/Packages/libkadm5-1.15.1-37.el7_6.x86_64.rpm: [Errno 12] Timeout on http://mirror.horizon.vn/centos/7.6.1810/updates/x86_64/Packages/libkadm5-1.15.1-37.el7_6.x86_64.rpm: (28, 'Resolving timed out after 30627 milliseconds')
+Trying other mirror.
+pam_krb5-2.4.8-6.el7.x86_64.rp FAILED
+http://centos.excellmedia.net/7.6.1810/os/x86_64/Packages/pam_krb5-2.4.8-6.el7.x86_64.rpm: [Errno 12] Timeout on http://centos.excellmedia.net/7.6.1810/os/x86_64/Packages/pam_krb5-2.4.8-6.el7.x86_64.rpm: (28, 'Resolving timed out after 30617 milliseconds')
+Trying other mirror.
+^C
+
+Exiting on user cancel
+[harshil@server1 ~]$ sudo yum install pam_krb5.x86_64 krb5-workstation.x86_64
+Loaded plugins: fastestmirror, langpacks, product-id, search-disabled-repos, subscription-manager
+This system is not registered with an entitlement server. You can use subscription-manager to register.
+Loading mirror speeds from cached hostfile
+ * base: centos.mirrors.estointernet.in
+ * extras: centos.mirrors.estointernet.in
+ * updates: centos.mirrors.estointernet.in
+Resolving Dependencies
+--> Running transaction check
+---> Package krb5-workstation.x86_64 0:1.15.1-37.el7_6 will be installed
+--> Processing Dependency: libkadm5(x86-64) = 1.15.1-37.el7_6 for package: krb5-workstation-1.15.1-37.el7_6.x86_64
+--> Processing Dependency: libkadm5srv_mit.so.11(kadm5srv_mit_11_MIT)(64bit) for package: krb5-workstation-1.15.1-37.el7_6.x86_64
+--> Processing Dependency: libkadm5clnt_mit.so.11(kadm5clnt_mit_11_MIT)(64bit) for package: krb5-workstation-1.15.1-37.el7_6.x86_64
+--> Processing Dependency: libkadm5srv_mit.so.11()(64bit) for package: krb5-workstation-1.15.1-37.el7_6.x86_64
+--> Processing Dependency: libkadm5clnt_mit.so.11()(64bit) for package: krb5-workstation-1.15.1-37.el7_6.x86_64
+---> Package pam_krb5.x86_64 0:2.4.8-6.el7 will be installed
+--> Running transaction check
+---> Package libkadm5.x86_64 0:1.15.1-37.el7_6 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+====================================================================================================================================
+ Package                             Arch                      Version                             Repository                  Size
+====================================================================================================================================
+Installing:
+ krb5-workstation                    x86_64                    1.15.1-37.el7_6                     updates                    816 k
+ pam_krb5                            x86_64                    2.4.8-6.el7                         base                       158 k
+Installing for dependencies:
+ libkadm5                            x86_64                    1.15.1-37.el7_6                     updates                    178 k
+
+Transaction Summary
+====================================================================================================================================
+Install  2 Packages (+1 Dependent package)
+
+Total download size: 1.1 M
+Installed size: 3.1 M
+Is this ok [y/d/N]: y
+Downloading packages:
+No Presto metadata available for base
+(1/3): libkadm5-1.15.1-37.el7_6.x86_64.rpm                                                                   | 178 kB  00:00:00
+(2/3): krb5-workstation-1.15.1-37.el7_6.x86_64.rpm                                                           | 816 kB  00:00:01
+(3/3): pam_krb5-2.4.8-6.el7.x86_64.rpm                                                                       | 158 kB  00:00:03
+------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                               279 kB/s | 1.1 MB  00:00:04
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : libkadm5-1.15.1-37.el7_6.x86_64                                                                                  1/3
+  Installing : krb5-workstation-1.15.1-37.el7_6.x86_64                                                                          2/3
+  Installing : pam_krb5-2.4.8-6.el7.x86_64                                                                                      3/3
+  Verifying  : krb5-workstation-1.15.1-37.el7_6.x86_64                                                                          1/3
+  Verifying  : libkadm5-1.15.1-37.el7_6.x86_64                                                                                  2/3
+  Verifying  : pam_krb5-2.4.8-6.el7.x86_64                                                                                      3/3
+
+Installed:
+  krb5-workstation.x86_64 0:1.15.1-37.el7_6                              pam_krb5.x86_64 0:2.4.8-6.el7
+
+Dependency Installed:
+  libkadm5.x86_64 0:1.15.1-37.el7_6
+
+Complete!
+[harshil@server1 ~]$ sudo authconfig-tui
+[harshil@server1 ~]$ kinit -k root
+kinit: Client 'root@EXAMPLE.COM' not found in Kerberos database while getting initial credentials
+[harshil@server1 ~]$ kinit -k
+kinit: Client 'host/server1.example.com@EXAMPLE.COM' not found in Kerberos database while getting initial credentials
+[harshil@server1 ~]$ sudo kinit -k
+kinit: Client 'host/server1.example.com@EXAMPLE.COM' not found in Kerberos database while getting initial credentials
+[harshil@server1 ~]$
+[harshil@server1 ~]$ sudo kinit -k
+[sudo] password for harshil:
+kinit: Generic preauthentication failure while getting initial credentials
+[harshil@server1 ~]$ sudo kinit -k lisa
+kinit: Pre-authentication failed: Key table file '/etc/krb5.keytab' not found while getting initial credentials
+[harshil@server1 ~]$ su root
+Password:
+[root@server1 harshil]# kinit -k
+kinit: Generic preauthentication failure while getting initial credentials
+[root@server1 harshil]# su - lisa
+Last login: Thu Jun 20 19:53:25 IST 2019 on pts/0
+su: warning: cannot change directory to /home/lisa: No such file or directory
+-sh-4.2$ kinit -k
+kinit: Generic preauthentication failure while getting initial credentials
+-sh-4.2$ su harshil
+Password:
+[harshil@server1 ~]$
+[harshil@server1 ~]$ sudo kinit
+kinit: Client 'root@EXAMPLE.COM' not found in Kerberos database while getting initial credentials
+[harshil@server1 ~]$ sudo kinit -k
+kinit: Generic preauthentication failure while getting initial credentials
+[harshil@server1 ~]$ sudo kinit lisa
+Password for lisa@EXAMPLE.COM:
+[harshil@server1 ~]$ id
+uid=1000(harshil) gid=1000(harshil) groups=1000(harshil),10(wheel) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+[harshil@server1 ~]$ sudo kinit lisa
+Password for lisa@EXAMPLE.COM:
+[harshil@server1 ~]$ sudo kinit ken
+Password for ken@EXAMPLE.COM:
+[harshil@server1 ~]$
+
