@@ -1,0 +1,213 @@
+login as: harshil
+     ┌────────────────────────────────────────────────────────────────────┐
+     │                        • MobaXterm 11.1 •                          │
+     │            (SSH client, X-server and networking tools)             │
+     │                                                                    │
+     │ → SSH session to harshil@192.168.0.60                              │
+     │   • SSH compression : v                                            │
+     │   • SSH-browser     : v                                            │
+     │   • X11-forwarding  : v  (remote display is forwarded through SSH) │
+     │   • DISPLAY         : v  (automatically set on remote server)      │
+     │                                                                    │
+     │ → For more info, ctrl+click on help or visit our website           │
+     └────────────────────────────────────────────────────────────────────┘
+
+Last login: Sun Jun 23 18:12:55 2019
+[harshil@server2 ~]$
+[harshil@server2 ~]$ ifconfig
+br0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 192.168.0.102  netmask 255.255.255.0  broadcast 192.168.0.255
+        ether 26:13:6e:1a:c8:32  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.0.60  netmask 255.255.255.0  broadcast 192.168.0.255
+        inet6 fe80::1229:53c1:c915:72b  prefixlen 64  scopeid 0x20<link>
+        inet6 fe80::7b89:c256:feb5:abc2  prefixlen 64  scopeid 0x20<link>
+        ether 00:0c:29:83:7c:97  txqueuelen 1000  (Ethernet)
+        RX packets 604  bytes 108166 (105.6 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 730  bytes 102095 (99.7 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+ens37: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        ether 00:0c:29:83:7c:a1  txqueuelen 1000  (Ethernet)
+        RX packets 431  bytes 26345 (25.7 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+ens38: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        ether 00:0c:29:83:7c:b5  txqueuelen 1000  (Ethernet)
+        RX packets 787  bytes 113072 (110.4 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 235  bytes 52518 (51.2 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+ens39: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        ether 00:0c:29:83:7c:b5  txqueuelen 1000  (Ethernet)
+        RX packets 857  bytes 126343 (123.3 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 10  bytes 812 (812.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 505  bytes 48702 (47.5 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 505  bytes 48702 (47.5 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+teams2: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.0.66  netmask 255.255.255.0  broadcast 192.168.0.255
+        inet6 fe80::af42:883b:450f:3c  prefixlen 64  scopeid 0x20<link>
+        ether 00:0c:29:83:7c:b5  txqueuelen 1000  (Ethernet)
+        RX packets 784  bytes 101916 (99.5 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 235  bytes 52404 (51.1 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+virbr0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 192.168.122.1  netmask 255.255.255.0  broadcast 192.168.122.255
+        ether 52:54:00:8c:23:33  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+[harshil@server2 ~]$
+[harshil@server2 ~]$ sudo nmcli dev dis teams2
+[sudo] password for harshil:
+Device 'teams2' successfully disconnected.
+[harshil@server2 ~]$ sudo nmcli con delete tea
+teams2   teas2p1  teas2p2
+[harshil@server2 ~]$ sudo nmcli con delete tea
+teams2   teas2p1  teas2p2
+[harshil@server2 ~]$ sudo nmcli con delete teas2p1
+Connection 'teas2p1' (71ba9741-c5fb-4f6a-9c49-ce7af8a75a41) successfully deleted.
+[harshil@server2 ~]$ sudo nmcli con delete teas2p2
+Connection 'teas2p2' (8c1924e9-fa66-4d5d-9607-41d97980b6fc) successfully deleted.
+[harshil@server2 ~]$ sudo nmcli con delete teams2
+Connection 'teams2' (a4047956-1d43-437c-bfdb-b72e025c650f) successfully deleted.
+[harshil@server2 ~]$ ifconfig
+br0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 192.168.0.102  netmask 255.255.255.0  broadcast 192.168.0.255
+        ether 26:13:6e:1a:c8:32  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.0.60  netmask 255.255.255.0  broadcast 192.168.0.255
+        inet6 fe80::1229:53c1:c915:72b  prefixlen 64  scopeid 0x20<link>
+        inet6 fe80::7b89:c256:feb5:abc2  prefixlen 64  scopeid 0x20<link>
+        ether 00:0c:29:83:7c:97  txqueuelen 1000  (Ethernet)
+        RX packets 859  bytes 130843 (127.7 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 940  bytes 128121 (125.1 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+ens37: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        ether 00:0c:29:83:7c:a1  txqueuelen 1000  (Ethernet)
+        RX packets 478  bytes 29165 (28.4 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+ens38: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet6 fe80::591:8792:b163:35f2  prefixlen 64  scopeid 0x20<link>
+        ether 00:0c:29:83:7c:b5  txqueuelen 1000  (Ethernet)
+        RX packets 839  bytes 117341 (114.5 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 246  bytes 53514 (52.2 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+ens39: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet6 fe80::5b1a:8440:235a:353d  prefixlen 64  scopeid 0x20<link>
+        ether 00:0c:29:83:7c:ab  txqueuelen 1000  (Ethernet)
+        RX packets 910  bytes 130796 (127.7 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 20  bytes 1624 (1.5 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 589  bytes 57295 (55.9 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 589  bytes 57295 (55.9 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+virbr0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 192.168.122.1  netmask 255.255.255.0  broadcast 192.168.122.255
+        ether 52:54:00:8c:23:33  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+[harshil@server2 ~]$ sudo nmcli con add type bridge con-name br1 ifname br1
+Connection 'br1' (95ce6f88-f83f-4bb2-8a1c-905f6fa54df9) successfully added.
+[harshil@server2 ~]$ sudo nmcli con mod br
+br0  br1
+[harshil@server2 ~]$ sudo nmcli con mod br1 ipv4.address 192.168.0.62/24
+[harshil@server2 ~]$ sudo nmcli con mod br1 ipv4.method manual
+[harshil@server2 ~]$ sudo nmcli con add type  bridge-slave con-name br1p1 ifname ens38 master br1
+Connection 'br1p1' (42f4f06e-449b-4180-bffc-90e15bbb2e69) successfully added.
+[harshil@server2 ~]$ sudo nmcli con add type bridge-slave con-name br1p2 ifname ens39 master br1
+Connection 'br1p2' (01556472-d1a7-457e-acbf-289dad9c6173) successfully added.
+[harshil@server2 ~]$ sudo nmcli con up br1
+Connection successfully activated (master waiting for slaves) (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/20)
+[harshil@server2 ~]$ sudo brclt show
+sudo: brclt: command not found
+[harshil@server2 ~]$ sudo br
+brctl           bridge          brltty-config   brltty-install  brltty-ttb
+break           brltty          brltty-ctb      brltty-trtxt
+[harshil@server2 ~]$ sudo br
+brctl           bridge          brltty-config   brltty-install  brltty-ttb
+break           brltty          brltty-ctb      brltty-trtxt
+[harshil@server2 ~]$ sudo brctl show
+bridge name     bridge id               STP enabled     interfaces
+br0             8000.000000000000       yes
+br1             8000.000c29837cab       yes             ens38
+                                                        ens39
+virbr0          8000.5254008c2333       yes             virbr0-nic
+[harshil@server2 ~]$ sudo cat /etc/sysconfig/network-scripts/ifcfg-br1
+STP=yes
+BRIDGING_OPTS=priority=32768
+TYPE=Bridge
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=none
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=br1
+UUID=95ce6f88-f83f-4bb2-8a1c-905f6fa54df9
+DEVICE=br1
+ONBOOT=yes
+IPADDR=192.168.0.62
+PREFIX=24
+[harshil@server2 ~]$ sudo nmcli con show
+NAME    UUID                                  TYPE      DEVICE
+br0     fa23b5d5-3705-4781-bceb-46bf39c44520  bridge    br0
+br1     95ce6f88-f83f-4bb2-8a1c-905f6fa54df9  bridge    br1
+br1p1   42f4f06e-449b-4180-bffc-90e15bbb2e69  ethernet  ens38
+br1p2   01556472-d1a7-457e-acbf-289dad9c6173  ethernet  ens39
+ens33   070c589c-fa34-4ed0-a8ee-46d3bd3ddfcf  ethernet  ens33
+virbr0  bbcb540f-fa2e-42d8-850f-8471f1758115  bridge    virbr0
+ens38   a01741a7-52f9-4823-a5c6-ca189ccc531f  ethernet  --
+ens39   cba93150-cd38-4ad6-b59d-07efe44c03d2  ethernet  --
+[harshil@server2 ~]$
+
