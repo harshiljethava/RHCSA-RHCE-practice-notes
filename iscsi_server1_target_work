@@ -1,0 +1,1066 @@
+login as: harshil
+     ┌────────────────────────────────────────────────────────────────────┐
+     │                        • MobaXterm 11.1 •                          │
+     │            (SSH client, X-server and networking tools)             │
+     │                                                                    │
+     │ → SSH session to harshil@192.168.0.50                              │
+     │   • SSH compression : v                                            │
+     │   • SSH-browser     : v                                            │
+     │   • X11-forwarding  : v  (remote display is forwarded through SSH) │
+     │   • DISPLAY         : v  (automatically set on remote server)      │
+     │                                                                    │
+     │ → For more info, ctrl+click on help or visit our website           │
+     └────────────────────────────────────────────────────────────────────┘
+
+Last login: Mon Jul  1 00:42:15 2019 from 192.168.0.101
+[harshil@server1 ~]$ su root
+Password:
+[root@server1 harshil]#
+[root@server1 harshil]# targetcli
+targetcli shell version 2.1.fb46
+Copyright 2011-2013 by Datera, Inc and others.
+For help on commands, type 'help'.
+
+/> ls
+o- / ......................................................................................................................... [...]
+  o- backstores .............................................................................................................. [...]
+  | o- block .................................................................................................. [Storage Objects: 1]
+  | | o- disk1 ............................................................ [/dev/iscsivg1/iscsilv1 (500.0MiB) write-thru activated]
+  | |   o- alua ................................................................................................... [ALUA Groups: 1]
+  | |     o- default_tg_pt_gp ....................................................................... [ALUA state: Active/optimized]
+  | o- fileio ................................................................................................. [Storage Objects: 0]
+  | o- pscsi .................................................................................................. [Storage Objects: 0]
+  | o- ramdisk ................................................................................................ [Storage Objects: 0]
+  o- iscsi ............................................................................................................ [Targets: 1]
+  | o- iqn.2017-06.com.example:server1 ................................................................................... [TPGs: 1]
+  |   o- tpg1 ............................................................................................... [no-gen-acls, no-auth]
+  |     o- acls .......................................................................................................... [ACLs: 1]
+  |     | o- iqn.2017-06.com.example:server2 ...................................................................... [Mapped LUNs: 1]
+  |     |   o- mapped_lun0 ................................................................................. [lun0 block/disk1 (rw)]
+  |     o- luns .......................................................................................................... [LUNs: 1]
+  |     | o- lun0 ........................................................ [block/disk1 (/dev/iscsivg1/iscsilv1) (default_tg_pt_gp)]
+  |     o- portals .................................................................................................... [Portals: 1]
+  |       o- 0.0.0.0:3260 ..................................................................................................... [OK]
+  o- loopback ......................................................................................................... [Targets: 0]
+/> exit
+Global pref auto_save_on_exit=true
+Configuration saved to /etc/target/saveconfig.json
+[root@server1 harshil]#
+[root@server1 harshil]# vgdisplay
+  --- Volume group ---
+  VG Name               iscsivg1
+  System ID
+  Format                lvm2
+  Metadata Areas        1
+  Metadata Sequence No  2
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                0
+  Cur LV                1
+  Open LV               1
+  Max PV                0
+  Cur PV                1
+  Act PV                1
+  VG Size               1020.00 MiB
+  PE Size               4.00 MiB
+  Total PE              255
+  Alloc PE / Size       125 / 500.00 MiB
+  Free  PE / Size       130 / 520.00 MiB
+  VG UUID               7nJaHK-iYuh-pZqJ-donw-2ltD-xy5W-rFdw2s
+
+  --- Volume group ---
+  VG Name               mariadbvg
+  System ID
+  Format                lvm2
+  Metadata Areas        1
+  Metadata Sequence No  1
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                0
+  Cur LV                0
+  Open LV               0
+  Max PV                0
+  Cur PV                1
+  Act PV                1
+  VG Size               <2.00 GiB
+  PE Size               4.00 MiB
+  Total PE              511
+  Alloc PE / Size       0 / 0
+  Free  PE / Size       511 / <2.00 GiB
+  VG UUID               HjO5jb-Cs05-BIFO-bxTc-OW6O-5EHV-ASIlzp
+
+[root@server1 harshil]#
+[root@server1 harshil]# fdisk /dev/sd
+/dev/sda  /dev/sdb  /dev/sdc
+[root@server1 harshil]# fdisk /dev/sdc
+Welcome to fdisk (util-linux 2.23.2).
+
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+
+Command (m for help): l
+
+ 0  Empty           24  NEC DOS         81  Minix / old Lin bf  Solaris
+ 1  FAT12           27  Hidden NTFS Win 82  Linux swap / So c1  DRDOS/sec (FAT-
+ 2  XENIX root      39  Plan 9          83  Linux           c4  DRDOS/sec (FAT-
+ 3  XENIX usr       3c  PartitionMagic  84  OS/2 hidden C:  c6  DRDOS/sec (FAT-
+ 4  FAT16 <32M      40  Venix 80286     85  Linux extended  c7  Syrinx
+ 5  Extended        41  PPC PReP Boot   86  NTFS volume set da  Non-FS data
+ 6  FAT16           42  SFS             87  NTFS volume set db  CP/M / CTOS / .
+ 7  HPFS/NTFS/exFAT 4d  QNX4.x          88  Linux plaintext de  Dell Utility
+ 8  AIX             4e  QNX4.x 2nd part 8e  Linux LVM       df  BootIt
+ 9  AIX bootable    4f  QNX4.x 3rd part 93  Amoeba          e1  DOS access
+ a  OS/2 Boot Manag 50  OnTrack DM      94  Amoeba BBT      e3  DOS R/O
+ b  W95 FAT32       51  OnTrack DM6 Aux 9f  BSD/OS          e4  SpeedStor
+ c  W95 FAT32 (LBA) 52  CP/M            a0  IBM Thinkpad hi eb  BeOS fs
+ e  W95 FAT16 (LBA) 53  OnTrack DM6 Aux a5  FreeBSD         ee  GPT
+ f  W95 Ext'd (LBA) 54  OnTrackDM6      a6  OpenBSD         ef  EFI (FAT-12/16/
+10  OPUS            55  EZ-Drive        a7  NeXTSTEP        f0  Linux/PA-RISC b
+11  Hidden FAT12    56  Golden Bow      a8  Darwin UFS      f1  SpeedStor
+12  Compaq diagnost 5c  Priam Edisk     a9  NetBSD          f4  SpeedStor
+14  Hidden FAT16 <3 61  SpeedStor       ab  Darwin boot     f2  DOS secondary
+16  Hidden FAT16    63  GNU HURD or Sys af  HFS / HFS+      fb  VMware VMFS
+17  Hidden HPFS/NTF 64  Novell Netware  b7  BSDI fs         fc  VMware VMKCORE
+18  AST SmartSleep  65  Novell Netware  b8  BSDI swap       fd  Linux raid auto
+1b  Hidden W95 FAT3 70  DiskSecure Mult bb  Boot Wizard hid fe  LANstep
+1c  Hidden W95 FAT3 75  PC/IX           be  Solaris boot    ff  BBT
+1e  Hidden W95 FAT1 80  Old Minix
+
+Command (m for help): p
+
+Disk /dev/sdc: 5368 MB, 5368709120 bytes, 10485760 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0x7db1c2da
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdc1            2048     4196351     2097152   8e  Linux LVM
+
+Command (m for help): d
+Selected partition 1
+Partition 1 is deleted
+
+Command (m for help): w
+The partition table has been altered!
+
+Calling ioctl() to re-read partition table.
+Syncing disks.
+[root@server1 harshil]# partprobe
+Warning: Unable to open /dev/sr0 read-write (Read-only file system).  /dev/sr0 has been opened read-only.
+[root@server1 harshil]# fdisk /dev/sdc
+Welcome to fdisk (util-linux 2.23.2).
+
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+
+Command (m for help): p
+
+Disk /dev/sdc: 5368 MB, 5368709120 bytes, 10485760 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0x7db1c2da
+
+   Device Boot      Start         End      Blocks   Id  System
+
+Command (m for help): n
+Partition type:
+   p   primary (0 primary, 0 extended, 4 free)
+   e   extended
+Select (default p): p
+Partition number (1-4, default 1): 1
+First sector (2048-10485759, default 2048):
+Using default value 2048
+Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759): +1G
+Partition 1 of type Linux and of size 1 GiB is set
+
+Command (m for help): t
+Selected partition 1
+Hex code (type L to list all codes): l
+
+ 0  Empty           24  NEC DOS         81  Minix / old Lin bf  Solaris
+ 1  FAT12           27  Hidden NTFS Win 82  Linux swap / So c1  DRDOS/sec (FAT-
+ 2  XENIX root      39  Plan 9          83  Linux           c4  DRDOS/sec (FAT-
+ 3  XENIX usr       3c  PartitionMagic  84  OS/2 hidden C:  c6  DRDOS/sec (FAT-
+ 4  FAT16 <32M      40  Venix 80286     85  Linux extended  c7  Syrinx
+ 5  Extended        41  PPC PReP Boot   86  NTFS volume set da  Non-FS data
+ 6  FAT16           42  SFS             87  NTFS volume set db  CP/M / CTOS / .
+ 7  HPFS/NTFS/exFAT 4d  QNX4.x          88  Linux plaintext de  Dell Utility
+ 8  AIX             4e  QNX4.x 2nd part 8e  Linux LVM       df  BootIt
+ 9  AIX bootable    4f  QNX4.x 3rd part 93  Amoeba          e1  DOS access
+ a  OS/2 Boot Manag 50  OnTrack DM      94  Amoeba BBT      e3  DOS R/O
+ b  W95 FAT32       51  OnTrack DM6 Aux 9f  BSD/OS          e4  SpeedStor
+ c  W95 FAT32 (LBA) 52  CP/M            a0  IBM Thinkpad hi eb  BeOS fs
+ e  W95 FAT16 (LBA) 53  OnTrack DM6 Aux a5  FreeBSD         ee  GPT
+ f  W95 Ext'd (LBA) 54  OnTrackDM6      a6  OpenBSD         ef  EFI (FAT-12/16/
+10  OPUS            55  EZ-Drive        a7  NeXTSTEP        f0  Linux/PA-RISC b
+11  Hidden FAT12    56  Golden Bow      a8  Darwin UFS      f1  SpeedStor
+12  Compaq diagnost 5c  Priam Edisk     a9  NetBSD          f4  SpeedStor
+14  Hidden FAT16 <3 61  SpeedStor       ab  Darwin boot     f2  DOS secondary
+16  Hidden FAT16    63  GNU HURD or Sys af  HFS / HFS+      fb  VMware VMFS
+17  Hidden HPFS/NTF 64  Novell Netware  b7  BSDI fs         fc  VMware VMKCORE
+18  AST SmartSleep  65  Novell Netware  b8  BSDI swap       fd  Linux raid auto
+1b  Hidden W95 FAT3 70  DiskSecure Mult bb  Boot Wizard hid fe  LANstep
+1c  Hidden W95 FAT3 75  PC/IX           be  Solaris boot    ff  BBT
+1e  Hidden W95 FAT1 80  Old Minix
+Hex code (type L to list all codes): 8e
+Changed type of partition 'Linux' to 'Linux LVM'
+
+Command (m for help): p
+
+Disk /dev/sdc: 5368 MB, 5368709120 bytes, 10485760 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0x7db1c2da
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdc1            2048     2099199     1048576   8e  Linux LVM
+
+Command (m for help): w
+The partition table has been altered!
+
+Calling ioctl() to re-read partition table.
+Syncing disks.
+[root@server1 harshil]# vgcreate
+iscsivg1   mariadbvg
+[root@server1 harshil]# vgcreate
+iscsivg1   mariadbvg
+[root@server1 harshil]# pvcreate /dev/sd
+/dev/sdb1  /dev/sdc1
+[root@server1 harshil]# pvcreate /dev/sd
+/dev/sdb1  /dev/sdc1
+[root@server1 harshil]# df -h /dev/sd
+sda   sda1  sdb   sdb1  sdc   sdc1
+[root@server1 harshil]# df -h /dev/sd
+sda   sda1  sdb   sdb1  sdc   sdc1
+[root@server1 harshil]# df -h /dev/sdc1
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        895M     0  895M   0% /dev
+[root@server1 harshil]# pvcreate /dev/sdc1
+  WARNING: Device /dev/sdc1 has size of 2097152 sectors which is smaller than corresponding PV size of 4194304 sectors. Was device resized?
+  One or more devices used as PVs in VG mariadbvg have changed sizes.
+  Can't initialize physical volume "/dev/sdc1" of volume group "mariadbvg" without -ff
+  /dev/sdc1: physical volume not initialized.
+[root@server1 harshil]# df =h
+df: ‘=h’: No such file or directory
+[root@server1 harshil]# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        35G  5.2G   29G  16% /
+devtmpfs        895M     0  895M   0% /dev
+tmpfs           910M     0  910M   0% /dev/shm
+tmpfs           910M   11M  900M   2% /run
+tmpfs           910M     0  910M   0% /sys/fs/cgroup
+tmpfs           182M  8.0K  182M   1% /run/user/42
+tmpfs           182M     0  182M   0% /run/user/1000
+[root@server1 harshil]# pv
+pvchange   pvck       pvcreate   pvdisplay  pvmove     pvremove   pvresize   pvs        pvscan
+[root@server1 harshil]# pv
+pvchange   pvck       pvcreate   pvdisplay  pvmove     pvremove   pvresize   pvs        pvscan
+[root@server1 harshil]# pvdisplay
+  --- Physical volume ---
+  PV Name               /dev/sdb1
+  VG Name               iscsivg1
+  PV Size               1.00 GiB / not usable 4.00 MiB
+  Allocatable           yes
+  PE Size               4.00 MiB
+  Total PE              255
+  Free PE               130
+  Allocated PE          125
+  PV UUID               0agcjQ-zeIv-YKIu-6eXH-Q31B-Ea8V-Vl4A9X
+
+  WARNING: Device /dev/sdc1 has size of 2097152 sectors which is smaller than corresponding PV size of 4194304 sectors. Was device resized?
+  One or more devices used as PVs in VG mariadbvg have changed sizes.
+  --- Physical volume ---
+  PV Name               /dev/sdc1
+  VG Name               mariadbvg
+  PV Size               2.00 GiB / not usable 4.00 MiB
+  Allocatable           yes
+  PE Size               4.00 MiB
+  Total PE              511
+  Free PE               511
+  Allocated PE          0
+  PV UUID               lZcBew-Wwje-QS3R-ZeXQ-iiit-8J9P-rRKMXX
+
+[root@server1 harshil]# pv
+pvchange   pvck       pvcreate   pvdisplay  pvmove     pvremove   pvresize   pvs        pvscan
+[root@server1 harshil]# pvre
+pvremove  pvresize
+[root@server1 harshil]# pvre
+pvremove  pvresize
+[root@server1 harshil]# pvremove /dev/sd
+/dev/sdb1  /dev/sdc1
+[root@server1 harshil]# pvremove /dev/sd
+/dev/sdb1  /dev/sdc1
+[root@server1 harshil]# pvremove /dev/sdc
+  WARNING: Device /dev/sdc1 has size of 2097152 sectors which is smaller than corresponding PV size of 4194304 sectors. Was device resized?
+  One or more devices used as PVs in VG mariadbvg have changed sizes.
+  Device /dev/sdc excluded by a filter.
+[root@server1 harshil]# pvremove /dev/sdc1
+  WARNING: Device /dev/sdc1 has size of 2097152 sectors which is smaller than corresponding PV size of 4194304 sectors. Was device resized?
+  One or more devices used as PVs in VG mariadbvg have changed sizes.
+  PV /dev/sdc1 is used by VG mariadbvg so please use vgreduce first.
+  (If you are certain you need pvremove, then confirm by using --force twice.)
+  /dev/sdc1: physical volume label not removed.
+[root@server1 harshil]# vg
+vgcfgbackup    vgck           vgdisplay      vgimport       vgmknodes      vgrename       vgsplit
+vgcfgrestore   vgconvert      vgexport       vgimportclone  vgreduce       vgs
+vgchange       vgcreate       vgextend       vgmerge        vgremove       vgscan
+[root@server1 harshil]# vg
+vgcfgbackup    vgck           vgdisplay      vgimport       vgmknodes      vgrename       vgsplit
+vgcfgrestore   vgconvert      vgexport       vgimportclone  vgreduce       vgs
+vgchange       vgcreate       vgextend       vgmerge        vgremove       vgscan
+[root@server1 harshil]# vgre
+vgreduce  vgremove  vgrename
+[root@server1 harshil]# vgre
+vgreduce  vgremove  vgrename
+[root@server1 harshil]# vgremove
+iscsivg1   mariadbvg
+[root@server1 harshil]# vgremove
+iscsivg1   mariadbvg
+[root@server1 harshil]# vgremove mariadbvg
+iscsivg1   mariadbvg
+[root@server1 harshil]# vgremove mariadbvg
+  WARNING: Device /dev/sdc1 has size of 2097152 sectors which is smaller than corresponding PV size of 4194304 sectors. Was device resized?
+  One or more devices used as PVs in VG mariadbvg have changed sizes.
+  Volume group "mariadbvg" successfully removed
+[root@server1 harshil]# df -h /dev/sdc1
+04062019                         Documents/                       Public/
+17052019                         Downloads/                       site1/
+18052019                         .elinks/                         site1.conf
+180520192                        employees.sql                    .ssh/
+19052018                         .esd_auth                        systemctl_restart_httpd.service
+.bash_history                    .ICEauthority                    systemctl_status_httpd.service
+.bash_logout                     inventory.dump                   .targetcli/
+.bash_profile                    .local/                          Templates/
+.bashrc                          .mozilla/                        Videos/
+.cache/                          Music/                           .viminfo
+.config/                         network_teaming                  .xauth0HOvCy
+database.dump                    Pictures/                        .Xauthority
+.dbus/                           .pki/
+Desktop/                         private_directory_incomplete
+[root@server1 harshil]# df -h /dev/sdc1
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        895M     0  895M   0% /dev
+[root@server1 harshil]# pvcreate /dev/sdc1
+  Physical volume "/dev/sdc1" successfully created.
+[root@server1 harshil]# vgcreate /dev/sdc1 iscsi_vg1
+  /dev/sdc1: already exists in filesystem
+  Run `vgcreate --help' for more information.
+[root@server1 harshil]# vgcreate iscsi_vg1 /dev/sdc1
+  Volume group "iscsi_vg1" successfully created
+[root@server1 harshil]# vgdisplay iscsi
+iscsivg1   iscsi_vg1
+[root@server1 harshil]# vgdisplay iscsi
+iscsivg1   iscsi_vg1
+[root@server1 harshil]# vgdisplay iscsi_vg1
+  --- Volume group ---
+  VG Name               iscsi_vg1
+  System ID
+  Format                lvm2
+  Metadata Areas        1
+  Metadata Sequence No  1
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                0
+  Cur LV                0
+  Open LV               0
+  Max PV                0
+  Cur PV                1
+  Act PV                1
+  VG Size               1020.00 MiB
+  PE Size               4.00 MiB
+  Total PE              255
+  Alloc PE / Size       0 / 0
+  Free  PE / Size       255 / 1020.00 MiB
+  VG UUID               8uM1bk-kzPt-F1O1-Q1CJ-CfW0-j8M1-38MkjO
+
+[root@server1 harshil]# lvcreate -n disk1_lv -L 200m iscsi_vg1
+  Logical volume "disk1_lv" created.
+[root@server1 harshil]# lvdisplay
+  --- Logical volume ---
+  LV Path                /dev/iscsivg1/iscsilv1
+  LV Name                iscsilv1
+  VG Name                iscsivg1
+  LV UUID                YZeYFi-p5FH-V5wa-yGbE-b1A8-bcEj-yU6FiE
+  LV Write Access        read/write
+  LV Creation host, time server1.example.com, 2019-06-04 22:40:44 +0530
+  LV Status              available
+  # open                 1
+  LV Size                500.00 MiB
+  Current LE             125
+  Segments               1
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently set to     8192
+  Block device           253:0
+
+  --- Logical volume ---
+  LV Path                /dev/iscsi_vg1/disk1_lv
+  LV Name                disk1_lv
+  VG Name                iscsi_vg1
+  LV UUID                OMg8Ba-dWeO-GbEN-QMPg-twJP-7bO0-0hPPvA
+  LV Write Access        read/write
+  LV Creation host, time server1.example.com, 2019-07-02 07:23:24 +0530
+  LV Status              available
+  # open                 0
+  LV Size                200.00 MiB
+  Current LE             50
+  Segments               1
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently set to     8192
+  Block device           253:1
+
+[root@server1 harshil]# targetcli
+targetcli shell version 2.1.fb46
+Copyright 2011-2013 by Datera, Inc and others.
+For help on commands, type 'help'.
+
+/> ls
+o- / ......................................................................................................................... [...]
+  o- backstores .............................................................................................................. [...]
+  | o- block .................................................................................................. [Storage Objects: 1]
+  | | o- disk1 ............................................................ [/dev/iscsivg1/iscsilv1 (500.0MiB) write-thru activated]
+  | |   o- alua ................................................................................................... [ALUA Groups: 1]
+  | |     o- default_tg_pt_gp ....................................................................... [ALUA state: Active/optimized]
+  | o- fileio ................................................................................................. [Storage Objects: 0]
+  | o- pscsi .................................................................................................. [Storage Objects: 0]
+  | o- ramdisk ................................................................................................ [Storage Objects: 0]
+  o- iscsi ............................................................................................................ [Targets: 1]
+  | o- iqn.2017-06.com.example:server1 ................................................................................... [TPGs: 1]
+  |   o- tpg1 ............................................................................................... [no-gen-acls, no-auth]
+  |     o- acls .......................................................................................................... [ACLs: 1]
+  |     | o- iqn.2017-06.com.example:server2 ...................................................................... [Mapped LUNs: 1]
+  |     |   o- mapped_lun0 ................................................................................. [lun0 block/disk1 (rw)]
+  |     o- luns .......................................................................................................... [LUNs: 1]
+  |     | o- lun0 ........................................................ [block/disk1 (/dev/iscsivg1/iscsilv1) (default_tg_pt_gp)]
+  |     o- portals .................................................................................................... [Portals: 1]
+  |       o- 0.0.0.0:3260 ..................................................................................................... [OK]
+  o- loopback ......................................................................................................... [Targets: 0]
+/> backstores/block/
+/backstores/block> create server1.disk1 /dev/iscsi_vg1/disk1_lv
+Created block storage object server1.disk1 using /dev/iscsi_vg1/disk1_lv.
+/backstores/block> cd
+
+/iscsi> create iqn.2019-07.com.example:server1
+Created target iqn.2019-07.com.example:server1.
+Created TPG 1.
+Global pref auto_add_default_portal=true
+Created default portal listening on all IPs (0.0.0.0), port 3260.
+/iscsi> cd ..
+/> ls
+o- / ......................................................................................................................... [...]
+  o- backstores .............................................................................................................. [...]
+  | o- block .................................................................................................. [Storage Objects: 2]
+  | | o- disk1 ............................................................ [/dev/iscsivg1/iscsilv1 (500.0MiB) write-thru activated]
+  | | | o- alua ................................................................................................... [ALUA Groups: 1]
+  | | |   o- default_tg_pt_gp ....................................................................... [ALUA state: Active/optimized]
+  | | o- server1.disk1 ................................................. [/dev/iscsi_vg1/disk1_lv (200.0MiB) write-thru deactivated]
+  | |   o- alua ................................................................................................... [ALUA Groups: 1]
+  | |     o- default_tg_pt_gp ....................................................................... [ALUA state: Active/optimized]
+  | o- fileio ................................................................................................. [Storage Objects: 0]
+  | o- pscsi .................................................................................................. [Storage Objects: 0]
+  | o- ramdisk ................................................................................................ [Storage Objects: 0]
+  o- iscsi ............................................................................................................ [Targets: 2]
+  | o- iqn.2017-06.com.example:server1 ................................................................................... [TPGs: 1]
+  | | o- tpg1 ............................................................................................... [no-gen-acls, no-auth]
+  | |   o- acls .......................................................................................................... [ACLs: 1]
+  | |   | o- iqn.2017-06.com.example:server2 ...................................................................... [Mapped LUNs: 1]
+  | |   |   o- mapped_lun0 ................................................................................. [lun0 block/disk1 (rw)]
+  | |   o- luns .......................................................................................................... [LUNs: 1]
+  | |   | o- lun0 ........................................................ [block/disk1 (/dev/iscsivg1/iscsilv1) (default_tg_pt_gp)]
+  | |   o- portals .................................................................................................... [Portals: 1]
+  | |     o- 0.0.0.0:3260 ..................................................................................................... [OK]
+  | o- iqn.2019-07.com.example:server1 ................................................................................... [TPGs: 1]
+  |   o- tpg1 ............................................................................................... [no-gen-acls, no-auth]
+  |     o- acls .......................................................................................................... [ACLs: 0]
+  |     o- luns .......................................................................................................... [LUNs: 0]
+  |     o- portals .................................................................................................... [Portals: 1]
+  |       o- 0.0.0.0:3260 ..................................................................................................... [OK]
+  o- loopback ......................................................................................................... [Targets: 0]
+/> cd iscsi/iqn.2019-07.com.example:server1/tpg1/acls
+/iscsi/iqn.20...er1/tpg1/acls> create iqn.2019-07.com.example:server2
+Created Node ACL for iqn.2019-07.com.example:server2
+/iscsi/iqn.20...er1/tpg1/acls> cd ..
+/iscsi/iqn.20...:server1/tpg1> cd luns
+/iscsi/iqn.20...er1/tpg1/luns> create /b
+/backstores/block/disk1          /backstores/block/server1.disk1  /bin/                            /boot/
+/iscsi/iqn.20...er1/tpg1/luns> create /b
+/backstores/block/disk1          /backstores/block/server1.disk1  /bin/                            /boot/
+/iscsi/iqn.20...er1/tpg1/luns> create /backstores/block/server1.disk1
+Created LUN 0.
+Created LUN 0->0 mapping in node ACL iqn.2019-07.com.example:server2
+/iscsi/iqn.20...er1/tpg1/luns> cd ..
+/iscsi/iqn.20...:server1/tpg1> cd portals/
+/iscsi/iqn.20.../tpg1/portals> create 192.168.0.0
+Using default IP port 3260
+Could not create NetworkPortal in configFS
+/iscsi/iqn.20.../tpg1/portals> ls
+o- portals ............................................................................................................ [Portals: 1]
+  o- 0.0.0.0:3260 ............................................................................................................. [OK]
+/iscsi/iqn.20.../tpg1/portals> cd ..
+/iscsi/iqn.20...:server1/tpg1> cd
+
+/iscsi/iqn.20...:server1/tpg1> cd ..
+/iscsi/iqn.20...ample:server1> cd ..
+/iscsi> cd ..
+/> ls
+o- / ......................................................................................................................... [...]
+  o- backstores .............................................................................................................. [...]
+  | o- block .................................................................................................. [Storage Objects: 2]
+  | | o- disk1 ............................................................ [/dev/iscsivg1/iscsilv1 (500.0MiB) write-thru activated]
+  | | | o- alua ................................................................................................... [ALUA Groups: 1]
+  | | |   o- default_tg_pt_gp ....................................................................... [ALUA state: Active/optimized]
+  | | o- server1.disk1 ................................................... [/dev/iscsi_vg1/disk1_lv (200.0MiB) write-thru activated]
+  | |   o- alua ................................................................................................... [ALUA Groups: 1]
+  | |     o- default_tg_pt_gp ....................................................................... [ALUA state: Active/optimized]
+  | o- fileio ................................................................................................. [Storage Objects: 0]
+  | o- pscsi .................................................................................................. [Storage Objects: 0]
+  | o- ramdisk ................................................................................................ [Storage Objects: 0]
+  o- iscsi ............................................................................................................ [Targets: 2]
+  | o- iqn.2017-06.com.example:server1 ................................................................................... [TPGs: 1]
+  | | o- tpg1 ............................................................................................... [no-gen-acls, no-auth]
+  | |   o- acls .......................................................................................................... [ACLs: 1]
+  | |   | o- iqn.2017-06.com.example:server2 ...................................................................... [Mapped LUNs: 1]
+  | |   |   o- mapped_lun0 ................................................................................. [lun0 block/disk1 (rw)]
+  | |   o- luns .......................................................................................................... [LUNs: 1]
+  | |   | o- lun0 ........................................................ [block/disk1 (/dev/iscsivg1/iscsilv1) (default_tg_pt_gp)]
+  | |   o- portals .................................................................................................... [Portals: 1]
+  | |     o- 0.0.0.0:3260 ..................................................................................................... [OK]
+  | o- iqn.2019-07.com.example:server1 ................................................................................... [TPGs: 1]
+  |   o- tpg1 ............................................................................................... [no-gen-acls, no-auth]
+  |     o- acls .......................................................................................................... [ACLs: 1]
+  |     | o- iqn.2019-07.com.example:server2 ...................................................................... [Mapped LUNs: 1]
+  |     |   o- mapped_lun0 ......................................................................... [lun0 block/server1.disk1 (rw)]
+  |     o- luns .......................................................................................................... [LUNs: 1]
+  |     | o- lun0 ............................................... [block/server1.disk1 (/dev/iscsi_vg1/disk1_lv) (default_tg_pt_gp)]
+  |     o- portals .................................................................................................... [Portals: 1]
+  |       o- 0.0.0.0:3260 ..................................................................................................... [OK]
+  o- loopback ......................................................................................................... [Targets: 0]
+/>
+/> exit
+Global pref auto_save_on_exit=true
+Configuration saved to /etc/target/saveconfig.json
+[root@server1 harshil]# targetcli
+targetcli shell version 2.1.fb46
+Copyright 2011-2013 by Datera, Inc and others.
+For help on commands, type 'help'.
+
+/> ls
+o- / ......................................................................................................................... [...]
+  o- backstores .............................................................................................................. [...]
+  | o- block .................................................................................................. [Storage Objects: 2]
+  | | o- disk1 ............................................................ [/dev/iscsivg1/iscsilv1 (500.0MiB) write-thru activated]
+  | | | o- alua ................................................................................................... [ALUA Groups: 1]
+  | | |   o- default_tg_pt_gp ....................................................................... [ALUA state: Active/optimized]
+  | | o- server1.disk1 ................................................... [/dev/iscsi_vg1/disk1_lv (200.0MiB) write-thru activated]
+  | |   o- alua ................................................................................................... [ALUA Groups: 1]
+  | |     o- default_tg_pt_gp ....................................................................... [ALUA state: Active/optimized]
+  | o- fileio ................................................................................................. [Storage Objects: 0]
+  | o- pscsi .................................................................................................. [Storage Objects: 0]
+  | o- ramdisk ................................................................................................ [Storage Objects: 0]
+  o- iscsi ............................................................................................................ [Targets: 2]
+  | o- iqn.2017-06.com.example:server1 ................................................................................... [TPGs: 1]
+  | | o- tpg1 ............................................................................................... [no-gen-acls, no-auth]
+  | |   o- acls .......................................................................................................... [ACLs: 1]
+  | |   | o- iqn.2017-06.com.example:server2 ...................................................................... [Mapped LUNs: 1]
+  | |   |   o- mapped_lun0 ................................................................................. [lun0 block/disk1 (rw)]
+  | |   o- luns .......................................................................................................... [LUNs: 1]
+  | |   | o- lun0 ........................................................ [block/disk1 (/dev/iscsivg1/iscsilv1) (default_tg_pt_gp)]
+  | |   o- portals .................................................................................................... [Portals: 1]
+  | |     o- 0.0.0.0:3260 ..................................................................................................... [OK]
+  | o- iqn.2019-07.com.example:server1 ................................................................................... [TPGs: 1]
+  |   o- tpg1 ............................................................................................... [no-gen-acls, no-auth]
+  |     o- acls .......................................................................................................... [ACLs: 1]
+  |     | o- iqn.2019-07.com.example:server2 ...................................................................... [Mapped LUNs: 1]
+  |     |   o- mapped_lun0 ......................................................................... [lun0 block/server1.disk1 (rw)]
+  |     o- luns .......................................................................................................... [LUNs: 1]
+  |     | o- lun0 ............................................... [block/server1.disk1 (/dev/iscsi_vg1/disk1_lv) (default_tg_pt_gp)]
+  |     o- portals .................................................................................................... [Portals: 1]
+  |       o- 0.0.0.0:3260 ..................................................................................................... [OK]
+  o- loopback ......................................................................................................... [Targets: 0]
+/> cd backstores/
+/backstores> cd block/
+/backstores/block> ls
+o- block ...................................................................................................... [Storage Objects: 2]
+  o- disk1 ................................................................ [/dev/iscsivg1/iscsilv1 (500.0MiB) write-thru activated]
+  | o- alua ....................................................................................................... [ALUA Groups: 1]
+  |   o- default_tg_pt_gp ........................................................................... [ALUA state: Active/optimized]
+  o- server1.disk1 ....................................................... [/dev/iscsi_vg1/disk1_lv (200.0MiB) write-thru activated]
+    o- alua ....................................................................................................... [ALUA Groups: 1]
+      o- default_tg_pt_gp ........................................................................... [ALUA state: Active/optimized]
+/backstores/block>
+*               /               @last           disk1/          server1.disk1/  bookmarks       cd              create
+delete          exit            get             help            ls              pwd             refresh         set
+status
+/backstores/block> delete
+disk1          server1.disk1  name=          save=
+/backstores/block> delete
+disk1          server1.disk1  name=          save=
+/backstores/block> delete disk1
+Deleted storage object disk1.
+/backstores/block> cd ..
+/backstores> cd ..
+/> ls
+This MappedLUN does not exist in configFS
+/> ls
+This MappedLUN does not exist in configFS
+/> cd
+This MappedLUN does not exist in configFS
+/> exit
+Global pref auto_save_on_exit=true
+Last 10 configs saved in /etc/target/backup/.
+Configuration saved to /etc/target/saveconfig.json
+[root@server1 harshil]# targetcli
+targetcli shell version 2.1.fb46
+Copyright 2011-2013 by Datera, Inc and others.
+For help on commands, type 'help'.
+
+/> ls
+o- / ......................................................................................................................... [...]
+  o- backstores .............................................................................................................. [...]
+  | o- block .................................................................................................. [Storage Objects: 1]
+  | | o- server1.disk1 ................................................... [/dev/iscsi_vg1/disk1_lv (200.0MiB) write-thru activated]
+  | |   o- alua ................................................................................................... [ALUA Groups: 1]
+  | |     o- default_tg_pt_gp ....................................................................... [ALUA state: Active/optimized]
+  | o- fileio ................................................................................................. [Storage Objects: 0]
+  | o- pscsi .................................................................................................. [Storage Objects: 0]
+  | o- ramdisk ................................................................................................ [Storage Objects: 0]
+  o- iscsi ............................................................................................................ [Targets: 2]
+  | o- iqn.2017-06.com.example:server1 ................................................................................... [TPGs: 1]
+  | | o- tpg1 ............................................................................................... [no-gen-acls, no-auth]
+  | |   o- acls .......................................................................................................... [ACLs: 1]
+  | |   | o- iqn.2017-06.com.example:server2 ...................................................................... [Mapped LUNs: 0]
+  | |   o- luns .......................................................................................................... [LUNs: 0]
+  | |   o- portals .................................................................................................... [Portals: 1]
+  | |     o- 0.0.0.0:3260 ..................................................................................................... [OK]
+  | o- iqn.2019-07.com.example:server1 ................................................................................... [TPGs: 1]
+  |   o- tpg1 ............................................................................................... [no-gen-acls, no-auth]
+  |     o- acls .......................................................................................................... [ACLs: 1]
+  |     | o- iqn.2019-07.com.example:server2 ...................................................................... [Mapped LUNs: 1]
+  |     |   o- mapped_lun0 ......................................................................... [lun0 block/server1.disk1 (rw)]
+  |     o- luns .......................................................................................................... [LUNs: 1]
+  |     | o- lun0 ............................................... [block/server1.disk1 (/dev/iscsi_vg1/disk1_lv) (default_tg_pt_gp)]
+  |     o- portals .................................................................................................... [Portals: 1]
+  |       o- 0.0.0.0:3260 ..................................................................................................... [OK]
+  o- loopback ......................................................................................................... [Targets: 0]
+/> exit
+Global pref auto_save_on_exit=true
+Last 10 configs saved in /etc/target/backup/.
+Configuration saved to /etc/target/saveconfig.json
+[root@server1 harshil]# systemctl restart targetcli
+Failed to restart targetcli.service: Unit not found.
+[root@server1 harshil]# systemctl restart target.service
+Display all 421 possibilities? (y or n)
+[root@server1 harshil]# systemctl restart target.service
+[root@server1 harshil]# targetcli
+targetcli shell version 2.1.fb46
+Copyright 2011-2013 by Datera, Inc and others.
+For help on commands, type 'help'.
+
+/> ls
+o- / ......................................................................................................................... [...]
+  o- backstores .............................................................................................................. [...]
+  | o- block .................................................................................................. [Storage Objects: 1]
+  | | o- server1.disk1 ................................................... [/dev/iscsi_vg1/disk1_lv (200.0MiB) write-thru activated]
+  | |   o- alua ................................................................................................... [ALUA Groups: 1]
+  | |     o- default_tg_pt_gp ....................................................................... [ALUA state: Active/optimized]
+  | o- fileio ................................................................................................. [Storage Objects: 0]
+  | o- pscsi .................................................................................................. [Storage Objects: 0]
+  | o- ramdisk ................................................................................................ [Storage Objects: 0]
+  o- iscsi ............................................................................................................ [Targets: 2]
+  | o- iqn.2017-06.com.example:server1 ................................................................................... [TPGs: 1]
+  | | o- tpg1 ............................................................................................... [no-gen-acls, no-auth]
+  | |   o- acls .......................................................................................................... [ACLs: 1]
+  | |   | o- iqn.2017-06.com.example:server2 ...................................................................... [Mapped LUNs: 0]
+  | |   o- luns .......................................................................................................... [LUNs: 0]
+  | |   o- portals .................................................................................................... [Portals: 1]
+  | |     o- 0.0.0.0:3260 ..................................................................................................... [OK]
+  | o- iqn.2019-07.com.example:server1 ................................................................................... [TPGs: 1]
+  |   o- tpg1 ............................................................................................... [no-gen-acls, no-auth]
+  |     o- acls .......................................................................................................... [ACLs: 1]
+  |     | o- iqn.2019-07.com.example:server2 ...................................................................... [Mapped LUNs: 1]
+  |     |   o- mapped_lun0 ......................................................................... [lun0 block/server1.disk1 (rw)]
+  |     o- luns .......................................................................................................... [LUNs: 1]
+  |     | o- lun0 ............................................... [block/server1.disk1 (/dev/iscsi_vg1/disk1_lv) (default_tg_pt_gp)]
+  |     o- portals .................................................................................................... [Portals: 1]
+  |       o- 0.0.0.0:3260 ..................................................................................................... [OK]
+  o- loopback ......................................................................................................... [Targets: 0]
+/> cd iscsi/
+/iscsi> ls
+o- iscsi .............................................................................................................. [Targets: 2]
+  o- iqn.2017-06.com.example:server1 ..................................................................................... [TPGs: 1]
+  | o- tpg1 ................................................................................................. [no-gen-acls, no-auth]
+  |   o- acls ............................................................................................................ [ACLs: 1]
+  |   | o- iqn.2017-06.com.example:server2 ........................................................................ [Mapped LUNs: 0]
+  |   o- luns ............................................................................................................ [LUNs: 0]
+  |   o- portals ...................................................................................................... [Portals: 1]
+  |     o- 0.0.0.0:3260 ....................................................................................................... [OK]
+  o- iqn.2019-07.com.example:server1 ..................................................................................... [TPGs: 1]
+    o- tpg1 ................................................................................................. [no-gen-acls, no-auth]
+      o- acls ............................................................................................................ [ACLs: 1]
+      | o- iqn.2019-07.com.example:server2 ........................................................................ [Mapped LUNs: 1]
+      |   o- mapped_lun0 ........................................................................... [lun0 block/server1.disk1 (rw)]
+      o- luns ............................................................................................................ [LUNs: 1]
+      | o- lun0 ................................................. [block/server1.disk1 (/dev/iscsi_vg1/disk1_lv) (default_tg_pt_gp)]
+      o- portals ...................................................................................................... [Portals: 1]
+        o- 0.0.0.0:3260 ....................................................................................................... [OK]
+/iscsi>
+*                                 /                                 @last
+iqn.2017-06.com.example:server1/  iqn.2019-07.com.example:server1/  bookmarks
+cd                                create                            delete
+exit                              get                               help
+info                              ls                                pwd
+refresh                           set                               status
+version
+/iscsi>
+*                                 /                                 @last
+iqn.2017-06.com.example:server1/  iqn.2019-07.com.example:server1/  bookmarks
+cd                                create                            delete
+exit                              get                               help
+info                              ls                                pwd
+refresh                           set                               status
+version
+/iscsi> delete
+iqn.2017-06.com.example:server1  iqn.2019-07.com.example:server1  wwn=
+/iscsi> delete
+iqn.2017-06.com.example:server1  iqn.2019-07.com.example:server1  wwn=
+/iscsi> delete iqn.2017-06.com.example:server1
+Deleted Target iqn.2017-06.com.example:server1.
+/iscsi> cd
+<                                 >                                 @last
+iqn.2019-07.com.example:server1/  path=
+/iscsi> cd
+<                                 >                                 @last
+iqn.2019-07.com.example:server1/  path=
+/iscsi> cd ..
+/> ls
+o- / ......................................................................................................................... [...]
+  o- backstores .............................................................................................................. [...]
+  | o- block .................................................................................................. [Storage Objects: 1]
+  | | o- server1.disk1 ................................................... [/dev/iscsi_vg1/disk1_lv (200.0MiB) write-thru activated]
+  | |   o- alua ................................................................................................... [ALUA Groups: 1]
+  | |     o- default_tg_pt_gp ....................................................................... [ALUA state: Active/optimized]
+  | o- fileio ................................................................................................. [Storage Objects: 0]
+  | o- pscsi .................................................................................................. [Storage Objects: 0]
+  | o- ramdisk ................................................................................................ [Storage Objects: 0]
+  o- iscsi ............................................................................................................ [Targets: 1]
+  | o- iqn.2019-07.com.example:server1 ................................................................................... [TPGs: 1]
+  |   o- tpg1 ............................................................................................... [no-gen-acls, no-auth]
+  |     o- acls .......................................................................................................... [ACLs: 1]
+  |     | o- iqn.2019-07.com.example:server2 ...................................................................... [Mapped LUNs: 1]
+  |     |   o- mapped_lun0 ......................................................................... [lun0 block/server1.disk1 (rw)]
+  |     o- luns .......................................................................................................... [LUNs: 1]
+  |     | o- lun0 ............................................... [block/server1.disk1 (/dev/iscsi_vg1/disk1_lv) (default_tg_pt_gp)]
+  |     o- portals .................................................................................................... [Portals: 1]
+  |       o- 0.0.0.0:3260 ..................................................................................................... [OK]
+  o- loopback ......................................................................................................... [Targets: 0]
+/> saveconfig
+Configuration saved to /etc/target/saveconfig.json
+/> exit
+Global pref auto_save_on_exit=true
+Last 10 configs saved in /etc/target/backup/.
+Configuration saved to /etc/target/saveconfig.json
+[root@server1 harshil]# systemctl restart target
+[root@server1 harshil]# firewall-cmd --add-port=3260/tcp
+Warning: ALREADY_ENABLED: '3260:tcp' already in 'trusted'
+success
+[root@server1 harshil]# getenforce
+Enforcing
+[root@server1 harshil]# setenforce 0
+[root@server1 harshil]# targetcli
+targetcli shell version 2.1.fb46
+Copyright 2011-2013 by Datera, Inc and others.
+For help on commands, type 'help'.
+
+/> ls
+o- / ......................................................................................................................... [...]
+  o- backstores .............................................................................................................. [...]
+  | o- block .................................................................................................. [Storage Objects: 1]
+  | | o- server1.disk1 ................................................... [/dev/iscsi_vg1/disk1_lv (200.0MiB) write-thru activated]
+  | |   o- alua ................................................................................................... [ALUA Groups: 1]
+  | |     o- default_tg_pt_gp ....................................................................... [ALUA state: Active/optimized]
+  | o- fileio ................................................................................................. [Storage Objects: 0]
+  | o- pscsi .................................................................................................. [Storage Objects: 0]
+  | o- ramdisk ................................................................................................ [Storage Objects: 0]
+  o- iscsi ............................................................................................................ [Targets: 1]
+  | o- iqn.2019-07.com.example:server1 ................................................................................... [TPGs: 1]
+  |   o- tpg1 ............................................................................................... [no-gen-acls, no-auth]
+  |     o- acls .......................................................................................................... [ACLs: 1]
+  |     | o- iqn.2019-07.com.example:server2 ...................................................................... [Mapped LUNs: 1]
+  |     |   o- mapped_lun0 ......................................................................... [lun0 block/server1.disk1 (rw)]
+  |     o- luns .......................................................................................................... [LUNs: 1]
+  |     | o- lun0 ............................................... [block/server1.disk1 (/dev/iscsi_vg1/disk1_lv) (default_tg_pt_gp)]
+  |     o- portals .................................................................................................... [Portals: 1]
+  |       o- 0.0.0.0:3260 ..................................................................................................... [OK]
+  o- loopback ......................................................................................................... [Targets: 0]
+/> cd iscsi/iqn.2019-07.com.example:server1/tpg1/
+iscsi/iqn.2019-07.com.example:server1/tpg1/acls/     iscsi/iqn.2019-07.com.example:server1/tpg1/luns/
+iscsi/iqn.2019-07.com.example:server1/tpg1/portals/
+/> cd iscsi/iqn.2019-07.com.example:server1/tpg1/portals/
+/iscsi/iqn.20.../tpg1/portals> ls
+o- portals ............................................................................................................ [Portals: 1]
+  o- 0.0.0.0:3260 ............................................................................................................. [OK]
+/iscsi/iqn.20.../tpg1/portals>
+/              0.0.0.0:3260/  @last          bookmarks      cd             create         delete         exit
+get            help           ls             pwd            refresh        set            status
+/iscsi/iqn.20.../tpg1/portals>
+/              0.0.0.0:3260/  @last          bookmarks      cd             create         delete         exit
+get            help           ls             pwd            refresh        set            status
+/iscsi/iqn.20.../tpg1/portals> create
+0.0.0.0                    127.0.0.1                  192.168.0.100              192.168.0.102
+192.168.0.50               192.168.122.1              ::0                        ::1
+fe80::259e:86e3:fbce:e6f5  fe80::5cb3:de2c:bbd6:2c93  fe80::9829:113c:9efe:2720  ip_address=
+ip_port=
+/iscsi/iqn.20.../tpg1/portals> create 192.168.
+192.168.0.100  192.168.0.102  192.168.0.50   192.168.122.1
+/iscsi/iqn.20.../tpg1/portals> create 192.168.
+192.168.0.100  192.168.0.102  192.168.0.50   192.168.122.1
+/iscsi/iqn.20.../tpg1/portals> create 192.168.0.
+192.168.0.100  192.168.0.102  192.168.0.50
+/iscsi/iqn.20.../tpg1/portals> create 192.168.0.
+192.168.0.100  192.168.0.102  192.168.0.50
+/iscsi/iqn.20.../tpg1/portals> create 192.168.0.50
+Using default IP port 3260
+Could not create NetworkPortal in configFS
+/iscsi/iqn.20.../tpg1/portals> delete
+0.0.0.0      ip_address=  ip_port=
+/iscsi/iqn.20.../tpg1/portals> delete
+0.0.0.0      ip_address=  ip_port=
+/iscsi/iqn.20.../tpg1/portals> delete 0.0.0.0
+Missing required parameter ip_port
+/iscsi/iqn.20.../tpg1/portals> delete 0.0.0.0
+3260      ip_port=
+/iscsi/iqn.20.../tpg1/portals> delete 0.0.0.0
+3260      ip_port=
+/iscsi/iqn.20.../tpg1/portals> delete 0.0.0.0 ip_port=3260
+Deleted network portal 0.0.0.0:3260
+/iscsi/iqn.20.../tpg1/portals> delete ip_
+ip_address=  ip_port=
+/iscsi/iqn.20.../tpg1/portals> delete ip_
+ip_address=  ip_port=
+/iscsi/iqn.20.../tpg1/portals> ls
+o- portals ............................................................................................................ [Portals: 0]
+/iscsi/iqn.20.../tpg1/portals>
+/          @last      bookmarks  cd         create     delete     exit       get        help       ls         pwd        refresh
+set        status
+/iscsi/iqn.20.../tpg1/portals>
+/          @last      bookmarks  cd         create     delete     exit       get        help       ls         pwd        refresh
+set        status
+/iscsi/iqn.20.../tpg1/portals> create 192.168.0.50  ip_port=3260
+Using default IP port 3260
+Created network portal 192.168.0.50:3260.
+/iscsi/iqn.20.../tpg1/portals> ls
+o- portals ............................................................................................................ [Portals: 1]
+  o- 192.168.0.50:3260 ........................................................................................................ [OK]
+/iscsi/iqn.20.../tpg1/portals> cd ..
+/iscsi/iqn.20...:server1/tpg1> cd ..
+/iscsi/iqn.20...ample:server1> cd ..
+/iscsi> cd ..
+/> ls
+o- / ......................................................................................................................... [...]
+  o- backstores .............................................................................................................. [...]
+  | o- block .................................................................................................. [Storage Objects: 1]
+  | | o- server1.disk1 ................................................... [/dev/iscsi_vg1/disk1_lv (200.0MiB) write-thru activated]
+  | |   o- alua ................................................................................................... [ALUA Groups: 1]
+  | |     o- default_tg_pt_gp ....................................................................... [ALUA state: Active/optimized]
+  | o- fileio ................................................................................................. [Storage Objects: 0]
+  | o- pscsi .................................................................................................. [Storage Objects: 0]
+  | o- ramdisk ................................................................................................ [Storage Objects: 0]
+  o- iscsi ............................................................................................................ [Targets: 1]
+  | o- iqn.2019-07.com.example:server1 ................................................................................... [TPGs: 1]
+  |   o- tpg1 ............................................................................................... [no-gen-acls, no-auth]
+  |     o- acls .......................................................................................................... [ACLs: 1]
+  |     | o- iqn.2019-07.com.example:server2 ...................................................................... [Mapped LUNs: 1]
+  |     |   o- mapped_lun0 ......................................................................... [lun0 block/server1.disk1 (rw)]
+  |     o- luns .......................................................................................................... [LUNs: 1]
+  |     | o- lun0 ............................................... [block/server1.disk1 (/dev/iscsi_vg1/disk1_lv) (default_tg_pt_gp)]
+  |     o- portals .................................................................................................... [Portals: 1]
+  |       o- 192.168.0.50:3260 ................................................................................................ [OK]
+  o- loopback ......................................................................................................... [Targets: 0]
+/> saveconfig
+Configuration saved to /etc/target/saveconfig.json
+/> exit
+Global pref auto_save_on_exit=true
+Last 10 configs saved in /etc/target/backup/.
+Configuration saved to /etc/target/saveconfig.json
+[root@server1 harshil]# systemctl restart target
+[root@server1 harshil]# vim /var/lib/iscsi/
+ifaces/       isns/         nodes/        send_targets/ slp/          static/
+[root@server1 harshil]# vim /var/lib/iscsi/send_targets/server1.example.com,3260/
+[root@server1 harshil]# cd /var/lib/iscsi/send_targets/
+[root@server1 send_targets]# ll
+total 0
+drw-------. 1 root root 136 May 25 07:52 server1.example.com,3260
+[root@server1 send_targets]# cd server1.example.com,3260/
+[root@server1 server1.example.com,3260]# ls
+iqn.2019-05.com.example:server1,192.168.0.60,3260,1,default  st_config
+[root@server1 server1.example.com,3260]# rm
+rm             rmail          rmail.postfix  rmdir          rmid           rmiregistry    rmmod
+[root@server1 server1.example.com,3260]# rm
+iqn.2019-05.com.example:server1,192.168.0.60,3260,1,default/ st_config
+[root@server1 server1.example.com,3260]# rm
+iqn.2019-05.com.example:server1,192.168.0.60,3260,1,default/ st_config
+[root@server1 server1.example.com,3260]# rm
+iqn.2019-05.com.example:server1,192.168.0.60,3260,1,default/ st_config
+[root@server1 server1.example.com,3260]# rm iqn.2019-05.com.example\:server1\,192.168.0.60\,3260\,1\,default/default
+iqn.2019-05.com.example:server1,192.168.0.60,3260,1,default/ st_config
+[root@server1 server1.example.com,3260]# rm iqn.2019-05.com.example\:server1\,192.168.0.60\,3260\,1\,default/default
+rm: remove regular file ‘iqn.2019-05.com.example:server1,192.168.0.60,3260,1,default/default’? y
+[root@server1 server1.example.com,3260]# ls
+iqn.2019-05.com.example:server1,192.168.0.60,3260,1,default  st_config
+[root@server1 server1.example.com,3260]# rm -rf iqn.2019-05.com.example\:server1\,192.168.0.60\,3260\,1\,default/
+[root@server1 server1.example.com,3260]# ls
+iqn.2019-05.com.example:server1,192.168.0.60,3260,1,default  st_config
+[root@server1 server1.example.com,3260]# ll
+total 8
+lrwxrwxrwx. 1 root root  72 May 25 07:52 iqn.2019-05.com.example:server1,192.168.0.60,3260,1,default -> /var/lib/iscsi/nodes/iqn.2019-05.com.example:server1/192.168.0.60,3260,1
+-rw-------. 1 root root 558 May 25 07:52 st_config
+[root@server1 server1.example.com,3260]# cd ..
+[root@server1 send_targets]# cd ..
+[root@server1 iscsi]# ls
+ifaces  isns  nodes  send_targets  slp  static
+[root@server1 iscsi]# cd nodes/
+[root@server1 nodes]# ls
+iqn.2019-05.com.example:server1
+[root@server1 nodes]# rm -rf iqn.2019-05.com.example\:server1/
+[root@server1 nodes]# ll
+total 0
+[root@server1 nodes]# cd ..
+[root@server1 iscsi]# cd
+ifaces/       isns/         nodes/        send_targets/ slp/          static/
+[root@server1 iscsi]# cd send_targets/
+[root@server1 send_targets]# ls
+server1.example.com,3260
+[root@server1 send_targets]# cd server1.example.com,3260/
+[root@server1 server1.example.com,3260]# ls
+iqn.2019-05.com.example:server1,192.168.0.60,3260,1,default  st_config
+[root@server1 server1.example.com,3260]# cd ..
+[root@server1 send_targets]# cd ..
+[root@server1 iscsi]# ls
+ifaces  isns  nodes  send_targets  slp  static
+[root@server1 iscsi]# cd ifaces/
+[root@server1 ifaces]# ls
+[root@server1 ifaces]# cd ..
+[root@server1 iscsi]# cd static/
+[root@server1 static]# ls
+[root@server1 static]# cd .
+[root@server1 static]# cd
+[root@server1 ~]# systemctl restart target
+[root@server1 ~]# targetcli
+targetcli shell version 2.1.fb46
+Copyright 2011-2013 by Datera, Inc and others.
+For help on commands, type 'help'.
+
+/> ls
+o- / ......................................................................................................................... [...]
+  o- backstores .............................................................................................................. [...]
+  | o- block .................................................................................................. [Storage Objects: 1]
+  | | o- server1.disk1 ................................................... [/dev/iscsi_vg1/disk1_lv (200.0MiB) write-thru activated]
+  | |   o- alua ................................................................................................... [ALUA Groups: 1]
+  | |     o- default_tg_pt_gp ....................................................................... [ALUA state: Active/optimized]
+  | o- fileio ................................................................................................. [Storage Objects: 0]
+  | o- pscsi .................................................................................................. [Storage Objects: 0]
+  | o- ramdisk ................................................................................................ [Storage Objects: 0]
+  o- iscsi ............................................................................................................ [Targets: 1]
+  | o- iqn.2019-07.com.example:server1 ................................................................................... [TPGs: 1]
+  |   o- tpg1 ............................................................................................... [no-gen-acls, no-auth]
+  |     o- acls .......................................................................................................... [ACLs: 1]
+  |     | o- iqn.2019-07.com.example:server2 ...................................................................... [Mapped LUNs: 1]
+  |     |   o- mapped_lun0 ......................................................................... [lun0 block/server1.disk1 (rw)]
+  |     o- luns .......................................................................................................... [LUNs: 1]
+  |     | o- lun0 ............................................... [block/server1.disk1 (/dev/iscsi_vg1/disk1_lv) (default_tg_pt_gp)]
+  |     o- portals .................................................................................................... [Portals: 1]
+  |       o- 192.168.0.50:3260 ................................................................................................ [OK]
+  o- loopback ......................................................................................................... [Targets: 0]
+/> cd iscsi/iqn.2019-07.com.example:server1/
+/iscsi/iqn.20...ample:server1> ls
+o- iqn.2019-07.com.example:server1 ....................................................................................... [TPGs: 1]
+  o- tpg1 ................................................................................................... [no-gen-acls, no-auth]
+    o- acls .............................................................................................................. [ACLs: 1]
+    | o- iqn.2019-07.com.example:server2 .......................................................................... [Mapped LUNs: 1]
+    |   o- mapped_lun0 ............................................................................. [lun0 block/server1.disk1 (rw)]
+    o- luns .............................................................................................................. [LUNs: 1]
+    | o- lun0 ................................................... [block/server1.disk1 (/dev/iscsi_vg1/disk1_lv) (default_tg_pt_gp)]
+    o- portals ........................................................................................................ [Portals: 1]
+      o- 192.168.0.50:3260 .................................................................................................... [OK]
+/iscsi/iqn.20...ample:server1>
+/          @last      tpg1/      bookmarks  cd         create     delete     exit       get        help       info       ls
+pwd        refresh    set        status
+/iscsi/iqn.20...ample:server1> info
+fabric: iscsi
+wwn: iqn.2019-07.com.example:server1
+/iscsi/iqn.20...ample:server1> cd
+<      >      @last  tpg1/  path=
+/iscsi/iqn.20...ample:server1> cd
+<      >      @last  tpg1/  path=
+/iscsi/iqn.20...ample:server1> cd path=
+<           >           @last       tpg1/
+/iscsi/iqn.20...ample:server1> cd
+<      >      @last  tpg1/  path=
+/iscsi/iqn.20...ample:server1> cd tpg1/
+/iscsi/iqn.20...:server1/tpg1> ls
+o- tpg1 ..................................................................................................... [no-gen-acls, no-auth]
+  o- acls ................................................................................................................ [ACLs: 1]
+  | o- iqn.2019-07.com.example:server2 ............................................................................ [Mapped LUNs: 1]
+  |   o- mapped_lun0 ............................................................................... [lun0 block/server1.disk1 (rw)]
+  o- luns ................................................................................................................ [LUNs: 1]
+  | o- lun0 ..................................................... [block/server1.disk1 (/dev/iscsi_vg1/disk1_lv) (default_tg_pt_gp)]
+  o- portals .......................................................................................................... [Portals: 1]
+    o- 192.168.0.50:3260 ...................................................................................................... [OK]
+/iscsi/iqn.20...:server1/tpg1> exit
+Global pref auto_save_on_exit=true
+Configuration saved to /etc/target/saveconfig.json
+[root@server1 ~]# setenforce 1
+[root@server1 ~]# getenforce
+Enforcing
+[root@server1 ~]# targetcli
+targetcli shell version 2.1.fb46
+Copyright 2011-2013 by Datera, Inc and others.
+For help on commands, type 'help'.
+
+/iscsi/iqn.20...:server1/tpg1> ls
+o- tpg1 ..................................................................................................... [no-gen-acls, no-auth]
+  o- acls ................................................................................................................ [ACLs: 1]
+  | o- iqn.2019-07.com.example:server2 ............................................................................ [Mapped LUNs: 1]
+  |   o- mapped_lun0 ............................................................................... [lun0 block/server1.disk1 (rw)]
+  o- luns ................................................................................................................ [LUNs: 1]
+  | o- lun0 ..................................................... [block/server1.disk1 (/dev/iscsi_vg1/disk1_lv) (default_tg_pt_gp)]
+  o- portals .......................................................................................................... [Portals: 1]
+    o- 192.168.0.50:3260 ...................................................................................................... [OK]
+/iscsi/iqn.20...:server1/tpg1> cd ..
+/iscsi/iqn.20...ample:server1> cd ..
+/iscsi> cd ..
+/> ls
+o- / ......................................................................................................................... [...]
+  o- backstores .............................................................................................................. [...]
+  | o- block .................................................................................................. [Storage Objects: 1]
+  | | o- server1.disk1 ................................................... [/dev/iscsi_vg1/disk1_lv (200.0MiB) write-thru activated]
+  | |   o- alua ................................................................................................... [ALUA Groups: 1]
+  | |     o- default_tg_pt_gp ....................................................................... [ALUA state: Active/optimized]
+  | o- fileio ................................................................................................. [Storage Objects: 0]
+  | o- pscsi .................................................................................................. [Storage Objects: 0]
+  | o- ramdisk ................................................................................................ [Storage Objects: 0]
+  o- iscsi ............................................................................................................ [Targets: 1]
+  | o- iqn.2019-07.com.example:server1 ................................................................................... [TPGs: 1]
+  |   o- tpg1 ............................................................................................... [no-gen-acls, no-auth]
+  |     o- acls .......................................................................................................... [ACLs: 1]
+  |     | o- iqn.2019-07.com.example:server2 ...................................................................... [Mapped LUNs: 1]
+  |     |   o- mapped_lun0 ......................................................................... [lun0 block/server1.disk1 (rw)]
+  |     o- luns .......................................................................................................... [LUNs: 1]
+  |     | o- lun0 ............................................... [block/server1.disk1 (/dev/iscsi_vg1/disk1_lv) (default_tg_pt_gp)]
+  |     o- portals .................................................................................................... [Portals: 1]
+  |       o- 192.168.0.50:3260 ................................................................................................ [OK]
+  o- loopback ......................................................................................................... [Targets: 0]
+/> exit
+Global pref auto_save_on_exit=true
+Configuration saved to /etc/target/saveconfig.json
+[root@server1 ~]#
+
