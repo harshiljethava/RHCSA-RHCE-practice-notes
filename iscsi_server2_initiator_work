@@ -1,0 +1,717 @@
+login as: harshil
+     ┌────────────────────────────────────────────────────────────────────┐
+     │                        • MobaXterm 11.1 •                          │
+     │            (SSH client, X-server and networking tools)             │
+     │                                                                    │
+     │ → SSH session to harshil@192.168.0.60                              │
+     │   • SSH compression : v                                            │
+     │   • SSH-browser     : v                                            │
+     │   • X11-forwarding  : v  (remote display is forwarded through SSH) │
+     │   • DISPLAY         : v  (automatically set on remote server)      │
+     │                                                                    │
+     │ → For more info, ctrl+click on help or visit our website           │
+     └────────────────────────────────────────────────────────────────────┘
+
+Last login: Mon Jul  1 01:49:58 2019 from 192.168.0.101
+[harshil@server2 ~]$ su roo
+su: user roo does not exist
+[harshil@server2 ~]$ su root
+Password:
+[root@server2 harshil]#
+[root@server2 harshil]# yum install iscsi-initiator-utils
+Loaded plugins: fastestmirror, langpacks
+Determining fastest mirrors
+epel/x86_64/metalink                                                                                         | 7.5 kB  00:00:00
+ * base: centos.mirrors.estointernet.in
+ * epel: repos.del.extreme-ix.org
+ * extras: centos.mirrors.estointernet.in
+ * updates: centos.mirrors.estointernet.in
+base                                                                                                         | 3.6 kB  00:00:00
+epel                                                                                                         | 5.3 kB  00:00:00
+extras                                                                                                       | 3.4 kB  00:00:00
+updates                                                                                                      | 3.4 kB  00:00:00
+(1/3): epel/x86_64/updateinfo                                                                                | 976 kB  00:00:02
+(2/3): updates/7/x86_64/primary_db                                                                           | 6.5 MB  00:00:09
+(3/3): epel/x86_64/primary_db                                                                                | 6.7 MB  00:00:09
+Package iscsi-initiator-utils-6.2.0.874-10.el7.x86_64 already installed and latest version
+Nothing to do
+[root@server2 harshil]# vim /etc/init
+init.d/  inittab
+[root@server2 harshil]# vim /etc/iscsi/initiatorname.iscsi
+[root@server2 harshil]# systemctl restart iscsid
+[root@server2 harshil]# iscsiadm -m discovery -t st -p server1.example.com
+192.168.0.50:3260,1 iqn.2017-06.com.example:server1
+192.168.0.50:3260,1 iqn.2019-07.com.example:server1
+[root@server2 harshil]# iscsiadm -m node -T iqn.2019-07.com.example:server1
+# BEGIN RECORD 6.2.0.874-10
+node.name = iqn.2019-07.com.example:server1
+node.tpgt = 1
+node.startup = automatic
+node.leading_login = No
+iface.hwaddress = <empty>
+iface.ipaddress = <empty>
+iface.iscsi_ifacename = default
+iface.net_ifacename = <empty>
+iface.gateway = <empty>
+iface.subnet_mask = <empty>
+iface.transport_name = tcp
+iface.initiatorname = <empty>
+iface.state = <empty>
+iface.vlan_id = 0
+iface.vlan_priority = 0
+iface.vlan_state = <empty>
+iface.iface_num = 0
+iface.mtu = 0
+iface.port = 0
+iface.bootproto = <empty>
+iface.dhcp_alt_client_id_state = <empty>
+iface.dhcp_alt_client_id = <empty>
+iface.dhcp_dns = <empty>
+iface.dhcp_learn_iqn = <empty>
+iface.dhcp_req_vendor_id_state = <empty>
+iface.dhcp_vendor_id_state = <empty>
+iface.dhcp_vendor_id = <empty>
+iface.dhcp_slp_da = <empty>
+iface.fragmentation = <empty>
+iface.gratuitous_arp = <empty>
+iface.incoming_forwarding = <empty>
+iface.tos_state = <empty>
+iface.tos = 0
+iface.ttl = 0
+iface.delayed_ack = <empty>
+iface.tcp_nagle = <empty>
+iface.tcp_wsf_state = <empty>
+iface.tcp_wsf = 0
+iface.tcp_timer_scale = 0
+iface.tcp_timestamp = <empty>
+iface.redirect = <empty>
+iface.def_task_mgmt_timeout = 0
+iface.header_digest = <empty>
+iface.data_digest = <empty>
+iface.immediate_data = <empty>
+iface.initial_r2t = <empty>
+iface.data_seq_inorder = <empty>
+iface.data_pdu_inorder = <empty>
+iface.erl = 0
+iface.max_receive_data_len = 0
+iface.first_burst_len = 0
+iface.max_outstanding_r2t = 0
+iface.max_burst_len = 0
+iface.chap_auth = <empty>
+iface.bidi_chap = <empty>
+iface.strict_login_compliance = <empty>
+iface.discovery_auth = <empty>
+iface.discovery_logout = <empty>
+node.discovery_address = server1.example.com
+node.discovery_port = 3260
+node.discovery_type = send_targets
+node.session.initial_cmdsn = 0
+node.session.initial_login_retry_max = 8
+node.session.xmit_thread_priority = -20
+node.session.cmds_max = 128
+node.session.queue_depth = 32
+node.session.nr_sessions = 1
+node.session.auth.authmethod = None
+node.session.auth.username = <empty>
+node.session.auth.password = <empty>
+node.session.auth.username_in = <empty>
+node.session.auth.password_in = <empty>
+node.session.timeo.replacement_timeout = 120
+node.session.err_timeo.abort_timeout = 15
+node.session.err_timeo.lu_reset_timeout = 30
+node.session.err_timeo.tgt_reset_timeout = 30
+node.session.err_timeo.host_reset_timeout = 60
+node.session.iscsi.FastAbort = Yes
+node.session.iscsi.InitialR2T = No
+node.session.iscsi.ImmediateData = Yes
+node.session.iscsi.FirstBurstLength = 262144
+node.session.iscsi.MaxBurstLength = 16776192
+node.session.iscsi.DefaultTime2Retain = 0
+node.session.iscsi.DefaultTime2Wait = 2
+node.session.iscsi.MaxConnections = 1
+node.session.iscsi.MaxOutstandingR2T = 1
+node.session.iscsi.ERL = 0
+node.session.scan = auto
+node.conn[0].address = 192.168.0.50
+node.conn[0].port = 3260
+node.conn[0].startup = manual
+node.conn[0].tcp.window_size = 524288
+node.conn[0].tcp.type_of_service = 0
+node.conn[0].timeo.logout_timeout = 15
+node.conn[0].timeo.login_timeout = 15
+node.conn[0].timeo.auth_timeout = 45
+node.conn[0].timeo.noop_out_interval = 5
+node.conn[0].timeo.noop_out_timeout = 5
+node.conn[0].iscsi.MaxXmitDataSegmentLength = 0
+node.conn[0].iscsi.MaxRecvDataSegmentLength = 262144
+node.conn[0].iscsi.HeaderDigest = None
+node.conn[0].iscsi.IFMarker = No
+node.conn[0].iscsi.OFMarker = No
+# END RECORD
+[root@server2 harshil]# iscsiadm -m node -T iqn.2019-07.com.example:server1 -l
+Logging in to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260] (multiple)
+iscsiadm: Could not login to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260].
+iscsiadm: initiator reported error (24 - iSCSI login failed due to authorization failure)
+iscsiadm: Could not log into all portals
+[root@server2 harshil]# iscsiadm -m session -P3 | grep attached
+iscsiadm: No active sessions.
+[root@server2 harshil]# iscsiadm -m node -T iqn.2019-07.com.example:server1 -l
+Logging in to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260] (multiple)
+iscsiadm: Could not login to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260].
+iscsiadm: initiator reported error (24 - iSCSI login failed due to authorization failure)
+iscsiadm: Could not log into all portals
+[root@server2 harshil]# systemctl restart iscsid.s
+Failed to restart iscsid.s.service: Unit not found.
+[root@server2 harshil]# systemctl restart iscsid.
+Failed to restart iscsid..service: Unit not found.
+[root@server2 harshil]# systemctl restart iscsi
+[root@server2 harshil]# vim /etc/iscsi/initiatorname.iscsi
+[root@server2 harshil]# systemctl restart iscsi
+[root@server2 harshil]# iscsiadm -m discovery -t st -p server1.example.com
+192.168.0.50:3260,1 iqn.2019-07.com.example:server1
+192.168.0.50:3260,1 iqn.2017-06.com.example:server1
+[root@server2 harshil]# iscsiadm -m node -T iqn.2019-07.com.example:server1
+# BEGIN RECORD 6.2.0.874-10
+node.name = iqn.2019-07.com.example:server1
+node.tpgt = 1
+node.startup = automatic
+node.leading_login = No
+iface.hwaddress = <empty>
+iface.ipaddress = <empty>
+iface.iscsi_ifacename = default
+iface.net_ifacename = <empty>
+iface.gateway = <empty>
+iface.subnet_mask = <empty>
+iface.transport_name = tcp
+iface.initiatorname = <empty>
+iface.state = <empty>
+iface.vlan_id = 0
+iface.vlan_priority = 0
+iface.vlan_state = <empty>
+iface.iface_num = 0
+iface.mtu = 0
+iface.port = 0
+iface.bootproto = <empty>
+iface.dhcp_alt_client_id_state = <empty>
+iface.dhcp_alt_client_id = <empty>
+iface.dhcp_dns = <empty>
+iface.dhcp_learn_iqn = <empty>
+iface.dhcp_req_vendor_id_state = <empty>
+iface.dhcp_vendor_id_state = <empty>
+iface.dhcp_vendor_id = <empty>
+iface.dhcp_slp_da = <empty>
+iface.fragmentation = <empty>
+iface.gratuitous_arp = <empty>
+iface.incoming_forwarding = <empty>
+iface.tos_state = <empty>
+iface.tos = 0
+iface.ttl = 0
+iface.delayed_ack = <empty>
+iface.tcp_nagle = <empty>
+iface.tcp_wsf_state = <empty>
+iface.tcp_wsf = 0
+iface.tcp_timer_scale = 0
+iface.tcp_timestamp = <empty>
+iface.redirect = <empty>
+iface.def_task_mgmt_timeout = 0
+iface.header_digest = <empty>
+iface.data_digest = <empty>
+iface.immediate_data = <empty>
+iface.initial_r2t = <empty>
+iface.data_seq_inorder = <empty>
+iface.data_pdu_inorder = <empty>
+iface.erl = 0
+iface.max_receive_data_len = 0
+iface.first_burst_len = 0
+iface.max_outstanding_r2t = 0
+iface.max_burst_len = 0
+iface.chap_auth = <empty>
+iface.bidi_chap = <empty>
+iface.strict_login_compliance = <empty>
+iface.discovery_auth = <empty>
+iface.discovery_logout = <empty>
+node.discovery_address = server1.example.com
+node.discovery_port = 3260
+node.discovery_type = send_targets
+node.session.initial_cmdsn = 0
+node.session.initial_login_retry_max = 8
+node.session.xmit_thread_priority = -20
+node.session.cmds_max = 128
+node.session.queue_depth = 32
+node.session.nr_sessions = 1
+node.session.auth.authmethod = None
+node.session.auth.username = <empty>
+node.session.auth.password = <empty>
+node.session.auth.username_in = <empty>
+node.session.auth.password_in = <empty>
+node.session.timeo.replacement_timeout = 120
+node.session.err_timeo.abort_timeout = 15
+node.session.err_timeo.lu_reset_timeout = 30
+node.session.err_timeo.tgt_reset_timeout = 30
+node.session.err_timeo.host_reset_timeout = 60
+node.session.iscsi.FastAbort = Yes
+node.session.iscsi.InitialR2T = No
+node.session.iscsi.ImmediateData = Yes
+node.session.iscsi.FirstBurstLength = 262144
+node.session.iscsi.MaxBurstLength = 16776192
+node.session.iscsi.DefaultTime2Retain = 0
+node.session.iscsi.DefaultTime2Wait = 2
+node.session.iscsi.MaxConnections = 1
+node.session.iscsi.MaxOutstandingR2T = 1
+node.session.iscsi.ERL = 0
+node.session.scan = auto
+node.conn[0].address = 192.168.0.50
+node.conn[0].port = 3260
+node.conn[0].startup = manual
+node.conn[0].tcp.window_size = 524288
+node.conn[0].tcp.type_of_service = 0
+node.conn[0].timeo.logout_timeout = 15
+node.conn[0].timeo.login_timeout = 15
+node.conn[0].timeo.auth_timeout = 45
+node.conn[0].timeo.noop_out_interval = 5
+node.conn[0].timeo.noop_out_timeout = 5
+node.conn[0].iscsi.MaxXmitDataSegmentLength = 0
+node.conn[0].iscsi.MaxRecvDataSegmentLength = 262144
+node.conn[0].iscsi.HeaderDigest = None
+node.conn[0].iscsi.IFMarker = No
+node.conn[0].iscsi.OFMarker = No
+# END RECORD
+[root@server2 harshil]# iscsiadm -m node -T iqn.2019-07.com.example:server1 -l
+Logging in to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260] (multiple)
+iscsiadm: Could not login to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260].
+iscsiadm: initiator reported error (24 - iSCSI login failed due to authorization failure)
+iscsiadm: Could not log into all portals
+[root@server2 harshil]# iscsiadm -m node -T iqn.2019-07.com.example:server1 -l
+Logging in to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260] (multiple)
+iscsiadm: Could not login to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260].
+iscsiadm: initiator reported error (24 - iSCSI login failed due to authorization failure)
+iscsiadm: Could not log into all portals
+[root@server2 harshil]# iscsiadm -m node -T iqn.2019-07.com.example:server1
+# BEGIN RECORD 6.2.0.874-10
+node.name = iqn.2019-07.com.example:server1
+node.tpgt = 1
+node.startup = automatic
+node.leading_login = No
+iface.hwaddress = <empty>
+iface.ipaddress = <empty>
+iface.iscsi_ifacename = default
+iface.net_ifacename = <empty>
+iface.gateway = <empty>
+iface.subnet_mask = <empty>
+iface.transport_name = tcp
+iface.initiatorname = <empty>
+iface.state = <empty>
+iface.vlan_id = 0
+iface.vlan_priority = 0
+iface.vlan_state = <empty>
+iface.iface_num = 0
+iface.mtu = 0
+iface.port = 0
+iface.bootproto = <empty>
+iface.dhcp_alt_client_id_state = <empty>
+iface.dhcp_alt_client_id = <empty>
+iface.dhcp_dns = <empty>
+iface.dhcp_learn_iqn = <empty>
+iface.dhcp_req_vendor_id_state = <empty>
+iface.dhcp_vendor_id_state = <empty>
+iface.dhcp_vendor_id = <empty>
+iface.dhcp_slp_da = <empty>
+iface.fragmentation = <empty>
+iface.gratuitous_arp = <empty>
+iface.incoming_forwarding = <empty>
+iface.tos_state = <empty>
+iface.tos = 0
+iface.ttl = 0
+iface.delayed_ack = <empty>
+iface.tcp_nagle = <empty>
+iface.tcp_wsf_state = <empty>
+iface.tcp_wsf = 0
+iface.tcp_timer_scale = 0
+iface.tcp_timestamp = <empty>
+iface.redirect = <empty>
+iface.def_task_mgmt_timeout = 0
+iface.header_digest = <empty>
+iface.data_digest = <empty>
+iface.immediate_data = <empty>
+iface.initial_r2t = <empty>
+iface.data_seq_inorder = <empty>
+iface.data_pdu_inorder = <empty>
+iface.erl = 0
+iface.max_receive_data_len = 0
+iface.first_burst_len = 0
+iface.max_outstanding_r2t = 0
+iface.max_burst_len = 0
+iface.chap_auth = <empty>
+iface.bidi_chap = <empty>
+iface.strict_login_compliance = <empty>
+iface.discovery_auth = <empty>
+iface.discovery_logout = <empty>
+node.discovery_address = server1.example.com
+node.discovery_port = 3260
+node.discovery_type = send_targets
+node.session.initial_cmdsn = 0
+node.session.initial_login_retry_max = 8
+node.session.xmit_thread_priority = -20
+node.session.cmds_max = 128
+node.session.queue_depth = 32
+node.session.nr_sessions = 1
+node.session.auth.authmethod = None
+node.session.auth.username = <empty>
+node.session.auth.password = <empty>
+node.session.auth.username_in = <empty>
+node.session.auth.password_in = <empty>
+node.session.timeo.replacement_timeout = 120
+node.session.err_timeo.abort_timeout = 15
+node.session.err_timeo.lu_reset_timeout = 30
+node.session.err_timeo.tgt_reset_timeout = 30
+node.session.err_timeo.host_reset_timeout = 60
+node.session.iscsi.FastAbort = Yes
+node.session.iscsi.InitialR2T = No
+node.session.iscsi.ImmediateData = Yes
+node.session.iscsi.FirstBurstLength = 262144
+node.session.iscsi.MaxBurstLength = 16776192
+node.session.iscsi.DefaultTime2Retain = 0
+node.session.iscsi.DefaultTime2Wait = 2
+node.session.iscsi.MaxConnections = 1
+node.session.iscsi.MaxOutstandingR2T = 1
+node.session.iscsi.ERL = 0
+node.session.scan = auto
+node.conn[0].address = 192.168.0.50
+node.conn[0].port = 3260
+node.conn[0].startup = manual
+node.conn[0].tcp.window_size = 524288
+node.conn[0].tcp.type_of_service = 0
+node.conn[0].timeo.logout_timeout = 15
+node.conn[0].timeo.login_timeout = 15
+node.conn[0].timeo.auth_timeout = 45
+node.conn[0].timeo.noop_out_interval = 5
+node.conn[0].timeo.noop_out_timeout = 5
+node.conn[0].iscsi.MaxXmitDataSegmentLength = 0
+node.conn[0].iscsi.MaxRecvDataSegmentLength = 262144
+node.conn[0].iscsi.HeaderDigest = None
+node.conn[0].iscsi.IFMarker = No
+node.conn[0].iscsi.OFMarker = No
+# END RECORD
+[root@server2 harshil]# iscsiadm -m node -T iqn.2019-07.com.example:server1
+# BEGIN RECORD 6.2.0.874-10
+node.name = iqn.2019-07.com.example:server1
+node.tpgt = 1
+node.startup = automatic
+node.leading_login = No
+iface.hwaddress = <empty>
+iface.ipaddress = <empty>
+iface.iscsi_ifacename = default
+iface.net_ifacename = <empty>
+iface.gateway = <empty>
+iface.subnet_mask = <empty>
+iface.transport_name = tcp
+iface.initiatorname = <empty>
+iface.state = <empty>
+iface.vlan_id = 0
+iface.vlan_priority = 0
+iface.vlan_state = <empty>
+iface.iface_num = 0
+iface.mtu = 0
+iface.port = 0
+iface.bootproto = <empty>
+iface.dhcp_alt_client_id_state = <empty>
+iface.dhcp_alt_client_id = <empty>
+iface.dhcp_dns = <empty>
+iface.dhcp_learn_iqn = <empty>
+iface.dhcp_req_vendor_id_state = <empty>
+iface.dhcp_vendor_id_state = <empty>
+iface.dhcp_vendor_id = <empty>
+iface.dhcp_slp_da = <empty>
+iface.fragmentation = <empty>
+iface.gratuitous_arp = <empty>
+iface.incoming_forwarding = <empty>
+iface.tos_state = <empty>
+iface.tos = 0
+iface.ttl = 0
+iface.delayed_ack = <empty>
+iface.tcp_nagle = <empty>
+iface.tcp_wsf_state = <empty>
+iface.tcp_wsf = 0
+iface.tcp_timer_scale = 0
+iface.tcp_timestamp = <empty>
+iface.redirect = <empty>
+iface.def_task_mgmt_timeout = 0
+iface.header_digest = <empty>
+iface.data_digest = <empty>
+iface.immediate_data = <empty>
+iface.initial_r2t = <empty>
+iface.data_seq_inorder = <empty>
+iface.data_pdu_inorder = <empty>
+iface.erl = 0
+iface.max_receive_data_len = 0
+iface.first_burst_len = 0
+iface.max_outstanding_r2t = 0
+iface.max_burst_len = 0
+iface.chap_auth = <empty>
+iface.bidi_chap = <empty>
+iface.strict_login_compliance = <empty>
+iface.discovery_auth = <empty>
+iface.discovery_logout = <empty>
+node.discovery_address = server1.example.com
+node.discovery_port = 3260
+node.discovery_type = send_targets
+node.session.initial_cmdsn = 0
+node.session.initial_login_retry_max = 8
+node.session.xmit_thread_priority = -20
+node.session.cmds_max = 128
+node.session.queue_depth = 32
+node.session.nr_sessions = 1
+node.session.auth.authmethod = None
+node.session.auth.username = <empty>
+node.session.auth.password = <empty>
+node.session.auth.username_in = <empty>
+node.session.auth.password_in = <empty>
+node.session.timeo.replacement_timeout = 120
+node.session.err_timeo.abort_timeout = 15
+node.session.err_timeo.lu_reset_timeout = 30
+node.session.err_timeo.tgt_reset_timeout = 30
+node.session.err_timeo.host_reset_timeout = 60
+node.session.iscsi.FastAbort = Yes
+node.session.iscsi.InitialR2T = No
+node.session.iscsi.ImmediateData = Yes
+node.session.iscsi.FirstBurstLength = 262144
+node.session.iscsi.MaxBurstLength = 16776192
+node.session.iscsi.DefaultTime2Retain = 0
+node.session.iscsi.DefaultTime2Wait = 2
+node.session.iscsi.MaxConnections = 1
+node.session.iscsi.MaxOutstandingR2T = 1
+node.session.iscsi.ERL = 0
+node.session.scan = auto
+node.conn[0].address = 192.168.0.50
+node.conn[0].port = 3260
+node.conn[0].startup = manual
+node.conn[0].tcp.window_size = 524288
+node.conn[0].tcp.type_of_service = 0
+node.conn[0].timeo.logout_timeout = 15
+node.conn[0].timeo.login_timeout = 15
+node.conn[0].timeo.auth_timeout = 45
+node.conn[0].timeo.noop_out_interval = 5
+node.conn[0].timeo.noop_out_timeout = 5
+node.conn[0].iscsi.MaxXmitDataSegmentLength = 0
+node.conn[0].iscsi.MaxRecvDataSegmentLength = 262144
+node.conn[0].iscsi.HeaderDigest = None
+node.conn[0].iscsi.IFMarker = No
+node.conn[0].iscsi.OFMarker = No
+# END RECORD
+[root@server2 harshil]# iscsiadm -m discovery -t st -p server1.example.com
+192.168.0.50:3260,1 iqn.2019-07.com.example:server1
+[root@server2 harshil]# systemctl restart iscsi
+[root@server2 harshil]# iscsiadm -m node -T iqn.2019-07.com.example:server1
+# BEGIN RECORD 6.2.0.874-10
+node.name = iqn.2019-07.com.example:server1
+node.tpgt = 1
+node.startup = automatic
+node.leading_login = No
+iface.hwaddress = <empty>
+iface.ipaddress = <empty>
+iface.iscsi_ifacename = default
+iface.net_ifacename = <empty>
+iface.gateway = <empty>
+iface.subnet_mask = <empty>
+iface.transport_name = tcp
+iface.initiatorname = <empty>
+iface.state = <empty>
+iface.vlan_id = 0
+iface.vlan_priority = 0
+iface.vlan_state = <empty>
+iface.iface_num = 0
+iface.mtu = 0
+iface.port = 0
+iface.bootproto = <empty>
+iface.dhcp_alt_client_id_state = <empty>
+iface.dhcp_alt_client_id = <empty>
+iface.dhcp_dns = <empty>
+iface.dhcp_learn_iqn = <empty>
+iface.dhcp_req_vendor_id_state = <empty>
+iface.dhcp_vendor_id_state = <empty>
+iface.dhcp_vendor_id = <empty>
+iface.dhcp_slp_da = <empty>
+iface.fragmentation = <empty>
+iface.gratuitous_arp = <empty>
+iface.incoming_forwarding = <empty>
+iface.tos_state = <empty>
+iface.tos = 0
+iface.ttl = 0
+iface.delayed_ack = <empty>
+iface.tcp_nagle = <empty>
+iface.tcp_wsf_state = <empty>
+iface.tcp_wsf = 0
+iface.tcp_timer_scale = 0
+iface.tcp_timestamp = <empty>
+iface.redirect = <empty>
+iface.def_task_mgmt_timeout = 0
+iface.header_digest = <empty>
+iface.data_digest = <empty>
+iface.immediate_data = <empty>
+iface.initial_r2t = <empty>
+iface.data_seq_inorder = <empty>
+iface.data_pdu_inorder = <empty>
+iface.erl = 0
+iface.max_receive_data_len = 0
+iface.first_burst_len = 0
+iface.max_outstanding_r2t = 0
+iface.max_burst_len = 0
+iface.chap_auth = <empty>
+iface.bidi_chap = <empty>
+iface.strict_login_compliance = <empty>
+iface.discovery_auth = <empty>
+iface.discovery_logout = <empty>
+node.discovery_address = server1.example.com
+node.discovery_port = 3260
+node.discovery_type = send_targets
+node.session.initial_cmdsn = 0
+node.session.initial_login_retry_max = 8
+node.session.xmit_thread_priority = -20
+node.session.cmds_max = 128
+node.session.queue_depth = 32
+node.session.nr_sessions = 1
+node.session.auth.authmethod = None
+node.session.auth.username = <empty>
+node.session.auth.password = <empty>
+node.session.auth.username_in = <empty>
+node.session.auth.password_in = <empty>
+node.session.timeo.replacement_timeout = 120
+node.session.err_timeo.abort_timeout = 15
+node.session.err_timeo.lu_reset_timeout = 30
+node.session.err_timeo.tgt_reset_timeout = 30
+node.session.err_timeo.host_reset_timeout = 60
+node.session.iscsi.FastAbort = Yes
+node.session.iscsi.InitialR2T = No
+node.session.iscsi.ImmediateData = Yes
+node.session.iscsi.FirstBurstLength = 262144
+node.session.iscsi.MaxBurstLength = 16776192
+node.session.iscsi.DefaultTime2Retain = 0
+node.session.iscsi.DefaultTime2Wait = 2
+node.session.iscsi.MaxConnections = 1
+node.session.iscsi.MaxOutstandingR2T = 1
+node.session.iscsi.ERL = 0
+node.session.scan = auto
+node.conn[0].address = 192.168.0.50
+node.conn[0].port = 3260
+node.conn[0].startup = manual
+node.conn[0].tcp.window_size = 524288
+node.conn[0].tcp.type_of_service = 0
+node.conn[0].timeo.logout_timeout = 15
+node.conn[0].timeo.login_timeout = 15
+node.conn[0].timeo.auth_timeout = 45
+node.conn[0].timeo.noop_out_interval = 5
+node.conn[0].timeo.noop_out_timeout = 5
+node.conn[0].iscsi.MaxXmitDataSegmentLength = 0
+node.conn[0].iscsi.MaxRecvDataSegmentLength = 262144
+node.conn[0].iscsi.HeaderDigest = None
+node.conn[0].iscsi.IFMarker = No
+node.conn[0].iscsi.OFMarker = No
+# END RECORD
+[root@server2 harshil]# iscsiadm -m node -T iqn.2019-07.com.example:server1 -l
+Logging in to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260] (multiple)
+iscsiadm: Could not login to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260].
+iscsiadm: initiator reported error (24 - iSCSI login failed due to authorization failure)
+iscsiadm: Could not log into all portals
+[root@server2 harshil]# firewall-cmd --permanent --add-port=3260/tcp
+success
+[root@server2 harshil]# firewall-cmd --reload
+success
+[root@server2 harshil]# iscsiadm -m node -T iqn.2019-07.com.example:server1 -l
+Logging in to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260] (multiple)
+iscsiadm: Could not login to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260].
+iscsiadm: initiator reported error (24 - iSCSI login failed due to authorization failure)
+iscsiadm: Could not log into all portals
+[root@server2 harshil]#
+[root@server2 harshil]# getenforce
+Enforcing
+[root@server2 harshil]# setenforce 0
+[root@server2 harshil]# iscsiadm -m node -T iqn.2019-07.com.example:server1 -l
+Logging in to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260] (multiple)
+iscsiadm: Could not login to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260].
+iscsiadm: initiator reported error (24 - iSCSI login failed due to authorization failure)
+iscsiadm: Could not log into all portals
+[root@server2 harshil]# systemctl restart iscsi
+[root@server2 harshil]# iscsiadm -m node -T iqn.2019-07.com.example:server1 -l
+Logging in to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260] (multiple)
+iscsiadm: Could not login to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260].
+iscsiadm: initiator reported error (24 - iSCSI login failed due to authorization failure)
+iscsiadm: Could not log into all portals
+[root@server2 harshil]# iscsiadm --mode discovery -P 1
+SENDTARGETS:
+DiscoveryAddress: server1.example.com,3260
+Target: iqn.2019-07.com.example:server1
+        Portal: 192.168.0.50:3260,1
+                Iface Name: default
+DiscoveryAddress: server2.example,0
+DiscoveryAddress: server2.example.com,3260
+iSNS:
+No targets found.
+STATIC:
+No targets found.
+FIRMWARE:
+No targets found.
+[root@server2 harshil]# iscsiadm --mode node --targetname iqn.2019-07.com.example:server1 --portal 192.168.0.50:3260 --login
+Logging in to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260] (multiple)
+iscsiadm: Could not login to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260].
+iscsiadm: initiator reported error (24 - iSCSI login failed due to authorization failure)
+iscsiadm: Could not log into all portals
+[root@server2 harshil]# systemctl restart iscsi
+[root@server2 harshil]# iscsiadm -m node -T iqn.2019-07.com.example:server1 -l
+Logging in to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260] (multiple)
+iscsiadm: Could not login to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260].
+iscsiadm: initiator reported error (24 - iSCSI login failed due to authorization failure)
+iscsiadm: Could not log into all portals
+[root@server2 harshil]# systemctl restart iscsi
+[root@server2 harshil]# iscsiadm -m node -T iqn.2019-07.com.example:server1 -l
+Logging in to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260] (multiple)
+iscsiadm: Could not login to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260].
+iscsiadm: initiator reported error (24 - iSCSI login failed due to authorization failure)
+iscsiadm: Could not log into all portals
+[root@server2 harshil]#
+[root@server2 harshil]# iscsiadm --mode discovery -P 1
+SENDTARGETS:
+DiscoveryAddress: server1.example.com,3260
+Target: iqn.2019-07.com.example:server1
+        Portal: 192.168.0.50:3260,1
+                Iface Name: default
+DiscoveryAddress: server2.example,0
+DiscoveryAddress: server2.example.com,3260
+iSNS:
+No targets found.
+STATIC:
+No targets found.
+FIRMWARE:
+No targets found.
+[root@server2 harshil]# iscsiadm -m node -T iqn.2019-07.com.example:server1 -l
+Logging in to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260] (multiple)
+iscsiadm: Could not login to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260].
+iscsiadm: initiator reported error (24 - iSCSI login failed due to authorization failure)
+iscsiadm: Could not log into all portals
+[root@server2 harshil]# setenforce 1
+[root@server2 harshil]#
+[root@server2 harshil]# vim /etc/iscsi/initiatorname.iscsi
+[root@server2 harshil]# systemctl restart iscsi
+[root@server2 harshil]# iscsiadm -m node -T iqn.2019-07.com.example:server1 -l
+Logging in to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260] (multiple)
+iscsiadm: Could not login to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260].
+iscsiadm: initiator reported error (24 - iSCSI login failed due to authorization failure)
+iscsiadm: Could not log into all portals
+[root@server2 harshil]# iscsiadm -m node -T iqn.2019-07.com.example:server2 -l
+iscsiadm: No records found
+[root@server2 harshil]# iscsiadm -m node -T iqn.2019-07.com.example:server1 -l
+Logging in to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260] (multiple)
+iscsiadm: Could not login to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260].
+iscsiadm: initiator reported error (24 - iSCSI login failed due to authorization failure)
+iscsiadm: Could not log into all portals
+[root@server2 harshil]# iscsiadm -m node -T iqn.2019-07.com.example:server1 -l
+Logging in to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260] (multiple)
+iscsiadm: Could not login to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260].
+iscsiadm: initiator reported error (24 - iSCSI login failed due to authorization failure)
+iscsiadm: Could not log into all portals
+[root@server2 harshil]# iscsiadm --mode node --targetname iqn.2019-07.com.example:server1 --portal 192.168.0.50:3260 --login
+Logging in to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260] (multiple)
+iscsiadm: Could not login to [iface: default, target: iqn.2019-07.com.example:server1, portal: 192.168.0.50,3260].
+iscsiadm: initiator reported error (24 - iSCSI login failed due to authorization failure)
+iscsiadm: Could not log into all portals
+[root@server2 harshil]#
+
