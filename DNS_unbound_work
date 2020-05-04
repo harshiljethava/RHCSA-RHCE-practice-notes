@@ -1,0 +1,574 @@
+login as: harshil
+Using keyboard-interactive authentication.
+Password:
+     ┌────────────────────────────────────────────────────────────────────┐
+     │                        • MobaXterm 11.1 •                          │
+     │            (SSH client, X-server and networking tools)             │
+     │                                                                    │
+     │ → SSH session to harshil@192.168.0.80                              │
+     │   • SSH compression : v                                            │
+     │   • SSH-browser     : v                                            │
+     │   • X11-forwarding  : v  (remote display is forwarded through SSH) │
+     │   • DISPLAY         : v  (automatically set on remote server)      │
+     │                                                                    │
+     │ → For more info, ctrl+click on help or visit our website           │
+     └────────────────────────────────────────────────────────────────────┘
+
+Last login: Sat Jul  6 20:37:03 2019
+[harshil@dns ~]$ su root
+Password:
+[root@dns harshil]#
+[root@dns harshil]# yum install -y unbound
+Loaded plugins: fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: centos.excellmedia.net
+ * epel: repos.del.extreme-ix.org
+ * extras: centos.excellmedia.net
+ * updates: centos.excellmedia.net
+Resolving Dependencies
+--> Running transaction check
+---> Package unbound.x86_64 0:1.6.6-1.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+====================================================================================================================================
+ Package                        Arch                          Version                             Repository                   Size
+====================================================================================================================================
+Installing:
+ unbound                        x86_64                        1.6.6-1.el7                         base                        673 k
+
+Transaction Summary
+====================================================================================================================================
+Install  1 Package
+
+Total download size: 673 k
+Installed size: 2.4 M
+Downloading packages:
+unbound-1.6.6-1.el7.x86_64.rpm                                                                               | 673 kB  00:00:02
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : unbound-1.6.6-1.el7.x86_64                                                                                       1/1
+  Verifying  : unbound-1.6.6-1.el7.x86_64                                                                                       1/1
+
+Installed:
+  unbound.x86_64 0:1.6.6-1.el7
+
+Complete!
+[root@dns harshil]#
+[root@dns harshil]# systemctl restart unbound
+[root@dns harshil]# systemctl status unbound
+● unbound.service - Unbound recursive Domain Name Server
+   Loaded: loaded (/usr/lib/systemd/system/unbound.service; disabled; vendor preset: disabled)
+   Active: active (running) since Sat 2019-07-06 20:44:26 IST; 6s ago
+  Process: 17674 ExecStartPre=/usr/sbin/unbound-anchor -a /var/lib/unbound/root.key -c /etc/unbound/icannbundle.pem (code=exited, status=0/SUCCESS)
+  Process: 17673 ExecStartPre=/usr/sbin/unbound-checkconf (code=exited, status=0/SUCCESS)
+ Main PID: 17677 (unbound)
+    Tasks: 4
+   CGroup: /system.slice/unbound.service
+           └─17677 /usr/sbin/unbound -d
+
+Jul 06 20:44:26 dns.example.com systemd[1]: Starting Unbound recursive Domain Name Server...
+Jul 06 20:44:26 dns.example.com unbound-checkconf[17673]: unbound-checkconf: no errors in /etc/unbound/unbound.conf
+Jul 06 20:44:26 dns.example.com systemd[1]: Started Unbound recursive Domain Name Server.
+Jul 06 20:44:26 dns.example.com unbound[17677]: [17677:0] notice: init module 0: ipsecmod
+Jul 06 20:44:26 dns.example.com unbound[17677]: [17677:0] notice: init module 1: validator
+Jul 06 20:44:26 dns.example.com unbound[17677]: [17677:0] notice: init module 2: iterator
+Jul 06 20:44:26 dns.example.com unbound[17677]: [17677:0] info: start of service (unbound 1.6.6).
+[root@dns harshil]#
+[root@dns harshil]# vim /etc/unbound/unbound.conf
+[root@dns harshil]# systemctl restart unbound
+[root@dns harshil]# vim /etc/unbound/unbound.conf
+[root@dns harshil]# systemctl status unbound
+● unbound.service - Unbound recursive Domain Name Server
+   Loaded: loaded (/usr/lib/systemd/system/unbound.service; disabled; vendor preset: disabled)
+   Active: failed (Result: exit-code) since Sat 2019-07-06 20:45:07 IST; 8s ago
+  Process: 17732 ExecStart=/usr/sbin/unbound -d $UNBOUND_OPTIONS (code=exited, status=1/FAILURE)
+  Process: 17730 ExecStartPre=/usr/sbin/unbound-anchor -a /var/lib/unbound/root.key -c /etc/unbound/icannbundle.pem (code=exited, status=0/SUCCESS)
+  Process: 17727 ExecStartPre=/usr/sbin/unbound-checkconf (code=exited, status=0/SUCCESS)
+ Main PID: 17732 (code=exited, status=1/FAILURE)
+
+Jul 06 20:45:07 dns.example.com systemd[1]: Stopped Unbound recursive Domain Name Server.
+Jul 06 20:45:07 dns.example.com systemd[1]: Starting Unbound recursive Domain Name Server...
+Jul 06 20:45:07 dns.example.com unbound-checkconf[17727]: unbound-checkconf: no errors in /etc/unbound/unbound.conf
+Jul 06 20:45:07 dns.example.com systemd[1]: Started Unbound recursive Domain Name Server.
+Jul 06 20:45:07 dns.example.com unbound[17732]: Jul 06 20:45:07 unbound[17732:0] error: can't bind socket: Address already ....0.0.0
+Jul 06 20:45:07 dns.example.com unbound[17732]: Jul 06 20:45:07 unbound[17732:0] fatal error: could not open ports
+Jul 06 20:45:07 dns.example.com systemd[1]: unbound.service: main process exited, code=exited, status=1/FAILURE
+Jul 06 20:45:07 dns.example.com systemd[1]: Unit unbound.service entered failed state.
+Jul 06 20:45:07 dns.example.com systemd[1]: unbound.service failed.
+Hint: Some lines were ellipsized, use -l to show in full.
+[root@dns harshil]# netstat -tulpen | grep 0.0.0.0
+tcp        0      0 0.0.0.0:749             0.0.0.0:*               LISTEN      0          58912      10685/kadmind
+tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      0          32693      1/systemd
+tcp        0      0 0.0.0.0:464             0.0.0.0:*               LISTEN      0          58908      10685/kadmind
+tcp        0      0 192.168.122.1:53        0.0.0.0:*               LISTEN      0          46178      7643/dnsmasq
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      0          42717      7131/sshd
+tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      0          43515      7136/cupsd
+tcp        0      0 0.0.0.0:88              0.0.0.0:*               LISTEN      0          58681      10626/krb5kdc
+tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      0          44793      7573/master
+tcp        0      0 127.0.0.1:6010          0.0.0.0:*               LISTEN      1000       55049      9546/sshd: harshil@
+tcp        0      0 0.0.0.0:8000            0.0.0.0:*               LISTEN      0          48349      7315/ajenti-panel -
+udp        0      0 0.0.0.0:5353            0.0.0.0:*                           70         37482      6302/avahi-daemon:
+udp        0      0 192.168.122.1:53        0.0.0.0:*                           0          46177      7643/dnsmasq
+udp        0      0 0.0.0.0:67              0.0.0.0:*                           0          46174      7643/dnsmasq
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           0          40650      6774/dhclient
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           0          40649      6765/dhclient
+udp        0      0 0.0.0.0:88              0.0.0.0:*                           0          58677      10626/krb5kdc
+udp        0      0 0.0.0.0:111             0.0.0.0:*                           0          32694      1/systemd
+udp        0      0 192.168.122.1:123       0.0.0.0:*                           0          61331      12272/ntpd
+udp        0      0 192.168.0.102:123       0.0.0.0:*                           0          61330      12272/ntpd
+udp        0      0 192.168.0.110:123       0.0.0.0:*                           0          61329      12272/ntpd
+udp        0      0 192.168.0.109:123       0.0.0.0:*                           0          61328      12272/ntpd
+udp        0      0 192.168.0.80:123        0.0.0.0:*                           0          61327      12272/ntpd
+udp        0      0 127.0.0.1:123           0.0.0.0:*                           0          61326      12272/ntpd
+udp        0      0 0.0.0.0:123             0.0.0.0:*                           0          61320      12272/ntpd
+udp        0      0 0.0.0.0:32976           0.0.0.0:*                           70         37483      6302/avahi-daemon:
+udp        0      0 0.0.0.0:464             0.0.0.0:*                           0          58904      10685/kadmind
+udp        0      0 0.0.0.0:920             0.0.0.0:*                           0          34003      6266/rpcbind
+[root@dns harshil]# systemctl stop kadmin
+[root@dns harshil]# systemctl stop dnsmasq
+[root@dns harshil]# systemctl stop cupsd
+Failed to stop cupsd.service: Unit cupsd.service not loaded.
+[root@dns harshil]# systemctl stop krb5kdc
+[root@dns harshil]# netstat -tulpen | grep 0.0.0.0
+tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      0          32693      1/systemd
+tcp        0      0 192.168.122.1:53        0.0.0.0:*               LISTEN      0          46178      7643/dnsmasq
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      0          42717      7131/sshd
+tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      0          43515      7136/cupsd
+tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      0          44793      7573/master
+tcp        0      0 127.0.0.1:6010          0.0.0.0:*               LISTEN      1000       55049      9546/sshd: harshil@
+tcp        0      0 0.0.0.0:8000            0.0.0.0:*               LISTEN      0          48349      7315/ajenti-panel -
+udp        0      0 0.0.0.0:5353            0.0.0.0:*                           70         37482      6302/avahi-daemon:
+udp        0      0 192.168.122.1:53        0.0.0.0:*                           0          46177      7643/dnsmasq
+udp        0      0 0.0.0.0:67              0.0.0.0:*                           0          46174      7643/dnsmasq
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           0          40650      6774/dhclient
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           0          40649      6765/dhclient
+udp        0      0 0.0.0.0:111             0.0.0.0:*                           0          32694      1/systemd
+udp        0      0 192.168.122.1:123       0.0.0.0:*                           0          61331      12272/ntpd
+udp        0      0 192.168.0.102:123       0.0.0.0:*                           0          61330      12272/ntpd
+udp        0      0 192.168.0.110:123       0.0.0.0:*                           0          61329      12272/ntpd
+udp        0      0 192.168.0.109:123       0.0.0.0:*                           0          61328      12272/ntpd
+udp        0      0 192.168.0.80:123        0.0.0.0:*                           0          61327      12272/ntpd
+udp        0      0 127.0.0.1:123           0.0.0.0:*                           0          61326      12272/ntpd
+udp        0      0 0.0.0.0:123             0.0.0.0:*                           0          61320      12272/ntpd
+udp        0      0 0.0.0.0:32976           0.0.0.0:*                           70         37483      6302/avahi-daemon:
+udp        0      0 0.0.0.0:920             0.0.0.0:*                           0          34003      6266/rpcbind
+[root@dns harshil]# systemctl stop master
+Failed to stop master.service: Unit master.service not loaded.
+[root@dns harshil]# netstat -tulpen | grep 0.0.0
+tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      0          32693      1/systemd
+tcp        0      0 192.168.122.1:53        0.0.0.0:*               LISTEN      0          46178      7643/dnsmasq
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      0          42717      7131/sshd
+tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      0          43515      7136/cupsd
+tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      0          44793      7573/master
+tcp        0      0 127.0.0.1:6010          0.0.0.0:*               LISTEN      1000       55049      9546/sshd: harshil@
+tcp        0      0 0.0.0.0:8000            0.0.0.0:*               LISTEN      0          48349      7315/ajenti-panel -
+udp        0      0 0.0.0.0:5353            0.0.0.0:*                           70         37482      6302/avahi-daemon:
+udp        0      0 192.168.122.1:53        0.0.0.0:*                           0          46177      7643/dnsmasq
+udp        0      0 0.0.0.0:67              0.0.0.0:*                           0          46174      7643/dnsmasq
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           0          40650      6774/dhclient
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           0          40649      6765/dhclient
+udp        0      0 0.0.0.0:111             0.0.0.0:*                           0          32694      1/systemd
+udp        0      0 192.168.122.1:123       0.0.0.0:*                           0          61331      12272/ntpd
+udp        0      0 192.168.0.102:123       0.0.0.0:*                           0          61330      12272/ntpd
+udp        0      0 192.168.0.110:123       0.0.0.0:*                           0          61329      12272/ntpd
+udp        0      0 192.168.0.109:123       0.0.0.0:*                           0          61328      12272/ntpd
+udp        0      0 192.168.0.80:123        0.0.0.0:*                           0          61327      12272/ntpd
+udp        0      0 127.0.0.1:123           0.0.0.0:*                           0          61326      12272/ntpd
+udp        0      0 0.0.0.0:123             0.0.0.0:*                           0          61320      12272/ntpd
+udp        0      0 0.0.0.0:32976           0.0.0.0:*                           70         37483      6302/avahi-daemon:
+udp        0      0 0.0.0.0:920             0.0.0.0:*                           0          34003      6266/rpcbind
+[root@dns harshil]# systemctl restart unbound
+[root@dns harshil]# systemctl status unbound
+● unbound.service - Unbound recursive Domain Name Server
+   Loaded: loaded (/usr/lib/systemd/system/unbound.service; disabled; vendor preset: disabled)
+   Active: failed (Result: exit-code) since Sat 2019-07-06 20:47:25 IST; 4s ago
+  Process: 17827 ExecStart=/usr/sbin/unbound -d $UNBOUND_OPTIONS (code=exited, status=1/FAILURE)
+  Process: 17824 ExecStartPre=/usr/sbin/unbound-anchor -a /var/lib/unbound/root.key -c /etc/unbound/icannbundle.pem (code=exited, status=0/SUCCESS)
+  Process: 17819 ExecStartPre=/usr/sbin/unbound-checkconf (code=exited, status=0/SUCCESS)
+ Main PID: 17827 (code=exited, status=1/FAILURE)
+
+Jul 06 20:47:25 dns.example.com systemd[1]: Starting Unbound recursive Domain Name Server...
+Jul 06 20:47:25 dns.example.com unbound-checkconf[17819]: unbound-checkconf: no errors in /etc/unbound/unbound.conf
+Jul 06 20:47:25 dns.example.com systemd[1]: Started Unbound recursive Domain Name Server.
+Jul 06 20:47:25 dns.example.com unbound[17827]: Jul 06 20:47:25 unbound[17827:0] error: can't bind socket: Address already ....0.0.0
+Jul 06 20:47:25 dns.example.com unbound[17827]: Jul 06 20:47:25 unbound[17827:0] fatal error: could not open ports
+Jul 06 20:47:25 dns.example.com systemd[1]: unbound.service: main process exited, code=exited, status=1/FAILURE
+Jul 06 20:47:25 dns.example.com systemd[1]: Unit unbound.service entered failed state.
+Jul 06 20:47:25 dns.example.com systemd[1]: unbound.service failed.
+Hint: Some lines were ellipsized, use -l to show in full.
+[root@dns harshil]# systemctl status unbound -l
+● unbound.service - Unbound recursive Domain Name Server
+   Loaded: loaded (/usr/lib/systemd/system/unbound.service; disabled; vendor preset: disabled)
+   Active: failed (Result: exit-code) since Sat 2019-07-06 20:47:25 IST; 13s ago
+  Process: 17827 ExecStart=/usr/sbin/unbound -d $UNBOUND_OPTIONS (code=exited, status=1/FAILURE)
+  Process: 17824 ExecStartPre=/usr/sbin/unbound-anchor -a /var/lib/unbound/root.key -c /etc/unbound/icannbundle.pem (code=exited, status=0/SUCCESS)
+  Process: 17819 ExecStartPre=/usr/sbin/unbound-checkconf (code=exited, status=0/SUCCESS)
+ Main PID: 17827 (code=exited, status=1/FAILURE)
+
+Jul 06 20:47:25 dns.example.com systemd[1]: Starting Unbound recursive Domain Name Server...
+Jul 06 20:47:25 dns.example.com unbound-checkconf[17819]: unbound-checkconf: no errors in /etc/unbound/unbound.conf
+Jul 06 20:47:25 dns.example.com systemd[1]: Started Unbound recursive Domain Name Server.
+Jul 06 20:47:25 dns.example.com unbound[17827]: Jul 06 20:47:25 unbound[17827:0] error: can't bind socket: Address already in use for 0.0.0.0
+Jul 06 20:47:25 dns.example.com unbound[17827]: Jul 06 20:47:25 unbound[17827:0] fatal error: could not open ports
+Jul 06 20:47:25 dns.example.com systemd[1]: unbound.service: main process exited, code=exited, status=1/FAILURE
+Jul 06 20:47:25 dns.example.com systemd[1]: Unit unbound.service entered failed state.
+Jul 06 20:47:25 dns.example.com systemd[1]: unbound.service failed.
+[root@dns harshil]# firewall-cmd --add-service=unbound
+Error: INVALID_SERVICE: unbound
+[root@dns harshil]# firewall-cmd --add-service=dns
+success
+[root@dns harshil]# firewall-cmd --add-service=dns --permanent
+success
+[root@dns harshil]# firewall-cmd --reload
+success
+[root@dns harshil]# systemctl restart unbound
+[root@dns harshil]# systemctl status unbound
+● unbound.service - Unbound recursive Domain Name Server
+   Loaded: loaded (/usr/lib/systemd/system/unbound.service; disabled; vendor preset: disabled)
+   Active: failed (Result: exit-code) since Sat 2019-07-06 20:48:35 IST; 3s ago
+  Process: 18071 ExecStart=/usr/sbin/unbound -d $UNBOUND_OPTIONS (code=exited, status=1/FAILURE)
+  Process: 18069 ExecStartPre=/usr/sbin/unbound-anchor -a /var/lib/unbound/root.key -c /etc/unbound/icannbundle.pem (code=exited, status=0/SUCCESS)
+  Process: 18065 ExecStartPre=/usr/sbin/unbound-checkconf (code=exited, status=0/SUCCESS)
+ Main PID: 18071 (code=exited, status=1/FAILURE)
+
+Jul 06 20:48:35 dns.example.com systemd[1]: Starting Unbound recursive Domain Name Server...
+Jul 06 20:48:35 dns.example.com unbound-checkconf[18065]: unbound-checkconf: no errors in /etc/unbound/unbound.conf
+Jul 06 20:48:35 dns.example.com systemd[1]: Started Unbound recursive Domain Name Server.
+Jul 06 20:48:35 dns.example.com systemd[1]: unbound.service: main process exited, code=exited, status=1/FAILURE
+Jul 06 20:48:35 dns.example.com unbound[18071]: Jul 06 20:48:35 unbound[18071:0] error: can't bind socket: Address already ....0.0.0
+Jul 06 20:48:35 dns.example.com unbound[18071]: Jul 06 20:48:35 unbound[18071:0] fatal error: could not open ports
+Jul 06 20:48:35 dns.example.com systemd[1]: Unit unbound.service entered failed state.
+Jul 06 20:48:35 dns.example.com systemd[1]: unbound.service failed.
+Hint: Some lines were ellipsized, use -l to show in full.
+[root@dns harshil]# tail /var/log/messages
+Jul  6 20:48:31 dns firewalld[6342]: WARNING: COMMAND_FAILED: '/usr/sbin/iptables -w2 -w --table filter --delete INPUT --in-interface virbr0 --protocol udp --destination-port 67 --jump ACCEPT' failed: iptables: Bad rule (does a matching rule exist in that chain?).
+Jul  6 20:48:31 dns firewalld[6342]: WARNING: COMMAND_FAILED: '/usr/sbin/iptables -w2 -w --table filter --delete INPUT --in-interface virbr0 --protocol tcp --destination-port 67 --jump ACCEPT' failed: iptables: Bad rule (does a matching rule exist in that chain?).
+Jul  6 20:48:35 dns systemd: Starting Unbound recursive Domain Name Server...
+Jul  6 20:48:35 dns unbound-checkconf: unbound-checkconf: no errors in /etc/unbound/unbound.conf
+Jul  6 20:48:35 dns systemd: Started Unbound recursive Domain Name Server.
+Jul  6 20:48:35 dns systemd: unbound.service: main process exited, code=exited, status=1/FAILURE
+Jul  6 20:48:35 dns unbound: Jul 06 20:48:35 unbound[18071:0] error: can't bind socket: Address already in use for 0.0.0.0
+Jul  6 20:48:35 dns unbound: Jul 06 20:48:35 unbound[18071:0] fatal error: could not open ports
+Jul  6 20:48:35 dns systemd: Unit unbound.service entered failed state.
+Jul  6 20:48:35 dns systemd: unbound.service failed.
+[root@dns harshil]#
+[root@dns harshil]# tail /var/log/messages
+Jul  6 20:48:31 dns firewalld[6342]: WARNING: COMMAND_FAILED: '/usr/sbin/iptables -w2 -w --table filter --delete INPUT --in-interface virbr0 --protocol udp --destination-port 67 --jump ACCEPT' failed: iptables: Bad rule (does a matching rule exist in that chain?).
+Jul  6 20:48:31 dns firewalld[6342]: WARNING: COMMAND_FAILED: '/usr/sbin/iptables -w2 -w --table filter --delete INPUT --in-interface virbr0 --protocol tcp --destination-port 67 --jump ACCEPT' failed: iptables: Bad rule (does a matching rule exist in that chain?).
+Jul  6 20:48:35 dns systemd: Starting Unbound recursive Domain Name Server...
+Jul  6 20:48:35 dns unbound-checkconf: unbound-checkconf: no errors in /etc/unbound/unbound.conf
+Jul  6 20:48:35 dns systemd: Started Unbound recursive Domain Name Server.
+Jul  6 20:48:35 dns systemd: unbound.service: main process exited, code=exited, status=1/FAILURE
+Jul  6 20:48:35 dns unbound: Jul 06 20:48:35 unbound[18071:0] error: can't bind socket: Address already in use for 0.0.0.0
+Jul  6 20:48:35 dns unbound: Jul 06 20:48:35 unbound[18071:0] fatal error: could not open ports
+Jul  6 20:48:35 dns systemd: Unit unbound.service entered failed state.
+Jul  6 20:48:35 dns systemd: unbound.service failed.
+[root@dns harshil]# vim /etc/unbound/unbound.conf
+[root@dns harshil]# unbound-checkconf
+unbound-checkconf: no errors in /etc/unbound/unbound.conf
+[root@dns harshil]# systemctl stop firewall-cmd
+Failed to stop firewall-cmd.service: Unit firewall-cmd.service not loaded.
+[root@dns harshil]# systemctl stop firewalld
+[root@dns harshil]# systemctl restart unbound
+[root@dns harshil]# systemctl status unbound
+● unbound.service - Unbound recursive Domain Name Server
+   Loaded: loaded (/usr/lib/systemd/system/unbound.service; disabled; vendor preset: disabled)
+   Active: failed (Result: exit-code) since Sat 2019-07-06 20:53:22 IST; 4s ago
+  Process: 18247 ExecStart=/usr/sbin/unbound -d $UNBOUND_OPTIONS (code=exited, status=1/FAILURE)
+  Process: 18244 ExecStartPre=/usr/sbin/unbound-anchor -a /var/lib/unbound/root.key -c /etc/unbound/icannbundle.pem (code=exited, status=0/SUCCESS)
+  Process: 18241 ExecStartPre=/usr/sbin/unbound-checkconf (code=exited, status=0/SUCCESS)
+ Main PID: 18247 (code=exited, status=1/FAILURE)
+
+Jul 06 20:53:22 dns.example.com systemd[1]: Starting Unbound recursive Domain Name Server...
+Jul 06 20:53:22 dns.example.com unbound-checkconf[18241]: unbound-checkconf: no errors in /etc/unbound/unbound.conf
+Jul 06 20:53:22 dns.example.com systemd[1]: Started Unbound recursive Domain Name Server.
+Jul 06 20:53:22 dns.example.com systemd[1]: unbound.service: main process exited, code=exited, status=1/FAILURE
+Jul 06 20:53:22 dns.example.com unbound[18247]: Jul 06 20:53:22 unbound[18247:0] error: can't bind socket: Address already ....0.0.0
+Jul 06 20:53:22 dns.example.com unbound[18247]: Jul 06 20:53:22 unbound[18247:0] fatal error: could not open ports
+Jul 06 20:53:22 dns.example.com systemd[1]: Unit unbound.service entered failed state.
+Jul 06 20:53:22 dns.example.com systemd[1]: unbound.service failed.
+Hint: Some lines were ellipsized, use -l to show in full.
+[root@dns harshil]#
+[root@dns harshil]# netstat -tulpen | grep 0.0.0.0
+tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      0          32693      1/systemd
+tcp        0      0 192.168.122.1:53        0.0.0.0:*               LISTEN      0          46178      7643/dnsmasq
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      0          42717      7131/sshd
+tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      0          43515      7136/cupsd
+tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      0          44793      7573/master
+tcp        0      0 127.0.0.1:6010          0.0.0.0:*               LISTEN      1000       55049      9546/sshd: harshil@
+tcp        0      0 0.0.0.0:8000            0.0.0.0:*               LISTEN      0          48349      7315/ajenti-panel -
+udp        0      0 0.0.0.0:5353            0.0.0.0:*                           70         37482      6302/avahi-daemon:
+udp        0      0 192.168.122.1:53        0.0.0.0:*                           0          46177      7643/dnsmasq
+udp        0      0 0.0.0.0:67              0.0.0.0:*                           0          46174      7643/dnsmasq
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           0          40650      6774/dhclient
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           0          40649      6765/dhclient
+udp        0      0 0.0.0.0:111             0.0.0.0:*                           0          32694      1/systemd
+udp        0      0 0.0.0.0:32976           0.0.0.0:*                           70         37483      6302/avahi-daemon:
+udp        0      0 0.0.0.0:920             0.0.0.0:*                           0          34003      6266/rpcbind
+[root@dns harshil]# systemctl status dnsmasq
+● dnsmasq.service - DNS caching server.
+   Loaded: loaded (/usr/lib/systemd/system/dnsmasq.service; disabled; vendor preset: disabled)
+   Active: inactive (dead)
+[root@dns harshil]# ifconfig
+br0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.0.102  netmask 255.255.255.0  broadcast 192.168.0.255
+        inet6 fe80::9829:113c:9efe:2720  prefixlen 64  scopeid 0x20<link>
+        inet6 fe80::35a8:8f1e:24b5:bde9  prefixlen 64  scopeid 0x20<link>
+        ether 00:50:56:31:f2:eb  txqueuelen 1000  (Ethernet)
+        RX packets 765  bytes 110367 (107.7 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 41  bytes 4604 (4.4 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.0.80  netmask 255.255.255.0  broadcast 192.168.0.255
+        inet6 fe80::7b89:c256:feb5:abc2  prefixlen 64  scopeid 0x20<link>
+        ether 00:50:56:36:3a:49  txqueuelen 1000  (Ethernet)
+        RX packets 3448  bytes 1025478 (1001.4 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 2417  bytes 246366 (240.5 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+ens37: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        ether 00:50:56:31:f2:eb  txqueuelen 1000  (Ethernet)
+        RX packets 6656  bytes 1469232 (1.4 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 41  bytes 4604 (4.4 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+ens38: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.0.109  netmask 255.255.255.0  broadcast 192.168.0.255
+        inet6 fe80::3764:7fab:3672:8fa7  prefixlen 64  scopeid 0x20<link>
+        ether 00:50:56:34:3d:f4  txqueuelen 1000  (Ethernet)
+        RX packets 743  bytes 75953 (74.1 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 29  bytes 4685 (4.5 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+ens39: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.0.110  netmask 255.255.255.0  broadcast 192.168.0.255
+        inet6 fe80::c19a:b61f:1f80:568e  prefixlen 64  scopeid 0x20<link>
+        ether 00:50:56:3e:5b:62  txqueuelen 1000  (Ethernet)
+        RX packets 739  bytes 75236 (73.4 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 29  bytes 4685 (4.5 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 528  bytes 47800 (46.6 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 528  bytes 47800 (46.6 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+virbr0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 192.168.122.1  netmask 255.255.255.0  broadcast 192.168.122.255
+        ether 52:54:00:8c:23:33  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+[root@dns harshil]# netcli
+bash: netcli: command not found...
+[root@dns harshil]# nmcli connection
+add      clone    delete   down     edit     export   help     import   load     modify   monitor  reload   show     up
+[root@dns harshil]# nmcli connection down virbr0
+apath                 ens33                 path                  Wired\ connection\ 2
+br0                   filename              uuid                  Wired\ connection\ 3
+br0-port2             id                    virbr0
+[root@dns harshil]# nmcli connection down virbr0
+Connection 'virbr0' successfully deactivated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/6)
+[root@dns harshil]# netstat -tulpen | grep 0.0.0.0
+tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      0          32693      1/systemd
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      0          42717      7131/sshd
+tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      0          43515      7136/cupsd
+tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      0          44793      7573/master
+tcp        0      0 127.0.0.1:6010          0.0.0.0:*               LISTEN      1000       55049      9546/sshd: harshil@
+tcp        0      0 0.0.0.0:8000            0.0.0.0:*               LISTEN      0          48349      7315/ajenti-panel -
+udp        0      0 0.0.0.0:5353            0.0.0.0:*                           70         37482      6302/avahi-daemon:
+udp        0      0 0.0.0.0:67              0.0.0.0:*                           0          46174      7643/dnsmasq
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           0          40650      6774/dhclient
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           0          40649      6765/dhclient
+udp        0      0 0.0.0.0:111             0.0.0.0:*                           0          32694      1/systemd
+udp        0      0 0.0.0.0:32976           0.0.0.0:*                           70         37483      6302/avahi-daemon:
+udp        0      0 0.0.0.0:920             0.0.0.0:*                           0          34003      6266/rpcbind
+[root@dns harshil]# systemctl restart unbound
+[root@dns harshil]# systemctl status unbound
+● unbound.service - Unbound recursive Domain Name Server
+   Loaded: loaded (/usr/lib/systemd/system/unbound.service; disabled; vendor preset: disabled)
+   Active: active (running) since Sat 2019-07-06 20:55:29 IST; 6s ago
+  Process: 18480 ExecStartPre=/usr/sbin/unbound-anchor -a /var/lib/unbound/root.key -c /etc/unbound/icannbundle.pem (code=exited, status=0/SUCCESS)
+  Process: 18476 ExecStartPre=/usr/sbin/unbound-checkconf (code=exited, status=0/SUCCESS)
+ Main PID: 18485 (unbound)
+    Tasks: 4
+   CGroup: /system.slice/unbound.service
+           └─18485 /usr/sbin/unbound -d
+
+Jul 06 20:55:29 dns.example.com systemd[1]: Starting Unbound recursive Domain Name Server...
+Jul 06 20:55:29 dns.example.com unbound-checkconf[18476]: unbound-checkconf: no errors in /etc/unbound/unbound.conf
+Jul 06 20:55:29 dns.example.com systemd[1]: Started Unbound recursive Domain Name Server.
+Jul 06 20:55:29 dns.example.com unbound[18485]: [18485:0] notice: init module 0: ipsecmod
+Jul 06 20:55:29 dns.example.com unbound[18485]: [18485:0] notice: init module 1: validator
+Jul 06 20:55:29 dns.example.com unbound[18485]: [18485:0] notice: init module 2: iterator
+Jul 06 20:55:29 dns.example.com unbound[18485]: [18485:0] info: start of service (unbound 1.6.6).
+[root@dns harshil]#
+[root@dns harshil]# vim /etc/unbound/unbound.conf
+[root@dns harshil]# unbound-checkconfi
+bash: unbound-checkconfi: command not found...
+Similar command is: 'unbound-checkconf'
+[root@dns harshil]# unbound-checkconf
+unbound-checkconf: no errors in /etc/unbound/unbound.conf
+[root@dns harshil]# systemctl restart firewalld
+[root@dns harshil]# systemctl status firewalld
+● firewalld.service - firewalld - dynamic firewall daemon
+   Loaded: loaded (/usr/lib/systemd/system/firewalld.service; enabled; vendor preset: enabled)
+   Active: active (running) since Sat 2019-07-06 20:57:43 IST; 4s ago
+     Docs: man:firewalld(1)
+ Main PID: 18544 (firewalld)
+    Tasks: 2
+   CGroup: /system.slice/firewalld.service
+           └─18544 /usr/bin/python -Es /usr/sbin/firewalld --nofork --nopid
+
+Jul 06 20:57:44 dns.example.com firewalld[18544]: WARNING: COMMAND_FAILED: '/usr/sbin/iptables -w2 -w --table filter --dele...ain?).
+Jul 06 20:57:44 dns.example.com firewalld[18544]: WARNING: COMMAND_FAILED: '/usr/sbin/iptables -w2 -w --table filter --dele...ain?).
+Jul 06 20:57:44 dns.example.com firewalld[18544]: WARNING: COMMAND_FAILED: '/usr/sbin/iptables -w2 -w --table filter --dele...ain?).
+Jul 06 20:57:44 dns.example.com firewalld[18544]: WARNING: COMMAND_FAILED: '/usr/sbin/iptables -w2 -w --table filter --dele... name.
+Jul 06 20:57:44 dns.example.com firewalld[18544]: WARNING: COMMAND_FAILED: '/usr/sbin/iptables -w2 -w --table filter --dele... name.
+Jul 06 20:57:44 dns.example.com firewalld[18544]: WARNING: COMMAND_FAILED: '/usr/sbin/iptables -w2 -w --table filter --dele...ain?).
+Jul 06 20:57:44 dns.example.com firewalld[18544]: WARNING: COMMAND_FAILED: '/usr/sbin/iptables -w2 -w --table filter --dele...ain?).
+Jul 06 20:57:44 dns.example.com firewalld[18544]: WARNING: COMMAND_FAILED: '/usr/sbin/iptables -w2 -w --table filter --dele...ain?).
+Jul 06 20:57:44 dns.example.com firewalld[18544]: WARNING: COMMAND_FAILED: '/usr/sbin/iptables -w2 -w --table filter --dele...ain?).
+Jul 06 20:57:44 dns.example.com firewalld[18544]: WARNING: COMMAND_FAILED: '/usr/sbin/iptables -w2 -w --table filter --dele...ain?).
+Hint: Some lines were ellipsized, use -l to show in full.
+[root@dns harshil]#
+[root@dns harshil]# firewall-cmd --add-service=dns --permanent
+Warning: ALREADY_ENABLED: dns
+success
+[root@dns harshil]#
+[root@dns harshil]# vim /etc/host
+host.conf    hostname     hosts        hosts.allow  hosts.deny
+[root@dns harshil]# vim /etc/host
+host.conf    hostname     hosts        hosts.allow  hosts.deny
+[root@dns harshil]# vim /etc/hosts
+[root@dns harshil]# dig +dnssec DNSKEY example.com
+
+; <<>> DiG 9.9.4-RedHat-9.9.4-74.el7_6.1 <<>> +dnssec DNSKEY example.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 10992
+;; flags: qr rd ra ad; QUERY: 1, ANSWER: 5, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags: do; udp: 512
+;; QUESTION SECTION:
+;example.com.                   IN      DNSKEY
+
+;; ANSWER SECTION:
+example.com.            3599    IN      DNSKEY  256 3 8 AwEAAbvnf4bXddBlRwFD5b1w26PAOi5787Sbqu1hoNi/CEeN7+2eD7xs iA12jrxG4hzbtUlvg6+IOy4T2r6eLYX66kLzacOX2tZBbc4/vGG7Q1CY imJ6py5gADFnDpQYd8Oq5z8N5esYoD3BmBytNmgj8RwaFN0ZSNZerUl0 aHh/hmZZ
+example.com.            3599    IN      DNSKEY  257 3 8 AwEAAZ0aqu1rJ6orJynrRfNpPmayJZoAx9Ic2/Rl9VQWLMHyjxxem3VU SoNUIFXERQbj0A9Ogp0zDM9YIccKLRd6LmWiDCt7UJQxVdD+heb5Ec4q lqGmyX9MDabkvX2NvMwsUecbYBq8oXeTT9LRmCUt9KUt/WOi6DKECxoG /bWTykrXyBR8elD+SQY43OAVjlWrVltHxgp4/rhBCvRbmdflunaPIgu2 7eE2U4myDSLT8a4A0rB5uHG4PkOa9dIRs9y00M2mWf4lyPee7vi5few2 dbayHXmieGcaAHrx76NGAABeY393xjlmDNcUkF1gpNWUla4fWZbbaYQz A93mLdrng+M=
+example.com.            3599    IN      DNSKEY  257 3 8 AwEAAbOFAxl+Lkt0UMglZizKEC1AxUu8zlj65KYatR5wBWMrh18TYzK/ ig6Y1t5YTWCO68bynorpNu9fqNFALX7bVl9/gybA0v0EhF+dgXmoUfRX 7ksMGgBvtfa2/Y9a3klXNLqkTszIQ4PEMVCjtryl19Be9/PkFeC9ITjg MRQsQhmB39eyMYnal+f3bUxKk4fq7cuEU0dbRpue4H/N6jPucXWOwiMA kTJhghqgy+o9FfIp+tR/emKao94/wpVXDcPf5B18j7xz2SvTTxiuqCzC MtsxnikZHcoh1j4g+Y1B8zIMIvrEM+pZGhh/Yuf4RwCBgaYCi9hpiMWV vS4WBzx0/lU=
+example.com.            3599    IN      RRSIG   DNSKEY 8 2 3600 20190722195205 20190701102103 31406 example.com. FUQwSCtttDef/zs7EAuXAUfe7FiayJzgOgpgcZj5RvXfFYsP8FZo8xgm nXuMiTZtQKueYA6aUWJ31c17b6JkJQmBBpQaNogRJzvDLgqOBB+90ayU W+JvjDyLYOUND3Tj+6kvJEe/AOUCgcxvtGA4CWzVy+SyqhmoMr6Tnfkr +LSiJezgwtPsoKKs0oYllDXuzJL8Cq7Q9x4B734NyO+1Ol6wiQqyXsge oThcixbkXlhVwjBk7taRSXNbynp82r4bDOa+n0Rqj2RMagAcg79ErZCo VRfT7M4LmYLTgztnk53qcInJ5WifmWhESDPPHaR15UmR4llYUU+gOEfH x7iaoA==
+example.com.            3599    IN      RRSIG   DNSKEY 8 2 3600 20190722195205 20190701102103 45620 example.com. UuszN2WmMnRlxjZQgypkED+OHS5IvM50CwYqptsZh0swGRwcOk6ZyOMv /HvnmxQMU7Hnltg1qWt/J/9PoeEVBYAbLs6yeg7sqkrVC18RMbr+8SgF Yn79NrjdnTX8T1PeKauw7rO15HQuRIHswZIvCTOQRR+CnFmcEdowJDPu vuLe+1wiom2LfWa/PNqG6wRTcEfF2beiuj/U72oYH5KPHTulugCPzUFJ rBL/RdX4jImw36Go3SeiY7GhxRNUlKs94QxaixAEyRbIeDI4q13Z/VCH 0Bq/G29Ng16H8NK1mSB057cu3m1chDM8eSrwEOovpvq9NbbaFSeUhFFD aKysmA==
+
+;; Query time: 297 msec
+;; SERVER: 8.8.8.8#53(8.8.8.8)
+;; WHEN: Sat Jul 06 21:04:16 IST 2019
+;; MSG SIZE  rcvd: 1338
+
+[root@dns harshil]# vim /etc/unbound/unbound.conf
+[root@dns harshil]# unbound-checkconf
+/etc/unbound/unbound.conf:488: error: unknown keyword 'trust-anchor'
+/etc/unbound/unbound.conf:488: error: stray ':'
+/etc/unbound/unbound.conf:488: error: stray '"'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'example.com.'
+/etc/unbound/unbound.conf:488: error: unknown keyword '3599'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'IN'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'DNSKEY'
+/etc/unbound/unbound.conf:488: error: unknown keyword '256'
+/etc/unbound/unbound.conf:488: error: unknown keyword '3'
+/etc/unbound/unbound.conf:488: error: unknown keyword '8'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'AwEAAbvnf4bXddBlRwFD5b1w26PAOi5787Sbqu1hoNi/CEeN7+2eD7xs'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'iA12jrxG4hzbtUlvg6+IOy4T2r6eLYX66kLzacOX2tZBbc4/vGG7Q1CY'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'imJ6py5gADFnDpQYd8Oq5z8N5esYoD3BmBytNmgj8RwaFN0ZSNZerUl0'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'aHh/hmZZ'
+/etc/unbound/unbound.conf:488: error: stray '"'
+read /etc/unbound/unbound.conf failed: 15 errors in configuration file
+[root@dns harshil]# vim /etc/unbound/unbound.conf
+[root@dns harshil]# unbound-checkconf
+/etc/unbound/unbound.conf:488: error: unknown keyword 'trust-anchor'
+/etc/unbound/unbound.conf:488: error: stray ':'
+/etc/unbound/unbound.conf:488: error: stray '"'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'example.com.'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'DNSKEY'
+/etc/unbound/unbound.conf:488: error: unknown keyword '256'
+/etc/unbound/unbound.conf:488: error: unknown keyword '3'
+/etc/unbound/unbound.conf:488: error: unknown keyword '8'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'AwEAAbvnf4bXddBlRwFD5b1w26PAOi5787Sbqu1hoNi/CEeN7+2eD7xs'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'iA12jrxG4hzbtUlvg6+IOy4T2r6eLYX66kLzacOX2tZBbc4/vGG7Q1CY'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'imJ6py5gADFnDpQYd8Oq5z8N5esYoD3BmBytNmgj8RwaFN0ZSNZerUl0'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'aHh/hmZZ'
+/etc/unbound/unbound.conf:488: error: stray '"'
+read /etc/unbound/unbound.conf failed: 13 errors in configuration file
+[root@dns harshil]# vim /etc/unbound/unbound.conf
+[root@dns harshil]# unbound-checkconf
+/etc/unbound/unbound.conf:488: error: unknown keyword 'trust-anchor'
+/etc/unbound/unbound.conf:488: error: stray ':'
+/etc/unbound/unbound.conf:488: error: stray '"'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'example.com.'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'DNSKEY'
+/etc/unbound/unbound.conf:488: error: unknown keyword '256'
+/etc/unbound/unbound.conf:488: error: unknown keyword '3'
+/etc/unbound/unbound.conf:488: error: unknown keyword '8'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'AwEAAbvnf4bXddBlRwFD5b1w26PAOi5787Sbqu1hoNi/CEeN7+2eD7xs'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'iA12jrxG4hzbtUlvg6+IOy4T2r6eLYX66kLzacOX2tZBbc4/vGG7Q1CY'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'imJ6py5gADFnDpQYd8Oq5z8N5esYoD3BmBytNmgj8RwaFN0ZSNZerUl0'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'aHh/hmZZ'
+/etc/unbound/unbound.conf:488: error: stray '"'
+read /etc/unbound/unbound.conf failed: 13 errors in configuration file
+[root@dns harshil]#
+[root@dns harshil]# unbound-checkconf
+/etc/unbound/unbound.conf:488: error: unknown keyword 'trust-anchor'
+/etc/unbound/unbound.conf:488: error: stray ':'
+/etc/unbound/unbound.conf:488: error: stray '"'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'example.com.'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'DNSKEY'
+/etc/unbound/unbound.conf:488: error: unknown keyword '256'
+/etc/unbound/unbound.conf:488: error: unknown keyword '3'
+/etc/unbound/unbound.conf:488: error: unknown keyword '8'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'AwEAAbvnf4bXddBlRwFD5b1w26PAOi5787Sbqu1hoNi/CEeN7+2eD7xs'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'iA12jrxG4hzbtUlvg6+IOy4T2r6eLYX66kLzacOX2tZBbc4/vGG7Q1CY'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'imJ6py5gADFnDpQYd8Oq5z8N5esYoD3BmBytNmgj8RwaFN0ZSNZerUl0'
+/etc/unbound/unbound.conf:488: error: unknown keyword 'aHh/hmZZ'
+/etc/unbound/unbound.conf:488: error: stray '"'
+read /etc/unbound/unbound.conf failed: 13 errors in configuration file
+[root@dns harshil]# vim /etc/unbound/unbound.conf
+[root@dns harshil]# unbound-checkconf
+unbound-checkconf: no errors in /etc/unbound/unbound.conf
+[root@dns harshil]#
+[root@dns harshil]# systemctl status unbound
+● unbound.service - Unbound recursive Domain Name Server
+   Loaded: loaded (/usr/lib/systemd/system/unbound.service; disabled; vendor preset: disabled)
+   Active: active (running) since Sat 2019-07-06 20:55:29 IST; 14min ago
+  Process: 18480 ExecStartPre=/usr/sbin/unbound-anchor -a /var/lib/unbound/root.key -c /etc/unbound/icannbundle.pem (code=exited, status=0/SUCCESS)
+  Process: 18476 ExecStartPre=/usr/sbin/unbound-checkconf (code=exited, status=0/SUCCESS)
+ Main PID: 18485 (unbound)
+    Tasks: 4
+   CGroup: /system.slice/unbound.service
+           └─18485 /usr/sbin/unbound -d
+
+Jul 06 20:55:29 dns.example.com systemd[1]: Starting Unbound recursive Domain Name Server...
+Jul 06 20:55:29 dns.example.com unbound-checkconf[18476]: unbound-checkconf: no errors in /etc/unbound/unbound.conf
+Jul 06 20:55:29 dns.example.com systemd[1]: Started Unbound recursive Domain Name Server.
+Jul 06 20:55:29 dns.example.com unbound[18485]: [18485:0] notice: init module 0: ipsecmod
+Jul 06 20:55:29 dns.example.com unbound[18485]: [18485:0] notice: init module 1: validator
+Jul 06 20:55:29 dns.example.com unbound[18485]: [18485:0] notice: init module 2: iterator
+Jul 06 20:55:29 dns.example.com unbound[18485]: [18485:0] info: start of service (unbound 1.6.6).
+[root@dns harshil]#
+
