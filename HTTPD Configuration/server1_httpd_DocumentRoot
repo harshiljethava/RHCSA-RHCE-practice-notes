@@ -1,0 +1,2710 @@
+login as: harshil
+     ┌────────────────────────────────────────────────────────────────────┐
+     │                        • MobaXterm 11.1 •                          │
+     │            (SSH client, X-server and networking tools)             │
+     │                                                                    │
+     │ → SSH session to harshil@192.168.0.50                              │
+     │   • SSH compression : v                                            │
+     │   • SSH-browser     : v                                            │
+     │   • X11-forwarding  : v  (remote display is forwarded through SSH) │
+     │   • DISPLAY         : v  (automatically set on remote server)      │
+     │                                                                    │
+     │ → For more info, ctrl+click on help or visit our website           │
+     └────────────────────────────────────────────────────────────────────┘
+
+Last login: Tue Jun 25 14:48:15 2019 from 192.168.0.101
+[harshil@server1 ~]$ sudo systemctl status httpd
+[sudo] password for harshil:
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Tue 2019-06-25 14:19:08 IST; 32min ago
+     Docs: man:httpd(8)
+           man:apachectl(8)
+ Main PID: 8134 (httpd)
+   Status: "Total requests: 1; Current requests/sec: 0; Current traffic:   0 B/sec"
+    Tasks: 7
+   CGroup: /system.slice/httpd.service
+           ├─ 8134 /usr/sbin/httpd -DFOREGROUND
+           ├─ 8169 /usr/sbin/httpd -DFOREGROUND
+           ├─ 8171 /usr/sbin/httpd -DFOREGROUND
+           ├─ 8172 /usr/sbin/httpd -DFOREGROUND
+           ├─ 8173 /usr/sbin/httpd -DFOREGROUND
+           ├─ 8175 /usr/sbin/httpd -DFOREGROUND
+           └─10573 /usr/sbin/httpd -DFOREGROUND
+
+Jun 25 14:19:05 server1.example.com systemd[1]: Starting The Apache HTTP Server...
+Jun 25 14:19:08 server1.example.com systemd[1]: Started The Apache HTTP Server.
+[harshil@server1 ~]$ sudo firewall-cmd --Authorization failed.
+    Make sure polkit agent is running or run the application as superuser.
+Authorization failed.
+    Make sure polkit agent is running or run the application as superuser.
+Authorization failed.
+    Make sure polkit agent is running or run the application as superuser.
+Error:
+[harshil@server1 ~]$ sudo firewall-cmd --list-rule
+usage: see firewall-cmd man page
+firewall-cmd: error: unrecognized arguments: --list-rule
+[harshil@server1 ~]$ sudo firewall-cmd --list-rulea
+^[[A^C
+[harshil@server1 ~]$ sudo firewall-cmd --help
+
+Usage: firewall-cmd [OPTIONS...]
+
+General Options
+  -h, --help           Prints a short help text and exists
+  -V, --version        Print the version string of firewalld
+  -q, --quiet          Do not print status messages
+
+Status Options
+  --state              Return and print firewalld state
+  --reload             Reload firewall and keep state information
+  --complete-reload    Reload firewall and lose state information
+  --runtime-to-permanent
+                       Create permanent from runtime configuration
+  --check-config       Check permanent configuration for errors
+
+Log Denied Options
+  --get-log-denied     Print the log denied value
+  --set-log-denied=<value>
+                       Set log denied value
+
+Automatic Helpers Options
+  --get-automatic-helpers
+                       Print the automatic helpers value
+  --set-automatic-helpers=<value>
+                       Set automatic helpers value
+
+Permanent Options
+  --permanent          Set an option permanently
+                       Usable for options marked with [P]
+
+Zone Options
+  --get-default-zone   Print default zone for connections and interfaces
+  --set-default-zone=<zone>
+                       Set default zone
+  --get-active-zones   Print currently active zones
+  --get-zones          Print predefined zones [P]
+  --get-services       Print predefined services [P]
+  --get-icmptypes      Print predefined icmptypes [P]
+  --get-zone-of-interface=<interface>
+                       Print name of the zone the interface is bound to [P]
+  --get-zone-of-source=<source>[/<mask>]|<MAC>|ipset:<ipset>
+                       Print name of the zone the source is bound to [P]
+  --list-all-zones     List everything added for or enabled in all zones [P]
+  --new-zone=<zone>    Add a new zone [P only]
+  --new-zone-from-file=<filename> [--name=<zone>]
+                       Add a new zone from file with optional name [P only]
+  --delete-zone=<zone> Delete an existing zone [P only]
+  --load-zone-defaults=<zone>
+                       Load zone default settings [P only] [Z]
+  --zone=<zone>        Use this zone to set or query options, else default zone
+                       Usable for options marked with [Z]
+  --get-target         Get the zone target [P only] [Z]
+  --set-target=<target>
+                       Set the zone target [P only] [Z]
+  --info-zone=<zone>   Print information about a zone
+  --path-zone=<zone>   Print file path of a zone [P only]
+
+IPSet Options
+  --get-ipset-types    Print the supported ipset types
+  --new-ipset=<ipset> --type=<ipset type> [--option=<key>[=<value>]]..
+                       Add a new ipset [P only]
+  --new-ipset-from-file=<filename> [--name=<ipset>]
+                       Add a new ipset from file with optional name [P only]
+  --delete-ipset=<ipset>
+                       Delete an existing ipset [P only]
+  --load-ipset-defaults=<ipset>
+                       Load ipset default settings [P only]
+  --info-ipset=<ipset> Print information about an ipset
+  --path-ipset=<ipset> Print file path of an ipset [P only]
+  --get-ipsets         Print predefined ipsets
+  --ipset=<ipset> --set-description=<description>
+                       Set new description to ipset [P only]
+  --ipset=<ipset> --get-description
+                       Print description for ipset [P only]
+  --ipset=<ipset> --set-short=<description>
+                       Set new short description to ipset [P only]
+  --ipset=<ipset> --get-short
+                       Print short description for ipset [P only]
+  --ipset=<ipset> --add-entry=<entry>
+                       Add a new entry to an ipset [P]
+  --ipset=<ipset> --remove-entry=<entry>
+                       Remove an entry from an ipset [P]
+  --ipset=<ipset> --query-entry=<entry>
+                       Return whether ipset has an entry [P]
+  --ipset=<ipset> --get-entries
+                       List entries of an ipset [P]
+  --ipset=<ipset> --add-entries-from-file=<entry>
+                       Add a new entries to an ipset [P]
+  --ipset=<ipset> --remove-entries-from-file=<entry>
+                       Remove entries from an ipset [P]
+
+IcmpType Options
+  --new-icmptype=<icmptype>
+                       Add a new icmptype [P only]
+  --new-icmptype-from-file=<filename> [--name=<icmptype>]
+                       Add a new icmptype from file with optional name [P only]
+  --delete-icmptype=<icmptype>
+                       Delete an existing icmptype [P only]
+  --load-icmptype-defaults=<icmptype>
+                       Load icmptype default settings [P only]
+  --info-icmptype=<icmptype>
+                       Print information about an icmptype
+  --path-icmptype=<icmptype>
+                       Print file path of an icmptype [P only]
+  --icmptype=<icmptype> --set-description=<description>
+                       Set new description to icmptype [P only]
+  --icmptype=<icmptype> --get-description
+                       Print description for icmptype [P only]
+  --icmptype=<icmptype> --set-short=<description>
+                       Set new short description to icmptype [P only]
+  --icmptype=<icmptype> --get-short
+                       Print short description for icmptype [P only]
+  --icmptype=<icmptype> --add-destination=<ipv>
+                       Enable destination for ipv in icmptype [P only]
+  --icmptype=<icmptype> --remove-destination=<ipv>
+                       Disable destination for ipv in icmptype [P only]
+  --icmptype=<icmptype> --query-destination=<ipv>
+                       Return whether destination ipv is enabled in icmptype [P only]
+  --icmptype=<icmptype> --get-destinations
+                       List destinations in icmptype [P only]
+
+Service Options
+  --new-service=<service>
+                       Add a new service [P only]
+  --new-service-from-file=<filename> [--name=<service>]
+                       Add a new service from file with optional name [P only]
+  --delete-service=<service>
+                       Delete an existing service [P only]
+  --load-service-defaults=<service>
+                       Load icmptype default settings [P only]
+  --info-service=<service>
+                       Print information about a service
+  --path-service=<service>
+                       Print file path of a service [P only]
+  --service=<service> --set-description=<description>
+                       Set new description to service [P only]
+  --service=<service> --get-description
+                       Print description for service [P only]
+  --service=<service> --set-short=<description>
+                       Set new short description to service [P only]
+  --service=<service> --get-short
+                       Print short description for service [P only]
+  --service=<service> --add-port=<portid>[-<portid>]/<protocol>
+                       Add a new port to service [P only]
+  --service=<service> --remove-port=<portid>[-<portid>]/<protocol>
+                       Remove a port from service [P only]
+  --service=<service> --query-port=<portid>[-<portid>]/<protocol>
+                       Return whether the port has been added for service [P only]
+  --service=<service> --get-ports
+                       List ports of service [P only]
+  --service=<service> --add-protocol=<protocol>
+                       Add a new protocol to service [P only]
+  --service=<service> --remove-protocol=<protocol>
+                       Remove a protocol from service [P only]
+  --service=<service> --query-protocol=<protocol>
+                       Return whether the protocol has been added for service [P only]
+  --service=<service> --get-protocols
+                       List protocols of service [P only]
+  --service=<service> --add-source-port=<portid>[-<portid>]/<protocol>
+                       Add a new source port to service [P only]
+  --service=<service> --remove-source-port=<portid>[-<portid>]/<protocol>
+                       Remove a source port from service [P only]
+  --service=<service> --query-source-port=<portid>[-<portid>]/<protocol>
+                       Return whether the source port has been added for service [P only]
+  --service=<service> --get-source-ports
+                       List source ports of service [P only]
+  --service=<service> --add-module=<module>
+                       Add a new module to service [P only]
+  --service=<service> --remove-module=<module>
+                       Remove a module from service [P only]
+  --service=<service> --query-module=<module>
+                       Return whether the module has been added for service [P only]
+  --service=<service> --get-modules
+                       List modules of service [P only]
+  --service=<service> --set-destination=<ipv>:<address>[/<mask>]
+                       Set destination for ipv to address in service [P only]
+  --service=<service> --remove-destination=<ipv>
+                       Disable destination for ipv i service [P only]
+  --service=<service> --query-destination=<ipv>:<address>[/<mask>]
+                       Return whether destination ipv is set for service [P only]
+  --service=<service> --get-destinations
+                       List destinations in service [P only]
+
+Options to Adapt and Query Zones
+  --list-all           List everything added for or enabled in a zone [P] [Z]
+  --list-services      List services added for a zone [P] [Z]
+  --timeout=<timeval>  Enable an option for timeval time, where timeval is
+                       a number followed by one of letters 's' or 'm' or 'h'
+                       Usable for options marked with [T]
+  --set-description=<description>
+                       Set new description to zone [P only] [Z]
+  --get-description    Print description for zone [P only] [Z]
+  --set-short=<description>
+                       Set new short description to zone [P only] [Z]
+  --get-short          Print short description for zone [P only] [Z]
+  --add-service=<service>
+                       Add a service for a zone [P] [Z] [T]
+  --remove-service=<service>
+                       Remove a service from a zone [P] [Z]
+  --query-service=<service>
+                       Return whether service has been added for a zone [P] [Z]
+  --list-ports         List ports added for a zone [P] [Z]
+  --add-port=<portid>[-<portid>]/<protocol>
+                       Add the port for a zone [P] [Z] [T]
+  --remove-port=<portid>[-<portid>]/<protocol>
+                       Remove the port from a zone [P] [Z]
+  --query-port=<portid>[-<portid>]/<protocol>
+                       Return whether the port has been added for zone [P] [Z]
+  --list-protocols     List protocols added for a zone [P] [Z]
+  --add-protocol=<protocol>
+                       Add the protocol for a zone [P] [Z] [T]
+  --remove-protocol=<protocol>
+                       Remove the protocol from a zone [P] [Z]
+  --query-protocol=<protocol>
+                       Return whether the protocol has been added for zone [P] [Z]
+  --list-source-ports  List source ports added for a zone [P] [Z]
+  --add-source-port=<portid>[-<portid>]/<protocol>
+                       Add the source port for a zone [P] [Z] [T]
+  --remove-source-port=<portid>[-<portid>]/<protocol>
+                       Remove the source port from a zone [P] [Z]
+  --query-source-port=<portid>[-<portid>]/<protocol>
+                       Return whether the source port has been added for zone [P] [Z]
+  --list-icmp-blocks   List Internet ICMP type blocks added for a zone [P] [Z]
+  --add-icmp-block=<icmptype>
+                       Add an ICMP block for a zone [P] [Z] [T]
+  --remove-icmp-block=<icmptype>
+                       Remove the ICMP block from a zone [P] [Z]
+  --query-icmp-block=<icmptype>
+                       Return whether an ICMP block has been added for a zone
+                       [P] [Z]
+  --add-icmp-block-inversion
+                       Enable inversion of icmp blocks for a zone [P] [Z]
+  --remove-icmp-block-inversion
+                       Disable inversion of icmp blocks for a zone [P] [Z]
+  --query-icmp-block-inversion
+                       Return whether inversion of icmp blocks has been enabled
+                       for a zone [P] [Z]
+  --list-forward-ports List IPv4 forward ports added for a zone [P] [Z]
+  --add-forward-port=port=<portid>[-<portid>]:proto=<protocol>[:toport=<portid>[-<portid>]][:toaddr=<address>[/<mask>]]
+                       Add the IPv4 forward port for a zone [P] [Z] [T]
+  --remove-forward-port=port=<portid>[-<portid>]:proto=<protocol>[:toport=<portid>[-<portid>]][:toaddr=<address>[/<mask>]]
+                       Remove the IPv4 forward port from a zone [P] [Z]
+  --query-forward-port=port=<portid>[-<portid>]:proto=<protocol>[:toport=<portid>[-<portid>]][:toaddr=<address>[/<mask>]]
+                       Return whether the IPv4 forward port has been added for
+                       a zone [P] [Z]
+  --add-masquerade     Enable IPv4 masquerade for a zone [P] [Z] [T]
+  --remove-masquerade  Disable IPv4 masquerade for a zone [P] [Z]
+  --query-masquerade   Return whether IPv4 masquerading has been enabled for a
+                       zone [P] [Z]
+  --list-rich-rules    List rich language rules added for a zone [P] [Z]
+  --add-rich-rule=<rule>
+                       Add rich language rule 'rule' for a zone [P] [Z] [T]
+  --remove-rich-rule=<rule>
+                       Remove rich language rule 'rule' from a zone [P] [Z]
+  --query-rich-rule=<rule>
+                       Return whether a rich language rule 'rule' has been
+                       added for a zone [P] [Z]
+
+Options to Handle Bindings of Interfaces
+  --list-interfaces    List interfaces that are bound to a zone [P] [Z]
+  --add-interface=<interface>
+                       Bind the <interface> to a zone [P] [Z]
+  --change-interface=<interface>
+                       Change zone the <interface> is bound to [Z]
+  --query-interface=<interface>
+                       Query whether <interface> is bound to a zone [P] [Z]
+  --remove-interface=<interface>
+                       Remove binding of <interface> from a zone [P] [Z]
+
+Options to Handle Bindings of Sources
+  --list-sources       List sources that are bound to a zone [P] [Z]
+  --add-source=<source>[/<mask>]|<MAC>|ipset:<ipset>
+                       Bind the source to a zone [P] [Z]
+  --change-source=<source>[/<mask>]|<MAC>|ipset:<ipset>
+                       Change zone the source is bound to [Z]
+  --query-source=<source>[/<mask>]|<MAC>|ipset:<ipset>
+                       Query whether the source is bound to a zone [P] [Z]
+  --remove-source=<source>[/<mask>]|<MAC>|ipset:<ipset>
+                       Remove binding of the source from a zone [P] [Z]
+
+Helper Options
+  --new-helper=<helper> --module=<module> [--family=<family>]
+                       Add a new helper [P only]
+  --new-helper-from-file=<filename> [--name=<helper>]
+                       Add a new helper from file with optional name [P only]
+  --delete-helper=<helper>
+                       Delete an existing helper [P only]
+  --load-helper-defaults=<helper>
+                       Load helper default settings [P only]
+  --info-helper=<helper> Print information about an helper
+  --path-helper=<helper> Print file path of an helper [P only]
+  --get-helpers         Print predefined helpers
+  --helper=<helper> --set-description=<description>
+                       Set new description to helper [P only]
+  --helper=<helper> --get-description
+                       Print description for helper [P only]
+  --helper=<helper> --set-short=<description>
+                       Set new short description to helper [P only]
+  --helper=<helper> --get-short
+                       Print short description for helper [P only]
+  --helper=<helper> --add-port=<portid>[-<portid>]/<protocol>
+                       Add a new port to helper [P only]
+  --helper=<helper> --remove-port=<portid>[-<portid>]/<protocol>
+                       Remove a port from helper [P only]
+  --helper=<helper> --query-port=<portid>[-<portid>]/<protocol>
+                       Return whether the port has been added for helper [P only]
+  --helper=<helper> --get-ports
+                       List ports of helper [P only]
+  --helper=<helper> --set-module=<module>
+                       Set module to helper [P only]
+  --helper=<helper> --get-module
+                       Get module from helper [P only]
+  --helper=<helper> --set-family={ipv4|ipv6|}
+                       Set family for helper [P only]
+  --helper=<helper> --get-family
+                       Get module from helper [P only]
+
+Direct Options
+  --direct             First option for all direct options
+  --get-all-chains
+                       Get all chains [P]
+  --get-chains {ipv4|ipv6|eb} <table>
+                       Get all chains added to the table [P]
+  --add-chain {ipv4|ipv6|eb} <table> <chain>
+                       Add a new chain to the table [P]
+  --remove-chain {ipv4|ipv6|eb} <table> <chain>
+                       Remove the chain from the table [P]
+  --query-chain {ipv4|ipv6|eb} <table> <chain>
+                       Return whether the chain has been added to the table [P]
+  --get-all-rules
+                       Get all rules [P]
+  --get-rules {ipv4|ipv6|eb} <table> <chain>
+                       Get all rules added to chain in table [P]
+  --add-rule {ipv4|ipv6|eb} <table> <chain> <priority> <arg>...
+                       Add rule to chain in table [P]
+  --remove-rule {ipv4|ipv6|eb} <table> <chain> <priority> <arg>...
+                       Remove rule with priority from chain in table [P]
+  --remove-rules {ipv4|ipv6|eb} <table> <chain>
+                       Remove rules from chain in table [P]
+  --query-rule {ipv4|ipv6|eb} <table> <chain> <priority> <arg>...
+                       Return whether a rule with priority has been added to
+                       chain in table [P]
+  --passthrough {ipv4|ipv6|eb} <arg>...
+                       Pass a command through (untracked by firewalld)
+  --get-all-passthroughs
+                       Get all tracked passthrough rules [P]
+  --get-passthroughs {ipv4|ipv6|eb} <arg>...
+                       Get tracked passthrough rules [P]
+  --add-passthrough {ipv4|ipv6|eb} <arg>...
+                       Add a new tracked passthrough rule [P]
+  --remove-passthrough {ipv4|ipv6|eb} <arg>...
+                       Remove a tracked passthrough rule [P]
+  --query-passthrough {ipv4|ipv6|eb} <arg>...
+                       Return whether the tracked passthrough rule has been
+                       added [P]
+
+Lockdown Options
+  --lockdown-on        Enable lockdown.
+  --lockdown-off       Disable lockdown.
+  --query-lockdown     Query whether lockdown is enabled
+
+Lockdown Whitelist Options
+  --list-lockdown-whitelist-commands
+                       List all command lines that are on the whitelist [P]
+  --add-lockdown-whitelist-command=<command>
+                       Add the command to the whitelist [P]
+  --remove-lockdown-whitelist-command=<command>
+                       Remove the command from the whitelist [P]
+  --query-lockdown-whitelist-command=<command>
+                       Query whether the command is on the whitelist [P]
+  --list-lockdown-whitelist-contexts
+                       List all contexts that are on the whitelist [P]
+  --add-lockdown-whitelist-context=<context>
+                       Add the context context to the whitelist [P]
+  --remove-lockdown-whitelist-context=<context>
+                       Remove the context from the whitelist [P]
+  --query-lockdown-whitelist-context=<context>
+                       Query whether the context is on the whitelist [P]
+  --list-lockdown-whitelist-uids
+                       List all user ids that are on the whitelist [P]
+  --add-lockdown-whitelist-uid=<uid>
+                       Add the user id uid to the whitelist [P]
+  --remove-lockdown-whitelist-uid=<uid>
+                       Remove the user id uid from the whitelist [P]
+  --query-lockdown-whitelist-uid=<uid>
+                       Query whether the user id uid is on the whitelist [P]
+  --list-lockdown-whitelist-users
+                       List all user names that are on the whitelist [P]
+  --add-lockdown-whitelist-user=<user>
+                       Add the user name user to the whitelist [P]
+  --remove-lockdown-whitelist-user=<user>
+                       Remove the user name user from the whitelist [P]
+  --query-lockdown-whitelist-user=<user>
+                       Query whether the user name user is on the whitelist [P]
+
+Panic Options
+  --panic-on           Enable panic mode
+  --panic-off          Disable panic mode
+  --query-panic        Query whether panic mode is enabled
+
+[harshil@server1 ~]$
+[harshil@server1 ~]$ sudo firewall-cmd --get
+^Lusage: see firewall-cmd man page
+firewall-cmd: error: ambiguous option: --get could match --get-log-denied, --get-all-passthroughs, --get-icmptypes, --get-ipset-types, --get-all-rules, --get-ipsets, --get-rules, --get-zone-of-interface, --get-services, --get-entries, --get-zone-of-source, --get-protocols, --get-destinations, --get-modules, --get-automatic-helpers, --get-chains, --get-zones, --get-ports, --get-target, --get-active-zones, --get-description, --get-module, --get-helpers, --get-passthroughs, --get-source-ports, --get-family, --get-default-zone, --get-short, --get-all-chains, --get-destination
+[harshil@server1 ~]$
+[harshil@server1 ~]$
+[harshil@server1 ~]$
+[harshil@server1 ~]$
+[harshil@server1 ~]$
+[harshil@server1 ~]$ sudo firewall-cmd --get-all-rule
+usage: see firewall-cmd man page
+Wrong usage of 'direct' options.
+[harshil@server1 ~]$ sudo firewall-cmd --help | grep rule
+  --list-rich-rules    List rich language rules added for a zone [P] [Z]
+  --add-rich-rule=<rule>
+                       Add rich language rule 'rule' for a zone [P] [Z] [T]
+  --remove-rich-rule=<rule>
+                       Remove rich language rule 'rule' from a zone [P] [Z]
+  --query-rich-rule=<rule>
+                       Return whether a rich language rule 'rule' has been
+  --get-all-rules
+                       Get all rules [P]
+  --get-rules {ipv4|ipv6|eb} <table> <chain>
+                       Get all rules added to chain in table [P]
+  --add-rule {ipv4|ipv6|eb} <table> <chain> <priority> <arg>...
+                       Add rule to chain in table [P]
+  --remove-rule {ipv4|ipv6|eb} <table> <chain> <priority> <arg>...
+                       Remove rule with priority from chain in table [P]
+  --remove-rules {ipv4|ipv6|eb} <table> <chain>
+                       Remove rules from chain in table [P]
+  --query-rule {ipv4|ipv6|eb} <table> <chain> <priority> <arg>...
+                       Return whether a rule with priority has been added to
+                       Get all tracked passthrough rules [P]
+                       Get tracked passthrough rules [P]
+                       Add a new tracked passthrough rule [P]
+                       Remove a tracked passthrough rule [P]
+                       Return whether the tracked passthrough rule has been
+[harshil@server1 ~]$ sudo firewall-cmd --list-rich-rule
+rule family="ipv4" source address="192.168.0.101/32" service name="http" log prefix="NEW HTTP" level="notice" limit value="3/s" accept
+rule family="ipv4" source address="192.168.0.101/32" service name="http" log prefix="NEW HTTP" level="notice" limit value="1/s" accept
+[harshil@server1 ~]$ sudo firewall-cmd --list-Authorization failed.
+    Make sure polkit agent is running or run the application as superuser.
+Authorization failed.
+    Make sure polkit agent is running or run the application as superuser.
+^C
+[harshil@server1 ~]$ sudo firewall-tui
+sudo: firewall-tui: command not found
+[harshil@server1 ~]$
+[harshil@server1 ~]$ sudo firewall-cmd -get-default-zone
+usage: see firewall-cmd man page
+firewall-cmd: error: unrecognized arguments: -get-default-zone
+[harshil@server1 ~]$ sudo firewall-cmd --get-default-zone
+trusted
+[harshil@server1 ~]$
+[harshil@server1 ~]$ cd /etc/httpd
+[harshil@server1 httpd]$ ls
+conf  conf.d  conf.modules.d  logs  modules  run
+[harshil@server1 httpd]$ cd conf
+[harshil@server1 conf]$ ld
+ld: no input files
+[harshil@server1 conf]$ ll
+total 28
+-rw-r--r--. 1 root root 11753 Apr 24 19:14 httpd.conf
+-rw-r--r--. 1 root root 13077 Apr 24 19:16 magic
+[harshil@server1 conf]$
+[harshil@server1 conf]$
+[harshil@server1 conf]$ cat httpd.conf
+#
+# This is the main Apache HTTP server configuration file.  It contains the
+# configuration directives that give the server its instructions.
+# See <URL:http://httpd.apache.org/docs/2.4/> for detailed information.
+# In particular, see
+# <URL:http://httpd.apache.org/docs/2.4/mod/directives.html>
+# for a discussion of each configuration directive.
+#
+# Do NOT simply read the instructions in here without understanding
+# what they do.  They're here only as hints or reminders.  If you are unsure
+# consult the online docs. You have been warned.
+#
+# Configuration and logfile names: If the filenames you specify for many
+# of the server's control files begin with "/" (or "drive:/" for Win32), the
+# server will use that explicit path.  If the filenames do *not* begin
+# with "/", the value of ServerRoot is prepended -- so 'log/access_log'
+# with ServerRoot set to '/www' will be interpreted by the
+# server as '/www/log/access_log', where as '/log/access_log' will be
+# interpreted as '/log/access_log'.
+
+#
+# ServerRoot: The top of the directory tree under which the server's
+# configuration, error, and log files are kept.
+#
+# Do not add a slash at the end of the directory path.  If you point
+# ServerRoot at a non-local disk, be sure to specify a local disk on the
+# Mutex directive, if file-based mutexes are used.  If you wish to share the
+# same ServerRoot for multiple httpd daemons, you will need to change at
+# least PidFile.
+#
+ServerRoot "/etc/httpd"
+
+#
+# Listen: Allows you to bind Apache to specific IP addresses and/or
+# ports, instead of the default. See also the <VirtualHost>
+# directive.
+#
+# Change this to Listen on specific IP addresses as shown below to
+# prevent Apache from glomming onto all bound IP addresses.
+#
+#Listen 12.34.56.78:80
+Listen 80
+
+#
+# Dynamic Shared Object (DSO) Support
+#
+# To be able to use the functionality of a module which was built as a DSO you
+# have to place corresponding `LoadModule' lines at this location so the
+# directives contained in it are actually available _before_ they are used.
+# Statically compiled modules (those listed by `httpd -l') do not need
+# to be loaded here.
+#
+# Example:
+# LoadModule foo_module modules/mod_foo.so
+#
+Include conf.modules.d/*.conf
+
+#
+# If you wish httpd to run as a different user or group, you must run
+# httpd as root initially and it will switch.
+#
+# User/Group: The name (or #number) of the user/group to run httpd as.
+# It is usually good practice to create a dedicated user and group for
+# running httpd, as with most system services.
+#
+User apache
+Group apache
+
+# 'Main' server configuration
+#
+# The directives in this section set up the values used by the 'main'
+# server, which responds to any requests that aren't handled by a
+# <VirtualHost> definition.  These values also provide defaults for
+# any <VirtualHost> containers you may define later in the file.
+#
+# All of these directives may appear inside <VirtualHost> containers,
+# in which case these default settings will be overridden for the
+# virtual host being defined.
+#
+
+#
+# ServerAdmin: Your address, where problems with the server should be
+# e-mailed.  This address appears on some server-generated pages, such
+# as error documents.  e.g. admin@your-domain.com
+#
+ServerAdmin root@localhost
+
+#
+# ServerName gives the name and port that the server uses to identify itself.
+# This can often be determined automatically, but we recommend you specify
+# it explicitly to prevent problems during startup.
+#
+# If your host doesn't have a registered DNS name, enter its IP address here.
+#
+#ServerName www.example.com:80
+
+#
+# Deny access to the entirety of your server's filesystem. You must
+# explicitly permit access to web content directories in other
+# <Directory> blocks below.
+#
+<Directory />
+    AllowOverride none
+    Require all denied
+</Directory>
+
+#
+# Note that from this point forward you must specifically allow
+# particular features to be enabled - so if something's not working as
+# you might expect, make sure that you have specifically enabled it
+# below.
+#
+
+#
+# DocumentRoot: The directory out of which you will serve your
+# documents. By default, all requests are taken from this directory, but
+# symbolic links and aliases may be used to point to other locations.
+#
+DocumentRoot "/var/www/html"
+
+#
+# Relax access to content within /var/www.
+#
+<Directory "/var/www">
+    AllowOverride None
+    # Allow open access:
+    Require all granted
+</Directory>
+
+# Further relax access to the default document root:
+<Directory "/var/www/html">
+    #
+    # Possible values for the Options directive are "None", "All",
+    # or any combination of:
+    #   Indexes Includes FollowSymLinks SymLinksifOwnerMatch ExecCGI MultiViews
+    #
+    # Note that "MultiViews" must be named *explicitly* --- "Options All"
+    # doesn't give it to you.
+    #
+    # The Options directive is both complicated and important.  Please see
+    # http://httpd.apache.org/docs/2.4/mod/core.html#options
+    # for more information.
+    #
+    Options Indexes FollowSymLinks
+
+    #
+    # AllowOverride controls what directives may be placed in .htaccess files.
+    # It can be "All", "None", or any combination of the keywords:
+    #   Options FileInfo AuthConfig Limit
+    #
+    AllowOverride None
+
+    #
+    # Controls who can get stuff from this server.
+    #
+    Require all granted
+</Directory>
+
+#
+# DirectoryIndex: sets the file that Apache will serve if a directory
+# is requested.
+#
+<IfModule dir_module>
+    DirectoryIndex index.html
+</IfModule>
+
+#
+# The following lines prevent .htaccess and .htpasswd files from being
+# viewed by Web clients.
+#
+<Files ".ht*">
+    Require all denied
+</Files>
+
+#
+# ErrorLog: The location of the error log file.
+# If you do not specify an ErrorLog directive within a <VirtualHost>
+# container, error messages relating to that virtual host will be
+# logged here.  If you *do* define an error logfile for a <VirtualHost>
+# container, that host's errors will be logged there and not here.
+#
+ErrorLog "logs/error_log"
+
+#
+# LogLevel: Control the number of messages logged to the error_log.
+# Possible values include: debug, info, notice, warn, error, crit,
+# alert, emerg.
+#
+LogLevel warn
+
+<IfModule log_config_module>
+    #
+    # The following directives define some format nicknames for use with
+    # a CustomLog directive (see below).
+    #
+    LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+    LogFormat "%h %l %u %t \"%r\" %>s %b" common
+
+    <IfModule logio_module>
+      # You need to enable mod_logio.c to use %I and %O
+      LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
+    </IfModule>
+
+    #
+    # The location and format of the access logfile (Common Logfile Format).
+    # If you do not define any access logfiles within a <VirtualHost>
+    # container, they will be logged here.  Contrariwise, if you *do*
+    # define per-<VirtualHost> access logfiles, transactions will be
+    # logged therein and *not* in this file.
+    #
+    #CustomLog "logs/access_log" common
+
+    #
+    # If you prefer a logfile with access, agent, and referer information
+    # (Combined Logfile Format) you can use the following directive.
+    #
+    CustomLog "logs/access_log" combined
+</IfModule>
+
+<IfModule alias_module>
+    #
+    # Redirect: Allows you to tell clients about documents that used to
+    # exist in your server's namespace, but do not anymore. The client
+    # will make a new request for the document at its new location.
+    # Example:
+    # Redirect permanent /foo http://www.example.com/bar
+
+    #
+    # Alias: Maps web paths into filesystem paths and is used to
+    # access content that does not live under the DocumentRoot.
+    # Example:
+    # Alias /webpath /full/filesystem/path
+    #
+    # If you include a trailing / on /webpath then the server will
+    # require it to be present in the URL.  You will also likely
+    # need to provide a <Directory> section to allow access to
+    # the filesystem path.
+
+    #
+    # ScriptAlias: This controls which directories contain server scripts.
+    # ScriptAliases are essentially the same as Aliases, except that
+    # documents in the target directory are treated as applications and
+    # run by the server when requested rather than as documents sent to the
+    # client.  The same rules about trailing "/" apply to ScriptAlias
+    # directives as to Alias.
+    #
+    ScriptAlias /cgi-bin/ "/var/www/cgi-bin/"
+
+</IfModule>
+
+#
+# "/var/www/cgi-bin" should be changed to whatever your ScriptAliased
+# CGI directory exists, if you have that configured.
+#
+<Directory "/var/www/cgi-bin">
+    AllowOverride None
+    Options None
+    Require all granted
+</Directory>
+
+<IfModule mime_module>
+    #
+    # TypesConfig points to the file containing the list of mappings from
+    # filename extension to MIME-type.
+    #
+    TypesConfig /etc/mime.types
+
+    #
+    # AddType allows you to add to or override the MIME configuration
+    # file specified in TypesConfig for specific file types.
+    #
+    #AddType application/x-gzip .tgz
+    #
+    # AddEncoding allows you to have certain browsers uncompress
+    # information on the fly. Note: Not all browsers support this.
+    #
+    #AddEncoding x-compress .Z
+    #AddEncoding x-gzip .gz .tgz
+    #
+    # If the AddEncoding directives above are commented-out, then you
+    # probably should define those extensions to indicate media types:
+    #
+    AddType application/x-compress .Z
+    AddType application/x-gzip .gz .tgz
+
+    #
+    # AddHandler allows you to map certain file extensions to "handlers":
+    # actions unrelated to filetype. These can be either built into the server
+    # or added with the Action directive (see below)
+    #
+    # To use CGI scripts outside of ScriptAliased directories:
+    # (You will also need to add "ExecCGI" to the "Options" directive.)
+    #
+    #AddHandler cgi-script .cgi
+
+    # For type maps (negotiated resources):
+    #AddHandler type-map var
+
+    #
+    # Filters allow you to process content before it is sent to the client.
+    #
+    # To parse .shtml files for server-side includes (SSI):
+    # (You will also need to add "Includes" to the "Options" directive.)
+    #
+    AddType text/html .shtml
+    AddOutputFilter INCLUDES .shtml
+</IfModule>
+
+#
+# Specify a default charset for all content served; this enables
+# interpretation of all content as UTF-8 by default.  To use the
+# default browser choice (ISO-8859-1), or to allow the META tags
+# in HTML content to override this choice, comment out this
+# directive:
+#
+AddDefaultCharset UTF-8
+
+<IfModule mime_magic_module>
+    #
+    # The mod_mime_magic module allows the server to use various hints from the
+    # contents of the file itself to determine its type.  The MIMEMagicFile
+    # directive tells the module where the hint definitions are located.
+    #
+    MIMEMagicFile conf/magic
+</IfModule>
+
+#
+# Customizable error responses come in three flavors:
+# 1) plain text 2) local redirects 3) external redirects
+#
+# Some examples:
+#ErrorDocument 500 "The server made a boo boo."
+#ErrorDocument 404 /missing.html
+#ErrorDocument 404 "/cgi-bin/missing_handler.pl"
+#ErrorDocument 402 http://www.example.com/subscription_info.html
+#
+
+#
+# EnableMMAP and EnableSendfile: On systems that support it,
+# memory-mapping or the sendfile syscall may be used to deliver
+# files.  This usually improves server performance, but must
+# be turned off when serving from networked-mounted
+# filesystems or if support for these functions is otherwise
+# broken on your system.
+# Defaults if commented: EnableMMAP On, EnableSendfile Off
+#
+#EnableMMAP off
+EnableSendfile on
+
+# Supplemental configuration
+#
+# Load config files in the "/etc/httpd/conf.d" directory, if any.
+IncludeOptional conf.d/*.conf
+[harshil@server1 conf]$
+[harshil@server1 conf]$ se
+bash: se: command not found...
+[harshil@server1 conf]$
+[harshil@server1 conf]$
+[harshil@server1 conf]$
+[harshil@server1 conf]$
+[harshil@server1 conf]$
+[harshil@server1 conf]$
+[harshil@server1 conf]$
+[harshil@server1 conf]$ semanage
+usage: semanage [-h]
+
+                {import,export,login,user,port,ibpkey,ibendport,interface,module,node,fcontext,boolean,permissive,dontaudit}
+                ...
+
+semanage is used to configure certain elements of SELinux policy with-out
+requiring modification to or recompilation from policy source.
+
+positional arguments:
+  {import,export,login,user,port,ibpkey,ibendport,interface,module,node,fcontext,boolean,permissive,dontaudit}
+    import              Import local customizations
+    export              Output local customizations
+    login               Manage login mappings between linux users and SELinux
+                        confined users
+    user                Manage SELinux confined users (Roles and levels for an
+                        SELinux user)
+    port                Manage network port type definitions
+    ibpkey              Manage infiniband ibpkey type definitions
+    ibendport           Manage infiniband end port type definitions
+    interface           Manage network interface type definitions
+    module              Manage SELinux policy modules
+    node                Manage network node type definitions
+    fcontext            Manage file context mapping definitions
+    boolean             Manage booleans to selectively enable functionality
+    permissive          Manage process type enforcement mode
+    dontaudit           Disable/Enable dontaudit rules in policy
+
+optional arguments:
+  -h, --help            show this help message and exit
+[harshil@server1 conf]$ getsebool
+usage:  getsebool -a or getsebool boolean...
+[harshil@server1 conf]$ getsebool -a
+abrt_anon_write --> off
+abrt_handle_event --> off
+abrt_upload_watch_anon_write --> on
+antivirus_can_scan_system --> off
+antivirus_use_jit --> off
+auditadm_exec_content --> on
+authlogin_nsswitch_use_ldap --> on
+authlogin_radius --> off
+authlogin_yubikey --> off
+awstats_purge_apache_log_files --> off
+boinc_execmem --> on
+cdrecord_read_content --> off
+cluster_can_network_connect --> off
+cluster_manage_all_files --> off
+cluster_use_execmem --> off
+cobbler_anon_write --> off
+cobbler_can_network_connect --> off
+cobbler_use_cifs --> off
+cobbler_use_nfs --> off
+collectd_tcp_network_connect --> off
+condor_tcp_network_connect --> off
+conman_can_network --> off
+conman_use_nfs --> off
+container_connect_any --> off
+container_manage_cgroup --> off
+container_use_cephfs --> off
+cron_can_relabel --> off
+cron_system_cronjob_use_shares --> off
+cron_userdomain_transition --> on
+cups_execmem --> off
+cvs_read_shadow --> off
+daemons_dump_core --> off
+daemons_enable_cluster_mode --> off
+daemons_use_tcp_wrapper --> off
+daemons_use_tty --> off
+dbadm_exec_content --> on
+dbadm_manage_user_files --> off
+dbadm_read_user_files --> off
+deny_execmem --> off
+deny_ptrace --> off
+dhcpc_exec_iptables --> off
+dhcpd_use_ldap --> off
+domain_can_mmap_files --> on
+domain_can_write_kmsg --> off
+domain_fd_use --> on
+domain_kernel_load_modules --> off
+entropyd_use_audio --> on
+exim_can_connect_db --> off
+exim_manage_user_files --> off
+exim_read_user_files --> off
+fcron_crond --> off
+fenced_can_network_connect --> off
+fenced_can_ssh --> off
+fips_mode --> on
+ftpd_anon_write --> off
+ftpd_connect_all_unreserved --> off
+ftpd_connect_db --> off
+ftpd_full_access --> off
+ftpd_use_cifs --> off
+ftpd_use_fusefs --> off
+ftpd_use_nfs --> off
+ftpd_use_passive_mode --> off
+ganesha_use_fusefs --> off
+git_cgi_enable_homedirs --> off
+git_cgi_use_cifs --> off
+git_cgi_use_nfs --> off
+git_session_bind_all_unreserved_ports --> off
+git_session_users --> off
+git_system_enable_homedirs --> off
+git_system_use_cifs --> off
+git_system_use_nfs --> off
+gitosis_can_sendmail --> off
+glance_api_can_network --> off
+glance_use_execmem --> off
+glance_use_fusefs --> off
+global_ssp --> off
+gluster_anon_write --> off
+gluster_export_all_ro --> off
+gluster_export_all_rw --> on
+gluster_use_execmem --> off
+gpg_web_anon_write --> off
+gssd_read_tmp --> on
+guest_exec_content --> on
+haproxy_connect_any --> off
+httpd_anon_write --> off
+httpd_builtin_scripting --> on
+httpd_can_check_spam --> off
+httpd_can_connect_ftp --> off
+httpd_can_connect_ldap --> off
+httpd_can_connect_mythtv --> off
+httpd_can_connect_zabbix --> off
+httpd_can_network_connect --> off
+httpd_can_network_connect_cobbler --> off
+httpd_can_network_connect_db --> off
+httpd_can_network_memcache --> off
+httpd_can_network_relay --> off
+httpd_can_sendmail --> off
+httpd_dbus_avahi --> off
+httpd_dbus_sssd --> off
+httpd_dontaudit_search_dirs --> off
+httpd_enable_cgi --> on
+httpd_enable_ftp_server --> off
+httpd_enable_homedirs --> off
+httpd_execmem --> off
+httpd_graceful_shutdown --> on
+httpd_manage_ipa --> off
+httpd_mod_auth_ntlm_winbind --> off
+httpd_mod_auth_pam --> off
+httpd_read_user_content --> off
+httpd_run_ipa --> off
+httpd_run_preupgrade --> off
+httpd_run_stickshift --> off
+httpd_serve_cobbler_files --> off
+httpd_setrlimit --> off
+httpd_ssi_exec --> off
+httpd_sys_script_anon_write --> off
+httpd_tmp_exec --> off
+httpd_tty_comm --> off
+httpd_unified --> off
+httpd_use_cifs --> off
+httpd_use_fusefs --> off
+httpd_use_gpg --> off
+httpd_use_nfs --> off
+httpd_use_openstack --> off
+httpd_use_sasl --> off
+httpd_verify_dns --> off
+icecast_use_any_tcp_ports --> off
+irc_use_any_tcp_ports --> off
+irssi_use_full_network --> off
+kdumpgui_run_bootloader --> off
+keepalived_connect_any --> off
+kerberos_enabled --> on
+ksmtuned_use_cifs --> off
+ksmtuned_use_nfs --> off
+logadm_exec_content --> on
+logging_syslogd_can_sendmail --> off
+logging_syslogd_run_nagios_plugins --> off
+logging_syslogd_use_tty --> on
+login_console_enabled --> on
+logrotate_read_inside_containers --> off
+logrotate_use_nfs --> off
+logwatch_can_network_connect_mail --> off
+lsmd_plugin_connect_any --> off
+mailman_use_fusefs --> off
+mcelog_client --> off
+mcelog_exec_scripts --> on
+mcelog_foreground --> off
+mcelog_server --> off
+minidlna_read_generic_user_content --> off
+mmap_low_allowed --> off
+mock_enable_homedirs --> off
+mount_anyfile --> on
+mozilla_plugin_bind_unreserved_ports --> off
+mozilla_plugin_can_network_connect --> off
+mozilla_plugin_use_bluejeans --> off
+mozilla_plugin_use_gps --> off
+mozilla_plugin_use_spice --> off
+mozilla_read_content --> off
+mpd_enable_homedirs --> off
+mpd_use_cifs --> off
+mpd_use_nfs --> off
+mplayer_execstack --> off
+mysql_connect_any --> off
+nagios_run_pnp4nagios --> off
+nagios_run_sudo --> off
+nagios_use_nfs --> off
+named_tcp_bind_http_port --> off
+named_write_master_zones --> off
+neutron_can_network --> off
+nfs_export_all_ro --> on
+nfs_export_all_rw --> on
+nfsd_anon_write --> off
+nis_enabled --> off
+nscd_use_shm --> on
+openshift_use_nfs --> off
+openvpn_can_network_connect --> on
+openvpn_enable_homedirs --> on
+openvpn_run_unconfined --> off
+pcp_bind_all_unreserved_ports --> off
+pcp_read_generic_logs --> off
+piranha_lvs_can_network_connect --> off
+polipo_connect_all_unreserved --> off
+polipo_session_bind_all_unreserved_ports --> off
+polipo_session_users --> off
+polipo_use_cifs --> off
+polipo_use_nfs --> off
+polyinstantiation_enabled --> off
+postfix_local_write_mail_spool --> on
+postgresql_can_rsync --> off
+postgresql_selinux_transmit_client_label --> off
+postgresql_selinux_unconfined_dbadm --> on
+postgresql_selinux_users_ddl --> on
+pppd_can_insmod --> off
+pppd_for_user --> off
+privoxy_connect_any --> on
+prosody_bind_http_port --> off
+puppetagent_manage_all_files --> off
+puppetmaster_use_db --> off
+racoon_read_shadow --> off
+radius_use_jit --> off
+redis_enable_notify --> off
+rpcd_use_fusefs --> off
+rsync_anon_write --> off
+rsync_client --> off
+rsync_export_all_ro --> off
+rsync_full_access --> off
+samba_create_home_dirs --> off
+samba_domain_controller --> off
+samba_enable_home_dirs --> off
+samba_export_all_ro --> off
+samba_export_all_rw --> off
+samba_load_libgfapi --> off
+samba_portmapper --> off
+samba_run_unconfined --> off
+samba_share_fusefs --> off
+samba_share_nfs --> off
+sanlock_enable_home_dirs --> off
+sanlock_use_fusefs --> off
+sanlock_use_nfs --> off
+sanlock_use_samba --> off
+saslauthd_read_shadow --> off
+secadm_exec_content --> on
+secure_mode --> off
+secure_mode_insmod --> off
+secure_mode_policyload --> off
+selinuxuser_direct_dri_enabled --> on
+selinuxuser_execheap --> off
+selinuxuser_execmod --> on
+selinuxuser_execstack --> on
+selinuxuser_mysql_connect_enabled --> off
+selinuxuser_ping --> on
+selinuxuser_postgresql_connect_enabled --> off
+selinuxuser_rw_noexattrfile --> on
+selinuxuser_share_music --> off
+selinuxuser_tcp_server --> off
+selinuxuser_udp_server --> off
+selinuxuser_use_ssh_chroot --> off
+sge_domain_can_network_connect --> off
+sge_use_nfs --> off
+smartmon_3ware --> off
+smbd_anon_write --> off
+spamassassin_can_network --> off
+spamd_enable_home_dirs --> on
+spamd_update_can_network --> off
+squid_connect_any --> on
+squid_use_tproxy --> off
+ssh_chroot_rw_homedirs --> off
+ssh_keysign --> off
+ssh_sysadm_login --> off
+staff_exec_content --> on
+staff_use_svirt --> off
+swift_can_network --> off
+sysadm_exec_content --> on
+telepathy_connect_all_ports --> off
+telepathy_tcp_connect_generic_network_ports --> on
+tftp_anon_write --> off
+tftp_home_dir --> off
+tmpreaper_use_cifs --> off
+tmpreaper_use_nfs --> off
+tmpreaper_use_samba --> off
+tomcat_can_network_connect_db --> off
+tomcat_read_rpm_db --> off
+tomcat_use_execmem --> off
+tor_bind_all_unreserved_ports --> off
+tor_can_network_relay --> off
+unconfined_chrome_sandbox_transition --> on
+unconfined_login --> on
+unconfined_mozilla_plugin_transition --> on
+unprivuser_use_svirt --> off
+use_ecryptfs_home_dirs --> off
+use_fusefs_home_dirs --> off
+use_lpd_server --> off
+use_nfs_home_dirs --> off
+use_samba_home_dirs --> off
+user_exec_content --> on
+varnishd_connect_any --> off
+virt_read_qemu_ga_data --> off
+virt_rw_qemu_ga_data --> off
+virt_sandbox_use_all_caps --> on
+virt_sandbox_use_audit --> on
+virt_sandbox_use_fusefs --> off
+virt_sandbox_use_mknod --> off
+virt_sandbox_use_netlink --> off
+virt_sandbox_use_sys_admin --> off
+virt_transition_userdomain --> off
+virt_use_comm --> off
+virt_use_execmem --> off
+virt_use_fusefs --> off
+virt_use_glusterd --> off
+virt_use_nfs --> on
+virt_use_rawip --> off
+virt_use_samba --> off
+virt_use_sanlock --> off
+virt_use_usb --> on
+virt_use_xserver --> off
+webadm_manage_user_files --> off
+webadm_read_user_files --> off
+wine_mmap_zero_ignore --> off
+xdm_bind_vnc_tcp_port --> off
+xdm_exec_bootloader --> off
+xdm_sysadm_login --> off
+xdm_write_home --> off
+xen_use_nfs --> off
+xend_run_blktap --> on
+xend_run_qemu --> on
+xguest_connect_network --> on
+xguest_exec_content --> on
+xguest_mount_media --> on
+xguest_use_bluetooth --> on
+xserver_clients_write_xshm --> off
+xserver_execmem --> off
+xserver_object_manager --> off
+zabbix_can_network --> off
+zabbix_run_sudo --> off
+zarafa_setrlimit --> off
+zebra_write_config --> off
+zoneminder_anon_write --> off
+zoneminder_run_sudo --> off
+[harshil@server1 conf]$ semanage -h
+usage: semanage [-h]
+
+                {import,export,login,user,port,ibpkey,ibendport,interface,module,node,fcontext,boolean,permissive,dontaudit}
+                ...
+
+semanage is used to configure certain elements of SELinux policy with-out
+requiring modification to or recompilation from policy source.
+
+positional arguments:
+  {import,export,login,user,port,ibpkey,ibendport,interface,module,node,fcontext,boolean,permissive,dontaudit}
+    import              Import local customizations
+    export              Output local customizations
+    login               Manage login mappings between linux users and SELinux
+                        confined users
+    user                Manage SELinux confined users (Roles and levels for an
+                        SELinux user)
+    port                Manage network port type definitions
+    ibpkey              Manage infiniband ibpkey type definitions
+    ibendport           Manage infiniband end port type definitions
+    interface           Manage network interface type definitions
+    module              Manage SELinux policy modules
+    node                Manage network node type definitions
+    fcontext            Manage file context mapping definitions
+    boolean             Manage booleans to selectively enable functionality
+    permissive          Manage process type enforcement mode
+    dontaudit           Disable/Enable dontaudit rules in policy
+
+optional arguments:
+  -h, --help            show this help message and exit
+[harshil@server1 conf]$ semanage permissive -
+-a           -d           -h           -l           -n           -o
+--add        --delete     --help       --list       --noheading  -S
+[harshil@server1 conf]$ semanage permissive -
+-a           -d           -h           -l           -n           -o
+--add        --delete     --help       --list       --noheading  -S
+[harshil@server1 conf]$ semanage permissive -
+-a           -d           -h           -l           -n           -o
+--add        --delete     --help       --list       --noheading  -S
+[harshil@server1 conf]$ semanage permissive -
+-a           -d           -h           -l           -n           -o
+--add        --delete     --help       --list       --noheading  -S
+[harshil@server1 conf]$ semanage permissive -l
+ValueError: SELinux policy is not managed or store cannot be accessed.
+[harshil@server1 conf]$ getsebool
+httpd.conf  magic
+[harshil@server1 conf]$ getsebool
+httpd.conf  magic
+[harshil@server1 conf]$ sestatus
+SELinux status:                 enabled
+SELinuxfs mount:                /sys/fs/selinux
+SELinux root directory:         /etc/selinux
+Loaded policy name:             targeted
+Current mode:                   enforcing
+Mode from config file:          enforcing
+Policy MLS status:              enabled
+Policy deny_unknown status:     allowed
+Max kernel policy version:      31
+[harshil@server1 conf]$ ll
+total 28
+-rw-r--r--. 1 root root 11753 Apr 24 19:14 httpd.conf
+-rw-r--r--. 1 root root 13077 Apr 24 19:16 magic
+[harshil@server1 conf]$ mv httpd.conf httpd_old.conf
+mv: cannot move ‘httpd.conf’ to ‘httpd_old.conf’: Permission denied
+[harshil@server1 conf]$ sudo mv httpd.conf httpd_old.conf
+[sudo] password for harshil:
+[harshil@server1 conf]$ kk
+bash: kk: command not found...
+[harshil@server1 conf]$ ll
+total 28
+-rw-r--r--. 1 root root 11753 Apr 24 19:14 httpd_old.conf
+-rw-r--r--. 1 root root 13077 Apr 24 19:16 magic
+[harshil@server1 conf]$ cp httpd_old.conf httpd.conf
+cp: cannot create regular file ‘httpd.conf’: Permission denied
+[harshil@server1 conf]$ sudo cp httpd_old.conf httpd.conf
+[harshil@server1 conf]$ ll
+total 40
+-rw-r--r--. 1 root root 11753 Jun 25 15:10 httpd.conf
+-rw-r--r--. 1 root root 11753 Apr 24 19:14 httpd_old.conf
+-rw-r--r--. 1 root root 13077 Apr 24 19:16 magic
+[harshil@server1 conf]$ sudo vim httpd.conf
+[harshil@server1 conf]$ sudo systemctl restart httpd
+[harshil@server1 conf]$ sudo firewall-cmd --permanent --add-port=8080/tcp
+success
+[harshil@server1 conf]$ sudo firewall-cmd --reload
+success
+[harshil@server1 conf]$ sudo systemctl status httpd
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Tue 2019-06-25 15:12:36 IST; 1min 49s ago
+     Docs: man:httpd(8)
+           man:apachectl(8)
+  Process: 11598 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=0/SUCCESS)
+ Main PID: 11607 (httpd)
+   Status: "Total requests: 0; Current requests/sec: 0; Current traffic:   0 B/sec"
+    Tasks: 6
+   CGroup: /system.slice/httpd.service
+           ├─11607 /usr/sbin/httpd -DFOREGROUND
+           ├─11608 /usr/sbin/httpd -DFOREGROUND
+           ├─11609 /usr/sbin/httpd -DFOREGROUND
+           ├─11610 /usr/sbin/httpd -DFOREGROUND
+           ├─11611 /usr/sbin/httpd -DFOREGROUND
+           └─11612 /usr/sbin/httpd -DFOREGROUND
+
+Jun 25 15:12:36 server1.example.com systemd[1]: Starting The Apache HTTP Server...
+Jun 25 15:12:36 server1.example.com systemd[1]: Started The Apache HTTP Server.
+[harshil@server1 conf]$
+[harshil@server1 conf]$ sudo vim httpd.conf
+[harshil@server1 conf]$ sudo systemctl restart httpd
+Job for httpd.service failed because the control process exited with error code. See "systemctl status httpd.service" and "journalctl -xe" for details.
+[harshil@server1 conf]$ sudo vim httpd.conf
+[harshil@server1 conf]$ sudo systemctl restart httpd
+Job for httpd.service failed because the control process exited with error code. See "systemctl status httpd.service" and "journalctl -xe" for details.
+[harshil@server1 conf]$ sudo systemctl status httpd
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+   Active: failed (Result: exit-code) since Tue 2019-06-25 15:17:31 IST; 12s ago
+     Docs: man:httpd(8)
+           man:apachectl(8)
+  Process: 11898 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 11895 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 11895 (code=exited, status=1/FAILURE)
+
+Jun 25 15:17:31 server1.example.com httpd[11895]: (13)Permission denied: AH00072: make_sock: could not bind to address [::]:3306
+Jun 25 15:17:31 server1.example.com httpd[11895]: (13)Permission denied: AH00072: make_sock: could not bind to address 0.0.0.0:3306
+Jun 25 15:17:31 server1.example.com httpd[11895]: no listening sockets available, shutting down
+Jun 25 15:17:31 server1.example.com httpd[11895]: AH00015: Unable to open logs
+Jun 25 15:17:31 server1.example.com systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Jun 25 15:17:31 server1.example.com kill[11898]: kill: cannot find process ""
+Jun 25 15:17:31 server1.example.com systemd[1]: httpd.service: control process exited, code=exited status=1
+Jun 25 15:17:31 server1.example.com systemd[1]: Failed to start The Apache HTTP Server.
+Jun 25 15:17:31 server1.example.com systemd[1]: Unit httpd.service entered failed state.
+Jun 25 15:17:31 server1.example.com systemd[1]: httpd.service failed.
+Hint: Some lines were ellipsized, use -l to show in full.
+[harshil@server1 conf]$ sudo vim httpd.conf
+[harshil@server1 conf]$ sudo systemctl restart httpd
+Job for httpd.service failed because the control process exited with error code. See "systemctl status httpd.service" and "journalctl -xe" for details.
+[harshil@server1 conf]$ sudo systemctl stop httpd
+[harshil@server1 conf]$ sudo systemctl start httpd
+Job for httpd.service failed because the control process exited with error code. See "systemctl status httpd.service" and "journalctl -xe" for details.
+[harshil@server1 conf]$ sudo systemctl status httpd
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+   Active: failed (Result: exit-code) since Tue 2019-06-25 15:18:34 IST; 10s ago
+     Docs: man:httpd(8)
+           man:apachectl(8)
+  Process: 11999 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 11994 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 11994 (code=exited, status=1/FAILURE)
+
+Jun 25 15:18:34 server1.example.com httpd[11994]: (13)Permission denied: AH00072: make_sock: could not bind to address [::]:88
+Jun 25 15:18:34 server1.example.com httpd[11994]: (13)Permission denied: AH00072: make_sock: could not bind to address 0.0.0.0:88
+Jun 25 15:18:34 server1.example.com httpd[11994]: no listening sockets available, shutting down
+Jun 25 15:18:34 server1.example.com httpd[11994]: AH00015: Unable to open logs
+Jun 25 15:18:34 server1.example.com systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Jun 25 15:18:34 server1.example.com kill[11999]: kill: cannot find process ""
+Jun 25 15:18:34 server1.example.com systemd[1]: httpd.service: control process exited, code=exited status=1
+Jun 25 15:18:34 server1.example.com systemd[1]: Failed to start The Apache HTTP Server.
+Jun 25 15:18:34 server1.example.com systemd[1]: Unit httpd.service entered failed state.
+Jun 25 15:18:34 server1.example.com systemd[1]: httpd.service failed.
+[harshil@server1 conf]$ sudo vim httpd.conf
+[harshil@server1 conf]$ sudo systemctl stop httpd
+[harshil@server1 conf]$ sudo systemctl start httpd
+[harshil@server1 conf]$ sudo systemctl status httpd
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Tue 2019-06-25 15:19:32 IST; 3s ago
+     Docs: man:httpd(8)
+           man:apachectl(8)
+  Process: 11999 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+ Main PID: 12057 (httpd)
+   Status: "Processing requests..."
+    Tasks: 6
+   CGroup: /system.slice/httpd.service
+           ├─12057 /usr/sbin/httpd -DFOREGROUND
+           ├─12062 /usr/sbin/httpd -DFOREGROUND
+           ├─12063 /usr/sbin/httpd -DFOREGROUND
+           ├─12064 /usr/sbin/httpd -DFOREGROUND
+           ├─12065 /usr/sbin/httpd -DFOREGROUND
+           └─12066 /usr/sbin/httpd -DFOREGROUND
+
+Jun 25 15:19:32 server1.example.com systemd[1]: Starting The Apache HTTP Server...
+Jun 25 15:19:32 server1.example.com systemd[1]: Started The Apache HTTP Server.
+[harshil@server1 conf]$
+[harshil@server1 conf]$ getenfoce
+bash: getenfoce: command not found...
+[harshil@server1 conf]$ getenforce
+Enforcing
+[harshil@server1 conf]$ elinks
+bash: elinks: command not found...
+[harshil@server1 conf]$ sudo yum install elinks
+Loaded plugins: fastestmirror, langpacks, product-id, search-disabled-repos, subscription-manager
+This system is not registered with an entitlement server. You can use subscription-manager to register.
+Loading mirror speeds from cached hostfile
+ * base: centos.mirrors.estointernet.in
+ * extras: centos.mirrors.estointernet.in
+ * updates: centos.mirrors.estointernet.in
+base                                                                                                         | 3.6 kB  00:00:00
+extras                                                                                                       | 3.4 kB  00:00:00
+updates                                                                                                      | 3.4 kB  00:00:00
+updates/7/x86_64/primary_db                                                                                  | 6.4 MB  00:00:09
+Resolving Dependencies
+--> Running transaction check
+---> Package elinks.x86_64 0:0.12-0.37.pre6.el7.0.1 will be installed
+--> Processing Dependency: libnss_compat_ossl.so.0()(64bit) for package: elinks-0.12-0.37.pre6.el7.0.1.x86_64
+--> Processing Dependency: libmozjs185.so.1.0()(64bit) for package: elinks-0.12-0.37.pre6.el7.0.1.x86_64
+--> Running transaction check
+---> Package js.x86_64 1:1.8.5-20.el7 will be installed
+---> Package nss_compat_ossl.x86_64 0:0.9.6-8.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+====================================================================================================================================
+ Package                          Arch                    Version                                    Repository                Size
+====================================================================================================================================
+Installing:
+ elinks                           x86_64                  0.12-0.37.pre6.el7.0.1                     updates                  882 k
+Installing for dependencies:
+ js                               x86_64                  1:1.8.5-20.el7                             base                     2.3 M
+ nss_compat_ossl                  x86_64                  0.9.6-8.el7                                base                      37 k
+
+Transaction Summary
+====================================================================================================================================
+Install  1 Package (+2 Dependent packages)
+
+Total download size: 3.2 M
+Installed size: 9.6 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/3): nss_compat_ossl-0.9.6-8.el7.x86_64.rpm                                                                |  37 kB  00:00:01
+(2/3): elinks-0.12-0.37.pre6.el7.0.1.x86_64.rpm                                                              | 882 kB  00:00:02
+(3/3): js-1.8.5-20.el7.x86_64.rpm                                                                            | 2.3 MB  00:00:04
+------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                               770 kB/s | 3.2 MB  00:00:04
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : nss_compat_ossl-0.9.6-8.el7.x86_64                                                                               1/3
+  Installing : 1:js-1.8.5-20.el7.x86_64                                                                                         2/3
+  Installing : elinks-0.12-0.37.pre6.el7.0.1.x86_64                                                                             3/3
+  Verifying  : elinks-0.12-0.37.pre6.el7.0.1.x86_64                                                                             1/3
+  Verifying  : 1:js-1.8.5-20.el7.x86_64                                                                                         2/3
+  Verifying  : nss_compat_ossl-0.9.6-8.el7.x86_64                                                                               3/3
+
+Installed:
+  elinks.x86_64 0:0.12-0.37.pre6.el7.0.1
+
+Dependency Installed:
+  js.x86_64 1:1.8.5-20.el7                                   nss_compat_ossl.x86_64 0:0.9.6-8.el7
+
+Complete!
+[harshil@server1 conf]$ elinks https://192.168.0.50
+
+
+
+
+
+
+
+
+
+
+
+
+                                              ╔══════════════════════════════════════╗
+                                              ║                                      ║
+                                              ║  Do you really want to exit ELinks?  ║
+                                              ║                                      ║
+                                              ║          [ Yes ]   [ No ]            ║
+                                              ╚══════════════════════════════════════╝
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                                           [------]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[harshil@server1 conf]$
+[harshil@server1 conf]$ cd
+[harshil@server1 ~]$ ll
+total 60
+-rw-rw-r--. 1 harshil harshil 17219 Jun  4 22:42 04062019
+-rw-rw-r--. 1 harshil harshil  4073 May 17 23:20 17052019
+-rw-rw-r--. 1 harshil harshil  8165 May 18 07:22 18052019
+-rw-rw-r--. 1 harshil harshil   460 May 18 07:48 180520192
+-rw-rw-r--. 1 harshil harshil 13853 May 19 10:46 19052018
+drwxr-xr-x. 1 harshil harshil    58 Jun 24 10:51 Desktop
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Documents
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Downloads
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Music
+-rw-rw-r--. 1 harshil harshil   464 May 17 23:00 network_teaming
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Pictures
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Public
+-rw-rw-r--. 1 harshil harshil     0 May 17 21:44 systemctl_restart_httpd.service
+-rw-rw-r--. 1 harshil harshil  1299 May 17 21:44 systemctl_status_httpd.service
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Templates
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Videos
+[harshil@server1 ~]$ mkdir -p /website/site1
+mkdir: cannot create directory ‘/website’: Permission denied
+[harshil@server1 ~]$ sudo mkdir -p /website/site1
+[harshil@server1 ~]$ ll
+total 60
+-rw-rw-r--. 1 harshil harshil 17219 Jun  4 22:42 04062019
+-rw-rw-r--. 1 harshil harshil  4073 May 17 23:20 17052019
+-rw-rw-r--. 1 harshil harshil  8165 May 18 07:22 18052019
+-rw-rw-r--. 1 harshil harshil   460 May 18 07:48 180520192
+-rw-rw-r--. 1 harshil harshil 13853 May 19 10:46 19052018
+drwxr-xr-x. 1 harshil harshil    58 Jun 24 10:51 Desktop
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Documents
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Downloads
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Music
+-rw-rw-r--. 1 harshil harshil   464 May 17 23:00 network_teaming
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Pictures
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Public
+-rw-rw-r--. 1 harshil harshil     0 May 17 21:44 systemctl_restart_httpd.service
+-rw-rw-r--. 1 harshil harshil  1299 May 17 21:44 systemctl_status_httpd.service
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Templates
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Videos
+[harshil@server1 ~]$ cd /website/site1/
+[harshil@server1 site1]$ ll
+total 0
+[harshil@server1 site1]$ touch index.html
+touch: cannot touch ‘index.html’: Permission denied
+[harshil@server1 site1]$ sudo touch index.html
+[harshil@server1 site1]$ sudo vim index.html
+[harshil@server1 site1]$ ll
+total 4
+-rw-r--r--. 1 root root 286 Jun 25 15:25 index.html
+[harshil@server1 site1]$ sudo semanage fcontext -
+-a           -d           --deleteall  -f           --help       --locallist  -n           -S
+--add        -D           -e           --ftype      -l           -m           --noheading  -t
+-C           --delete     --equal      -h           --list       --modify     -o           --type
+[harshil@server1 site1]$ sudo semanage fcontext -
+-a           -d           --deleteall  -f           --help       --locallist  -n           -S
+--add        -D           -e           --ftype      -l           -m           --noheading  -t
+-C           --delete     --equal      -h           --list       --modify     -o           --type
+[harshil@server1 site1]$ sudo semanage fcontext -a -t httpd_sys_content_t '/website/site1(/.*)?'
+[harshil@server1 site1]$ sudo semanage --help
+usage: semanage [-h]
+
+                {import,export,login,user,port,ibpkey,ibendport,interface,module,node,fcontext,boolean,permissive,dontaudit}
+                ...
+
+semanage is used to configure certain elements of SELinux policy with-out
+requiring modification to or recompilation from policy source.
+
+positional arguments:
+  {import,export,login,user,port,ibpkey,ibendport,interface,module,node,fcontext,boolean,permissive,dontaudit}
+    import              Import local customizations
+    export              Output local customizations
+    login               Manage login mappings between linux users and SELinux
+                        confined users
+    user                Manage SELinux confined users (Roles and levels for an
+                        SELinux user)
+    port                Manage network port type definitions
+    ibpkey              Manage infiniband ibpkey type definitions
+    ibendport           Manage infiniband end port type definitions
+    interface           Manage network interface type definitions
+    module              Manage SELinux policy modules
+    node                Manage network node type definitions
+    fcontext            Manage file context mapping definitions
+    boolean             Manage booleans to selectively enable functionality
+    permissive          Manage process type enforcement mode
+    dontaudit           Disable/Enable dontaudit rules in policy
+
+optional arguments:
+  -h, --help            show this help message and exit
+[harshil@server1 site1]$ sudo semanage fcontext --help
+usage: semanage fcontext [-h] [-n] [-N] [-S STORE] [ --add ( -t TYPE -f FTYPE -r RANGE -s SEUSER | -e EQUAL ) FILE_SPEC ) | --delete ( -t TYPE -f FTYPE | -e EQUAL ) FILE_SPEC ) | --deleteall  | --extract  | --list -C | --modify ( -t TYPE -f FTYPE -r RANGE -s SEUSER | -e EQUAL ) FILE_SPEC ) ]
+
+positional arguments:
+  file_spec             file_spec
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -C, --locallist       List fcontext local customizations
+  -n, --noheading       Do not print heading when listing fcontext object
+                        types
+  -N, --noreload        Do not reload policy after commit
+  -S STORE, --store STORE
+                        Select an alternate SELinux Policy Store to manage
+  -a, --add             Add a record of the fcontext object type
+  -d, --delete          Delete a record of the fcontext object type
+  -m, --modify          Modify a record of the fcontext object type
+  -l, --list            List records of the fcontext object type
+  -E, --extract         Extract customizable commands, for use within a
+                        transaction
+  -D, --deleteall       Remove all fcontext objects local customizations
+  -e EQUAL, --equal EQUAL
+                        Substitute target path with sourcepath when generating
+                        default label. This is used with fcontext. Requires
+                        source and target path arguments. The context labeling
+                        for the target subtree is made equivalent to that
+                        defined for the source.
+  -f {a,f,d,c,b,s,l,p}, --ftype {a,f,d,c,b,s,l,p}
+                        File Type. This is used with fcontext. Requires a file
+                        type as shown in the mode field by ls, e.g. use 'd' to
+                        match only directories or 'f' to match only regular
+                        files. The following file type options can be passed:
+                        f (regular file),d (directory),c (character device), b
+                        (block device),s (socket),l (symbolic link), p (named
+                        pipe). If you do not specify a file type, the file
+                        type will default to "all files".
+  -s SEUSER, --seuser SEUSER
+                        SELinux user name
+  -t TYPE, --type TYPE  SELinux Type for the object
+  -r RANGE, --range RANGE
+                        MLS/MCS Security Range (MLS/MCS Systems only) SELinux
+                        Range for SELinux login mapping defaults to the
+                        SELinux user record range.
+[harshil@server1 site1]$ ll
+total 4
+-rw-r--r--. 1 root root 286 Jun 25 15:25 index.html
+[harshil@server1 site1]$ chown apache:apache
+chown: missing operand after ‘apache:apache’
+Try 'chown --help' for more information.
+[harshil@server1 site1]$ sudo chown apache:apache /website/*
+[harshil@server1 site1]$ ll
+total 4
+-rw-r--r--. 1 root root 286 Jun 25 15:25 index.html
+[harshil@server1 site1]$ cd ..
+[harshil@server1 website]$ ll
+total 0
+drwxr-xr-x. 1 apache apache 20 Jun 25 15:25 site1
+[harshil@server1 website]$ sudo chown -R apache:apache /website/*
+[harshil@server1 website]$ ll
+total 0
+drwxr-xr-x. 1 apache apache 20 Jun 25 15:25 site1
+[harshil@server1 website]$ cd site1/
+[harshil@server1 site1]$ ll
+total 4
+-rw-r--r--. 1 apache apache 286 Jun 25 15:25 index.html
+[harshil@server1 site1]$ cd ..
+[harshil@server1 website]$ cd
+[harshil@server1 ~]$ cd /etc/httpd/conf/
+[harshil@server1 conf]$ ll
+total 40
+-rw-r--r--. 1 root root 11754 Jun 25 15:19 httpd.conf
+-rw-r--r--. 1 root root 11753 Apr 24 19:14 httpd_old.conf
+-rw-r--r--. 1 root root 13077 Apr 24 19:16 magic
+[harshil@server1 conf]$ sudo vim httpd.conf
+[harshil@server1 conf]$ sudo systemctl restart httpd
+[harshil@server1 conf]$ sudo systemctl stop httpd
+[harshil@server1 conf]$ sudo systemctl start httpd
+[harshil@server1 conf]$ sudo vim httpd.conf
+[harshil@server1 conf]$ sudo systemctl stop httpd
+[harshil@server1 conf]$ sudo systemctl start httpd
+[harshil@server1 conf]$ ll
+total 40
+-rw-r--r--. 1 root root 11791 Jun 25 15:33 httpd.conf
+-rw-r--r--. 1 root root 11753 Apr 24 19:14 httpd_old.conf
+-rw-r--r--. 1 root root 13077 Apr 24 19:16 magic
+[harshil@server1 conf]$ cd ..
+[harshil@server1 httpd]$ cd conf
+conf/           conf.d/         conf.modules.d/
+[harshil@server1 httpd]$ cd conf.
+conf.d/         conf.modules.d/
+[harshil@server1 httpd]$ cd conf.d/
+[harshil@server1 conf.d]$ ls
+autoindex.conf  README  userdir.conf  welcome.conf
+[harshil@server1 conf.d]$ vim welcome.conf
+[harshil@server1 conf.d]$ sudo vim welcome.conf
+[harshil@server1 conf.d]$ sudo systemctl stop httpd
+[harshil@server1 conf.d]$ sudo systemctl start httpd
+[harshil@server1 conf.d]$ cd ..
+[harshil@server1 httpd]$ ll
+total 12
+drwxr-xr-x. 1 root root  58 Jun 25 15:33 conf
+drwxr-xr-x. 1 root root  88 Jun 25 15:35 conf.d
+drwxr-xr-x. 1 root root 168 May 17 21:43 conf.modules.d
+lrwxrwxrwx. 1 root root  19 May 17 21:43 logs -> ../../var/log/httpd
+lrwxrwxrwx. 1 root root  29 May 17 21:43 modules -> ../../usr/lib64/httpd/modules
+lrwxrwxrwx. 1 root root  10 May 17 21:43 run -> /run/httpd
+[harshil@server1 httpd]$ cd conf
+[harshil@server1 conf]$ ll
+total 40
+-rw-r--r--. 1 root root 11791 Jun 25 15:33 httpd.conf
+-rw-r--r--. 1 root root 11753 Apr 24 19:14 httpd_old.conf
+-rw-r--r--. 1 root root 13077 Apr 24 19:16 magic
+[harshil@server1 conf]$ sudo vim httpd.conf
+[harshil@server1 conf]$ sudo setsebool -P httpd_enable_homedirs true
+[harshil@server1 conf]$ cd
+[harshil@server1 ~]$ //
+-bash: //: Is a directory
+[harshil@server1 ~]$ cd /
+[harshil@server1 /]$ ll
+total 16
+lrwxrwxrwx.   1 root root    7 May 17 21:11 bin -> usr/bin
+dr-xr-xr-x.   1 root root 1578 Jun 20 19:34 boot
+drwxr-xr-x.  20 root root 3360 Jun 25 14:17 dev
+drwxr-xr-x.   1 root root 5384 Jun 25 15:22 etc
+drwxr-xr-x.   1 root root   14 May 17 21:27 home
+drwxr-xr-x.   1 root root    0 May 25 07:55 iscsidisk
+lrwxrwxrwx.   1 root root    7 May 17 21:11 lib -> usr/lib
+lrwxrwxrwx.   1 root root    9 May 17 21:11 lib64 -> usr/lib64
+drwxr-xr-x.   1 root root    0 Apr 11  2018 media
+drwxr-xr-x.   1 root root    0 Apr 11  2018 mnt
+drwxr-xr-x.   1 root root    4 May 17 21:19 opt
+dr-xr-xr-x. 259 root root    0 Jun 25 14:17 proc
+dr-xr-x---.   1 root root  476 Jun 25 15:40 root
+drwxr-xr-x.  47 root root 1480 Jun 25 15:22 run
+lrwxrwxrwx.   1 root root    8 May 17 21:11 sbin -> usr/sbin
+drwxr-xr-x.   1 root root    0 Apr 11  2018 srv
+dr-xr-xr-x.  13 root root    0 Jun 25 14:17 sys
+drwxrwxrwt.   1 root root 5188 Jun 25 15:36 tmp
+drwxr-xr-x.   1 root root  106 May 17 21:11 usr
+drwxr-xr-x.   1 root root  218 May 25 06:46 var
+drwxr-xr-x.   1 root root   10 Jun 25 15:24 website
+[harshil@server1 /]$ chown -R apache:apache website/
+chown: changing ownership of ‘website/site1/index.html’: Operation not permitted
+chown: changing ownership of ‘website/site1’: Operation not permitted
+chown: changing ownership of ‘website/’: Operation not permitted
+[harshil@server1 /]$ sudo chown -R apache:apache website/
+[harshil@server1 /]$ ll
+total 16
+lrwxrwxrwx.   1 root   root      7 May 17 21:11 bin -> usr/bin
+dr-xr-xr-x.   1 root   root   1578 Jun 20 19:34 boot
+drwxr-xr-x.  20 root   root   3360 Jun 25 14:17 dev
+drwxr-xr-x.   1 root   root   5384 Jun 25 15:22 etc
+drwxr-xr-x.   1 root   root     14 May 17 21:27 home
+drwxr-xr-x.   1 root   root      0 May 25 07:55 iscsidisk
+lrwxrwxrwx.   1 root   root      7 May 17 21:11 lib -> usr/lib
+lrwxrwxrwx.   1 root   root      9 May 17 21:11 lib64 -> usr/lib64
+drwxr-xr-x.   1 root   root      0 Apr 11  2018 media
+drwxr-xr-x.   1 root   root      0 Apr 11  2018 mnt
+drwxr-xr-x.   1 root   root      4 May 17 21:19 opt
+dr-xr-xr-x. 263 root   root      0 Jun 25 14:17 proc
+dr-xr-x---.   1 root   root    476 Jun 25 15:40 root
+drwxr-xr-x.  47 root   root   1480 Jun 25 15:22 run
+lrwxrwxrwx.   1 root   root      8 May 17 21:11 sbin -> usr/sbin
+drwxr-xr-x.   1 root   root      0 Apr 11  2018 srv
+dr-xr-xr-x.  13 root   root      0 Jun 25 14:17 sys
+drwxrwxrwt.   1 root   root   5188 Jun 25 15:41 tmp
+drwxr-xr-x.   1 root   root    106 May 17 21:11 usr
+drwxr-xr-x.   1 root   root    218 May 25 06:46 var
+drwxr-xr-x.   1 apache apache   10 Jun 25 15:24 website
+[harshil@server1 /]$ chmod 775 website/
+chmod: changing permissions of ‘website/’: Operation not permitted
+[harshil@server1 /]$ sudo chmod 775 website/
+[harshil@server1 /]$ ll
+total 16
+lrwxrwxrwx.   1 root   root      7 May 17 21:11 bin -> usr/bin
+dr-xr-xr-x.   1 root   root   1578 Jun 20 19:34 boot
+drwxr-xr-x.  20 root   root   3360 Jun 25 14:17 dev
+drwxr-xr-x.   1 root   root   5384 Jun 25 15:22 etc
+drwxr-xr-x.   1 root   root     14 May 17 21:27 home
+drwxr-xr-x.   1 root   root      0 May 25 07:55 iscsidisk
+lrwxrwxrwx.   1 root   root      7 May 17 21:11 lib -> usr/lib
+lrwxrwxrwx.   1 root   root      9 May 17 21:11 lib64 -> usr/lib64
+drwxr-xr-x.   1 root   root      0 Apr 11  2018 media
+drwxr-xr-x.   1 root   root      0 Apr 11  2018 mnt
+drwxr-xr-x.   1 root   root      4 May 17 21:19 opt
+dr-xr-xr-x. 263 root   root      0 Jun 25 14:17 proc
+dr-xr-x---.   1 root   root    476 Jun 25 15:40 root
+drwxr-xr-x.  47 root   root   1480 Jun 25 15:22 run
+lrwxrwxrwx.   1 root   root      8 May 17 21:11 sbin -> usr/sbin
+drwxr-xr-x.   1 root   root      0 Apr 11  2018 srv
+dr-xr-xr-x.  13 root   root      0 Jun 25 14:17 sys
+drwxrwxrwt.   1 root   root   5188 Jun 25 15:42 tmp
+drwxr-xr-x.   1 root   root    106 May 17 21:11 usr
+drwxr-xr-x.   1 root   root    218 May 25 06:46 var
+drwxrwxr-x.   1 apache apache   10 Jun 25 15:24 website
+[harshil@server1 /]$ sudo systemctl restart httpd
+[harshil@server1 /]$ cp website/* /home/harshil/
+cp: omitting directory ‘website/site1’
+[harshil@server1 /]$ cp -R website/* /home/harshil/
+[harshil@server1 /]$ cd /home/harshil/
+[harshil@server1 ~]$ ll
+total 60
+-rw-rw-r--. 1 harshil harshil 17219 Jun  4 22:42 04062019
+-rw-rw-r--. 1 harshil harshil  4073 May 17 23:20 17052019
+-rw-rw-r--. 1 harshil harshil  8165 May 18 07:22 18052019
+-rw-rw-r--. 1 harshil harshil   460 May 18 07:48 180520192
+-rw-rw-r--. 1 harshil harshil 13853 May 19 10:46 19052018
+drwxr-xr-x. 1 harshil harshil    58 Jun 24 10:51 Desktop
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Documents
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Downloads
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Music
+-rw-rw-r--. 1 harshil harshil   464 May 17 23:00 network_teaming
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Pictures
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Public
+drwxr-xr-x. 1 harshil harshil    20 Jun 25 15:43 site1
+-rw-rw-r--. 1 harshil harshil     0 May 17 21:44 systemctl_restart_httpd.service
+-rw-rw-r--. 1 harshil harshil  1299 May 17 21:44 systemctl_status_httpd.service
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Templates
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Videos
+[harshil@server1 ~]$ cd /home/harshil/site1/
+[harshil@server1 site1]$ sudo chown -R /home/harshil/site1/*
+chown: missing operand after ‘/home/harshil/site1/index.html’
+Try 'chown --help' for more information.
+[harshil@server1 site1]$ sudo chown apache:apache -R /home/harshil/site1/*
+[harshil@server1 site1]$ cd ..
+[harshil@server1 ~]$ ll
+total 60
+-rw-rw-r--. 1 harshil harshil 17219 Jun  4 22:42 04062019
+-rw-rw-r--. 1 harshil harshil  4073 May 17 23:20 17052019
+-rw-rw-r--. 1 harshil harshil  8165 May 18 07:22 18052019
+-rw-rw-r--. 1 harshil harshil   460 May 18 07:48 180520192
+-rw-rw-r--. 1 harshil harshil 13853 May 19 10:46 19052018
+drwxr-xr-x. 1 harshil harshil    58 Jun 24 10:51 Desktop
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Documents
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Downloads
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Music
+-rw-rw-r--. 1 harshil harshil   464 May 17 23:00 network_teaming
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Pictures
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Public
+drwxr-xr-x. 1 harshil harshil    20 Jun 25 15:43 site1
+-rw-rw-r--. 1 harshil harshil     0 May 17 21:44 systemctl_restart_httpd.service
+-rw-rw-r--. 1 harshil harshil  1299 May 17 21:44 systemctl_status_httpd.service
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Templates
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Videos
+[harshil@server1 ~]$ sudo chown apache:apache -R /home/harshil/site1
+[harshil@server1 ~]$ ll
+total 60
+-rw-rw-r--. 1 harshil harshil 17219 Jun  4 22:42 04062019
+-rw-rw-r--. 1 harshil harshil  4073 May 17 23:20 17052019
+-rw-rw-r--. 1 harshil harshil  8165 May 18 07:22 18052019
+-rw-rw-r--. 1 harshil harshil   460 May 18 07:48 180520192
+-rw-rw-r--. 1 harshil harshil 13853 May 19 10:46 19052018
+drwxr-xr-x. 1 harshil harshil    58 Jun 24 10:51 Desktop
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Documents
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Downloads
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Music
+-rw-rw-r--. 1 harshil harshil   464 May 17 23:00 network_teaming
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Pictures
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Public
+drwxr-xr-x. 1 apache  apache     20 Jun 25 15:43 site1
+-rw-rw-r--. 1 harshil harshil     0 May 17 21:44 systemctl_restart_httpd.service
+-rw-rw-r--. 1 harshil harshil  1299 May 17 21:44 systemctl_status_httpd.service
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Templates
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Videos
+[harshil@server1 ~]$ cd /etc/httpd/conf
+[harshil@server1 conf]$ ll
+total 40
+-rw-r--r--. 1 root root 11791 Jun 25 15:33 httpd.conf
+-rw-r--r--. 1 root root 11753 Apr 24 19:14 httpd_old.conf
+-rw-r--r--. 1 root root 13077 Apr 24 19:16 magic
+[harshil@server1 conf]$ sudo vim httpd.conf
+[harshil@server1 conf]$ sudo semanage fcontext -a -t "httpd_sys_contect_t '/home/harshil/site1(/.*)?'
+>
+> ^C
+[harshil@server1 conf]$ sudo semanage fcontext -a -t "httpd_sys_content_t '/home/harshil/site1(/.*)?'
+
+> ^C
+[harshil@server1 conf]$ sudo semanage fcontex  -a -t httpd_sys_content_t '/home/harshil/site1(/.*)?'
+
+usage: semanage [-h]
+
+                {import,export,login,user,port,ibpkey,ibendport,interface,module,node,fcontext,boolean,permissive,dontaudit}
+                ...
+semanage: error: argument subcommand: invalid choice: 'fcontex' (choose from 'import', 'export', 'login', 'user', 'port', 'ibpkey', 'ibendport', 'interface', 'module', 'node', 'fcontext', 'boolean', 'permissive', 'dontaudit')
+[harshil@server1 conf]$ sudo semanage fcontext  -a -t httpd_sys_content_t '/home/harshil/site1(/.*)?'
+[harshil@server1 conf]$ sudo systemctl stop httpd
+[harshil@server1 conf]$ sudo systemctl start httpd
+[harshil@server1 conf]$ cd /home/harshil/site1/
+[harshil@server1 site1]$ ll
+total 4
+-rw-r--r--. 1 apache apache 286 Jun 25 15:43 index.html
+[harshil@server1 site1]$ chmod 775 index.html
+chmod: changing permissions of ‘index.html’: Operation not permitted
+[harshil@server1 site1]$ sudo chmod 775 index.html
+[harshil@server1 site1]$ ll
+total 4
+-rwxrwxr-x. 1 apache apache 286 Jun 25 15:43 index.html
+[harshil@server1 site1]$ cd ..
+[harshil@server1 ~]$ ll
+total 60
+-rw-rw-r--. 1 harshil harshil 17219 Jun  4 22:42 04062019
+-rw-rw-r--. 1 harshil harshil  4073 May 17 23:20 17052019
+-rw-rw-r--. 1 harshil harshil  8165 May 18 07:22 18052019
+-rw-rw-r--. 1 harshil harshil   460 May 18 07:48 180520192
+-rw-rw-r--. 1 harshil harshil 13853 May 19 10:46 19052018
+drwxr-xr-x. 1 harshil harshil    58 Jun 24 10:51 Desktop
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Documents
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Downloads
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Music
+-rw-rw-r--. 1 harshil harshil   464 May 17 23:00 network_teaming
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Pictures
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Public
+drwxr-xr-x. 1 apache  apache     20 Jun 25 15:43 site1
+-rw-rw-r--. 1 harshil harshil     0 May 17 21:44 systemctl_restart_httpd.service
+-rw-rw-r--. 1 harshil harshil  1299 May 17 21:44 systemctl_status_httpd.service
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Templates
+drwxr-xr-x. 1 harshil harshil     0 May 18 02:38 Videos
+[harshil@server1 ~]$ sestatus
+SELinux status:                 enabled
+SELinuxfs mount:                /sys/fs/selinux
+SELinux root directory:         /etc/selinux
+Loaded policy name:             targeted
+Current mode:                   enforcing
+Mode from config file:          enforcing
+Policy MLS status:              enabled
+Policy deny_unknown status:     allowed
+Max kernel policy version:      31
+[harshil@server1 ~]$ sudo sestatus
+SELinux status:                 enabled
+SELinuxfs mount:                /sys/fs/selinux
+SELinux root directory:         /etc/selinux
+Loaded policy name:             targeted
+Current mode:                   enforcing
+Mode from config file:          enforcing
+Policy MLS status:              enabled
+Policy deny_unknown status:     allowed
+Max kernel policy version:      31
+[harshil@server1 ~]$ sets
+setsebool  setserial  setsid
+[harshil@server1 ~]$ sets
+setsebool  setserial  setsid
+[harshil@server1 ~]$ setsebool
+Display all 319 possibilities? (y or n)
+[harshil@server1 ~]$ setsebool
+Display all 319 possibilities? (y or n)
+[harshil@server1 ~]$ semanage
+boolean     export      import      login       node        port
+dontaudit   fcontext    interface   module      permissive  user
+[harshil@server1 ~]$ semanage
+boolean     export      import      login       node        port
+dontaudit   fcontext    interface   module      permissive  user
+[harshil@server1 ~]$ semanage permissive -
+-a           -d           -h           -l           -n           -o
+--add        --delete     --help       --list       --noheading  -S
+[harshil@server1 ~]$ cd /etc/httpd/conf
+[harshil@server1 conf]$ ll
+total 40
+-rw-r--r--. 1 root root 11806 Jun 25 15:46 httpd.conf
+-rw-r--r--. 1 root root 11753 Apr 24 19:14 httpd_old.conf
+-rw-r--r--. 1 root root 13077 Apr 24 19:16 magic
+[harshil@server1 conf]$ sudo vim httpd.conf
+[harshil@server1 conf]$ sudo systemctl restart httpd
+[harshil@server1 conf]$ cp /home/harshil/site1/index.html /var/www/
+cgi-bin/ html/
+[harshil@server1 conf]$ cp /home/harshil/site1/index.html /var/www/html/^C
+[harshil@server1 conf]$ cd /var/www/html/
+[harshil@server1 html]$ ll
+total 0
+[harshil@server1 html]$ sudo mkdir site1
+[harshil@server1 html]$ ll
+total 0
+drwxr-xr-x. 1 root root 0 Jun 25 15:57 site1
+[harshil@server1 html]$ sudo cp /home/harshil/site1/index.html /var/www/html/site1/
+[harshil@server1 html]$ cd /etc/httpd/
+[harshil@server1 httpd]$ ll
+total 12
+drwxr-xr-x. 1 root root  58 Jun 25 15:55 conf
+drwxr-xr-x. 1 root root  88 Jun 25 15:35 conf.d
+drwxr-xr-x. 1 root root 168 May 17 21:43 conf.modules.d
+lrwxrwxrwx. 1 root root  19 May 17 21:43 logs -> ../../var/log/httpd
+lrwxrwxrwx. 1 root root  29 May 17 21:43 modules -> ../../usr/lib64/httpd/modules
+lrwxrwxrwx. 1 root root  10 May 17 21:43 run -> /run/httpd
+[harshil@server1 httpd]$ cd conf
+[harshil@server1 conf]$ ll
+total 40
+-rw-r--r--. 1 root root 11952 Jun 25 15:55 httpd.conf
+-rw-r--r--. 1 root root 11753 Apr 24 19:14 httpd_old.conf
+-rw-r--r--. 1 root root 13077 Apr 24 19:16 magic
+[harshil@server1 conf]$ sudo httpd.
+sudo: httpd.: command not found
+[harshil@server1 conf]$ sudo vim httpd.conf
+[harshil@server1 conf]$ sudo systemctl restart httpd
+[harshil@server1 conf]$ restorecon -R /home/harshil/site1/
+restorecon set context /home/harshil/site1->unconfined_u:object_r:httpd_sys_content_t:s0 failed:'Operation not permitted'
+[harshil@server1 conf]$ sudo restorecon -R /home/harshil/site1/
+[harshil@server1 conf]$ ls -Z /home/harshil/site1/
+-rwxrwxr-x. apache apache unconfined_u:object_r:httpd_sys_content_t:s0 index.html
+[harshil@server1 conf]$ ls -Z /var/www/html
+drwxr-xr-x. root root unconfined_u:object_r:httpd_sys_content_t:s0 site1
+[harshil@server1 conf]$ ll
+total 40
+-rw-r--r--. 1 root root 11957 Jun 25 15:59 httpd.conf
+-rw-r--r--. 1 root root 11753 Apr 24 19:14 httpd_old.conf
+-rw-r--r--. 1 root root 13077 Apr 24 19:16 magic
+[harshil@server1 conf]$ sudo vim httpd
+^C
+[harshil@server1 conf]$ ll
+total 40
+-rw-r--r--. 1 root root 11957 Jun 25 15:59 httpd.conf
+-rw-r--r--. 1 root root 11753 Apr 24 19:14 httpd_old.conf
+-rw-r--r--. 1 root root 13077 Apr 24 19:16 magic
+[harshil@server1 conf]$ sudo vim httpd.conf
+[harshil@server1 conf]$ sudo systemctl restart httpd
+[harshil@server1 conf]$ semanage fcontext -a -t httpd_sys_content_t "/home/harshil/site1(/.*)?"
+ValueError: SELinux policy is not managed or store cannot be accessed.
+[harshil@server1 conf]$ sudo semanage fcontext -a -t httpd_sys_content_t "/home/harshil/site1(/.*)?"
+[harshil@server1 conf]$ restorecon -R -v /home/harshil/site1/
+[harshil@server1 conf]$ getsebool -a  | grep httpd_enable_homedirs
+httpd_enable_homedirs --> on
+[harshil@server1 conf]$
+[harshil@server1 conf]$ ll
+total 40
+-rw-r--r--. 1 root root 11969 Jun 25 16:04 httpd.conf
+-rw-r--r--. 1 root root 11753 Apr 24 19:14 httpd_old.conf
+-rw-r--r--. 1 root root 13077 Apr 24 19:16 magic
+[harshil@server1 conf]$ sudo vim httpd.conf
+[harshil@server1 conf]$ ll
+total 40
+-rw-r--r--. 1 root root 11969 Jun 25 16:04 httpd.conf
+-rw-r--r--. 1 root root 11753 Apr 24 19:14 httpd_old.conf
+-rw-r--r--. 1 root root 13077 Apr 24 19:16 magic
+[harshil@server1 conf]$ cd /home/harshil/site1/
+[harshil@server1 site1]$ ll
+total 4
+-rwxrwxr-x. 1 apache apache 286 Jun 25 15:43 index.html
+[harshil@server1 site1]$ pwd
+/home/harshil/site1
+[harshil@server1 site1]$ sudo tail -f /var/log/audit/audit.log
+type=USER_ACCT msg=audit(1561459201.090:1364): pid=14435 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:crond_t:s0-s0:c0.c1023 msg='op=PAM:accounting grantors=pam_access,pam_unix,pam_localuser acct="root" exe="/usr/sbin/crond" hostname=? addr=? terminal=cron res=success'
+type=CRED_ACQ msg=audit(1561459201.091:1365): pid=14435 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:crond_t:s0-s0:c0.c1023 msg='op=PAM:setcred grantors=pam_env,pam_localuser,pam_unix acct="root" exe="/usr/sbin/crond" hostname=? addr=? terminal=cron res=success'
+type=LOGIN msg=audit(1561459201.094:1366): pid=14435 uid=0 subj=system_u:system_r:crond_t:s0-s0:c0.c1023 old-auid=4294967295 auid=0 tty=(none) old-ses=4294967295 ses=29 res=1
+type=USER_AVC msg=audit(1561459201.169:1367): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='avc:  received policyload notice (seqno=6)  exe="/usr/lib/systemd/systemd" sauid=0 hostname=? addr=? terminal=?'
+type=USER_START msg=audit(1561459201.242:1368): pid=14435 uid=0 auid=0 ses=29 subj=system_u:system_r:crond_t:s0-s0:c0.c1023 msg='op=PAM:session_open grantors=pam_loginuid,pam_keyinit,pam_limits,pam_systemd,pam_krb5,pam_ldap acct="root" exe="/usr/sbin/crond" hostname=? addr=? terminal=cron res=success'
+type=USER_ACCT msg=audit(1561459202.619:1369): pid=14434 uid=1000 auid=1000 ses=11 subj=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 msg='op=PAM:accounting grantors=pam_unix,pam_localuser acct="harshil" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+type=USER_CMD msg=audit(1561459202.621:1370): pid=14434 uid=1000 auid=1000 ses=11 subj=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 msg='cwd="/home/harshil/site1" cmd=7461696C202D66202F7661722F6C6F672F61756469742F61756469742E6C6F67 terminal=pts/1 res=success'
+type=CRED_REFR msg=audit(1561459202.621:1371): pid=14434 uid=0 auid=1000 ses=11 subj=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 msg='op=PAM:setcred grantors=pam_env,pam_localuser,pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+type=CRED_REFR msg=audit(1561459202.628:1372): pid=14435 uid=0 auid=0 ses=29 subj=system_u:system_r:crond_t:s0-s0:c0.c1023 msg='op=PAM:setcred grantors=pam_env,pam_localuser,pam_unix acct="root" exe="/usr/sbin/crond" hostname=? addr=? terminal=cron res=success'
+type=USER_START msg=audit(1561459202.641:1373): pid=14434 uid=0 auid=1000 ses=11 subj=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 msg='op=PAM:session_open grantors=pam_keyinit,pam_limits,pam_keyinit,pam_limits,pam_systemd,pam_unix,pam_krb5,pam_ldap acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/1 res=success'
+type=CRED_DISP msg=audit(1561459202.763:1374): pid=14435 uid=0 auid=0 ses=29 subj=system_u:system_r:crond_t:s0-s0:c0.c1023 msg='op=PAM:setcred grantors=pam_env,pam_localuser,pam_unix acct="root" exe="/usr/sbin/crond" hostname=? addr=? terminal=cron res=success'
+type=USER_END msg=audit(1561459202.775:1375): pid=14435 uid=0 auid=0 ses=29 subj=system_u:system_r:crond_t:s0-s0:c0.c1023 msg='op=PAM:session_close grantors=pam_loginuid,pam_keyinit,pam_limits,pam_systemd,pam_krb5,pam_ldap acct="root" exe="/usr/sbin/crond" hostname=? addr=? terminal=cron res=success'
+^C
+[harshil@server1 site1]$ ^C
+[harshil@server1 site1]$ ll
+total 4
+-rwxrwxr-x. 1 apache apache 286 Jun 25 15:43 index.html
+[harshil@server1 site1]$ pwd
+/home/harshil/site1
+[harshil@server1 site1]$ restorecon -R index.html
+[harshil@server1 site1]$ ls -Z index.html
+-rwxrwxr-x. apache apache unconfined_u:object_r:httpd_sys_content_t:s0 index.html
+[harshil@server1 site1]$ setenforce 0
+setenforce:  setenforce() failed
+[harshil@server1 site1]$ sudo setenforce 0
+[sudo] password for harshil:
+[harshil@server1 site1]$
+[harshil@server1 site1]$ getsebool
+usage:  getsebool -a or getsebool boolean...
+[harshil@server1 site1]$ sudo getsebool
+usage:  getsebool -a or getsebool boolean...
+[harshil@server1 site1]$
+[harshil@server1 site1]$ selinux
+bash: selinux: command not found...
+[harshil@server1 site1]$ getenforce
+Permissive
+[harshil@server1 site1]$ sudo systemctl restart httpd
+[harshil@server1 site1]$ sudo restorecon -R /home/harshil/site1/
+[harshil@server1 site1]$ ll
+total 4
+-rwxrwxr-x. 1 apache apache 286 Jun 25 15:43 index.html
+[harshil@server1 site1]$ cd
+[harshil@server1 ~]$ cd /etc/httpd/conf
+[harshil@server1 conf]$ ll
+total 40
+-rw-r--r--. 1 root root 11969 Jun 25 16:04 httpd.conf
+-rw-r--r--. 1 root root 11753 Apr 24 19:14 httpd_old.conf
+-rw-r--r--. 1 root root 13077 Apr 24 19:16 magic
+[harshil@server1 conf]$ sudo vim httpd.conf
+[harshil@server1 conf]$ sudo vim httpd.conf
+[harshil@server1 conf]$ cd ..
+[harshil@server1 httpd]$ cd /var/www
+[harshil@server1 www]$ ll
+total 0
+drwxr-xr-x. 1 root root  0 Apr 24 19:16 cgi-bin
+drwxr-xr-x. 1 root root 10 Jun 25 15:57 html
+[harshil@server1 www]$ cd html/
+[harshil@server1 html]$ ll
+total 0
+drwxr-xr-x. 1 root root 20 Jun 25 15:57 site1
+[harshil@server1 html]$ cd ..
+[harshil@server1 www]$ cd ..
+[harshil@server1 var]$ sudo tail -f /var/lo
+local/ lock/  log/
+[harshil@server1 var]$ sudo tail -f /var/lo
+local/ lock/  log/
+[harshil@server1 var]$ sudo tail -f /var/lo
+local/ lock/  log/
+[harshil@server1 var]$ ll
+total 12
+drwxr-xr-x. 1 root root   10 May 17 21:18 account
+drwxr-xr-x. 1 root root    0 Apr 11  2018 adm
+drwxr-xr-x. 1 root root  140 Jun 20 19:39 cache
+drwxr-xr-x. 1 root root    0 Apr 24 19:33 crash
+drwxr-xr-x. 1 root root   32 Jun 20 19:39 db
+drwxr-xr-x. 1 root root    8 May 17 21:18 empty
+drwxr-xr-x. 1 root root    0 Apr 11  2018 games
+drwxr-xr-x. 1 root root    0 Apr 11  2018 gopher
+drwxr-xr-x. 1 root root    8 Jan 29 23:02 kerberos
+drwxr-xr-x. 1 root root  916 Jun 21 00:29 lib
+drwxr-xr-x. 1 root root    0 Apr 11  2018 local
+lrwxrwxrwx. 1 root root   11 May 17 21:10 lock -> ../run/lock
+drwxr-xr-x. 1 root root 1928 Jun 25 15:32 log
+lrwxrwxrwx. 1 root root   10 May 17 21:11 mail -> spool/mail
+drwxr-xr-x. 1 root root    0 Apr 11  2018 nis
+drwxr-xr-x. 1 root root    0 Apr 11  2018 opt
+drwxr-xr-x. 1 root root    0 Apr 11  2018 preserve
+lrwxrwxrwx. 1 root root    6 May 17 21:10 run -> ../run
+drwxr-xr-x. 1 root root  126 Jun  9 11:38 spool
+drwxr-xr-x. 1 root root   12 May 25 06:46 target
+drwxrwxrwt. 1 root root 4016 Jun 25 16:26 tmp
+drwxr-xr-x. 1 root root   22 May 17 21:43 www
+drwxr-xr-x. 1 root root    0 Apr 11  2018 yp
+[harshil@server1 var]$ cd lo
+-bash: cd: lo: No such file or directory
+[harshil@server1 var]$ cd log
+[harshil@server1 log]$ ll
+total 15436
+drwxr-xr-x. 1 root   root            196 May 17 21:28 anaconda
+drwx------. 1 root   root             40 Jun 23 12:47 audit
+-rw-------. 2 root   root              0 Jun 25 15:32 boot.log
+-rw-------. 1 root   root          96342 May 19 10:40 boot.log-20190519
+-rw-------. 1 root   root         278876 Jun  9 12:20 boot.log-20190609
+-rw-------. 1 root   root          25468 Jun 20 12:24 boot.log-20190620
+-rw-------. 1 root   root         101658 Jun 22 16:12 boot.log-20190622
+-rw-------. 1 root   root          79997 Jun 23 13:11 boot.log-20190623
+-rw-------. 1 root   root         101137 Jun 25 15:32 boot.log-20190625
+-rw-------. 1 root   utmp           3840 Jun 23 17:44 btmp
+-rw-------. 1 root   utmp            768 May 17 22:31 btmp-20190609
+drwxr-xr-x. 1 chrony chrony            0 Apr 12  2018 chrony
+-rw-------. 1 root   root          16785 Jun 25 16:28 cron
+-rw-------. 1 root   root          11369 May 19 10:40 cron-20190519
+-rw-------. 1 root   root          12827 Jun  9 12:20 cron-20190609
+-rw-------. 1 root   root           2853 Jun 20 12:24 cron-20190620
+-rw-------. 1 root   root          16579 Jun 23 13:11 cron-20190623
+drwxr-xr-x. 1 lp     sys             168 Jun 23 13:11 cups
+-rw-r--r--. 1 root   root         126983 Jun 25 14:17 dmesg
+-rw-r--r--. 1 root   root         126277 Jun 24 23:09 dmesg.old
+-rw-r--r--. 1 root   root         210145 Jun 25 15:13 firewalld
+drwx--x--x. 1 root   gdm             232 Jun 25 14:19 gdm
+drwxr-xr-x. 1 root   root              0 Nov  4  2018 glusterfs
+-rw-------. 1 root   root           8856 Jun 20 12:00 grubby
+-rw-r--r--. 1 root   root            193 May 17 21:12 grubby_prune_debug
+drwx------. 1 root   root            258 Jun 23 13:11 httpd
+-rw-------. 1 root   root          89949 Jun 21 00:32 ipaclient-install.log
+-rw-r--r--. 1 root   root   349465601460 Jun 25 14:51 lastlog
+drwx------. 1 root   root             14 Jun  9 11:34 libvirt
+-rw-------. 1 root   root           1377 Jun 25 14:18 maillog
+-rw-------. 1 root   root           1494 May 19 09:49 maillog-20190519
+-rw-------. 1 root   root           2522 Jun  9 11:23 maillog-20190609
+-rw-------. 1 root   root            194 Jun 20 11:46 maillog-20190620
+-rw-------. 1 root   root           1358 Jun 23 12:15 maillog-20190623
+-rw-------. 1 root   root        3257709 Jun 25 16:28 messages
+-rw-------. 1 root   root        1932297 May 19 10:40 messages-20190519
+-rw-------. 1 root   root        3757447 Jun  9 12:20 messages-20190609
+-rw-------. 1 root   root         213277 Jun 20 12:24 messages-20190620
+-rw-------. 1 root   root        4420477 Jun 23 13:11 messages-20190623
+drwxr-xr-x. 1 ntp    ntp               0 Apr 13  2018 ntpstats
+drwxrwxr-x. 1 pcp    pcp              46 Jun  9 11:38 pcp
+drwxr-xr-x. 1 root   root              8 May 17 21:14 pluto
+drwx------. 1 root   root              0 Jun 10  2014 ppp
+drwxr-xr-x. 1 root   root              0 Oct 31  2018 qemu-ga
+drwxr-xr-x. 1 root   root            154 Jun 23 13:11 rhsm
+drwxr-xr-x. 1 root   root            186 Jun 25 16:20 sa
+drwx------. 1 root   root              6 May 17 21:13 samba
+-rw-------. 1 root   root          94196 Jun 25 16:28 secure
+-rw-------. 1 root   root         107511 May 19 10:40 secure-20190519
+-rw-------. 1 root   root          70289 Jun  9 11:54 secure-20190609
+-rw-------. 1 root   root           2822 Jun 20 12:24 secure-20190620
+-rw-------. 1 root   root         100121 Jun 23 12:48 secure-20190623
+drwx------. 1 root   root              0 Jun 10  2014 speech-dispatcher
+-rw-------. 1 root   root              0 Jun 23 13:11 spooler
+-rw-------. 1 root   root              0 May 17 21:18 spooler-20190519
+-rw-------. 1 root   root              0 May 19 10:40 spooler-20190609
+-rw-------. 1 root   root              0 Jun  9 12:20 spooler-20190620
+-rw-------. 1 root   root              0 Jun 20 12:24 spooler-20190623
+drwxr-x---. 1 sssd   sssd            698 Jun 23 13:11 sssd
+drwxr-xr-x. 1 root   root             14 May 17 21:14 swtpm
+-rw-------. 1 root   root              0 May 17 21:11 tallylog
+drwxr-xr-x. 1 root   root             18 Mar 14 16:02 tuned
+-rw-r--r--. 1 root   root            700 Jun 24 23:42 vmware-network.1.log
+-rw-r--r--. 1 root   root            678 Jun 24 23:10 vmware-network.2.log
+-rw-r--r--. 1 root   root            678 Jun 24 10:20 vmware-network.3.log
+-rw-r--r--. 1 root   root            678 Jun 23 17:42 vmware-network.4.log
+-rw-r--r--. 1 root   root            678 Jun 23 12:14 vmware-network.5.log
+-rw-r--r--. 1 root   root            700 Jun 23 11:29 vmware-network.6.log
+-rw-r--r--. 1 root   root            678 Jun 23 10:31 vmware-network.7.log
+-rw-r--r--. 1 root   root            700 Jun 23 00:34 vmware-network.8.log
+-rw-r--r--. 1 root   root            678 Jun 22 23:35 vmware-network.9.log
+-rw-r--r--. 1 root   root            678 Jun 25 14:18 vmware-network.log
+-rw-r--r--. 1 root   root          49479 Jun 25 14:17 vmware-vgauthsvc.log.0
+-rw-r--r--. 1 root   root          78799 Jun 25 14:50 vmware-vmsvc.log
+-rw-r--r--. 1 root   root           1240 Jun 25 14:19 wpa_supplicant.log
+-rw-rw-r--. 1 root   utmp          81024 Jun 25 14:54 wtmp
+-rw-r--r--. 1 root   root          46525 Jun 25 14:54 Xorg.0.log
+-rw-r--r--. 1 root   root          32066 Jun 24 23:42 Xorg.0.log.old
+-rw-r--r--. 1 root   root          22760 May 17 22:07 Xorg.9.log
+-rw-------. 1 root   root          24744 Jun 25 15:22 yum.log
+[harshil@server1 log]$ cat erro
+cat: erro: No such file or directory
+[harshil@server1 log]$ cd httpd/
+-bash: cd: httpd/: Permission denied
+[harshil@server1 log]$ sudo cd httpd/
+[harshil@server1 log]$ ll
+total 15460
+drwxr-xr-x. 1 root   root            196 May 17 21:28 anaconda
+drwx------. 1 root   root             40 Jun 23 12:47 audit
+-rw-------. 2 root   root              0 Jun 25 15:32 boot.log
+-rw-------. 1 root   root          96342 May 19 10:40 boot.log-20190519
+-rw-------. 1 root   root         278876 Jun  9 12:20 boot.log-20190609
+-rw-------. 1 root   root          25468 Jun 20 12:24 boot.log-20190620
+-rw-------. 1 root   root         101658 Jun 22 16:12 boot.log-20190622
+-rw-------. 1 root   root          79997 Jun 23 13:11 boot.log-20190623
+-rw-------. 1 root   root         101137 Jun 25 15:32 boot.log-20190625
+-rw-------. 1 root   utmp           3840 Jun 23 17:44 btmp
+-rw-------. 1 root   utmp            768 May 17 22:31 btmp-20190609
+drwxr-xr-x. 1 chrony chrony            0 Apr 12  2018 chrony
+-rw-------. 1 root   root          16948 Jun 25 16:30 cron
+-rw-------. 1 root   root          11369 May 19 10:40 cron-20190519
+-rw-------. 1 root   root          12827 Jun  9 12:20 cron-20190609
+-rw-------. 1 root   root           2853 Jun 20 12:24 cron-20190620
+-rw-------. 1 root   root          16579 Jun 23 13:11 cron-20190623
+drwxr-xr-x. 1 lp     sys             168 Jun 23 13:11 cups
+-rw-r--r--. 1 root   root         126983 Jun 25 14:17 dmesg
+-rw-r--r--. 1 root   root         126277 Jun 24 23:09 dmesg.old
+-rw-r--r--. 1 root   root         210145 Jun 25 15:13 firewalld
+drwx--x--x. 1 root   gdm             232 Jun 25 14:19 gdm
+drwxr-xr-x. 1 root   root              0 Nov  4  2018 glusterfs
+-rw-------. 1 root   root           8856 Jun 20 12:00 grubby
+-rw-r--r--. 1 root   root            193 May 17 21:12 grubby_prune_debug
+drwx------. 1 root   root            258 Jun 23 13:11 httpd
+-rw-------. 1 root   root          89949 Jun 21 00:32 ipaclient-install.log
+-rw-r--r--. 1 root   root   349465601460 Jun 25 14:51 lastlog
+drwx------. 1 root   root             14 Jun  9 11:34 libvirt
+-rw-------. 1 root   root           1377 Jun 25 14:18 maillog
+-rw-------. 1 root   root           1494 May 19 09:49 maillog-20190519
+-rw-------. 1 root   root           2522 Jun  9 11:23 maillog-20190609
+-rw-------. 1 root   root            194 Jun 20 11:46 maillog-20190620
+-rw-------. 1 root   root           1358 Jun 23 12:15 maillog-20190623
+-rw-------. 1 root   root        3265790 Jun 25 16:30 messages
+-rw-------. 1 root   root        1932297 May 19 10:40 messages-20190519
+-rw-------. 1 root   root        3757447 Jun  9 12:20 messages-20190609
+-rw-------. 1 root   root         213277 Jun 20 12:24 messages-20190620
+-rw-------. 1 root   root        4420477 Jun 23 13:11 messages-20190623
+drwxr-xr-x. 1 ntp    ntp               0 Apr 13  2018 ntpstats
+drwxrwxr-x. 1 pcp    pcp              46 Jun  9 11:38 pcp
+drwxr-xr-x. 1 root   root              8 May 17 21:14 pluto
+drwx------. 1 root   root              0 Jun 10  2014 ppp
+drwxr-xr-x. 1 root   root              0 Oct 31  2018 qemu-ga
+drwxr-xr-x. 1 root   root            154 Jun 23 13:11 rhsm
+drwxr-xr-x. 1 root   root            186 Jun 25 16:30 sa
+drwx------. 1 root   root              6 May 17 21:13 samba
+-rw-------. 1 root   root          94482 Jun 25 16:30 secure
+-rw-------. 1 root   root         107511 May 19 10:40 secure-20190519
+-rw-------. 1 root   root          70289 Jun  9 11:54 secure-20190609
+-rw-------. 1 root   root           2822 Jun 20 12:24 secure-20190620
+-rw-------. 1 root   root         100121 Jun 23 12:48 secure-20190623
+drwx------. 1 root   root              0 Jun 10  2014 speech-dispatcher
+-rw-------. 1 root   root              0 Jun 23 13:11 spooler
+-rw-------. 1 root   root              0 May 17 21:18 spooler-20190519
+-rw-------. 1 root   root              0 May 19 10:40 spooler-20190609
+-rw-------. 1 root   root              0 Jun  9 12:20 spooler-20190620
+-rw-------. 1 root   root              0 Jun 20 12:24 spooler-20190623
+drwxr-x---. 1 sssd   sssd            698 Jun 23 13:11 sssd
+drwxr-xr-x. 1 root   root             14 May 17 21:14 swtpm
+-rw-------. 1 root   root              0 May 17 21:11 tallylog
+drwxr-xr-x. 1 root   root             18 Mar 14 16:02 tuned
+-rw-r--r--. 1 root   root            700 Jun 24 23:42 vmware-network.1.log
+-rw-r--r--. 1 root   root            678 Jun 24 23:10 vmware-network.2.log
+-rw-r--r--. 1 root   root            678 Jun 24 10:20 vmware-network.3.log
+-rw-r--r--. 1 root   root            678 Jun 23 17:42 vmware-network.4.log
+-rw-r--r--. 1 root   root            678 Jun 23 12:14 vmware-network.5.log
+-rw-r--r--. 1 root   root            700 Jun 23 11:29 vmware-network.6.log
+-rw-r--r--. 1 root   root            678 Jun 23 10:31 vmware-network.7.log
+-rw-r--r--. 1 root   root            700 Jun 23 00:34 vmware-network.8.log
+-rw-r--r--. 1 root   root            678 Jun 22 23:35 vmware-network.9.log
+-rw-r--r--. 1 root   root            678 Jun 25 14:18 vmware-network.log
+-rw-r--r--. 1 root   root          49479 Jun 25 14:17 vmware-vgauthsvc.log.0
+-rw-r--r--. 1 root   root          78799 Jun 25 14:50 vmware-vmsvc.log
+-rw-r--r--. 1 root   root           1240 Jun 25 14:19 wpa_supplicant.log
+-rw-rw-r--. 1 root   utmp          81024 Jun 25 14:54 wtmp
+-rw-r--r--. 1 root   root          46525 Jun 25 14:54 Xorg.0.log
+-rw-r--r--. 1 root   root          32066 Jun 24 23:42 Xorg.0.log.old
+-rw-r--r--. 1 root   root          22760 May 17 22:07 Xorg.9.log
+-rw-------. 1 root   root          24744 Jun 25 15:22 yum.log
+[harshil@server1 log]$ cd httpd/p
+-bash: cd: httpd/p: Permission denied
+[harshil@server1 log]$ cd httpd/
+-bash: cd: httpd/: Permission denied
+[harshil@server1 log]$ cd
+[harshil@server1 ~]$
+[harshil@server1 ~]$ cd /etc/httpd/conf
+[harshil@server1 conf]$ ll
+total 40
+-rw-r--r--. 1 root root 11969 Jun 25 16:04 httpd.conf
+-rw-r--r--. 1 root root 11753 Apr 24 19:14 httpd_old.conf
+-rw-r--r--. 1 root root 13077 Apr 24 19:16 magic
+[harshil@server1 conf]$ sudo vim httpd.conf
+[harshil@server1 conf]$ cd ..
+[harshil@server1 httpd]$ ll
+total 12
+drwxr-xr-x. 1 root root  58 Jun 25 16:31 conf
+drwxr-xr-x. 1 root root  88 Jun 25 15:35 conf.d
+drwxr-xr-x. 1 root root 168 May 17 21:43 conf.modules.d
+lrwxrwxrwx. 1 root root  19 May 17 21:43 logs -> ../../var/log/httpd
+lrwxrwxrwx. 1 root root  29 May 17 21:43 modules -> ../../usr/lib64/httpd/modules
+lrwxrwxrwx. 1 root root  10 May 17 21:43 run -> /run/httpd
+[harshil@server1 httpd]$ cd conf.d/
+[harshil@server1 conf.d]$ ll
+total 16
+-rw-r--r--. 1 root root 2926 Apr 24 19:15 autoindex.conf
+-rw-r--r--. 1 root root  366 Apr 24 19:16 README
+-rw-r--r--. 1 root root 1252 Apr 24 19:14 userdir.conf
+-rw-r--r--. 1 root root  838 Jun 25 15:35 welcome.conf
+[harshil@server1 conf.d]$ sudo vim welcome.conf
+[harshil@server1 conf.d]$ cd .
+[harshil@server1 conf.d]$ cd ..
+[harshil@server1 httpd]$ sudo vim conf/httpd.conf
+[harshil@server1 httpd]$ sudo systemctl restart httpd
+[harshil@server1 httpd]$ getenforce
+Permissive
+[harshil@server1 httpd]$ setenforce 1
+setenforce:  setenforce() failed
+[harshil@server1 httpd]$ sudo setenforce 1
+[harshil@server1 httpd]$ getenforce
+Enforcing
+[harshil@server1 httpd]$ sudo setfcl -R -m g:apache:rwX /home/harshil/s
+site1/                           systemctl_restart_httpd.service  systemctl_status_httpd.service
+[harshil@server1 httpd]$ sudo setfcl -R -m g:apache:rwX /home/harshil/site1/
+sudo: setfcl: command not found
+[harshil@server1 httpd]$ sudo setfacl -R -m g:apache:rwX /home/harshil/site1/
+[harshil@server1 httpd]$ sudo setfacl -R -m d:g:apache:rwx /home/harshil/site1/
+[harshil@server1 httpd]$ cd /home/harshil/site1/
+[harshil@server1 site1]$ ll
+total 4
+-rwxrwxr-x+ 1 apache apache 286 Jun 25 15:43 index.html
+[harshil@server1 site1]$ chmod 2775 *
+chmod: changing permissions of ‘index.html’: Operation not permitted
+[harshil@server1 site1]$ sudo chmod -R 2775  /home/harshil/site1/*
+[harshil@server1 site1]$ chgrp apache /home/harshil/site1/*
+chgrp: changing group of ‘/home/harshil/site1/index.html’: Operation not permitted
+[harshil@server1 site1]$ sudo chgrp apache /home/harshil/site1/*
+[harshil@server1 site1]$ ll
+total 4
+-rwxrwxr-x+ 1 apache apache 286 Jun 25 15:43 index.html
+[harshil@server1 site1]$ ls -Z index.html
+-rwxrwxr-x+ apache apache unconfined_u:object_r:httpd_sys_content_t:s0 index.html
+[harshil@server1 site1]$ cd ..
+[harshil@server1 ~]$ ls -Z
+04062019                         Desktop/                         Public/
+17052019                         Documents/                       site1/
+18052019                         Downloads/                       .ssh/
+180520192                        .elinks/                         systemctl_restart_httpd.service
+19052018                         .esd_auth                        systemctl_status_httpd.service
+.bash_history                    .ICEauthority                    .targetcli/
+.bash_logout                     .local/                          Templates/
+.bash_profile                    .mozilla/                        Videos/
+.bashrc                          Music/                           .viminfo
+.cache/                          network_teaming                  .xauth0HOvCy
+.config/                         Pictures/                        .Xauthority
+.dbus/                           .pki/
+[harshil@server1 ~]$ ls -Z site1/
+-rwxrwxr-x+ apache apache unconfined_u:object_r:httpd_sys_content_t:s0 index.html
+[harshil@server1 ~]$ sudo vim /etc/httpd/conf/httpd.conf
+[harshil@server1 ~]$ sudo systecmtl restart httpd
+sudo: systecmtl: command not found
+[harshil@server1 ~]$ sudo systemctl restart httpd
+[harshil@server1 ~]$ locate htaccess
+[harshil@server1 ~]$ find .htaccess
+find: ‘.htaccess’: No such file or directory
+[harshil@server1 ~]$ cd /etc/http
+-bash: cd: /etc/http: No such file or directory
+[harshil@server1 ~]$ cd /etc/httpd
+[harshil@server1 httpd]$ ll
+total 12
+drwxr-xr-x. 1 root root  58 Jun 25 16:42 conf
+drwxr-xr-x. 1 root root  88 Jun 25 16:32 conf.d
+drwxr-xr-x. 1 root root 168 May 17 21:43 conf.modules.d
+lrwxrwxrwx. 1 root root  19 May 17 21:43 logs -> ../../var/log/httpd
+lrwxrwxrwx. 1 root root  29 May 17 21:43 modules -> ../../usr/lib64/httpd/modules
+lrwxrwxrwx. 1 root root  10 May 17 21:43 run -> /run/httpd
+[harshil@server1 httpd]$ cd conf.d/
+[harshil@server1 conf.d]$ ll
+total 16
+-rw-r--r--. 1 root root 2926 Apr 24 19:15 autoindex.conf
+-rw-r--r--. 1 root root  366 Apr 24 19:16 README
+-rw-r--r--. 1 root root 1252 Apr 24 19:14 userdir.conf
+-rw-r--r--. 1 root root  838 Jun 25 15:35 welcome.conf
+[harshil@server1 conf.d]$ cat userdir.conf
+#
+# UserDir: The name of the directory that is appended onto a user's home
+# directory if a ~user request is received.
+#
+# The path to the end user account 'public_html' directory must be
+# accessible to the webserver userid.  This usually means that ~userid
+# must have permissions of 711, ~userid/public_html must have permissions
+# of 755, and documents contained therein must be world-readable.
+# Otherwise, the client will only receive a "403 Forbidden" message.
+#
+<IfModule mod_userdir.c>
+    #
+    # UserDir is disabled by default since it can confirm the presence
+    # of a username on the system (depending on home directory
+    # permissions).
+    #
+    UserDir disabled
+
+    #
+    # To enable requests to /~user/ to serve the user's public_html
+    # directory, remove the "UserDir disabled" line above, and uncomment
+    # the following line instead:
+    #
+    #UserDir public_html
+</IfModule>
+
+#
+# Control access to UserDir directories.  The following is an example
+# for a site where these directories are restricted to read-only.
+#
+<Directory "/home/*/public_html">
+    AllowOverride FileInfo AuthConfig Limit Indexes
+    Options MultiViews Indexes SymLinksIfOwnerMatch IncludesNoExec
+    Require method GET POST OPTIONS
+</Directory>
+
+[harshil@server1 conf.d]$ vim userdir.conf
+[harshil@server1 conf.d]$ ll
+total 16
+-rw-r--r--. 1 root root 2926 Apr 24 19:15 autoindex.conf
+-rw-r--r--. 1 root root  366 Apr 24 19:16 README
+-rw-r--r--. 1 root root 1252 Apr 24 19:14 userdir.conf
+-rw-r--r--. 1 root root  838 Jun 25 15:35 welcome.conf
+[harshil@server1 conf.d]$ vim autoindex.conf
+[harshil@server1 conf.d]$ cd ..
+[harshil@server1 httpd]$ l
+bash: l: command not found...
+[harshil@server1 httpd]$ ll
+total 12
+drwxr-xr-x. 1 root root  58 Jun 25 16:42 conf
+drwxr-xr-x. 1 root root  88 Jun 25 16:32 conf.d
+drwxr-xr-x. 1 root root 168 May 17 21:43 conf.modules.d
+lrwxrwxrwx. 1 root root  19 May 17 21:43 logs -> ../../var/log/httpd
+lrwxrwxrwx. 1 root root  29 May 17 21:43 modules -> ../../usr/lib64/httpd/modules
+lrwxrwxrwx. 1 root root  10 May 17 21:43 run -> /run/httpd
+[harshil@server1 httpd]$ cd conf.modules.d/
+[harshil@server1 conf.modules.d]$ ll
+total 28
+-rw-r--r--. 1 root root 3739 Apr 24 19:14 00-base.conf
+-rw-r--r--. 1 root root  139 Apr 24 19:14 00-dav.conf
+-rw-r--r--. 1 root root   41 Apr 24 19:14 00-lua.conf
+-rw-r--r--. 1 root root  742 Apr 24 19:14 00-mpm.conf
+-rw-r--r--. 1 root root  957 Apr 24 19:14 00-proxy.conf
+-rw-r--r--. 1 root root   88 Apr 24 19:14 00-systemd.conf
+-rw-r--r--. 1 root root  451 Apr 24 19:14 01-cgi.conf
+[harshil@server1 conf.modules.d]$ vim 00-base.conf
+[harshil@server1 conf.modules.d]$ cd ..
+[harshil@server1 httpd]$ ll
+total 12
+drwxr-xr-x. 1 root root  58 Jun 25 16:42 conf
+drwxr-xr-x. 1 root root  88 Jun 25 16:32 conf.d
+drwxr-xr-x. 1 root root 168 May 17 21:43 conf.modules.d
+lrwxrwxrwx. 1 root root  19 May 17 21:43 logs -> ../../var/log/httpd
+lrwxrwxrwx. 1 root root  29 May 17 21:43 modules -> ../../usr/lib64/httpd/modules
+lrwxrwxrwx. 1 root root  10 May 17 21:43 run -> /run/httpd
+[harshil@server1 httpd]$ cd run/
+-bash: cd: run/: Permission denied
+[harshil@server1 httpd]$ sudo cd run/
+[harshil@server1 httpd]$ sudo cd /run/httpd/
+[harshil@server1 httpd]$ ll
+total 12
+drwxr-xr-x. 1 root root  58 Jun 25 16:42 conf
+drwxr-xr-x. 1 root root  88 Jun 25 16:32 conf.d
+drwxr-xr-x. 1 root root 168 May 17 21:43 conf.modules.d
+lrwxrwxrwx. 1 root root  19 May 17 21:43 logs -> ../../var/log/httpd
+lrwxrwxrwx. 1 root root  29 May 17 21:43 modules -> ../../usr/lib64/httpd/modules
+lrwxrwxrwx. 1 root root  10 May 17 21:43 run -> /run/httpd
+[harshil@server1 httpd]$ cd /
+[harshil@server1 /]$ ll
+total 16
+lrwxrwxrwx.   1 root   root      7 May 17 21:11 bin -> usr/bin
+dr-xr-xr-x.   1 root   root   1578 Jun 20 19:34 boot
+drwxr-xr-x.  20 root   root   3360 Jun 25 14:17 dev
+drwxr-xr-x.   1 root   root   5384 Jun 25 15:22 etc
+drwxr-xr-x.   1 root   root     14 May 17 21:27 home
+drwxr-xr-x.   1 root   root      0 May 25 07:55 iscsidisk
+lrwxrwxrwx.   1 root   root      7 May 17 21:11 lib -> usr/lib
+lrwxrwxrwx.   1 root   root      9 May 17 21:11 lib64 -> usr/lib64
+drwxr-xr-x.   1 root   root      0 Apr 11  2018 media
+drwxr-xr-x.   1 root   root      0 Apr 11  2018 mnt
+drwxr-xr-x.   1 root   root      4 May 17 21:19 opt
+dr-xr-xr-x. 258 root   root      0 Jun 25 14:17 proc
+dr-xr-x---.   1 root   root    476 Jun 25 16:42 root
+drwxr-xr-x.  47 root   root   1480 Jun 25 15:22 run
+lrwxrwxrwx.   1 root   root      8 May 17 21:11 sbin -> usr/sbin
+drwxr-xr-x.   1 root   root      0 Apr 11  2018 srv
+dr-xr-xr-x.  13 root   root      0 Jun 25 14:17 sys
+drwxrwxrwt.   1 root   root   5188 Jun 25 16:46 tmp
+drwxr-xr-x.   1 root   root    106 May 17 21:11 usr
+drwxr-xr-x.   1 root   root    218 May 25 06:46 var
+drwxrwxr-x.   1 apache apache   10 Jun 25 15:24 website
+[harshil@server1 /]$ cd run/
+[harshil@server1 run]$ ll
+total 72
+drwxr-xr-x.  2 root           root            100 Jun 25 14:17 abrt
+-rw-------.  1 root           root             11 Jun 25 14:17 alsactl.pid
+-rw-r--r--.  1 root           root              5 Jun 25 14:19 atd.pid
+-rw-r--r--.  1 root           root              5 Jun 25 14:17 auditd.pid
+drwxr-xr-x.  2 avahi          avahi            80 Jun 25 14:17 avahi-daemon
+drwxr-xr-x.  2 root           root             40 Jun 25 14:17 certmonger
+drwxr-xr-x.  2 root           root             80 Jun 25 14:17 cockpit
+drwxr-xr-x.  2 root           root             80 Jun 25 14:46 console
+-rw-r--r--.  1 root           root              5 Jun 25 14:19 crond.pid
+----------.  1 root           root              0 Jun 25 14:19 cron.reboot
+drwx------.  2 root           root             40 Jun 25 14:17 cryptsetup
+drwxr-xr-x.  3 root           lp               80 Jun 25 14:17 cups
+drwxr-xr-x.  2 root           root             60 Jun 25 14:17 dbus
+-rw-r--r--.  1 root           root              5 Jun 25 16:03 dhclient-br1.pid
+-rw-r--r--.  1 root           root              6 Jun 25 16:31 dhclient-ens33.pid
+prw-------.  1 root           root              0 Jun 25 14:17 dmeventd-client
+prw-------.  1 root           root              0 Jun 25 14:17 dmeventd-server
+-rw-------.  1 root           root              0 Jun 25 14:18 ebtables.lock
+drwxr-xr-x.  2 root           root             40 Jun 25 14:17 faillock
+drwxr-x---.  2 root           root             40 Jun 25 15:13 firewalld
+drwx--x--x.  4 root           gdm             100 Jun 25 14:46 gdm
+-rw-------.  1 root           root              5 Jun 25 14:17 gssproxy.pid
+srw-rw-rw-.  1 root           root              0 Jun 25 14:17 gssproxy.sock
+drwx--x---.  3 root           apache          100 Jun 25 16:43 httpd
+drwxr-xr-x.  4 root           root            100 Jun 25 14:17 initramfs
+-rw-------.  1 root           root              5 Jun 25 14:18 iscsid.pid
+-rw-r--r--.  1 root           root              5 Jun 25 14:17 ksmtune.pid
+drwxr-xr-x.  8 root           root            260 Jun 25 14:19 libvirt
+-rw-r--r--.  1 root           root              4 Jun 25 14:19 libvirtd.pid
+drwxr-xr-x.  8 root           root            220 Jun 25 15:32 lock
+drwxr-xr-x.  3 root           root             60 Jun 25 14:17 log
+drwxrwxr-x.  3 root           libstoragemgmt   60 Jun 25 14:17 lsm
+drwx------.  2 root           root             80 Jun 25 14:17 lvm
+-rw-r--r--.  1 root           root              5 Jun 25 14:17 lvmetad.pid
+srwxr-xr-x.  1 root           root              0 Jun 25 14:17 mcelog-client
+-rw-r--r--.  1 root           root              4 Jun 25 14:17 mcelog.pid
+drwx--x---.  2 root           root             40 Jun 25 14:17 mdadm
+drwxr-xr-x.  3 root           root             60 Jun 25 14:46 media
+drwxr-xr-x.  2 root           root             80 Jun 25 14:46 mount
+drwxrwxr-x.  2 root           root             40 Jun 25 14:17 netreport
+drwxr-xr-x.  3 root           root            100 Jun 25 14:47 NetworkManager
+drwxr-xr-x.  2 root           root             40 Jun 25 14:17 nscd
+drwxr-xr-x.  2 nslcd          root             80 Jun 25 14:18 nslcd
+-rw-r--r--.  1 root           root              4 Jun 25 14:17 ntpd.pid
+drwxr-xr-x.  2 root           root             40 Jun 25 14:19 plymouth
+drwxr-xr-x.  2 root           root             40 Jun 25 14:17 ppp
+drwxr-xr-x.  2 radvd          radvd            40 Jun 25 14:17 radvd
+drwxr-xr-x.  2 root           root             80 Jun 25 15:21 rhsm
+drwx------.  2 rpc            rpc              40 Jun 25 14:17 rpcbind
+-r--r--r--.  1 root           root              0 Jun 25 14:17 rpcbind.lock
+srw-rw-rw-.  1 root           root              0 Jun 25 14:17 rpcbind.sock
+drwxr-xr-x.  2 root           root             40 Jun 25 14:17 samba
+drwxr-xr-x.  2 root           root             40 Jun 25 14:17 sepermit
+drwxr-xr-x.  2 root           root             40 Jun 25 14:17 setrans
+drwx--x--x.  2 setroubleshoot setroubleshoot   60 Jun 25 15:43 setroubleshoot
+-rw-------.  1 root           root              5 Jun 25 14:18 sm-notify.pid
+drwxr-xr-x.  2 root           root             40 Jun 25 14:17 spice-vdagentd
+-rw-r--r--.  1 root           root              5 Jun 25 14:18 sshd.pid
+-rw-------.  1 root           root              5 Jun 25 14:17 sssd.pid
+drwx--x--x.  3 root           root             60 Jun 25 14:17 sudo
+drwxr-xr-x.  2 root           root             60 Jun 25 14:17 sysconfig
+-rw-------.  1 root           root              4 Jun 25 14:18 syslogd.pid
+drwxr-xr-x. 19 root           root            460 Jun 25 15:12 systemd
+drwxr-xr-x.  2 root           root             60 Jun 25 14:17 tmpfiles.d
+drwxr-xr-x.  2 root           root             60 Jun 25 14:18 tuned
+drwxr-xr-x.  7 root           root            160 Jun 25 15:17 udev
+drwx------.  2 root           root             60 Jun 25 14:46 udisks2
+drwxr-xr-x.  4 root           root             80 Jun 25 16:40 user
+-rw-rw-r--.  1 root           utmp           2304 Jun 25 14:54 utmp
+drwxr-xr-x.  2 root           root             60 Jun 25 14:17 vmware
+drwxr-x---.  2 root           weldr            40 Jun 25 14:17 weldr
+-rw-------.  1 root           root              0 Jun 25 14:18 xtables.lock
+[harshil@server1 run]$ cd httpd/
+-bash: cd: httpd/: Permission denied
+[harshil@server1 run]$ sudo cd httpd/
+[harshil@server1 run]$ ll
+total 72
+drwxr-xr-x.  2 root           root            100 Jun 25 14:17 abrt
+-rw-------.  1 root           root             11 Jun 25 14:17 alsactl.pid
+-rw-r--r--.  1 root           root              5 Jun 25 14:19 atd.pid
+-rw-r--r--.  1 root           root              5 Jun 25 14:17 auditd.pid
+drwxr-xr-x.  2 avahi          avahi            80 Jun 25 14:17 avahi-daemon
+drwxr-xr-x.  2 root           root             40 Jun 25 14:17 certmonger
+drwxr-xr-x.  2 root           root             80 Jun 25 14:17 cockpit
+drwxr-xr-x.  2 root           root             80 Jun 25 14:46 console
+-rw-r--r--.  1 root           root              5 Jun 25 14:19 crond.pid
+----------.  1 root           root              0 Jun 25 14:19 cron.reboot
+drwx------.  2 root           root             40 Jun 25 14:17 cryptsetup
+drwxr-xr-x.  3 root           lp               80 Jun 25 14:17 cups
+drwxr-xr-x.  2 root           root             60 Jun 25 14:17 dbus
+-rw-r--r--.  1 root           root              5 Jun 25 16:03 dhclient-br1.pid
+-rw-r--r--.  1 root           root              6 Jun 25 16:31 dhclient-ens33.pid
+prw-------.  1 root           root              0 Jun 25 14:17 dmeventd-client
+prw-------.  1 root           root              0 Jun 25 14:17 dmeventd-server
+-rw-------.  1 root           root              0 Jun 25 14:18 ebtables.lock
+drwxr-xr-x.  2 root           root             40 Jun 25 14:17 faillock
+drwxr-x---.  2 root           root             40 Jun 25 15:13 firewalld
+drwx--x--x.  4 root           gdm             100 Jun 25 14:46 gdm
+-rw-------.  1 root           root              5 Jun 25 14:17 gssproxy.pid
+srw-rw-rw-.  1 root           root              0 Jun 25 14:17 gssproxy.sock
+drwx--x---.  3 root           apache          100 Jun 25 16:43 httpd
+drwxr-xr-x.  4 root           root            100 Jun 25 14:17 initramfs
+-rw-------.  1 root           root              5 Jun 25 14:18 iscsid.pid
+-rw-r--r--.  1 root           root              5 Jun 25 14:17 ksmtune.pid
+drwxr-xr-x.  8 root           root            260 Jun 25 14:19 libvirt
+-rw-r--r--.  1 root           root              4 Jun 25 14:19 libvirtd.pid
+drwxr-xr-x.  8 root           root            220 Jun 25 15:32 lock
+drwxr-xr-x.  3 root           root             60 Jun 25 14:17 log
+drwxrwxr-x.  3 root           libstoragemgmt   60 Jun 25 14:17 lsm
+drwx------.  2 root           root             80 Jun 25 14:17 lvm
+-rw-r--r--.  1 root           root              5 Jun 25 14:17 lvmetad.pid
+srwxr-xr-x.  1 root           root              0 Jun 25 14:17 mcelog-client
+-rw-r--r--.  1 root           root              4 Jun 25 14:17 mcelog.pid
+drwx--x---.  2 root           root             40 Jun 25 14:17 mdadm
+drwxr-xr-x.  3 root           root             60 Jun 25 14:46 media
+drwxr-xr-x.  2 root           root             80 Jun 25 14:46 mount
+drwxrwxr-x.  2 root           root             40 Jun 25 14:17 netreport
+drwxr-xr-x.  3 root           root            100 Jun 25 14:47 NetworkManager
+drwxr-xr-x.  2 root           root             40 Jun 25 14:17 nscd
+drwxr-xr-x.  2 nslcd          root             80 Jun 25 14:18 nslcd
+-rw-r--r--.  1 root           root              4 Jun 25 14:17 ntpd.pid
+drwxr-xr-x.  2 root           root             40 Jun 25 14:19 plymouth
+drwxr-xr-x.  2 root           root             40 Jun 25 14:17 ppp
+drwxr-xr-x.  2 radvd          radvd            40 Jun 25 14:17 radvd
+drwxr-xr-x.  2 root           root             80 Jun 25 15:21 rhsm
+drwx------.  2 rpc            rpc              40 Jun 25 14:17 rpcbind
+-r--r--r--.  1 root           root              0 Jun 25 14:17 rpcbind.lock
+srw-rw-rw-.  1 root           root              0 Jun 25 14:17 rpcbind.sock
+drwxr-xr-x.  2 root           root             40 Jun 25 14:17 samba
+drwxr-xr-x.  2 root           root             40 Jun 25 14:17 sepermit
+drwxr-xr-x.  2 root           root             40 Jun 25 14:17 setrans
+drwx--x--x.  2 setroubleshoot setroubleshoot   60 Jun 25 15:43 setroubleshoot
+-rw-------.  1 root           root              5 Jun 25 14:18 sm-notify.pid
+drwxr-xr-x.  2 root           root             40 Jun 25 14:17 spice-vdagentd
+-rw-r--r--.  1 root           root              5 Jun 25 14:18 sshd.pid
+-rw-------.  1 root           root              5 Jun 25 14:17 sssd.pid
+drwx--x--x.  3 root           root             60 Jun 25 14:17 sudo
+drwxr-xr-x.  2 root           root             60 Jun 25 14:17 sysconfig
+-rw-------.  1 root           root              4 Jun 25 14:18 syslogd.pid
+drwxr-xr-x. 19 root           root            460 Jun 25 15:12 systemd
+drwxr-xr-x.  2 root           root             60 Jun 25 14:17 tmpfiles.d
+drwxr-xr-x.  2 root           root             60 Jun 25 14:18 tuned
+drwxr-xr-x.  7 root           root            160 Jun 25 15:17 udev
+drwx------.  2 root           root             60 Jun 25 14:46 udisks2
+drwxr-xr-x.  4 root           root             80 Jun 25 16:40 user
+-rw-rw-r--.  1 root           utmp           2304 Jun 25 14:54 utmp
+drwxr-xr-x.  2 root           root             60 Jun 25 14:17 vmware
+drwxr-x---.  2 root           weldr            40 Jun 25 14:17 weldr
+-rw-------.  1 root           root              0 Jun 25 14:18 xtables.lock
+[harshil@server1 run]$ cd
+[harshil@server1 ~]$
+[harshil@server1 ~]$
+
