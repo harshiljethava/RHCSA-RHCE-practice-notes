@@ -1,0 +1,397 @@
+login as: harshil
+     ┌────────────────────────────────────────────────────────────────────┐
+     │                        • MobaXterm 11.1 •                          │
+     │            (SSH client, X-server and networking tools)             │
+     │                                                                    │
+     │ → SSH session to harshil@192.168.0.60                              │
+     │   • SSH compression : v                                            │
+     │   • SSH-browser     : v                                            │
+     │   • X11-forwarding  : v  (remote display is forwarded through SSH) │
+     │   • DISPLAY         : v  (automatically set on remote server)      │
+     │                                                                    │
+     │ → For more info, ctrl+click on help or visit our website           │
+     └────────────────────────────────────────────────────────────────────┘
+
+Last login: Sun Jun 30 18:47:37 2019
+[harshil@server2 ~]$ su root
+Password:
+[root@server2 harshil]#
+[root@server2 harshil]# showmount
+clnt_create: RPC: Program not registered
+[root@server2 harshil]# showmount -e server1.example.com
+Export list for server1.example.com:
+/mnt/nfsexport 192.168.0.101,server2.example.com
+[root@server2 harshil]# firewall-cmd --permanent --add-service=nfs
+success
+[root@server2 harshil]# firewall-cmd --relod
+usage: see firewall-cmd man page
+firewall-cmd: error: unrecognized arguments: --relod
+[root@server2 harshil]# firewall-cmd --reload
+success
+[root@server2 harshil]#
+[root@server2 harshil]# mount /
+bin/        etc/        lextab.py   media/      proc/       sbin/       tmp/        yacctab.py
+boot/       home/       lib/        mnt/        root/       srv/        usr/
+dev/        iscsi/      lib64/      opt/        run/        sys/        var/
+[root@server2 harshil]# mount -a
+Unable to find suitable address.
+[root@server2 harshil]# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        35G  4.7G   29G  14% /
+devtmpfs        705M     0  705M   0% /dev
+tmpfs           721M     0  721M   0% /dev/shm
+tmpfs           721M   11M  710M   2% /run
+tmpfs           721M     0  721M   0% /sys/fs/cgroup
+tmpfs           145M  8.0K  145M   1% /run/user/42
+tmpfs           145M     0  145M   0% /run/user/1000
+[root@server2 harshil]# mkdir /mnt/nfsexport22
+[root@server2 harshil]# mount server1:/nfsexport /mnt/nfsexport22/
+mount.nfs: Failed to resolve server server1: Name or service not known
+mount.nfs: Operation already in progress
+[root@server2 harshil]# mount server1.example.com:/nfsexport /mnt/nfsexport22/
+
+^[[A^[[A^[[A^[[A^[[B^[[A^[[B^[[C^[[D^[[D^[[C^[[D^[[C^[[D^[[C^[[C^C
+[root@server2 harshil]#
+[root@server2 harshil]# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        35G  4.7G   29G  14% /
+devtmpfs        705M     0  705M   0% /dev
+tmpfs           721M     0  721M   0% /dev/shm
+tmpfs           721M   11M  711M   2% /run
+tmpfs           721M     0  721M   0% /sys/fs/cgroup
+tmpfs           145M  8.0K  145M   1% /run/user/42
+tmpfs           145M     0  145M   0% /run/user/1000
+[root@server2 harshil]# getenforce
+Enforcing
+[root@server2 harshil]# showmount -e server1.example.com
+Export list for server1.example.com:
+/mnt/nfsexport 192.168.0.101,server2.example.com
+[root@server2 harshil]# showmount
+clnt_create: RPC: Program not registered
+[root@server2 harshil]# systemctl stop firewalld
+[root@server2 harshil]# showmount
+clnt_create: RPC: Program not registered
+[root@server2 harshil]# systemctl status rpc-bind
+Unit rpc-bind.service could not be found.
+[root@server2 harshil]# systemctl status rpc
+rpcbind.service           rpcbind.target            rpcgssd.service           rpc_pipefs.target         rpc-statd-notify.service
+rpcbind.socket            rpc-gssd.service          rpcidmapd.service         rpc-rquotad.service       rpc-statd.service
+[root@server2 harshil]# systemctl status rpc
+rpcbind.service           rpcbind.target            rpcgssd.service           rpc_pipefs.target         rpc-statd-notify.service
+rpcbind.socket            rpc-gssd.service          rpcidmapd.service         rpc-rquotad.service       rpc-statd.service
+[root@server2 harshil]# systemctl status rpc
+rpcbind.service           rpcbind.target            rpcgssd.service           rpc_pipefs.target         rpc-statd-notify.service
+rpcbind.socket            rpc-gssd.service          rpcidmapd.service         rpc-rquotad.service       rpc-statd.service
+[root@server2 harshil]# systemctl status rpc
+rpcbind.service           rpcbind.target            rpcgssd.service           rpc_pipefs.target         rpc-statd-notify.service
+rpcbind.socket            rpc-gssd.service          rpcidmapd.service         rpc-rquotad.service       rpc-statd.service
+[root@server2 harshil]# systemctl status rpcbind
+● rpcbind.service - RPC bind service
+   Loaded: loaded (/usr/lib/systemd/system/rpcbind.service; enabled; vendor preset: enabled)
+   Active: active (running) since Mon 2019-07-01 00:48:55 IST; 7min ago
+  Process: 6478 ExecStart=/sbin/rpcbind -w $RPCBIND_ARGS (code=exited, status=0/SUCCESS)
+ Main PID: 6490 (rpcbind)
+    Tasks: 1
+   CGroup: /system.slice/rpcbind.service
+           └─6490 /sbin/rpcbind -w
+
+Jul 01 00:48:51 server2.example.com systemd[1]: Starting RPC bind service...
+Jul 01 00:48:55 server2.example.com systemd[1]: Started RPC bind service.
+[root@server2 harshil]#
+[root@server2 harshil]# systemctl restart firewalld
+[root@server2 harshil]# firewall-cmd --add-service=rpc-bind --permanent
+success
+[root@server2 harshil]# firewall-cmd --reload
+success
+[root@server2 harshil]# mount 192.168.0.50:/mnt/nfsexport /mnt/
+centosmount/    multiuser/      nfsexport22/    redhat22/       sambaitshare22/ sambashare22/
+[root@server2 harshil]# mount 192.168.0.50:/mnt/nfsexport /mnt/nfsexport22/
+
+
+
+
+
+^C
+[root@server2 harshil]#
+[root@server2 harshil]# mount -a
+Unable to find suitable address.
+[root@server2 harshil]# mount -all
+Unable to find suitable address.
+[root@server2 harshil]# mount
+mount       mount.cifs  mount.fuse  mount.nfs   mount.nfs4  mountpoint  mountstats
+[root@server2 harshil]# mount
+mount       mount.cifs  mount.fuse  mount.nfs   mount.nfs4  mountpoint  mountstats
+[root@server2 harshil]# mount
+17052019                         Documents/                       Public/
+18052019                         Downloads/                       .ssh/
+180520192                        .esd_auth                        systemctl_restart_httpd.service
+19052018                         .ICEauthority                    systemctl_status_httpd.service
+.bash_history                    .ipa/                            .targetcli/
+.bash_logout                     lextab.py                        Templates/
+.bash_profile                    .local/                          Videos/
+.bashrc                          .mozilla/                        .viminfo
+.cache/                          Music/                           .Xauthority
+.config/                         network_teaming                  yacctab.py
+.dbus/                           Pictures/
+Desktop/                         .pki/
+[root@server2 harshil]# mount
+17052019                         Documents/                       Public/
+18052019                         Downloads/                       .ssh/
+180520192                        .esd_auth                        systemctl_restart_httpd.service
+19052018                         .ICEauthority                    systemctl_status_httpd.service
+.bash_history                    .ipa/                            .targetcli/
+.bash_logout                     lextab.py                        Templates/
+.bash_profile                    .local/                          Videos/
+.bashrc                          .mozilla/                        .viminfo
+.cache/                          Music/                           .Xauthority
+.config/                         network_teaming                  yacctab.py
+.dbus/                           Pictures/
+Desktop/                         .pki/
+[root@server2 harshil]# mount --help
+
+Usage:
+ mount [-lhV]
+ mount -a [options]
+ mount [options] [--source] <source> | [--target] <directory>
+ mount [options] <source> <directory>
+ mount <operation> <mountpoint> [<target>]
+
+Options:
+ -a, --all               mount all filesystems mentioned in fstab
+ -c, --no-canonicalize   don't canonicalize paths
+ -f, --fake              dry run; skip the mount(2) syscall
+ -F, --fork              fork off for each device (use with -a)
+ -T, --fstab <path>      alternative file to /etc/fstab
+ -h, --help              display this help text and exit
+ -i, --internal-only     don't call the mount.<type> helpers
+ -l, --show-labels       lists all mounts with LABELs
+ -n, --no-mtab           don't write to /etc/mtab
+ -o, --options <list>    comma-separated list of mount options
+ -O, --test-opts <list>  limit the set of filesystems (use with -a)
+ -r, --read-only         mount the filesystem read-only (same as -o ro)
+ -t, --types <list>      limit the set of filesystem types
+     --source <src>      explicitly specifies source (path, label, uuid)
+     --target <target>   explicitly specifies mountpoint
+ -v, --verbose           say what is being done
+ -V, --version           display version information and exit
+ -w, --rw, --read-write  mount the filesystem read-write (default)
+
+ -h, --help     display this help and exit
+ -V, --version  output version information and exit
+
+Source:
+ -L, --label <label>     synonym for LABEL=<label>
+ -U, --uuid <uuid>       synonym for UUID=<uuid>
+ LABEL=<label>           specifies device by filesystem label
+ UUID=<uuid>             specifies device by filesystem UUID
+ PARTLABEL=<label>       specifies device by partition label
+ PARTUUID=<uuid>         specifies device by partition UUID
+ <device>                specifies device by path
+ <directory>             mountpoint for bind mounts (see --bind/rbind)
+ <file>                  regular file for loopdev setup
+
+Operations:
+ -B, --bind              mount a subtree somewhere else (same as -o bind)
+ -M, --move              move a subtree to some other place
+ -R, --rbind             mount a subtree and all submounts somewhere else
+ --make-shared           mark a subtree as shared
+ --make-slave            mark a subtree as slave
+ --make-private          mark a subtree as private
+ --make-unbindable       mark a subtree as unbindable
+ --make-rshared          recursively mark a whole subtree as shared
+ --make-rslave           recursively mark a whole subtree as slave
+ --make-rprivate         recursively mark a whole subtree as private
+ --make-runbindable      recursively mark a whole subtree as unbindable
+
+For more details see mount(8).
+[root@server2 harshil]# mount -f
+sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime,seclabel)
+proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)
+devtmpfs on /dev type devtmpfs (rw,nosuid,seclabel,size=721796k,nr_inodes=180449,mode=755)
+securityfs on /sys/kernel/security type securityfs (rw,nosuid,nodev,noexec,relatime)
+tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev,seclabel)
+devpts on /dev/pts type devpts (rw,nosuid,noexec,relatime,seclabel,gid=5,mode=620,ptmxmode=000)
+tmpfs on /run type tmpfs (rw,nosuid,nodev,seclabel,mode=755)
+tmpfs on /sys/fs/cgroup type tmpfs (ro,nosuid,nodev,noexec,seclabel,mode=755)
+cgroup on /sys/fs/cgroup/systemd type cgroup (rw,nosuid,nodev,noexec,relatime,seclabel,xattr,release_agent=/usr/lib/systemd/systemd-cgroups-agent,name=systemd)
+pstore on /sys/fs/pstore type pstore (rw,nosuid,nodev,noexec,relatime)
+cgroup on /sys/fs/cgroup/pids type cgroup (rw,nosuid,nodev,noexec,relatime,seclabel,pids)
+cgroup on /sys/fs/cgroup/blkio type cgroup (rw,nosuid,nodev,noexec,relatime,seclabel,blkio)
+cgroup on /sys/fs/cgroup/perf_event type cgroup (rw,nosuid,nodev,noexec,relatime,seclabel,perf_event)
+cgroup on /sys/fs/cgroup/memory type cgroup (rw,nosuid,nodev,noexec,relatime,seclabel,memory)
+cgroup on /sys/fs/cgroup/hugetlb type cgroup (rw,nosuid,nodev,noexec,relatime,seclabel,hugetlb)
+cgroup on /sys/fs/cgroup/cpuset type cgroup (rw,nosuid,nodev,noexec,relatime,seclabel,cpuset)
+cgroup on /sys/fs/cgroup/cpu,cpuacct type cgroup (rw,nosuid,nodev,noexec,relatime,seclabel,cpuacct,cpu)
+cgroup on /sys/fs/cgroup/devices type cgroup (rw,nosuid,nodev,noexec,relatime,seclabel,devices)
+cgroup on /sys/fs/cgroup/net_cls,net_prio type cgroup (rw,nosuid,nodev,noexec,relatime,seclabel,net_prio,net_cls)
+cgroup on /sys/fs/cgroup/freezer type cgroup (rw,nosuid,nodev,noexec,relatime,seclabel,freezer)
+configfs on /sys/kernel/config type configfs (rw,relatime)
+/dev/sda1 on / type btrfs (rw,relatime,seclabel,space_cache,subvolid=257,subvol=/root)
+selinuxfs on /sys/fs/selinux type selinuxfs (rw,relatime)
+systemd-1 on /proc/sys/fs/binfmt_misc type autofs (rw,relatime,fd=36,pgrp=1,timeout=0,minproto=5,maxproto=5,direct,pipe_ino=20377)
+debugfs on /sys/kernel/debug type debugfs (rw,relatime)
+mqueue on /dev/mqueue type mqueue (rw,relatime,seclabel)
+hugetlbfs on /dev/hugepages type hugetlbfs (rw,relatime,seclabel)
+sunrpc on /var/lib/nfs/rpc_pipefs type rpc_pipefs (rw,relatime)
+tmpfs on /run/user/42 type tmpfs (rw,nosuid,nodev,relatime,seclabel,size=147516k,mode=700,uid=42,gid=42)
+tmpfs on /run/user/1000 type tmpfs (rw,nosuid,nodev,relatime,seclabel,size=147516k,mode=700,uid=1000,gid=1000)
+[root@server2 harshil]#
+[root@server2 harshil]# mount -a
+Unable to find suitable address.
+[root@server2 harshil]# mount -a /
+bin/        etc/        lextab.py   media/      proc/       sbin/       tmp/        yacctab.py
+boot/       home/       lib/        mnt/        root/       srv/        usr/
+dev/        iscsi/      lib64/      opt/        run/        sys/        var/
+[root@server2 harshil]# mount -a /
+bin/        etc/        lextab.py   media/      proc/       sbin/       tmp/        yacctab.py
+boot/       home/       lib/        mnt/        root/       srv/        usr/
+dev/        iscsi/      lib64/      opt/        run/        sys/        var/
+[root@server2 harshil]# mount 192.168.0.50:/nfsexport /mnt/nfsexport22/
+^C
+[root@server2 harshil]# systemctl stop firewall
+Failed to stop firewall.service: Unit firewall.service not loaded.
+[root@server2 harshil]# systemctl stop firewalld
+[root@server2 harshil]# mount 192.168.0.50:/nfsexport /mnt/nfsexport22/
+^C
+[root@server2 harshil]# setenforce 0
+[root@server2 harshil]# mount 192.168.0.50:/nfsexport /mnt/nfsexport22/
+^C
+[root@server2 harshil]# mount 192.168.0.50:/nfsexport /mnt/nfsexport22/
+mount.nfs: access denied by server while mounting 192.168.0.50:/nfsexport
+[root@server2 harshil]# mount 192.168.0.50:/nfsexport /mnt/nfsexport22/
+mount.nfs: access denied by server while mounting 192.168.0.50:/nfsexport
+[root@server2 harshil]# mount 192.168.0.50:/nfsexport /mnt/nfsexport22/
+mount.nfs: access denied by server while mounting 192.168.0.50:/nfsexport
+[root@server2 harshil]# mount 192.168.0.50:/mnt//nfsexport /mnt/nfsexport22/
+[root@server2 harshil]# mount 192.168.0.50:/mnt/nfsexport /mnt/nfsexport22/
+mount.nfs: /mnt/nfsexport22 is busy or already mounted
+[root@server2 harshil]# df -h
+Filesystem                   Size  Used Avail Use% Mounted on
+/dev/sda1                     35G  4.7G   29G  14% /
+devtmpfs                     705M     0  705M   0% /dev
+tmpfs                        721M     0  721M   0% /dev/shm
+tmpfs                        721M   11M  710M   2% /run
+tmpfs                        721M     0  721M   0% /sys/fs/cgroup
+tmpfs                        145M   12K  145M   1% /run/user/42
+tmpfs                        145M     0  145M   0% /run/user/1000
+192.168.0.50:/mnt/nfsexport   35G  5.2G   29G  16% /mnt/nfsexport22
+[root@server2 harshil]# cd /mnt/nfsexport22/
+[root@server2 nfsexport22]# ll
+total 0
+[root@server2 nfsexport22]# touch test
+touch: cannot touch ‘test’: Permission denied
+[root@server2 nfsexport22]# test test.txt
+[root@server2 nfsexport22]# ll
+total 0
+[root@server2 nfsexport22]# touch test.txt
+touch: cannot touch ‘test.txt’: Permission denied
+[root@server2 nfsexport22]# ll
+total 0
+[root@server2 nfsexport22]#
+[root@server2 nfsexport22]# cd ..
+[root@server2 mnt]# ll
+total 0
+drwxr-xr-x. 1 root root 0 Jun 28 23:30 centosmount
+drwxr-xr-x. 1 root root 0 Jun 30 18:20 multiuser
+drwxr-xr-x. 1 root root 0 Jul  1 00:43 nfsexport22
+drwxr-xr-x. 1 root root 0 Jun 28 01:48 redhat22
+drwxr-xr-x. 1 root root 0 Jun 28 00:58 sambaitshare22
+drwxr-xr-x. 1 root root 0 Jun 28 00:48 sambashare22
+[root@server2 mnt]# cd nfsexport22/
+[root@server2 nfsexport22]# ll
+total 0
+[root@server2 nfsexport22]# setenforce 1
+[root@server2 nfsexport22]# getenforce
+Enforcing
+[root@server2 nfsexport22]#
+[root@server2 nfsexport22]# ll
+total 0
+[root@server2 nfsexport22]# cd ..
+[root@server2 mnt]# ll
+total 0
+drwxr-xr-x. 1 root root  0 Jun 28 23:30 centosmount
+drwxr-xr-x. 1 root root  0 Jun 30 18:20 multiuser
+drwxr-xr-x. 1 root root 40 Jul  1 01:07 nfsexport22
+drwxr-xr-x. 1 root root  0 Jun 28 01:48 redhat22
+drwxr-xr-x. 1 root root  0 Jun 28 00:58 sambaitshare22
+drwxr-xr-x. 1 root root  0 Jun 28 00:48 sambashare22
+[root@server2 mnt]# cd nfsexport22/
+[root@server2 nfsexport22]# ll
+total 8
+-rw-r--r--. 1 root root 38 Jul  1 01:07 test11.txt
+-rw-r--r--. 1 root root 38 Jul  1 01:07 test12.txt
+[root@server2 nfsexport22]# getenforce
+Enforcing
+[root@server2 nfsexport22]#
+[root@server2 nfsexport22]# ll
+total 8
+-rw-r--r--. 1 root root 38 Jul  1 01:07 test11.txt
+-rw-r--r--. 1 root root 38 Jul  1 01:07 test12.txt
+[root@server2 nfsexport22]# cd
+[root@server2 ~]# systemctl restart firewalld
+[root@server2 ~]# ll
+total 20
+-rw-------. 1 root root 1735 May 17 21:28 anaconda-ks.cfg
+-rw-r--r--. 1 root root 4778 Jun 25 19:13 httpd_virtualhost
+-rw-r--r--. 1 root root 1783 May 17 22:07 initial-setup-ks.cfg
+-rw-r--r--. 1 root root   30 Jun 30 18:45 smb-multiuser
+[root@server2 ~]# cd /mnt/nfsexport22/
+[root@server2 nfsexport22]# ll
+total 8
+-rw-r--r--. 1 root root 38 Jul  1 01:07 test11.txt
+-rw-r--r--. 1 root root 38 Jul  1 01:07 test12.txt
+[root@server2 nfsexport22]# cat test1
+cat: test1: No such file or directory
+[root@server2 nfsexport22]# cat test1
+test11.txt  test12.txt
+[root@server2 nfsexport22]# cat test11.txt
+sample text of test11 file in server1
+[root@server2 nfsexport22]# touch test21.txt
+touch: cannot touch ‘test21.txt’: Permission denied
+[root@server2 nfsexport22]# ll
+total 8
+-rw-r--r--. 1 root root 38 Jul  1 01:07 test11.txt
+-rw-r--r--. 1 root root 38 Jul  1 01:07 test12.txt
+[root@server2 nfsexport22]# touch test21
+touch: cannot touch ‘test21’: Permission denied
+[root@server2 nfsexport22]# ll
+total 8
+-rw-r--r--. 1 root root 38 Jul  1 01:07 test11.txt
+-rw-r--r--. 1 root root 38 Jul  1 01:07 test12.txt
+[root@server2 nfsexport22]# touch test21.txt
+[root@server2 nfsexport22]# ll
+total 8
+-rw-r--r--. 1 root root 38 Jul  1 01:07 test11.txt
+-rw-r--r--. 1 root root 38 Jul  1 01:07 test12.txt
+-rw-r--r--. 1 root root  0 Jul  1 01:11 test21.txt
+[root@server2 nfsexport22]# ll
+total 8
+-rw-r--r--. 1 root root 38 Jul  1 01:07 test11.txt
+-rw-r--r--. 1 root root 38 Jul  1 01:07 test12.txt
+-rw-r--r--. 1 root root  0 Jul  1 01:11 test21.txt
+[root@server2 nfsexport22]# touch test22.txt
+touch: cannot touch ‘test22.txt’: Permission denied
+[root@server2 nfsexport22]# touch test22.txt
+[root@server2 nfsexport22]# ll
+total 8
+-rw-r--r--. 1 root root 38 Jul  1 01:07 test11.txt
+-rw-r--r--. 1 root root 38 Jul  1 01:07 test12.txt
+-rw-r--r--. 1 root root  0 Jul  1 01:11 test21.txt
+-rw-r--r--. 1 root root  0 Jul  1 01:13 test22.txt
+[root@server2 nfsexport22]# touch test22.txt
+[root@server2 nfsexport22]# vim /etc/fstab
+[root@server2 nfsexport22]# umount /mnt/nfsexport22/
+umount.nfs4: /mnt/nfsexport22: device is busy
+[root@server2 nfsexport22]# cd
+[root@server2 ~]# umount /mnt/nfsexport22/
+[root@server2 ~]# reboot
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Session stopped
+    - Press <return> to exit tab
+    - Press R to restart session
+    - Press S to save terminal output to file
+
+Server unexpectedly closed network connection
+
