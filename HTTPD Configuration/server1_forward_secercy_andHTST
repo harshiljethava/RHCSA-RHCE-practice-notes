@@ -1,0 +1,403 @@
+login as: harshil
+     ┌────────────────────────────────────────────────────────────────────┐
+     │                        • MobaXterm 11.1 •                          │
+     │            (SSH client, X-server and networking tools)             │
+     │                                                                    │
+     │ → SSH session to harshil@192.168.0.50                              │
+     │   • SSH compression : v                                            │
+     │   • SSH-browser     : v                                            │
+     │   • X11-forwarding  : v  (remote display is forwarded through SSH) │
+     │   • DISPLAY         : v  (automatically set on remote server)      │
+     │                                                                    │
+     │ → For more info, ctrl+click on help or visit our website           │
+     └────────────────────────────────────────────────────────────────────┘
+
+Last login: Tue Jun 25 22:00:35 2019 from 192.168.0.101
+[harshil@server1 ~]$ su
+Password:
+[harshil@server1 ~]$ su root
+Password:
+[root@server1 harshil]# systemctl status httpd
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+   Active: failed (Result: exit-code) since Tue 2019-06-25 22:08:31 IST; 53s ago
+     Docs: man:httpd(8)
+           man:apachectl(8)
+  Process: 8208 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 8034 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 8034 (code=exited, status=1/FAILURE)
+
+Jun 25 22:08:27 server1.example.com systemd[1]: Starting The Apache HTTP Server...
+Jun 25 22:08:30 server1.example.com systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Jun 25 22:08:31 server1.example.com kill[8208]: kill: cannot find process ""
+Jun 25 22:08:31 server1.example.com systemd[1]: httpd.service: control process exited, code=exited status=1
+Jun 25 22:08:31 server1.example.com systemd[1]: Failed to start The Apache HTTP Server.
+Jun 25 22:08:31 server1.example.com systemd[1]: Unit httpd.service entered failed state.
+Jun 25 22:08:31 server1.example.com systemd[1]: httpd.service failed.
+[root@server1 harshil]# systemctl restart httpd
+Job for httpd.service failed because the control process exited with error code. See "systemctl status httpd.service" and "journalctl -xe" for details.
+[root@server1 harshil]# tail -f /var/log/httpd/
+access_log           error_log            error_log-20190620   site1_access_log     ssl_error_log
+access_log-20190519  error_log-20190519   error_log-20190623   site1_error_log      ssl_request_log
+access_log-20190622  error_log-20190609   server1.example.com  ssl_access_log
+[root@server1 harshil]# tail -f /var/log/httpd/error_log
+[Tue Jun 25 21:52:45.687625 2019] [ssl:emerg] [pid 20696] AH02311: Fatal error initialising mod_ssl, exiting. See /etc/httpd/logs/ssl_error_log for more information
+[Tue Jun 25 22:00:58.866345 2019] [core:notice] [pid 21046] SELinux policy enabled; httpd running as context system_u:system_r:httpd_t:s0
+[Tue Jun 25 22:00:58.868678 2019] [suexec:notice] [pid 21046] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Tue Jun 25 22:00:58.868844 2019] [ssl:emerg] [pid 21046] AH02311: Fatal error initialising mod_ssl, exiting. See /etc/httpd/logs/ssl_error_log for more information
+[Tue Jun 25 22:08:30.802309 2019] [core:notice] [pid 8034] SELinux policy enabled; httpd running as context system_u:system_r:httpd_t:s0
+[Tue Jun 25 22:08:30.893415 2019] [suexec:notice] [pid 8034] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Tue Jun 25 22:08:30.894779 2019] [ssl:emerg] [pid 8034] AH02311: Fatal error initialising mod_ssl, exiting. See /etc/httpd/logs/ssl_error_log for more information
+[Tue Jun 25 22:09:32.764002 2019] [core:notice] [pid 17256] SELinux policy enabled; httpd running as context system_u:system_r:httpd_t:s0
+[Tue Jun 25 22:09:32.766048 2019] [suexec:notice] [pid 17256] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Tue Jun 25 22:09:32.766219 2019] [ssl:emerg] [pid 17256] AH02311: Fatal error initialising mod_ssl, exiting. See /etc/httpd/logs/ssl_error_log for more information
+^C
+[root@server1 harshil]# tail -f /var/log/httpd/
+access_log           error_log            error_log-20190620   site1_access_log     ssl_error_log
+access_log-20190519  error_log-20190519   error_log-20190623   site1_error_log      ssl_request_log
+access_log-20190622  error_log-20190609   server1.example.com  ssl_access_log
+[root@server1 harshil]# tail -f /var/log/httpd/ssl_
+ssl_access_log   ssl_error_log    ssl_request_log
+[root@server1 harshil]# tail -f /var/log/httpd/ssl_error_log
+[Tue Jun 25 21:50:00.615844 2019] [ssl:emerg] [pid 20560] AH02238: Unable to configure RSA server private key
+[Tue Jun 25 21:50:00.615861 2019] [ssl:emerg] [pid 20560] SSL Library Error: error:0B080074:x509 certificate routines:X509_check_private_key:key values mismatch
+[Tue Jun 25 21:51:36.740028 2019] [ssl:warn] [pid 20661] AH01906: RSA server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Tue Jun 25 21:51:36.740056 2019] [ssl:warn] [pid 20661] AH01909: RSA certificate configured for server1.example.com:443 does NOT include an ID which matches the server name
+[Tue Jun 25 21:51:36.740074 2019] [ssl:emerg] [pid 20661] AH02238: Unable to configure RSA server private key
+[Tue Jun 25 21:51:36.740093 2019] [ssl:emerg] [pid 20661] SSL Library Error: error:0B080074:x509 certificate routines:X509_check_private_key:key values mismatch
+[Tue Jun 25 21:52:45.687610 2019] [ssl:emerg] [pid 20696] AH02240: Server should be SSL-aware but has no certificate configured [Hint: SSLCertificateFile] (/etc/httpd/conf.d/ssl.conf:56)
+[Tue Jun 25 22:00:58.868826 2019] [ssl:emerg] [pid 21046] AH02240: Server should be SSL-aware but has no certificate configured [Hint: SSLCertificateFile] (/etc/httpd/conf.d/ssl.conf:56)
+[Tue Jun 25 22:08:30.893555 2019] [ssl:emerg] [pid 8034] AH02240: Server should be SSL-aware but has no certificate configured [Hint: SSLCertificateFile] (/etc/httpd/conf.d/ssl.conf:56)
+[Tue Jun 25 22:09:32.766199 2019] [ssl:emerg] [pid 17256] AH02240: Server should be SSL-aware but has no certificate configured [Hint: SSLCertificateFile] (/etc/httpd/conf.d/ssl.conf:56)
+
+
+q
+^C
+[root@server1 harshil]# cd /etc/httpd/conf.d/
+[root@server1 conf.d]# ll
+total 36
+-rw-r--r--. 1 root root 2926 Apr 24 19:15 autoindex.conf
+-rw-r--r--. 1 root root  366 Apr 24 19:16 README
+-rw-r--r--. 1 root root  237 Jun 25 19:56 site1.conf
+-rw-r--r--. 1 root root  231 Jun 25 19:57 site2.conf
+-rw-r--r--. 1 root root 9448 Jun 25 21:52 ssl.conf
+-rw-r--r--. 1 root root 1252 Apr 24 19:14 userdir.conf
+-rw-r--r--. 1 root root  838 Jun 25 15:35 welcome.conf
+[root@server1 conf.d]# vim ssl.conf
+[root@server1 conf.d]# systemctl restart httpd
+[root@server1 conf.d]# systemctl status httpd
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Tue 2019-06-25 22:12:25 IST; 6s ago
+     Docs: man:httpd(8)
+           man:apachectl(8)
+  Process: 17257 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+ Main PID: 17360 (httpd)
+   Status: "Processing requests..."
+    Tasks: 6
+   CGroup: /system.slice/httpd.service
+           ├─17360 /usr/sbin/httpd -DFOREGROUND
+           ├─17361 /usr/sbin/httpd -DFOREGROUND
+           ├─17362 /usr/sbin/httpd -DFOREGROUND
+           ├─17363 /usr/sbin/httpd -DFOREGROUND
+           ├─17364 /usr/sbin/httpd -DFOREGROUND
+           └─17365 /usr/sbin/httpd -DFOREGROUND
+
+Jun 25 22:12:25 server1.example.com systemd[1]: Starting The Apache HTTP Server...
+Jun 25 22:12:25 server1.example.com systemd[1]: Started The Apache HTTP Server.
+[root@server1 conf.d]# cd ..
+[root@server1 httpd]# ll
+total 12
+drwxr-xr-x. 1 root root  58 Jun 25 20:03 conf
+drwxr-xr-x. 1 root root 144 Jun 25 22:12 conf.d
+drwxr-xr-x. 1 root root 190 Jun 25 21:25 conf.modules.d
+lrwxrwxrwx. 1 root root  19 May 17 21:43 logs -> ../../var/log/httpd
+lrwxrwxrwx. 1 root root  29 May 17 21:43 modules -> ../../usr/lib64/httpd/modules
+lrwxrwxrwx. 1 root root  10 May 17 21:43 run -> /run/httpd
+[root@server1 httpd]# cd conf.d/
+[root@server1 conf.d]# ll
+total 36
+-rw-r--r--. 1 root root 2926 Apr 24 19:15 autoindex.conf
+-rw-r--r--. 1 root root  366 Apr 24 19:16 README
+-rw-r--r--. 1 root root  237 Jun 25 19:56 site1.conf
+-rw-r--r--. 1 root root  231 Jun 25 19:57 site2.conf
+-rw-r--r--. 1 root root 9456 Jun 25 22:12 ssl.conf
+-rw-r--r--. 1 root root 1252 Apr 24 19:14 userdir.conf
+-rw-r--r--. 1 root root  838 Jun 25 15:35 welcome.conf
+[root@server1 conf.d]# vim site1.conf
+[root@server1 conf.d]# systemctl restart httpd
+[root@server1 conf.d]# httpd -t
+Syntax OK
+[root@server1 conf.d]# ll
+total 36
+-rw-r--r--. 1 root root 2926 Apr 24 19:15 autoindex.conf
+-rw-r--r--. 1 root root  366 Apr 24 19:16 README
+-rw-r--r--. 1 root root  316 Jun 25 22:15 site1.conf
+-rw-r--r--. 1 root root  231 Jun 25 19:57 site2.conf
+-rw-r--r--. 1 root root 9456 Jun 25 22:12 ssl.conf
+-rw-r--r--. 1 root root 1252 Apr 24 19:14 userdir.conf
+-rw-r--r--. 1 root root  838 Jun 25 15:35 welcome.conf
+[root@server1 conf.d]# vim site2.conf
+[root@server1 conf.d]# systemctl restart httpd
+Job for httpd.service failed because the control process exited with error code. See "systemctl status httpd.service" and "journalctl -xe" for details.
+[root@server1 conf.d]# vim site1.conf
+[root@server1 conf.d]# vim site2.conf
+[root@server1 conf.d]# systemctl restart httpd
+Job for httpd.service failed because the control process exited with error code. See "systemctl status httpd.service" and "journalctl -xe" for details.
+[root@server1 conf.d]# systemctl status httpd
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+   Active: failed (Result: exit-code) since Tue 2019-06-25 22:17:43 IST; 7s ago
+     Docs: man:httpd(8)
+           man:apachectl(8)
+  Process: 17522 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 17521 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 17521 (code=exited, status=1/FAILURE)
+
+Jun 25 22:17:43 server1.example.com systemd[1]: Starting The Apache HTTP Server...
+Jun 25 22:17:43 server1.example.com httpd[17521]: AH00526: Syntax error on line 9 of /etc/httpd/conf.d/site2.conf:
+Jun 25 22:17:43 server1.example.com httpd[17521]: Invalid command 'RewiteEngine', perhaps misspelled or defined by a module...ration
+Jun 25 22:17:43 server1.example.com systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Jun 25 22:17:43 server1.example.com kill[17522]: kill: cannot find process ""
+Jun 25 22:17:43 server1.example.com systemd[1]: httpd.service: control process exited, code=exited status=1
+Jun 25 22:17:43 server1.example.com systemd[1]: Failed to start The Apache HTTP Server.
+Jun 25 22:17:43 server1.example.com systemd[1]: Unit httpd.service entered failed state.
+Jun 25 22:17:43 server1.example.com systemd[1]: httpd.service failed.
+Hint: Some lines were ellipsized, use -l to show in full.
+[root@server1 conf.d]# vim site2.conf
+[root@server1 conf.d]# systemctl restart httpd
+[root@server1 conf.d]# vim site2.conf
+[root@server1 conf.d]# ll
+total 36
+-rw-r--r--. 1 root root 2926 Apr 24 19:15 autoindex.conf
+-rw-r--r--. 1 root root  366 Apr 24 19:16 README
+-rw-r--r--. 1 root root  316 Jun 25 22:15 site1.conf
+-rw-r--r--. 1 root root  309 Jun 25 22:18 site2.conf
+-rw-r--r--. 1 root root 9456 Jun 25 22:12 ssl.conf
+-rw-r--r--. 1 root root 1252 Apr 24 19:14 userdir.conf
+-rw-r--r--. 1 root root  838 Jun 25 15:35 welcome.conf
+[root@server1 conf.d]# vim ssl.conf
+[root@server1 conf.d]# systemctl restart httpd
+[root@server1 conf.d]# systemctl restart http^C
+[root@server1 conf.d]# history
+    1  firewall-cmd --add-service=http
+    2  firewall-cmd --add-service=https
+    3  firewall-cmd --reload
+    4  firewall-cmd --add-port=80/tcp
+    5  firewall-cmd --reload
+    6  exit
+    7  cd /etc/sysconfig/
+    8  ls
+    9  cd network-scripts/
+   10  ls
+   11  cat ifcfg-team1
+   12  cat ifcfg-team1-port1
+   13  cat ifcfg-team1
+   14  cat ifcfg-team1-port
+   15  cat ifcfg-team1-port1
+   16  nmtui
+   17  su harshil
+   18  exit
+   19  echo "alias sar='LANG=C sar'" >> /etc/bashrc
+   20  vim /etc/sysconfig/sysstat
+   21  sysctl
+   22  sysctl -a
+   23  echo 1 > /proc/sys/net/ipv4/icmp_echo_ignore_all
+   24  sysctl -w "net.ipv4.icmp_echo_ignore_all=0"
+   25  sysctl -w "net.ipv4.icmp_echo_ignore_all=1"
+   26  sysctl -w "net.ipv4.icmp_echo_ignore_all=0"
+   27  halt
+   28  ll
+   29  cd httpd/
+   30  ll
+   31  cat site1_error_log
+   32  ll
+   33  cat server1.example.com
+   34  cat site1_
+   35  cat site1_access_log
+   36  cat site1_error_log
+   37  setenforce 0
+   38  getenforce
+   39  ll
+   40  cat error_log-20190623
+   41  ll
+   42  cat error_log
+   43  sudo chcon  --user system_u --type httpd_sys_content_t -Rv /home/harshil/site1/www/
+   44  sudo restorecon
+   45  sudo restorecon -Rv /home/harshil/site1/www/
+   46  ls -Z /home/harshil/site1/www/
+   47  setfacl -m g:apache:rx /home/harshil/site1/*
+   48  tail -f /var/log/audit/audit.log
+   49  getenforce
+   50  systemctl enable httpd
+   51  sudo restart
+   52  reboot
+   53  cd /etc/httpd/conf.d/
+   54  ll
+   55  vim site1.conf
+   56  ll
+   57  cp site1.conf site2.conf
+   58  ll
+   59  vim site2.conf
+   60  getenforce
+   61  cd /var/www/html/
+   62  ll
+   63  cd site1/
+   64  ll
+   65  vim index.html
+   66  cd ..
+   67  ll
+   68  cd html/
+   69  ll
+   70  mkdir site2
+   71  cp site1/index.html site2/
+   72  ll
+   73  cd site2/
+   74  vim index.html
+   75  semanage fcontext -a -t httpd_sys_content_t '/var/www/html/site1(/.*)?'
+   76  semanage fcontext -a -t httpd_sys_content_t '/var/www/html/site2(/.*)?'
+   77  restorecon -Rv /var/www/html/*
+   78  chown apache:apache -R /var/www/html/site1
+   79  chown apache:apache -R /var/www/html/site2
+   80  systemctl restart httpd
+   81  cd ..
+   82  cd /etc/httpd/conf
+   83  ll
+   84  vim httpd
+   85  vim httpd.conf
+   86  systemctl restart httpd
+   87  systemctl status httpd
+   88  vim httpd.conf
+   89  systemctl restart httpd
+   90  cd ..
+   91  ll
+   92  cd conf
+   93  ll
+   94  cd ..
+   95  cd conf.d/
+   96  ll
+   97  cp site1.conf /home/harshil/
+   98  ll
+   99  cd
+  100  ll
+  101  genkey example.com
+  102  yum install mod_ssl
+  103  mkdir -p /var/www/html/securesite
+  104  semanage fcontext -a -t httpd_sys_content_t '/var/www/html/securesite'
+  105  semanage fcontext -a -t httpd_sys_content_t '/var/www/html/securesite(/.*)?'
+  106  chown apache:apache -R /var/www/html/securesite/*
+  107  chown apache:apache -R /var/www/html/securesite/
+  108  cd /var/www/html/securesite/
+  109  ll
+  110  touch index.html
+  111  vim index.html
+  112  restorecon -Rv /var/www/html/securesite/
+  113  yum install crypto-utils
+  114  genkey server1.example.com
+  115  cd /etc/
+  116  cd pki/
+  117  ll
+  118  cd tls/
+  119  ll
+  120  cd certs/
+  121  ll
+  122  cd ..
+  123  cd private/
+  124  ll
+  125  cd ..
+  126  cd certs/
+  127  ll
+  128  cat ca-bundle.trust.crt
+  129  ll
+  130  cd /etc/httpd/conf.d/
+  131  ll
+  132  vim ssl.conf
+  133  cd /etc/pki/
+  134  cd tls/
+  135  ll
+  136  cd private/
+  137  ll
+  138  pwd
+  139  cd ..
+  140  ll
+  141  cd certs/
+  142  ll
+  143  pwd
+  144  cd /etc/httpd/conf/
+  145  cd ..
+  146  cd conf.d/
+  147  ll
+  148  vim ssl.conf
+  149  cd /etc/pki/tls/certs/
+  150  ll
+  151  cd /etc/httpd/conf.d/
+  152  vim ssl.conf
+  153  systemctl restart httpd
+  154  systemctl status httpd
+  155  ll
+  156  systemctl restart httpd
+  157  journalctl -xe
+  158  systemctl restart httpd
+  159  systemctl status httpd
+  160  vim ssl.conf
+  161  systemctl restart httpd
+  162  systemctl status httpd
+  163  journalctl -xe
+  164  ll
+  165  cd ..
+  166  ls
+  167  ll
+  168  cd
+  169  cd /etc/pki/tls/
+  170  ll
+  171  cd private/
+  172  ll
+  173  cd ..
+  174  ll
+  175  cd certs/
+  176  ll
+  177  genkey server1.example.com
+  178  cd ..
+  179  ll
+  180  cd private/
+  181  ll
+  182  rm server1.example.com.key
+  183  ll
+  184  cd ..
+  185  genkey server1.example.com
+  186  ll
+  187  cd certs/
+  188  ll
+  189  reboot
+  190  systemctl status httpd
+  191  systemctl restart httpd
+  192  tail -f /var/log/httpd/error_log
+  193  tail -f /var/log/httpd/ssl_error_log
+  194  cd /etc/httpd/conf.d/
+  195  ll
+  196  vim ssl.conf
+  197  systemctl restart httpd
+  198  systemctl status httpd
+  199  cd ..
+  200  ll
+  201  cd conf.d/
+  202  ll
+  203  vim site1.conf
+  204  systemctl restart httpd
+  205  httpd -t
+  206  ll
+  207  vim site2.conf
+  208  systemctl restart httpd
+  209  vim site1.conf
+  210  vim site2.conf
+  211  systemctl restart httpd
+  212  systemctl status httpd
+  213  vim site2.conf
+  214  systemctl restart httpd
+  215  vim site2.conf
+  216  ll
+  217  vim ssl.conf
+  218  systemctl restart httpd
+  219  history
+[root@server1 conf.d]#
+
