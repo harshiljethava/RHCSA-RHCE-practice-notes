@@ -1,0 +1,230 @@
+login as: harshil
+     ┌────────────────────────────────────────────────────────────────────┐
+     │                        • MobaXterm 11.1 •                          │
+     │            (SSH client, X-server and networking tools)             │
+     │                                                                    │
+     │ → SSH session to harshil@192.168.0.50                              │
+     │   • SSH compression : v                                            │
+     │   • SSH-browser     : v                                            │
+     │   • X11-forwarding  : v  (remote display is forwarded through SSH) │
+     │   • DISPLAY         : v  (automatically set on remote server)      │
+     │                                                                    │
+     │ → For more info, ctrl+click on help or visit our website           │
+     └────────────────────────────────────────────────────────────────────┘
+
+Last login: Mon Jul  1 00:39:41 2019 from 192.168.0.101
+[harshil@server1 ~]$ su root
+Password:
+[root@server1 harshil]#
+[root@server1 harshil]# systemctl status nfs-server
+● nfs-server.service - NFS server and services
+   Loaded: loaded (/usr/lib/systemd/system/nfs-server.service; disabled; vendor preset: disabled)
+   Active: inactive (dead)
+[root@server1 harshil]# systemctl status smba
+Unit smba.service could not be found.
+[root@server1 harshil]# systemctl status smb
+● smb.service - Samba SMB Daemon
+   Loaded: loaded (/usr/lib/systemd/system/smb.service; enabled; vendor preset: disabled)
+   Active: active (running) since Sun 2019-06-30 23:59:26 IST; 43min ago
+     Docs: man:smbd(8)
+           man:samba(7)
+           man:smb.conf(5)
+ Main PID: 7686 (smbd)
+   Status: "smbd: ready to serve connections..."
+    Tasks: 4
+   CGroup: /system.slice/smb.service
+           ├─ 7686 /usr/sbin/smbd --foreground --no-process-group
+           ├─ 7928 /usr/sbin/smbd --foreground --no-process-group
+           ├─ 7929 /usr/sbin/smbd --foreground --no-process-group
+           └─10524 /usr/sbin/smbd --foreground --no-process-group
+
+Jun 30 23:59:08 server1.example.com systemd[1]: Starting Samba SMB Daemon...
+Jun 30 23:59:26 server1.example.com systemd[1]: Started Samba SMB Daemon.
+Jun 30 23:59:26 server1.example.com smbd[7686]: [2019/06/30 23:59:26.095312,  0] ../lib/util/become_daemon.c:138(daemon_ready)
+Jun 30 23:59:26 server1.example.com smbd[7686]:   daemon_ready: STATUS=daemon 'smbd' finished starting up and ready to serv...ctions
+Hint: Some lines were ellipsized, use -l to show in full.
+[root@server1 harshil]# systemctl stop smb
+[root@server1 harshil]#
+[root@server1 harshil]# systemctl status smb
+● smb.service - Samba SMB Daemon
+   Loaded: loaded (/usr/lib/systemd/system/smb.service; enabled; vendor preset: disabled)
+   Active: inactive (dead) since Mon 2019-07-01 00:42:49 IST; 2s ago
+     Docs: man:smbd(8)
+           man:samba(7)
+           man:smb.conf(5)
+  Process: 7686 ExecStart=/usr/sbin/smbd --foreground --no-process-group $SMBDOPTIONS (code=killed, signal=TERM)
+ Main PID: 7686 (code=killed, signal=TERM)
+   Status: "smbd: ready to serve connections..."
+
+Jun 30 23:59:08 server1.example.com systemd[1]: Starting Samba SMB Daemon...
+Jun 30 23:59:26 server1.example.com systemd[1]: Started Samba SMB Daemon.
+Jun 30 23:59:26 server1.example.com smbd[7686]: [2019/06/30 23:59:26.095312,  0] ../lib/util/become_daemon.c:138(daemon_ready)
+Jun 30 23:59:26 server1.example.com smbd[7686]:   daemon_ready: STATUS=daemon 'smbd' finished starting up and ready to serv...ctions
+Jul 01 00:42:49 server1.example.com systemd[1]: Stopping Samba SMB Daemon...
+Jul 01 00:42:49 server1.example.com systemd[1]: Stopped Samba SMB Daemon.
+Hint: Some lines were ellipsized, use -l to show in full.
+[root@server1 harshil]#
+[root@server1 harshil]# systemctl start nfs-server
+[root@server1 harshil]# systemctl status nfs-server
+● nfs-server.service - NFS server and services
+   Loaded: loaded (/usr/lib/systemd/system/nfs-server.service; disabled; vendor preset: disabled)
+   Active: active (exited) since Mon 2019-07-01 00:43:07 IST; 5s ago
+  Process: 18443 ExecStartPost=/bin/sh -c if systemctl -q is-active gssproxy; then systemctl restart gssproxy ; fi (code=exited, status=0/SUCCESS)
+  Process: 18426 ExecStart=/usr/sbin/rpc.nfsd $RPCNFSDARGS (code=exited, status=0/SUCCESS)
+  Process: 18425 ExecStartPre=/usr/sbin/exportfs -r (code=exited, status=0/SUCCESS)
+ Main PID: 18426 (code=exited, status=0/SUCCESS)
+    Tasks: 0
+   CGroup: /system.slice/nfs-server.service
+
+Jul 01 00:43:07 server1.example.com systemd[1]: Starting NFS server and services...
+Jul 01 00:43:07 server1.example.com systemd[1]: Started NFS server and services.
+[root@server1 harshil]#
+[root@server1 harshil]# mkdir /mnt/nfsexport
+[root@server1 harshil]# vim /etc/exports
+exports    exports.d/
+[root@server1 harshil]# vim /etc/exports
+[root@server1 harshil]# exportfs -r
+exportfs: /etc/exports:2: unknown keyword "r"
+
+exportfs: Failed to stat /mnt/nfsexports: No such file or directory
+[root@server1 harshil]# cd /mnt
+[root@server1 mnt]# ll
+total 0
+drwxr-xr-x. 1 root root         0 Jun 30 18:27 multiuser
+drwxr-xr-x. 1 root root         0 Jul  1 00:43 nfsexport
+drwxrwxr-x. 1 root redhat       0 Jun 28 01:44 redhat
+drwxrwxr-x. 1 root sambait      0 Jun 28 00:55 sambaitshare
+drwxrwxr-x. 1 root sambagroup 526 Jun 30 18:41 sambashare1
+[root@server1 mnt]# vim /etc/exports
+[root@server1 mnt]# exportfs -r
+exportfs: /etc/exports:2: unknown keyword "r"
+
+[root@server1 mnt]# vim /etc/exports
+[root@server1 mnt]# exportfs -r
+[root@server1 mnt]# firewall-cmd --permanent --add-service=nfs
+success
+[root@server1 mnt]# firewall-cmd --reload
+success
+[root@server1 mnt]# vim /etc/exports
+[root@server1 mnt]#
+[root@server1 mnt]# getenforce
+Enforcing
+[root@server1 mnt]# semanage fcontext -a -t nfs_t '/mnt/nfsexport(/.*)?'
+[root@server1 mnt]# restorecon -Rv /mnt/nfsexport/
+restorecon reset /mnt/nfsexport context unconfined_u:object_r:mnt_t:s0->unconfined_u:object_r:nfs_t:s0
+[root@server1 mnt]# ls -Z
+drwxr-xr-x. root root       unconfined_u:object_r:mnt_t:s0   multiuser
+drwxr-xr-x. root root       unconfined_u:object_r:nfs_t:s0   nfsexport
+drwxrwxr-x. root redhat     unconfined_u:object_r:mnt_t:s0   redhat
+drwxrwxr-x. root sambait    unconfined_u:object_r:mnt_t:s0   sambaitshare
+drwxrwxr-x. root sambagroup unconfined_u:object_r:samba_share_t:s0 sambashare1
+[root@server1 mnt]# vim /etc/exports
+[root@server1 mnt]# exportfs -r
+[root@server1 mnt]# systemctl restart nfs-server
+[root@server1 mnt]# getenforce
+Enforcing
+[root@server1 mnt]# setenforce 0
+[root@server1 mnt]# systemctl stop firewalld
+[root@server1 mnt]# systemctl start firewalld
+[root@server1 mnt]# vim /etc/exports
+[root@server1 mnt]# systemctl start firewalld
+[root@server1 mnt]# systemctl restart nfs-server
+[root@server1 mnt]# setenforce 0
+[root@server1 mnt]# cd nfsexport/
+[root@server1 nfsexport]# ll
+total 0
+[root@server1 nfsexport]# touch test11.txt
+[root@server1 nfsexport]# test test12.txt
+[root@server1 nfsexport]# touch test12.txt
+[root@server1 nfsexport]# echo 'sample text of test11 file in server1' >> test11.txt
+[root@server1 nfsexport]# echo 'sample text of test12 file in server1' >> test12.txt
+[root@server1 nfsexport]# cd
+[root@server1 ~]# getenforc
+bash: getenforc: command not found...
+[root@server1 ~]# getenforce
+Permissive
+[root@server1 ~]# setenforce 1
+[root@server1 ~]# getenforce
+Enforcing
+[root@server1 ~]# systemctl restart nfs-server
+[root@server1 ~]# systemctl status
+● server1.example.com
+    State: degraded
+     Jobs: 0 queued
+   Failed: 3 units
+    Since: Sun 2019-06-30 23:58:02 IST; 1h 10min ago
+   CGroup: /
+           ├─1 /usr/lib/systemd/systemd --switched-root --system --deserialize 22
+           ├─user.slice
+           │ ├─user-1000.slice
+           │ │ ├─session-15.scope
+           │ │ │ ├─18266 sshd: harshil [priv]
+           │ │ │ ├─18313 sshd: harshil@notty
+           │ │ │ └─18316 /usr/libexec/openssh/sftp-server
+           │ │ └─session-14.scope
+           │ │   ├─18259 sshd: harshil [priv]
+           │ │   ├─18269 sshd: harshil@pts/0
+           │ │   ├─18273 -bash
+           │ │   ├─18312 su root
+           │ │   ├─18330 bash
+           │ │   ├─19737 systemctl status
+           │ │   └─19738 systemctl status
+           │ └─user-42.slice
+           │   └─session-c1.scope
+           │     ├─ 9454 gdm-session-worker [pam/gdm-launch-environment]
+           │     ├─10518 /usr/libexec/gnome-session-binary --autostart /usr/share/gdm/greeter/autostart
+           │     ├─10824 dbus-launch --exit-with-session /usr/libexec/gnome-session-binary --autostart /usr/share/gdm/greeter/autost
+           │     ├─10915 /usr/bin/dbus-daemon --fork --print-pid 5 --print-address 7 --session
+           │     ├─10971 /usr/libexec/at-spi-bus-launcher
+           │     ├─10982 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address
+           │     ├─10989 /usr/libexec/at-spi2-registryd --use-gnome-session
+[root@server1 ~]#
+[root@server1 ~]# systemctl restart firewalld
+[root@server1 ~]# ll
+total 40
+-rw-------. 1 root root 1735 May 17 21:28 anaconda-ks.cfg
+-rw-------. 1 root root    5 Jun 27 23:38 dead.letter
+-rw-r--r--. 1 root root    2 Jun 21 00:59 icmp_echo_ignore_all~
+-rw-r--r--. 1 root root    2 Jun 21 01:09 icmp_echo_ignore_alw~
+-rw-r--r--. 1 root root    2 Jun 21 01:09 icmp_echo_ignore_alx~
+-rw-r--r--. 1 root root    2 Jun 21 01:08 icmp_echo_ignore_aly~
+-rw-r--r--. 1 root root    2 Jun 21 01:08 icmp_echo_ignore_alz~
+-rw-r--r--. 1 root root 1783 May 17 22:07 initial-setup-ks.cfg
+drwx------. 1 root root    0 Jun 28 00:06 Mail
+-rw-------. 1 root root  415 Jun 28 00:07 sent
+-rw-r--r--. 1 root root   33 Jun 30 18:24 smb-multiuser
+[root@server1 ~]# vim /etc/exports
+[root@server1 ~]# cd /mnt/
+[root@server1 mnt]# ll
+total 0
+drwxr-xr-x. 1 root root         0 Jun 30 18:27 multiuser
+drwxr-xr-x. 1 root root        40 Jul  1 01:07 nfsexport
+drwxrwxr-x. 1 root redhat       0 Jun 28 01:44 redhat
+drwxrwxr-x. 1 root sambait      0 Jun 28 00:55 sambaitshare
+drwxrwxr-x. 1 root sambagroup 526 Jun 30 18:41 sambashare1
+[root@server1 mnt]# chmod g=rwx nfsexport/
+[root@server1 mnt]# ll
+total 0
+drwxr-xr-x. 1 root root         0 Jun 30 18:27 multiuser
+drwxrwxr-x. 1 root root        40 Jul  1 01:07 nfsexport
+drwxrwxr-x. 1 root redhat       0 Jun 28 01:44 redhat
+drwxrwxr-x. 1 root sambait      0 Jun 28 00:55 sambaitshare
+drwxrwxr-x. 1 root sambagroup 526 Jun 30 18:41 sambashare1
+[root@server1 mnt]# systemctl restart nfs-server
+[root@server1 mnt]# exportfs -r
+[root@server1 mnt]# ll
+total 0
+drwxr-xr-x. 1 root root         0 Jun 30 18:27 multiuser
+drwxrwxr-x. 1 root root        60 Jul  1 01:11 nfsexport
+drwxrwxr-x. 1 root redhat       0 Jun 28 01:44 redhat
+drwxrwxr-x. 1 root sambait      0 Jun 28 00:55 sambaitshare
+drwxrwxr-x. 1 root sambagroup 526 Jun 30 18:41 sambashare1
+[root@server1 mnt]# vim /etc/fstab
+[root@server1 mnt]# vim /etc/exports
+[root@server1 mnt]# systemctl restart nfs-server
+[root@server1 mnt]#
+[root@server1 mnt]# exportfs -r
+[root@server1 mnt]# vim /etc/exports
+[root@server1 mnt]# exportfs -r
+[root@server1 mnt]#
+
