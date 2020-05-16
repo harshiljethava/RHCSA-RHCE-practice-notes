@@ -1,0 +1,323 @@
+login as: harshi;
+Using keyboard-interactive authentication.
+Password:
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Session stopped
+    - Press <return> to exit tab
+    - Press R to restart session
+    - Press S to save terminal output to file
+login as: harshil
+     ┌────────────────────────────────────────────────────────────────────┐
+     │                        • MobaXterm 11.1 •                          │
+     │            (SSH client, X-server and networking tools)             │
+     │                                                                    │
+     │ → SSH session to harshil@192.168.0.60                              │
+     │   • SSH compression : v                                            │
+     │   • SSH-browser     : v                                            │
+     │   • X11-forwarding  : v  (remote display is forwarded through SSH) │
+     │   • DISPLAY         : v  (automatically set on remote server)      │
+     │                                                                    │
+     │ → For more info, ctrl+click on help or visit our website           │
+     └────────────────────────────────────────────────────────────────────┘
+
+Last login: Sun Jun 23 19:29:51 2019 from 192.168.0.101
+[harshil@server2 ~]$ sudo systemctl status httpd
+[sudo] password for harshil:
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Tue 2019-06-25 18:25:59 IST; 13min ago
+     Docs: man:httpd(8)
+           man:apachectl(8)
+ Main PID: 7530 (httpd)
+   Status: "Total requests: 0; Current requests/sec: 0; Current traffic:   0 B/sec"
+    Tasks: 6
+   CGroup: /system.slice/httpd.service
+           ├─7530 /usr/sbin/httpd -DFOREGROUND
+           ├─7855 /usr/sbin/httpd -DFOREGROUND
+           ├─7857 /usr/sbin/httpd -DFOREGROUND
+           ├─7858 /usr/sbin/httpd -DFOREGROUND
+           ├─7860 /usr/sbin/httpd -DFOREGROUND
+           └─7861 /usr/sbin/httpd -DFOREGROUND
+
+Jun 25 18:25:44 server2.example.com systemd[1]: Starting The Apache HTTP Server...
+Jun 25 18:25:59 server2.example.com systemd[1]: Started The Apache HTTP Server.
+[harshil@server2 ~]$
+[harshil@server2 ~]$ getenforce
+Enforcing
+[harshil@server2 ~]$ sudo cd /srv/
+[harshil@server2 ~]$ ll
+total 188
+-rw-rw-r--. 1 harshil harshil   4073 May 17 23:20 17052019
+-rw-rw-r--. 1 harshil harshil   8165 May 18 07:22 18052019
+-rw-rw-r--. 1 harshil harshil    460 May 18 07:48 180520192
+-rw-rw-r--. 1 harshil harshil  13853 May 19 10:46 19052018
+drwxr-xr-x. 1 harshil harshil      0 May 18 02:38 Desktop
+drwxr-xr-x. 1 harshil harshil      0 May 18 02:38 Documents
+drwxr-xr-x. 1 harshil harshil      0 May 18 02:38 Downloads
+-rw-rw-r--. 1 harshil harshil   7186 Jun 20 23:31 lextab.py
+drwxr-xr-x. 1 harshil harshil      0 May 18 02:38 Music
+-rw-rw-r--. 1 harshil harshil    464 May 17 23:00 network_teaming
+drwxr-xr-x. 1 harshil harshil      0 May 18 02:38 Pictures
+drwxr-xr-x. 1 harshil harshil      0 May 18 02:38 Public
+-rw-rw-r--. 1 harshil harshil      0 May 17 21:44 systemctl_restart_httpd.service
+-rw-rw-r--. 1 harshil harshil   1299 May 17 21:44 systemctl_status_httpd.service
+drwxr-xr-x. 1 harshil harshil      0 May 18 02:38 Templates
+drwxr-xr-x. 1 harshil harshil      0 May 18 02:38 Videos
+-rw-rw-r--. 1 harshil harshil 141447 Jun 20 23:31 yacctab.py
+[harshil@server2 ~]$ sudo -i
+[root@server2 ~]#
+[root@server2 ~]# cd /srv/
+[root@server2 srv]# ll
+total 0
+[root@server2 srv]# mkdir www
+[root@server2 srv]# ll
+total 0
+drwxr-xr-x. 1 root root 0 Jun 25 18:41 www
+[root@server2 srv]# cd www/
+[root@server2 www]# ll
+total 0
+[root@server2 www]# touch index.html
+[root@server2 www]# vim index.html
+[root@server2 www]# semanage fcontext -a -t httpd_sys_content_t '/srv/www(/.*)?'
+[root@server2 www]# setfacl -R -m g:apache:rwX /srv/www/
+[root@server2 www]# setfacl -R -m d:g:apache:rwX /srv/www/
+[root@server2 www]# chgrp apache:apache -R /srv/www
+chgrp: invalid group: ‘apache:apache’
+[root@server2 www]# chgrp apache -R /srv/www
+[root@server2 www]# cd ..
+[root@server2 srv]# ll
+total 0
+drwxrwxr-x+ 1 root apache 20 Jun 25 18:41 www
+[root@server2 srv]# chown apache:apache /srv/
+[root@server2 srv]# ll
+total 0
+drwxrwxr-x+ 1 root apache 20 Jun 25 18:41 www
+[root@server2 srv]# chown apache:apache -R /srv/
+[root@server2 srv]# ll
+total 0
+drwxrwxr-x+ 1 apache apache 20 Jun 25 18:41 www
+[root@server2 srv]# cd /etc/httpd/conf.d/
+[root@server2 conf.d]# ll
+total 16
+-rw-r--r--. 1 root root 2926 Apr 24 19:15 autoindex.conf
+-rw-r--r--. 1 root root  366 Apr 24 19:16 README
+-rw-r--r--. 1 root root 1252 Apr 24 19:14 userdir.conf
+-rw-r--r--. 1 root root  824 Apr 24 19:14 welcome.conf
+[root@server2 conf.d]# touch 00-site1.conf
+[root@server2 conf.d]# vi 00-site1.conf
+[root@server2 conf.d]# systemctl restart httpd
+Job for httpd.service failed because the control process exited with error code. See "systemctl status httpd.service" and "journalctl -xe" for details.
+[root@server2 conf.d]# systemctl status httpd
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+   Active: failed (Result: exit-code) since Tue 2019-06-25 18:49:38 IST; 7s ago
+     Docs: man:httpd(8)
+           man:apachectl(8)
+  Process: 8757 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 8756 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 8756 (code=exited, status=1/FAILURE)
+
+Jun 25 18:49:38 server2.example.com systemd[1]: Stopped The Apache HTTP Server.
+Jun 25 18:49:38 server2.example.com systemd[1]: Starting The Apache HTTP Server...
+Jun 25 18:49:38 server2.example.com httpd[8756]: AH00526: Syntax error on line 4 of /etc/httpd/conf.d/00-site1.conf:
+Jun 25 18:49:38 server2.example.com httpd[8756]: CustomLog takes two or three arguments, a file name, a custom log format s... docs)
+Jun 25 18:49:38 server2.example.com systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Jun 25 18:49:38 server2.example.com kill[8757]: kill: cannot find process ""
+Jun 25 18:49:38 server2.example.com systemd[1]: httpd.service: control process exited, code=exited status=1
+Jun 25 18:49:38 server2.example.com systemd[1]: Failed to start The Apache HTTP Server.
+Jun 25 18:49:38 server2.example.com systemd[1]: Unit httpd.service entered failed state.
+Jun 25 18:49:38 server2.example.com systemd[1]: httpd.service failed.
+Hint: Some lines were ellipsized, use -l to show in full.
+[root@server2 conf.d]# vi 00-site1.conf
+[root@server2 conf.d]# systemctl restart httpd
+[root@server2 conf.d]# systemctl enable httpd
+[root@server2 conf.d]# getenforce
+Enforcing
+[root@server2 conf.d]# ll
+total 20
+-rw-r--r--. 1 root root  185 Jun 25 18:50 00-site1.conf
+-rw-r--r--. 1 root root 2926 Apr 24 19:15 autoindex.conf
+-rw-r--r--. 1 root root  366 Apr 24 19:16 README
+-rw-r--r--. 1 root root 1252 Apr 24 19:14 userdir.conf
+-rw-r--r--. 1 root root  824 Apr 24 19:14 welcome.conf
+[root@server2 conf.d]# mv welcome.conf welcome_old.conf
+[root@server2 conf.d]# systemctl restart httpd
+[root@server2 conf.d]# ll
+total 20
+-rw-r--r--. 1 root root  185 Jun 25 18:50 00-site1.conf
+-rw-r--r--. 1 root root 2926 Apr 24 19:15 autoindex.conf
+-rw-r--r--. 1 root root  366 Apr 24 19:16 README
+-rw-r--r--. 1 root root 1252 Apr 24 19:14 userdir.conf
+-rw-r--r--. 1 root root  824 Apr 24 19:14 welcome_old.conf
+[root@server2 conf.d]# mv welcome_old.conf welcome.conf
+[root@server2 conf.d]# vim welcome.conf
+[root@server2 conf.d]# systemctl restart httpd
+[root@server2 conf.d]# vim welcome.conf
+[root@server2 conf.d]# ll
+total 20
+-rw-r--r--. 1 root root  185 Jun 25 18:50 00-site1.conf
+-rw-r--r--. 1 root root 2926 Apr 24 19:15 autoindex.conf
+-rw-r--r--. 1 root root  366 Apr 24 19:16 README
+-rw-r--r--. 1 root root 1252 Apr 24 19:14 userdir.conf
+-rw-r--r--. 1 root root  838 Jun 25 18:53 welcome.conf
+[root@server2 conf.d]# cd /var/www/
+[root@server2 www]# ll
+total 0
+drwxr-xr-x. 1 root root 0 Apr 24 19:16 cgi-bin
+drwxr-xr-x. 1 root root 0 Apr 24 19:16 html
+[root@server2 www]# cd html/
+[root@server2 html]# ll
+total 0
+[root@server2 html]# vim index.html
+[root@server2 html]# systemctl restart httpd
+[root@server2 html]# cd /etc/httpd/conf
+[root@server2 conf]# ll
+total 28
+-rw-r--r--. 1 root root 11753 Apr 24 19:14 httpd.conf
+-rw-r--r--. 1 root root 13077 Apr 24 19:16 magic
+[root@server2 conf]# cd ..
+[root@server2 httpd]# cd conf.d/
+[root@server2 conf.d]# ll
+total 20
+-rw-r--r--. 1 root root  185 Jun 25 18:50 00-site1.conf
+-rw-r--r--. 1 root root 2926 Apr 24 19:15 autoindex.conf
+-rw-r--r--. 1 root root  366 Apr 24 19:16 README
+-rw-r--r--. 1 root root 1252 Apr 24 19:14 userdir.conf
+-rw-r--r--. 1 root root  838 Jun 25 18:53 welcome.conf
+[root@server2 conf.d]# rm 00-site1.conf
+rm: remove regular file ‘00-site1.conf’?
+[root@server2 conf.d]# ll
+total 20
+-rw-r--r--. 1 root root  185 Jun 25 18:50 00-site1.conf
+-rw-r--r--. 1 root root 2926 Apr 24 19:15 autoindex.conf
+-rw-r--r--. 1 root root  366 Apr 24 19:16 README
+-rw-r--r--. 1 root root 1252 Apr 24 19:14 userdir.conf
+-rw-r--r--. 1 root root  838 Jun 25 18:53 welcome.conf
+[root@server2 conf.d]# rm 00-site1.conf
+rm: remove regular file ‘00-site1.conf’? Y
+[root@server2 conf.d]# ll
+total 16
+-rw-r--r--. 1 root root 2926 Apr 24 19:15 autoindex.conf
+-rw-r--r--. 1 root root  366 Apr 24 19:16 README
+-rw-r--r--. 1 root root 1252 Apr 24 19:14 userdir.conf
+-rw-r--r--. 1 root root  838 Jun 25 18:53 welcome.conf
+[root@server2 conf.d]# systemctl restart httpd
+[root@server2 conf.d]# ll
+total 16
+-rw-r--r--. 1 root root 2926 Apr 24 19:15 autoindex.conf
+-rw-r--r--. 1 root root  366 Apr 24 19:16 README
+-rw-r--r--. 1 root root 1252 Apr 24 19:14 userdir.conf
+-rw-r--r--. 1 root root  838 Jun 25 18:53 welcome.conf
+[root@server2 conf.d]# vim test.com
+[root@server2 conf.d]# cd /var/www/html/
+[root@server2 html]# ll
+total 4
+-rw-r--r--. 1 root root 46 Jun 25 18:54 index.html
+[root@server2 html]# mkdir test
+[root@server2 html]# cp index.html test/
+[root@server2 html]# ll
+total 4
+-rw-r--r--. 1 root root 46 Jun 25 18:54 index.html
+drwxr-xr-x. 1 root root 20 Jun 25 18:59 test
+[root@server2 html]# cd test/
+[root@server2 test]# ll
+total 4
+-rw-r--r--. 1 root root 46 Jun 25 18:59 index.html
+[root@server2 test]# vim index.html
+[root@server2 test]# chown apache:apache -R /var/www/html/test/
+[root@server2 test]# systemctl restart httpd
+[root@server2 test]# cd /etc/httpd/conf
+[root@server2 conf]# ll
+total 28
+-rw-r--r--. 1 root root 11753 Apr 24 19:14 httpd.conf
+-rw-r--r--. 1 root root 13077 Apr 24 19:16 magic
+[root@server2 conf]# cd ..
+[root@server2 httpd]# cd
+conf/           conf.d/         conf.modules.d/ logs/           modules/        run/
+[root@server2 httpd]# cd conf.d/
+[root@server2 conf.d]# ll
+total 20
+-rw-r--r--. 1 root root 2926 Apr 24 19:15 autoindex.conf
+-rw-r--r--. 1 root root  366 Apr 24 19:16 README
+-rw-r--r--. 1 root root  397 Jun 25 18:59 test.com
+-rw-r--r--. 1 root root 1252 Apr 24 19:14 userdir.conf
+-rw-r--r--. 1 root root  838 Jun 25 18:53 welcome.conf
+[root@server2 conf.d]# vin autoindex.conf
+bash: vin: command not found...
+[root@server2 conf.d]# vim autoindex.conf
+[root@server2 conf.d]# mv test.com test.conf
+[root@server2 conf.d]# ll
+total 20
+-rw-r--r--. 1 root root 2926 Apr 24 19:15 autoindex.conf
+-rw-r--r--. 1 root root  366 Apr 24 19:16 README
+-rw-r--r--. 1 root root  397 Jun 25 18:59 test.conf
+-rw-r--r--. 1 root root 1252 Apr 24 19:14 userdir.conf
+-rw-r--r--. 1 root root  838 Jun 25 18:53 welcome.conf
+[root@server2 conf.d]# systemctl restart httpd
+[root@server2 conf.d]# cp test.conf
+cp: missing destination file operand after ‘test.conf’
+Try 'cp --help' for more information.
+[root@server2 conf.d]# cp test.conf site1.conf
+[root@server2 conf.d]# ll
+total 24
+-rw-r--r--. 1 root root 2926 Apr 24 19:15 autoindex.conf
+-rw-r--r--. 1 root root  366 Apr 24 19:16 README
+-rw-r--r--. 1 root root  397 Jun 25 19:02 site1.conf
+-rw-r--r--. 1 root root  397 Jun 25 18:59 test.conf
+-rw-r--r--. 1 root root 1252 Apr 24 19:14 userdir.conf
+-rw-r--r--. 1 root root  838 Jun 25 18:53 welcome.conf
+[root@server2 conf.d]# vim site1.conf
+[root@server2 conf.d]# ll
+total 24
+-rw-r--r--. 1 root root 2926 Apr 24 19:15 autoindex.conf
+-rw-r--r--. 1 root root  366 Apr 24 19:16 README
+-rw-r--r--. 1 root root  394 Jun 25 19:03 site1.conf
+-rw-r--r--. 1 root root  397 Jun 25 18:59 test.conf
+-rw-r--r--. 1 root root 1252 Apr 24 19:14 userdir.conf
+-rw-r--r--. 1 root root  838 Jun 25 18:53 welcome.conf
+[root@server2 conf.d]# getenforce
+Enforcing
+[root@server2 conf.d]# cd ..
+[root@server2 httpd]# cd /var/www/html/
+[root@server2 html]# ll
+total 4
+-rw-r--r--. 1 root   root   46 Jun 25 18:54 index.html
+drwxr-xr-x. 1 apache apache 20 Jun 25 18:59 test
+[root@server2 html]# mkdir site1
+[root@server2 html]# ll
+total 4
+-rw-r--r--. 1 root   root   46 Jun 25 18:54 index.html
+drwxr-xr-x. 1 root   root    0 Jun 25 19:03 site1
+drwxr-xr-x. 1 apache apache 20 Jun 25 18:59 test
+[root@server2 html]# cp test/index.html site1/
+[root@server2 html]# cd site1/
+[root@server2 site1]# ll
+total 4
+-rw-r--r--. 1 root root 50 Jun 25 19:03 index.html
+[root@server2 site1]# vim index.html
+[root@server2 site1]# chown -R apache:apache /var/www/html/site1/
+[root@server2 site1]# chown -R apache:apache /var/www/html/site1/*
+[root@server2 site1]# systemctl restart httpd
+[root@server2 site1]# cd /etc/httpd/conf
+[root@server2 conf]# ll
+total 28
+-rw-r--r--. 1 root root 11753 Apr 24 19:14 httpd.conf
+-rw-r--r--. 1 root root 13077 Apr 24 19:16 magic
+[root@server2 conf]# cd ..
+[root@server2 httpd]# cd conf.d
+[root@server2 conf.d]# ll
+total 24
+-rw-r--r--. 1 root root 2926 Apr 24 19:15 autoindex.conf
+-rw-r--r--. 1 root root  366 Apr 24 19:16 README
+-rw-r--r--. 1 root root  394 Jun 25 19:03 site1.conf
+-rw-r--r--. 1 root root  397 Jun 25 18:59 test.conf
+-rw-r--r--. 1 root root 1252 Apr 24 19:14 userdir.conf
+-rw-r--r--. 1 root root  838 Jun 25 18:53 welcome.conf
+[root@server2 conf.d]# vim site1.conf
+[root@server2 conf.d]# systemctl restart httpd
+[root@server2 conf.d]# vim test.conf
+[root@server2 conf.d]# systemctl restart httpd
+[root@server2 conf.d]#
+
